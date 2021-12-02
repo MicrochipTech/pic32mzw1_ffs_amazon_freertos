@@ -21,6 +21,7 @@ The Amazon FFS(Wi-Fi Simple Setup) requires,
 - MPLABX
 - XC32
 - Harmony3
+- H3 PIC32MZW1 freertos project 
 
 
 ## Demo Setup 
@@ -37,6 +38,8 @@ On power-up, the FFS capable device looks for available Amazon Provisionee devic
 
 
 ## Enabling WSS on PIC32MZW1 
+#### Device Attestation and Authorization
+
 1. In order enable FFS on any product, the product should be registered at [FFS product registration](https://developer.amazon.com/frustration-free-setup/console/v2/onboard/request-device-registration)
 2. The successful registration would enable to generate devcie certificates and keys
 3. The FFS setup provides, [Device Attestation Key(DAK)](https://developer.amazon.com/frustration-free-setup/console/v2/manage-daks) which acts as a Certificate Authority for a device type
@@ -46,12 +49,25 @@ On power-up, the FFS capable device looks for available Amazon Provisionee devic
 7. The DHA public key is extracted from the certificate and shared with amazon through a control log end point
 8. Amazon would register the device in the user's Amazon account 
 9. Now the device is ready for the Frustration Free Setup
-## Using DHA in PIC32MZW1 FFS Project
+#### Using DHA in PIC32MZW1 FFS Project
+1. The above steps would result in following files
+	-  dak.conf
+	-  dak-params.pem
+	-  dak.csr
+	-  dak_private_key.pem
+	-  dak-certificate-xxxxxx.pem
+	-  device.conf
+	-  device-params.pem
+	-  device.csr
+	-  private_key.pem
+	-  device-certificate.pem
+	-  certificate.pem
+	-  dha-control-log-public-key.txt
+2. Copy the create.py python file to the same folder containing above files
+3. Run the following command and it will generate the certificate file to be used with MHC
+4. Clone the pic32mzw1_ffs_amazon_freertos
 
 
-
-## Developer Steps
-- Register the Device at 
 
 
 
