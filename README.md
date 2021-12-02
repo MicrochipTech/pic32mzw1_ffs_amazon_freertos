@@ -15,6 +15,10 @@ The Amazon FFS(Wi-Fi Simple Setup) requires,
 
 On power-up, the FFS capable device tries to connect to available Amazon Provisionee device in the vicinity. The provisionee device bringes up a hidden secured network(SoftAP) and lets the provisionee device to contact 
 
+<p align="center"><img src="Docs/WSS-FlowDiagram.png">
+</p>
+
+
 
 ## Hardware Requirements
 - PIC32MZW1 Curiosity or WFI32-IoT board
@@ -29,7 +33,7 @@ On power-up, the FFS capable device tries to connect to available Amazon Provisi
 
 
 ## Demo Setup 
-<p align="center"><img src="Docs/FFS-BlockDiagram.png">
+<p align="center"><img src="Docs/FFS-Setup.png">
 </p>
 
 
