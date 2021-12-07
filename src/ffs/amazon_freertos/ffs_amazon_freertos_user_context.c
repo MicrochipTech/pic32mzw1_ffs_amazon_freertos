@@ -12,14 +12,13 @@
  * FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
  */
 
+#include "definitions.h"
 
 #include "ffs/common/ffs_logging.h"
 #include "ffs/common/ffs_check_result.h"
 #include "ffs/amazon_freertos/ffs_amazon_freertos_user_context.h"
 #include "ffs/amazon_freertos/ffs_amazon_freertos_wifi_manager.h"
 
-#include "definitions.h"
-#include "ffs_device-certs.h"
 #include "wolfssl/wolfcrypt/asn_public.h"
 
 #define FFS_HOST_BUFFER_SIZE            253
@@ -30,6 +29,7 @@
 #define EC_PARAMS_LENGTH                10
 #define EC_D_LENGTH                     32
 
+#define FFS_STATIC_DSS_BUFFERS 1
 
 FFS_RESULT ffsInitializeUserContext(FfsUserContext_t *userContext, FfsStream_t *privateKeyStream,
         FfsStream_t *publicKeyStream, FfsStream_t *deviceTypePublicKeyStream, FfsStream_t *certificateStream) {
@@ -72,9 +72,7 @@ FFS_RESULT ffsInitializeUserContext(FfsUserContext_t *userContext, FfsStream_t *
     
     userContext->devicePrivateKey = *privateKeyStream;
     
-    userContext->sysObj = &sysObj;
-    
-    userContext->sysObj->sysHttpClientObj = NULL;
+    userContext->sysObj = &sysObj;    
     
     userContext->ffsHttpsConnContext.connHdl = NULL;
     
@@ -95,13 +93,6 @@ FFS_RESULT ffsInitializeUserContext(FfsUserContext_t *userContext, FfsStream_t *
         goto error;
     }
     
-
-    if (OSAL_SEM_Create(&userContext->ffsSemaphoreInst, OSAL_SEM_TYPE_BINARY, 1, 0) != OSAL_RESULT_TRUE)
-    {
-        SYS_CONSOLE_MESSAGE("Amazon FFS: Failed to Initialize; Semaphore NOT created\r\n");
-        goto error;
-    }  
-    
     return FFS_SUCCESS;
 
     error:
@@ -112,8 +103,6 @@ FFS_RESULT ffsInitializeUserContext(FfsUserContext_t *userContext, FfsStream_t *
 
 void ffsDeinitializeUserContext(FfsUserContext_t *userContext) {
     // Deinit configuration map
-//    SYS_HTTP_Client_Close((SYS_HTTP_Client_Handle *)userContext->sysObj->sysHttpClientObj);        
-    userContext->sysObj->sysHttpClientObj = NULL;        
     
     ffsDeinitializeConfigurationMap(&userContext->configurationMap);
         
