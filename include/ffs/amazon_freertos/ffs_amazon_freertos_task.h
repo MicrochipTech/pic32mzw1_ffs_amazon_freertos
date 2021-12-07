@@ -18,8 +18,10 @@
 #define FFS_AMAZON_FREERTOS_TASK_H_
 
 #include "ffs/wifi_provisionee/ffs_wifi_provisionee_task.h"
+#include "FreeRTOS.h"
 #include "semphr.h"
 #include "event_groups.h"
+#include "definitions.h"
 
 #include <inttypes.h>
 #include <stdlib.h>
@@ -81,18 +83,14 @@ typedef enum {
  * terminating null character.
  */
 typedef struct {
-    const char *privateKey;                         //<! Pointer to private key
-    size_t privateKeySize;                          //<! Size of private key
-    FFS_KEY_FORMAT privateKeyType;                  //<! Format of key for private key
-    const char *publicKey;                          //<! Pointer to public key
-    size_t publicKeySize;                           //<! Size of public key
-    FFS_KEY_FORMAT publicKeyType;                   //<! Format of key for public key
-    const char *deviceTypePublicKey;                //<! Pointer to device type public key
-    size_t deviceTypePublicKeySize;                 //<! Size of device type public key
-    FFS_KEY_FORMAT deviceTypePublicKeyType;         //<! Format of key for certificate
-    const char *certificate;                         //<! Pointer to certificate data
-    size_t certificateSize;                          //<! Size of certificate data
-    FFS_KEY_FORMAT certificateType;                  //<! Format of certificate
+    const unsigned char *privateKey;                         //<! Pointer to private key
+    size_t privateKeySize;                          //<! Size of private key    
+    const unsigned char *publicKey;                          //<! Pointer to public key
+    size_t publicKeySize;                           //<! Size of public key    
+    const unsigned char *deviceTypePublicKey;                //<! Pointer to device type public key
+    size_t deviceTypePublicKeySize;                 //<! Size of device type public key    
+    const unsigned char *certificate;                         //<! Pointer to certificate data
+    size_t certificateSize;                          //<! Size of certificate data    
 } FfsProvisioningArguments_t;
 
 /** @brief Main function to call in order to provision device. This function will have the following
