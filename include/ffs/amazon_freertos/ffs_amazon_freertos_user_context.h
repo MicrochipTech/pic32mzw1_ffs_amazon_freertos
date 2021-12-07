@@ -22,22 +22,25 @@
  */
 #define FFS_ECJPAKE_BUFFER_SIZE 330
 
-/* FFS includes */
-#include "ffs/common/ffs_stream.h"
-#include "ffs/common/ffs_result.h"
-#include "ffs/compat/ffs_user_context.h"
-#include "ffs/amazon_freertos/ffs_amazon_freertos_https_client.h"
-#include "ffs/wifi_provisionee/ffs_wifi_provisionee_state.h"
-#include "ffs/amazon_freertos/ffs_amazon_freertos_configuration_map.h"
-
 /* Free RTOS includes */
 #include "FreeRTOS.h"
 #include "semphr.h"
 #include "definitions.h"
+#include "wdrv_pic32mzw_common.h"
 #include "wolfssl/wolfcrypt/ecc.h"
-
 /* C Standard includes */
 #include <inttypes.h>
+
+/* FFS includes */
+#include "ffs/common/ffs_stream.h"
+#include "ffs/common/ffs_result.h"
+#include "ffs/compat/ffs_user_context.h"
+#include "ffs/common/ffs_wifi.h"
+
+#include "ffs/amazon_freertos/ffs_amazon_freertos_https_client.h"
+#include "ffs/wifi_provisionee/ffs_wifi_provisionee_state.h"
+#include "ffs/amazon_freertos/ffs_amazon_freertos_configuration_map.h"
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -49,8 +52,7 @@ typedef void (*wifiConnCb_t)(DRV_HANDLE handle, WDRV_PIC32MZW_ASSOC_HANDLE assoc
  */
 typedef struct FfsUserContext_s {
     FFS_WIFI_PROVISIONEE_STATE state;                   //!< FFS provisionee state
-    SYSTEM_OBJECTS *sysObj;
-    OSAL_SEM_HANDLE_TYPE ffsSemaphoreInst;
+    SYSTEM_OBJECTS *sysObj;    
     wifiConnCb_t wConnCb;
     FfsStream_t hostStream;                             //!< DSS client host stream
     FfsStream_t sessionIdStream;                        //!< DSS client session ID stream
