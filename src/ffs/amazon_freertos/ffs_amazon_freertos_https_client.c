@@ -13,12 +13,13 @@
  */
 
 /* FFS includes */
-#include "ffs/amazon_freertos/ffs_amazon_freertos_task.h"
-#include "ffs/amazon_freertos/ffs_amazon_freertos_user_context.h"
 #include "ffs/common/ffs_check_result.h"
 #include "ffs/common/ffs_logging.h"
 #include "ffs/compat/ffs_dss_client_compat.h"
 #include "ffs/dss/ffs_dss_client.h"
+#include "ffs/amazon_freertos/ffs_amazon_freertos_task.h"
+#include "ffs/amazon_freertos/ffs_amazon_freertos_user_context.h"
+
 
 #include "definitions.h"
 #include "ssl.h"
@@ -120,6 +121,7 @@ FFS_RESULT ffsHttpClientConnect(FfsHttpsConnectionContext_t *connCtx, SYS_HTTP_C
         {   
             SYS_NET_Close(sHttpConnProfile.netSrvcHdl);
             sHttpConnProfile.netSrvcHdl = SYS_MODULE_OBJ_INVALID;
+            ffsLogDebug("HTTP Client connection Fail!\r\n");
             FFS_FAIL(FFS_ERROR);
         }        
         else if (eventBits & FFS_HTTP_CLIENT_BIT_CONNECT_SUCCESS)
@@ -208,11 +210,10 @@ bool ffsPrivateHttpClientConnect()
     sSysNetCfg.enable_tls = sHttpConnProfile.httpCfg.isHttps;            
     sSysNetCfg.port = sHttpConnProfile.httpCfg.port;            
     strcpy(sSysNetCfg.host_name, sHttpConnProfile.httpCfg.url);
-
+    
     sSysNetCfg.intf = SYS_NET_INDEX0_INTF;
     sSysNetCfg.mode = SYS_NET_MODE_CLIENT;
-    sSysNetCfg.ip_prot = SYS_NET_IP_PROT_TCP;            
-    sSysNetCfg.enable_sni = true;
+    sSysNetCfg.ip_prot = SYS_NET_IP_PROT_TCP;           
     sSysNetCfg.enable_reconnect = false;
 
     sHttpConnProfile.netSrvcHdl = SYS_NET_Open(&sSysNetCfg, SYS_HTTP_Client_Socket_Callback, &sHttpConnProfile);    
@@ -416,10 +417,8 @@ void SYS_HTTP_Client_Socket_Callback(uint32_t event, void *data, void* cookie) {
         break;
 
         case SYS_NET_EVNT_RCVD_DATA:
-        {            
-            
-            ffsHttpClientParseResponse(hdl);
-                           
+        {                        
+            ffsHttpClientParseResponse(hdl);                           
         }
         break;
         
@@ -491,8 +490,7 @@ static FFS_RESULT ffsConnectToServer(FfsHttpsConnectionContext_t *ffsHttpsConnCo
 
     // Reset connection handle because the previous one is bad        
     // Try to connect to the server
-    int tryNum = 0;    
-    sHttpConnProfile.httpConnected = true;
+    int tryNum = 0;        
     // connection in some of the tries.
     while (result != FFS_SUCCESS && tryNum < FFS_HTTPS_CONNECT_TRIES) {
         result = ffsHttpClientConnect(ffsHttpsConnContext, &connectionInfo);
@@ -505,7 +503,7 @@ static FFS_RESULT ffsConnectToServer(FfsHttpsConnectionContext_t *ffsHttpsConnCo
         ffsLogError("HTTP Client Error code: %i", result);
         FFS_FAIL(FFS_ERROR);
     }
-
+    sHttpConnProfile.httpConnected = true;
     // If we are here, we are connected
     ffsHttpsConnContext->isConnected = true;
 
@@ -623,13 +621,16 @@ FFS_RESULT ffsHttpPost(FfsUserContext_t *userContext, FfsHttpRequest_t *request,
     /************************** HTTPS response setup. **************************/
     // Initialize request
     FFS_CHECK_RESULT(ffsHttpRequestInit(&requestInfo, &responseInfo));
+    
+    FFS_TAKE_LOCK_FOR(sHttpStreamer);
     ffsLogStream("Request body Stream", &request->bodyStream);
-
+    FFS_GIVE_LOCK_FOR(sHttpStreamer);
+    
     ffsLogDebug("Response Initialized successfully...");
 
     // Make the request retrying on timeout
     result = ffsHttpClientRequest(userContext->ffsHttpsConnContext.connHdl);
-
+    
     if (result != FFS_SUCCESS) {
         ffsLogError("HTTP Client Failed after reconnect...");
         ffsLogError("HTTP Client Error code: %i", result);
@@ -637,7 +638,7 @@ FFS_RESULT ffsHttpPost(FfsUserContext_t *userContext, FfsHttpRequest_t *request,
     }
     
     
-    ffsLogDebug("Successfully made a request response cycle...");
+    ffsLogInfo("Successfully made a request response cycle...");
 
     /* The response status is only available if the httpsexampleRESPONSE_USER_BUFFER
      * is large enough to fit not only the HTTPS Client response context, but
@@ -653,7 +654,7 @@ FFS_RESULT ffsHttpPost(FfsUserContext_t *userContext, FfsHttpRequest_t *request,
         FFS_FAIL(FFS_ERROR);
     }
 
-    ffsLogDebug("HTTPS operation returned: %d", httpStatusCode);
+    ffsLogInfo("HTTPS operation returned: %d", httpStatusCode);
         
     /* FFS expects callbacks they provided to be called after a successful response.
      * These callbacks process the status code, headers and response. */
