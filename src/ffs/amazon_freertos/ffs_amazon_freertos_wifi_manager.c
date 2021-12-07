@@ -12,15 +12,15 @@
  * FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
  */
 
-#include "ffs/amazon_freertos/ffs_amazon_freertos_task.h"
-#include "ffs/amazon_freertos/ffs_amazon_freertos_wifi_manager.h"
-#include "ffs/common/ffs_stream.h"
-#include "ffs/common/ffs_check_result.h"
-
 #include <string.h>
 #include "definitions.h"
 #include "wdrv_pic32mzw_mac.h"
 #include "wdrv_pic32mzw_bssfind.h"
+
+#include "ffs/amazon_freertos/ffs_amazon_freertos_task.h"
+#include "ffs/amazon_freertos/ffs_amazon_freertos_wifi_manager.h"
+#include "ffs/common/ffs_stream.h"
+#include "ffs/common/ffs_check_result.h"
 
 // sStartTaskEventGroup bits
 #define FFS_WIFI_MANAGER_BIT_START_SCAN         (1<<1)
@@ -114,7 +114,7 @@ static FFS_RESULT ffsPrivateWifiManagerConnect(FfsUserContext_t *userContext)
         }
         else
         {
-            sWifiCurrStaProfile.saveConfig = 1;
+            //sWifiCurrStaProfile.saveConfig = 1;
             ffsLogDebug("Wi-Fi Disconnection successful");            
         }
     }
@@ -160,9 +160,9 @@ bool ffsPrivateWifiScanHandler (DRV_HANDLE handle, uint8_t index, uint8_t ofTota
         xEventGroupSetBits(sTaskResultEventGroup, resultBits);
     } 
     else 
-    {
+    {    
         if (index == 1)
-        {
+        {            
             sWifiScanList.numAp = ofTotal;
             ffsLogDebug("Scan Results: #%02d", ofTotal);
         }
@@ -204,16 +204,20 @@ static FFS_RESULT ffsPrivateWifiManagerScan(const FfsUserContext_t *userContext)
         {
             //Received the wifiSrvcScanConfig data
             char myAPlist[] = ""; // e.g. "myAP*OPENAP*Hello World!"
-            char delimiter  = '*';
+            char delimiter  = ',';
             scanConfig.channel         = 0;
+            scanConfig.numSlots        = 1;
             scanConfig.mode            = SYS_WIFI_SCAN_MODE_ACTIVE;
             scanConfig.pSsidList       = myAPlist;
             scanConfig.delimChar       = delimiter;
             scanConfig.pNotifyCallback = (void *)ffsPrivateWifiScanHandler;
+            scanConfig.numProbes       = 1;
+            scanConfig.activeSlotTime  = SYS_WIFI_SCAN_ACTIVE_SLOT_TIME/2;
+            scanConfig.passiveSlotTime = SYS_WIFI_SCAN_PASSIVE_SLOT_TIME;
+            scanConfig.chan24Mask      = SYS_WIFI_SCAN_CHANNEL24_MASK;
             scanConfig.matchMode       = WDRV_PIC32MZW_SCAN_MATCH_MODE_FIND_ALL;
 
-            SYS_CONSOLE_PRINT("\r\nStarting Custom Scan ...\r\n");
-
+            SYS_CONSOLE_PRINT("\r\nStarting Custom Scan ...\r\n");            
             res = SYS_WIFI_CtrlMsg(sysObj.syswifi,SYS_WIFI_SCANREQ, &scanConfig, sizeof(SYS_WIFI_SCAN_CONFIG));
             if(SYS_WIFI_SUCCESS != res)
             {
