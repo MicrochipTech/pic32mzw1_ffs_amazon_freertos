@@ -52,11 +52,6 @@ FFS_PROVISIONING_RESULT ffsProvisionDevice(FfsProvisioningArguments_t *provision
         return FFS_PROVISIONING_RESULT_INVALID_ARGUEMENT;
     }
 
-    // DER certificates are not certificate chains! Only PEM supported
-    if (provisioningArguments->certificateType == FFS_KEY_TYPE_DER) {
-        ffsLogError("Provide certificate data in PEM form to provision device.");
-        return FFS_PROVISIONING_RESULT_INVALID_ARGUEMENT;
-    }
 
     // Create streams for key data
     FfsStream_t privateKeyStream = ffsCreateInputStream((uint8_t *)provisioningArguments->privateKey, provisioningArguments->privateKeySize);
