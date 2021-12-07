@@ -13,6 +13,10 @@
  * IMPLIED, OR STATUTORY, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
  */
+#include <stdlib.h>
+
+#include "definitions.h"
+#include "wolfssl/wolfcrypt/asn_public.h"
 
 #include "ffs/amazon_freertos/ffs_amazon_freertos_device_configuration.h"
 #include "ffs/common/ffs_check_result.h"
@@ -20,10 +24,6 @@
 #include "ffs/amazon_freertos/ffs_amazon_freertos_user_context.h"
 #include "ffs/amazon_freertos/ffs_amazon_freertos_version.h"
 
-#include <stdlib.h>
-
-#include "definitions.h"
-#include "wolfssl/wolfcrypt/asn_public.h"
 
 #define CONFIGURATION_MAP_ENTRY_BUFFER_SIZE 64
 
@@ -222,52 +222,22 @@ FFS_RESULT ffsGetConfigurationMapValue(struct FfsUserContext_s *userContext, con
         // Set configuration map value to bytes
         fetchedConfigurationValue.type = FFS_MAP_VALUE_TYPE_BYTES;
 
-#if 0         
-        // Temporary buffer for key
-        unsigned char derDevicePublicKey[FFS_EC_DER_KEY_MAX_BYTES] = { 0 };
-       
-        // Write public key to the configuration entry stream buffer
-        int result = wc_KeyPemToDer((const unsigned char*)FFS_STREAM_NEXT_READ(userContext->devicePublicKey), FFS_STREAM_DATA_SIZE(userContext->devicePublicKey), 
-                derDevicePublicKey, FFS_EC_DER_KEY_MAX_BYTES, NULL);
-
-        // Did we succeed?
-        if (result < 0) {
-            ffsLogError("There was an error writing public key into stream...");
-            ffsLogError("WOLFSSL error code: %d", result);
-            return FFS_ERROR;
-        }
-#endif
-        FFS_CHECK_RESULT(ffsWriteStream((const unsigned char *) FFS_STREAM_NEXT_READ(userContext->devicePublicKey), FFS_STREAM_DATA_SIZE(userContext->devicePublicKey), &fetchedConfigurationValue.bytesStream));
-        //FFS_CHECK_RESULT(ffsWriteStream((const unsigned char *) &derDevicePublicKey[FFS_EC_DER_KEY_MAX_BYTES-result], result, &fetchedConfigurationValue.bytesStream));
+        FFS_CHECK_RESULT(ffsWriteStream((const unsigned char *) FFS_STREAM_NEXT_READ(userContext->devicePublicKey), 
+                FFS_STREAM_DATA_SIZE(userContext->devicePublicKey), &fetchedConfigurationValue.bytesStream));
+        
     
     } else if (!strcmp(FFS_CONFIGURATION_ENTRY_KEY_CLOUD_EC_PUBLIC_KEY_DER, configurationKey)) {
         // Set configuration map value to bytes
         fetchedConfigurationValue.type = FFS_MAP_VALUE_TYPE_BYTES;
 
-#if 0
-        // Temporary buffer for key
-        unsigned char derCloudPublicKey[FFS_EC_DER_KEY_MAX_BYTES] = { 0 };
-
-        // Write public key to the configuration entry stream buffer
-        int result = wc_KeyPemToDer((const unsigned char*)FFS_STREAM_NEXT_READ(userContext->deviceTypePublicKey), FFS_STREAM_DATA_SIZE(userContext->deviceTypePublicKey), 
-                derCloudPublicKey, FFS_EC_DER_KEY_MAX_BYTES, NULL);
-#endif
-        int result = 0;
-        // Did we succeed?
-        if (result < 0) {
-            ffsLogError("There was an error writing public key into stream...");
-            ffsLogError("WOLFSSL error code: %x", result);
-            return FFS_ERROR;
-        }
-        FFS_CHECK_RESULT(ffsWriteStream((const unsigned char *) FFS_STREAM_NEXT_READ(userContext->deviceTypePublicKey), FFS_STREAM_DATA_SIZE(userContext->deviceTypePublicKey), &fetchedConfigurationValue.bytesStream));
-        //FFS_CHECK_RESULT(ffsWriteStream((const unsigned char *) &derCloudPublicKey[FFS_EC_DER_KEY_MAX_BYTES-result], result, &fetchedConfigurationValue.bytesStream));
-    
+        FFS_CHECK_RESULT(ffsWriteStream((const unsigned char *) FFS_STREAM_NEXT_READ(userContext->deviceTypePublicKey), 
+                FFS_STREAM_DATA_SIZE(userContext->deviceTypePublicKey), &fetchedConfigurationValue.bytesStream));    
     } else {
         ffsLogWarning("Unknown configuration key \"%s\"", configurationKey);
         // Don't check this since it may not be an error.
         return FFS_NOT_IMPLEMENTED;
     }
-
+    
     *configurationValue = fetchedConfigurationValue;
 
     return FFS_SUCCESS;
