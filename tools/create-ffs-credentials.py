@@ -126,9 +126,10 @@ def main(argv):
 	
 	print("-------Dev Cert-------")
 	with open(ffsDevCert, 'r') as certFile:
-		devCert = certFile.read().replace('\n', '"\\\r\n"')
-		devCert = '"' + devCert
+		devCert = certFile.read().replace('\n', '\\\r\n')		
+		devCert = '"' + devCert + '"'
 		devCertLen = len(devCert)
+		
 
 	print("-------Dev Type Pub Key-------")
 	##Device Type public key
