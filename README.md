@@ -5,32 +5,37 @@ Amazon Frustration Free Setup for PIC32MZW1
 
 The goal of this project is to demonstrate the [Amazon Frustation Free setup](https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html) on the PIC32MZW1.
 
-The Amazon Frustation Free Setup(FFS) for WiFi devices is called [**Wi-Fi Simple Setup**(WSS)](https://developer.amazon.com/docs/frustration-free-setup/understand-wi-fi-simple-setup.html), it is designed to provision the new Wi-Fi devices to the Home network without any user interation. 
+The Amazon Frustation Free Setup (FFS) for WiFi devices is called [**Wi-Fi Simple Setup** (WSS)](https://developer.amazon.com/docs/frustration-free-setup/understand-wi-fi-simple-setup.html), it is designed to provision the new Wi-Fi devices to the Home network without any user interation. 
 
-The Amazon FFS(Wi-Fi Simple Setup) requires, 
+The Amazon FFS (Wi-Fi Simple Setup) requires, 
 - A device [pre-attested](https://developer.amazon.com/docs/frustration-free-setup/provisionee-manufacturing.html#requesting-a-dak-from-amazon) to users Amazon Account
 - At least one [Amazon Provisionee device](https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html#testing-your-device) connected to internet
-- Wi-Fi credentials must be available at Wi-Fi Locker 
+- Wi-Fi credentials must be available at Amazon Wi-Fi Locker 
 
 ## Hardware Requirements
 - PIC32MZW1 Curiosity or WFI32-IoT board
 - [Amazon Provisioner Device](https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html#testing-your-device)
-- Access Point
+- Access Point with Internet
 
 ## Software Requirements
-- MPLABX
-- XC32
-- Harmony3
-- H3 PIC32MZW1 (Freertos + TLS) 
+- MPLABX (v5.50)
+- XC32 (v2.41)
+- Harmony3 
+
+## H3 Project component prerequisit
+- FreeRTOS 
+- WolfSSL 
+- Wi-Fi Service
+- Net Service
 
 
 ## Demo Setup 
-The folloowing diagram shows the FFS demo setup for PIC32MZW1.
+The following diagram shows the FFS demo setup for PIC32MZW1.
 
 <p align="center"><img width="650" src="Docs/FFS-Setup.png">
 </p>
 
-On power-up, the FFS capable device looks for available Amazon Provisionee device in the vicinity, then the provisioner comes up as a hidden secured SoftAP and lets the provisionee device to contact to it. On successful connection, the provisionee establishes a secured HTTP connection with Device Setup Service(DSS) and shares the product details. The DSS will associate the device to user account. Now the provisionee will scan and share the available access pointes with DSS. The DSS would look for a match in the users Amazon Wi-Fi Locker, and provides the credentials for the matching AP.
+On power-up, the FFS capable device looks for available Amazon Provisionee device in the vicinity, then the provisioner comes up as a hidden secured SoftAP and lets the provisionee device to contact to it. On successful connection, the provisionee establishes a secured HTTP connection with Device Setup Service (DSS) and shares the product details. The DSS will associate the device to user account. Now the provisionee will scan and share the available access pointes with DSS. The DSS would look for a match in the users Amazon Wi-Fi Locker, and provides the credentials for the matching AP.
 
 <p align="center"><img width="650" src="Docs/WSS-FlowDiagram.png">
 </p>
@@ -69,7 +74,7 @@ On power-up, the FFS capable device looks for available Amazon Provisionee devic
 	-  dha-control-log-public-key.txt
     -  **device_type_pubkey.pem**
 2. Choose the PIC32MZW1 H3 project to which the FFS capability is needed
-3. Clone the [PIC32MZW1 FreeRTOS FFS](https://github.com/c21415/pic32mzw1_ffs_amazon_freertos.git) repo in the project's *../firmware/src* folder
+3. Checkout the [PIC32MZW1 FreeRTOS FFS](https://github.com/c21415/pic32mzw1_ffs_amazon_freertos.git) repo in the project's *../firmware/src* folder
 4. Copy the **private_key**, **certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools* folder
 5. Run the *create-ffs-credentials.py* command with device certificate and keys files 
 <p align="center"><img width="650" src="Docs/ffs-cert-script-cmd.png">
@@ -79,7 +84,7 @@ On power-up, the FFS capable device looks for available Amazon Provisionee devic
 <p align="center"><img width="650" src="Docs/mhc-amazon-ffs-cert.png">
 </p>
 
-- Note:- The FFS device certificate is a chain certificate and it needs to be in PEM format
+- Note:- The FFS device certificate is a chain certificate and it needs to be in PEM format and wolfSSL_CTX_use_certificate_buffer() call needs to be replaced with wolfSSL_CTX_use_certificate_chain_buffer() in net_press_enc_glue.c
 7. The Amazon DSS server needs to have and hence manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h and comment out NO_SIG_WRAPPER
 <p align="center"><img width="650" src="Docs/wolfssl-config.png">
 </p>
@@ -96,7 +101,7 @@ On power-up, the FFS capable device looks for available Amazon Provisionee devic
 
 9. Add the PIC32MZW1 FreeRTOS WSS SDK *../pic32mzw1_ffs_amazon_freertos* (app and src) into the project
 
-10. Edit the Device Type ID and Product Uniqut ID in the *../app/app_amazon_ffs.c file
+10. Edit the Device Type ID and Product Unique ID in the *../app/app_amazon_ffs.c file
 <p align="center"><img width="650" src="Docs/product-details.png">
 </p>
 
@@ -111,7 +116,8 @@ On power-up, the FFS capable device looks for available Amazon Provisionee devic
 
 
 ### Demo console output
-
+- The FFS Console logs are disabled by default and can be enabled by adding the FFS_DEBUG macroo in the preprocessor.
+Please refer the [sample console output]("Docs/FFSConsoleOutput") of the FFS Demo for more details on the provision flow
 
 <p align="right"> Contact 
 <a href="https://www.w3schools.com/"> microchip-ffs-support@microchip.com</a> for support
