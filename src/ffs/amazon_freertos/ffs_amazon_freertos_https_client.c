@@ -621,11 +621,7 @@ FFS_RESULT ffsHttpPost(FfsUserContext_t *userContext, FfsHttpRequest_t *request,
     /************************** HTTPS response setup. **************************/
     // Initialize request
     FFS_CHECK_RESULT(ffsHttpRequestInit(&requestInfo, &responseInfo));
-    
-    FFS_TAKE_LOCK_FOR(sHttpStreamer);
-    ffsLogStream("Request body Stream", &request->bodyStream);
-    FFS_GIVE_LOCK_FOR(sHttpStreamer);
-    
+        
     ffsLogDebug("Response Initialized successfully...");
 
     // Make the request retrying on timeout
