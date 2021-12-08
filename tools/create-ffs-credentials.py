@@ -76,56 +76,61 @@ def do_convension(content: bytes) -> str:
     return sum(len(a) for a in array ), "\n".join([", ".join(e) + ", " for e in array])		
 
 def main(argv):
-	ffsRootCa = ''   
-	ffsDevPubKey = ''
-	ffsDevTypePubKey = ''
-	ffsDevCert = ''
-	ffsDevPrivKey = ''
+	ffsRootCa = 'SRootCA.cer'   	
+	ffsDevTypePubKey = 'device-type-public.key'
+	ffsDevCert = 'device-certificate.pem'
+	ffsDevPrivKey = 'private_key.pem'
 	try:
-		opts, args = getopt.getopt(argv,"hr:c:k:p:t:",["ca=","cert=","key=","pub","type"])
+		opts, args = getopt.getopt(argv,"hr:c:k:t:",["ca=","cert=","key=","type="])
 	except getopt.GetoptError:
-		print('create-ffs-credentials.py -r <root CA> -c <device certificate> -k <device key> -p <device public key> -t <device type public key>')
+		print('create-ffs-credentials.py -r <root CA> -c <device certificate> -k <device private key> -t <device type public key>')
 		sys.exit(2)
 	
 	for opt, arg in opts:
 		if opt == '-h':
-			print('create-ffs-credentials.py -r <root CA> -c <device certificate> -k <device key> -p <device public key> -t <device type public key>')
+			print('create-ffs-credentials.py -r <root CA> -c <device certificate> -k <device key> -t <device type public key>')
 			sys.exit()
 		elif opt in ("-r", "--ca"):
 			ffsRootCa = arg
 		elif opt in ("-c", "--cert"):		
 			ffsDevCert = arg
 		elif opt in ("-k", "--key"):		  
-			ffsDevPrivKey = arg		 
-		elif opt in ("-p", "--pub"):		  
-			ffsDevPubKey = arg
+			ffsDevPrivKey = arg		 		
 		elif opt in ("-t", "--type"):		  
 			ffsDevTypePubKey = arg
-	print('Root CA file is "', ffsRootCa)
-	print('Device Certificate file is "', ffsDevCert)
-	print('Device Private Key file is "', ffsDevPrivKey)
-	print('Device Public Key file is "', ffsDevPubKey)
-	print('Device Type Public file is "', ffsDevTypePubKey)
-
+	print('Root CA file is ', ffsRootCa)
+	print('Device Certificate file is ', ffsDevCert)
+	print('Device Private Key file is ', ffsDevPrivKey)	
+	print('Device Type Public file is ', ffsDevTypePubKey)
+	print("-------Root CA-------")
 	##Amazon FFS DSS CA
 	with open(ffsRootCa, 'rb') as fHdl:
 		try:
 			certHdl = x509.load_der_x509_certificate(fHdl.read())
-			caCertArray = certHdl.public_bytes(serialization.Encoding.DER)
+			caCertArray = certHdl.public_bytes(serialization.Encoding.DER)						
 			caCertBytesLen, caCertBytes = do_convension(caCertArray)				
 		except Exception as e:
 			print(e)
-
-	##Device public key
-	with open(ffsDevPubKey, 'rb') as fHdl:
+	
+	print("-------Pub Key-------")
+	with open(ffsDevCert, 'rb') as fHdl:
 		try:
-			pubKeyHdl = serialization.load_pem_public_key(fHdl.read(), default_backend())
-			pubKeyBytes = pubKeyHdl.public_bytes(serialization.Encoding.DER, 
-			serialization.PublicFormat.SubjectPublicKeyInfo)
-			pubKeyLen, pubKeyArray = do_convension(pubKeyBytes)								
+			certHdl = x509.load_pem_x509_certificate(fHdl.read())
+			pubKeyHdl = certHdl.public_key()			
+			pubKeyBytes = pubKeyHdl.public_bytes(serialization.Encoding.DER,
+				serialization.PublicFormat.SubjectPublicKeyInfo)			
+			pubKeyLen, pubKeyArray = do_convension(pubKeyBytes)			
 		except Exception as e:
 			print(e)
+			return
 	
+	print("-------Dev Cert-------")
+	with open(ffsDevCert, 'r') as certFile:
+		devCert = certFile.read().replace('\n', '"\\\r\n"')
+		devCert = '"' + devCert
+		devCertLen = len(devCert)
+
+	print("-------Dev Type Pub Key-------")
 	##Device Type public key
 	with open(ffsDevTypePubKey, 'rb') as fHdl:
 		try:
@@ -137,27 +142,23 @@ def main(argv):
 			print(e)
 
 	##Device private key
-	try:				
-		procHdl = subprocess.Popen(["openssl", "ec", "-inform", "PEM",  "-outform", "DER", "-in", ffsDevPrivKey], shell=False, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
-		out, error = procHdl.communicate()
-		privKeyLen, privKeyArray = do_convension(out)					
-	except Exception as e:
-		print(e)			
+	with open(ffsDevPrivKey, "rb") as keyfile:
+		pvtKeyHdl = serialization.load_pem_private_key(
+		keyfile.read(),
+		password=None,
+		backend=default_backend()
+		)
 
-	##Device Certificate key	                
-	with open(ffsDevCert, 'r') as certFile:
-		try:
-			certHdl = x509.load_der_x509_certificate(fHdl.read())
-			caCertArray = certHdl.public_bytes(serialization.Encoding.DER)
-			caCertBytesLen, caCertBytes = do_convension(caCertArray)
-		except Exception as e:
-			print(e)
-		devCert = certFile.read().replace('\n', '"\\\r\n"')
-		devCert = '"' + devCert
-		devCertLen = len(devCert)
+		privKeyBytes = pvtKeyHdl.private_bytes(
+			serialization.Encoding.DER,
+			serialization.PrivateFormat.TraditionalOpenSSL,
+			serialization.NoEncryption()
+		)
+		privKeyLen , privKeyArray = do_convension(privKeyBytes)
+			
 
 
-	with open("amazon_ffs_certs.h", 'w') as file:
+	with open("../app/amazon_ffs_certs.h", 'w') as file:
 		with open(LICENSE_BANNER_FILE, 'r') as linceseFile:
 			file.write(ffsCertificateHeaderFile.substitute(licenseBanner=linceseFile.read(), 
 			devicePubKey=pubKeyArray,devicePubKeySize=pubKeyLen, 
