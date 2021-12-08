@@ -27,12 +27,12 @@ The Amazon FFS(Wi-Fi Simple Setup) requires,
 ## Demo Setup 
 The folloowing diagram shows the FFS demo setup for PIC32MZW1.
 
-<p align="center"><img src="Docs/FFS-Setup.png">
+<p align="center"><img width="650" src="Docs/FFS-Setup.png">
 </p>
 
 On power-up, the FFS capable device looks for available Amazon Provisionee device in the vicinity, then the provisioner comes up as a hidden secured SoftAP and lets the provisionee device to contact to it. On successful connection, the provisionee establishes a secured HTTP connection with Device Setup Service(DSS) and shares the product details. The DSS will associate the device to user account. Now the provisionee will scan and share the available access pointes with DSS. The DSS would look for a match in the users Amazon Wi-Fi Locker, and provides the credentials for the matching AP.
 
-<p align="center"><img src="Docs/WSS-FlowDiagram.png">
+<p align="center"><img width="650" src="Docs/WSS-FlowDiagram.png">
 </p>
 
 
@@ -42,7 +42,7 @@ On power-up, the FFS capable device looks for available Amazon Provisionee devic
 
 1. In order enable FFS on any product, the product should be registered at [FFS product registration](https://developer.amazon.com/frustration-free-setup/console/v2/onboard/request-device-registration)
 2. The successful registration would provide a unique Device Type ID, Product ID and a DSS public key. Save the DSS public key in a file *device_type_pubkey.pem*
-<p align="center"><img src="Docs/ffs-dev-registration-dss-pubKey.png">
+<p align="center"><img width="650" src="Docs/ffs-dev-registration-dss-pubKey.png">
 </p>
 
 3. The successful registration would enable to generate devcie certificates and keys
@@ -72,24 +72,24 @@ On power-up, the FFS capable device looks for available Amazon Provisionee devic
 3. Clone the [PIC32MZW1 FreeRTOS FFS](https://github.com/c21415/pic32mzw1_ffs_amazon_freertos.git) repo in the project's *../firmware/src* folder
 4. Copy the **private_key**, **certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools* folder
 5. Run the *create-ffs-credentials.py* command with device certificate and keys files 
-<p align="center"><img src="Docs/ffs-cert-script-cmd.png">
+<p align="center"><img width="650" src="Docs/ffs-cert-script-cmd.png">
 </p>
 
 6. It will generate the *../app/amazon_ffs_certs.h* and it needs be used in the MHC presentation layer configuration, only file name needs to be configured, the cert and key variable names will match the default names.
-<p align="center"><img src="Docs/mhc-amazon-ffs-cert.png">
+<p align="center"><img width="650" src="Docs/mhc-amazon-ffs-cert.png">
 </p>
 
 - Note:- The FFS device certificate is a chain certificate and it needs to be in PEM format
 7. The Amazon DSS server needs to have and hence manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h and comment out NO_SIG_WRAPPER
-<p align="center"><img src="Docs/wolfssl-config.png">
+<p align="center"><img width="650" src="Docs/wolfssl-config.png">
 </p>
 
 8. Enable SNI option in the wolfSSL library, and set the NET_PRES_SNI_HOST_NAME to "*dp-sps-na.amazon.com*" in *net_pres_enc_glue.h* file
-<p align="center"><img src="Docs/sni-support.png">
+<p align="center"><img width="650" src="Docs/sni-support.png">
 </p>
 
 8. Make sure the Wi-Fi service has the scanning capability and *autoconnect* is disabled
-<p align="center"><img src="Docs/enable-scanning-autoconnect.png">
+<p align="center"><img width="650" src="Docs/enable-scanning-autoconnect.png">
 </p>
 
 9. Download the [WSS over Wi-Fi SDK](https://developer.amazon.com/frustration-free-setup/console/v2/ajax/download/sdk) and add the *../FrustrationFreeSetupCSDK/libffs* library source into the project
@@ -97,12 +97,12 @@ On power-up, the FFS capable device looks for available Amazon Provisionee devic
 9. Add the PIC32MZW1 FreeRTOS WSS SDK *../pic32mzw1_ffs_amazon_freertos* (app and src) into the project
 
 10. Edit the Device Type ID and Product Uniqut ID in the *../app/app_amazon_ffs.c file
-<p align="center"><img src="Docs/product-details.png">
+<p align="center"><img width="650" src="Docs/product-details.png">
 </p>
 
 11. Add the inlcude path in the project settings and build the project
 
-<p align="center"><img src="Docs/project-include.png">
+<p align="center"><img width="650" src="Docs/project-include.png">
 </p>
 
 
