@@ -91,8 +91,7 @@ static FFS_RESULT ffsPrivateWifiManagerConnect(FfsUserContext_t *userContext)
 {
     FFS_TAKE_LOCK_FOR(sWifiCurrStaProfile);
     
-    EventBits_t eventBits;
-    SYS_WIFI_RESULT result;
+    EventBits_t eventBits;    
     
     // Enable all the channels(0)
     sWifiCurrStaProfile.staConfig.channel = 0;
@@ -114,13 +113,12 @@ static FFS_RESULT ffsPrivateWifiManagerConnect(FfsUserContext_t *userContext)
         }
         else
         {
-            //sWifiCurrStaProfile.saveConfig = 1;
-            ffsLogDebug("Wi-Fi Disconnection successful");            
+            sWifiCurrStaProfile.saveConfig = 1;
+            ffsLogDebug("Wi-Fi Disconnection successful\r\n");            
         }
     }
         
-    result = SYS_WIFI_CtrlMsg (userContext->sysObj->syswifi, SYS_WIFI_CONNECT, &sWifiCurrStaProfile, sizeof(SYS_WIFI_CONFIG));
-    ffsLogDebug("Wi-Fi Connect Request result = %i", result);
+    SYS_WIFI_CtrlMsg (userContext->sysObj->syswifi, SYS_WIFI_CONNECT, &sWifiCurrStaProfile, sizeof(SYS_WIFI_CONFIG));    
     
     // Do connect
     eventBits = xEventGroupWaitBits(sTaskResultEventGroup, FFS_WIFI_MANAGER_BIT_CONNECT_ERROR | FFS_WIFI_MANAGER_BIT_CONNECT_SUCCESS, pdTRUE, pdFALSE, portMAX_DELAY);
