@@ -117,7 +117,7 @@ On power-up, the FFS capable device looks for available Amazon Provisionee devic
 
 ### Demo console output
 - The FFS Console logs are disabled by default and can be enabled by adding the FFS_DEBUG macroo in the preprocessor.
-Please refer the [sample console output]("Docs/FFSConsoleOutput.log") of the FFS Demo for more details on the provision flow
+Please refer the [sample console output](Docs/FFSConsoleOutput.log) of the FFS Demo for more details on the provision flow
 
 <p align="right"> Contact 
 <a href="https://www.w3schools.com/"> microchip-ffs-support@microchip.com</a> for support
