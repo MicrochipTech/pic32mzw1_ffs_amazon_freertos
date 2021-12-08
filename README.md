@@ -100,6 +100,10 @@ On power-up, the FFS capable device looks for available Amazon Provisionee devic
 <p align="center"><img width="650" src="Docs/product-details.png">
 </p>
 
+11. Invoke the FFS_Tasks() from the Applicaiton task 
+<p align="center"><img width="650" src="Docs/ffs-app-init.png">
+</p>
+
 11. Add the inlcude path in the project settings and build the project
 
 <p align="center"><img width="650" src="Docs/project-include.png">
