@@ -11,7 +11,7 @@ The goal of this project is to demonstrate the [Amazon Frustration Free setup](h
 The Amazon Frustration Free Setup (FFS) for Wi-Fi devices is called [**Wi-Fi Simple Setup** (WSS)](https://developer.amazon.com/docs/frustration-free-setup/understand-wi-fi-simple-setup.html), it is designed to provision the new Wi-Fi devices to the Home network without any user interaction. 
 
 The Amazon FFS (Wi-Fi Simple Setup) requires, 
-- A device [pre-attested] (https://developer.amazon.com/docs/frustration-free-setup/provisionee-manufacturing.html#requesting-a-dak-from-amazon) to users Amazon Account
+- A device(PIC32MZ-W1 / WFI32E01), [pre-attested](https://developer.amazon.com/docs/frustration-free-setup/provisionee-manufacturing.html#requesting-a-dak-from-amazon) to users Amazon Account
 - At least one [Amazon Provisionee device](https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html#testing-your-device) connected to internet
 - Wi-Fi credentials must be available at Amazon Wi-Fi Locker 
 
@@ -45,7 +45,7 @@ The following diagram shows the FFS demo setup for PIC32MZ-W1 / WFI32E01.
 </p>
 
 
-Powering up any Wi-Fi WSS capable device will compute a unique SSID from the given Product ID and Device Type Public Key. Then it starts a directed scan, once the Amazon Provisioner device in the viscinity receives scan request, it brings up a hidden secured SoftAP and lets the Provisionee device to contact to it. 
+On power up, the PIC32MZ-W1 / WFI32E01 device running FFS demo will compute a unique SSID and passphrase usign the given Product ID and Device Type Public Key details. Then it starts a directed scan to find nearby Amazon Provisioner devices, once the Amazon Provisioner device in the viscinity receives scan request, it brings up a hidden secured SoftAP and lets the Provisionee device to contact to it. 
 
 On successful connection, the Provisionee establishes a secured HTTP connection with Device Setup Service (DSS) running on the Provisioner and shares the product details. The DSS will associate the device with the user's Amazon account and will proceed with the provisioning process. 
 
