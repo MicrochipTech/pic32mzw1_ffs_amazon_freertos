@@ -97,7 +97,7 @@ FFS_RESULT ffsAddWifiConfiguration(struct FfsUserContext_s *userContext, FfsWifi
         return FFS_SUCCESS;
     }
 
-    ffsLogDebug("Add Wi-Fi configuration: %.*s", FFS_STREAM_DATA_SIZE(wifiConfiguration->ssidStream),
+    ffsLogDebug("Add Wi-Fi configuration: %.*s\r\n", FFS_STREAM_DATA_SIZE(wifiConfiguration->ssidStream),
             FFS_STREAM_NEXT_READ(wifiConfiguration->ssidStream));
     
     // Convert to FreeRTOS configuration
