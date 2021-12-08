@@ -29,7 +29,6 @@
 #define EC_PARAMS_LENGTH                10
 #define EC_D_LENGTH                     32
 
-#define FFS_STATIC_DSS_BUFFERS 1
 
 FFS_RESULT ffsInitializeUserContext(FfsUserContext_t *userContext, FfsStream_t *privateKeyStream,
         FfsStream_t *publicKeyStream, FfsStream_t *deviceTypePublicKeyStream, FfsStream_t *certificateStream) {
@@ -46,10 +45,15 @@ FFS_RESULT ffsInitializeUserContext(FfsUserContext_t *userContext, FfsStream_t *
     static uint8_t reportingUrlBuffer[FFS_REPORTING_URL_BUFFER_SIZE];
 #else
     uint8_t *hostBuffer = malloc(FFS_HOST_BUFFER_SIZE);
+    memset(hostBuffer, 0, FFS_HOST_BUFFER_SIZE);
     uint8_t *sessionIdBuffer = malloc(FFS_SESSION_ID_BUFFER_SIZE);
+    memset(sessionIdBuffer, 0, FFS_SESSION_ID_BUFFER_SIZE);
     uint8_t *nonceBuffer = malloc(FFS_NONCE_BUFFER_SIZE);
+    memset(nonceBuffer, 0, FFS_NONCE_BUFFER_SIZE);
     uint8_t *bodyBuffer = malloc(FFS_BODY_BUFFER_SIZE);
+    memset(bodyBuffer, 0, FFS_BODY_BUFFER_SIZE);
     uint8_t *reportingUrlBuffer = malloc(FFS_REPORTING_URL_BUFFER_SIZE);
+    memset(reportingUrlBuffer, 0, FFS_REPORTING_URL_BUFFER_SIZE);
 #endif
     // DSS streams.
     userContext->hostStream = ffsCreateOutputStream(hostBuffer, FFS_HOST_BUFFER_SIZE);
