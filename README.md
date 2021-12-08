@@ -21,7 +21,7 @@ The Amazon FFS(Wi-Fi Simple Setup) requires,
 - MPLABX
 - XC32
 - Harmony3
-- H3 PIC32MZW1 freertos project 
+- H3 PIC32MZW1 (Freertos + TLS) 
 
 
 ## Demo Setup 
@@ -41,14 +41,18 @@ On power-up, the FFS capable device looks for available Amazon Provisionee devic
 #### Device Attestation and Authorization
 
 1. In order enable FFS on any product, the product should be registered at [FFS product registration](https://developer.amazon.com/frustration-free-setup/console/v2/onboard/request-device-registration)
-2. The successful registration would enable to generate devcie certificates and keys
-3. The FFS setup provides, [Device Attestation Key(DAK)](https://developer.amazon.com/frustration-free-setup/console/v2/manage-daks) which acts as a Certificate Authority for a device type
-4. The DAK generates certificate signing request and private key pair, the csr(certificate signing request) will be signed by Amazon. 
-5. In the next process, the Device Hardware Authentication(DHA) material is generated and signed by the DAK.
-6. The signed DHA certificate and private key are flashed into the NVM of the device
-7. The DHA public key is extracted from the certificate and shared with amazon through a control log end point
-8. Amazon would register the device in the user's Amazon account 
-9. Now the device is ready for the Frustration Free Setup
+2. The successful registration would provide a unique Device Type ID, Product ID and a DSS public key. Save the DSS public key in a file *device_type_pubkey.pem*
+<p align="center"><img src="Docs/ffs-dev-registration-dss-pubKey.png">
+</p>
+
+3. The successful registration would enable to generate devcie certificates and keys
+4. The FFS setup provides, [Device Attestation Key(DAK)](https://developer.amazon.com/frustration-free-setup/console/v2/manage-daks) which acts as a Certificate Authority for a device type
+5. The DAK generates certificate signing request and private key pair, the csr(certificate signing request) will be signed by Amazon. 
+6. In the next process, the Device Hardware Authentication(DHA) material is generated and signed by the DAK.
+7. The signed DHA certificate and private key are flashed into the NVM of the device
+8. The DHA public key is extracted from the certificate and shared with amazon through a control log end point
+9. Amazon would register the device in the user's Amazon account 
+10. Now the device is ready for the Frustration Free Setup
 #### Using DHA in PIC32MZW1 FFS Project
 1. The above steps would result in following files
 	-  dak.conf
@@ -59,10 +63,11 @@ On power-up, the FFS capable device looks for available Amazon Provisionee devic
 	-  device.conf
 	-  device-params.pem
 	-  device.csr
-	-  private_key.pem
+	-  **private_key.pem**
 	-  device-certificate.pem
-	-  certificate.pem
+	-  **certificate.pem**
 	-  dha-control-log-public-key.txt
+    -  **device_type_pubkey.pem**
 2. Copy the create.py python file to the same folder containing above files
 3. Run the following command and it will generate the certificate file to be used with MHC
 4. Clone the pic32mzw1_ffs_amazon_freertos
