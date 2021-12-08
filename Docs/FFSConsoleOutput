@@ -1,0 +1,638 @@
+TCP/IP Stack: Initialization Started 
+TCP/IP Stack: Initialization Ended - success 
+
+[DEBUG] Start Ffs Wi-Fi provisionee task
+[DEBUG] Setting DSS Client streams...
+[DEBUG] No custom DSS host provided.
+[ERROR] ffsGetConfigurationMapValue(userContext, configurationKey, configurationValue) returned NOT_IMPLEMENTED
+[DEBUG] No custom DSS port provided
+[ERROR] ffsGetConfigurationMapValue(userContext, configurationKey, configurationValue) returned NOT_IMPLEMENTED
+[DEBUG] Nonce:
+[DEBUG] 0000: 9f 82 09 30 99 13 73 0a  01 53 0c 5e              ...0..s. .S.^
+[DEBUG] Device Public key DER bytes:
+[DEBUG] 0000: 30 59 30 13 06 07 2a 86  48 ce 3d 02 01 06 08 2a  0Y0...*. H.=....*
+[DEBUG] 0010: 86 48 ce 3d 03 01 07 03  42 00 04 81 6f 79 db 08  .H.=.... B...oy..
+[DEBUG] 0020: 46 8a 24 0c bb 8b 04 1c  42 31 66 99 e0 41 e4 59  F.$..... B1f..A.Y
+[DEBUG] 0030: 8f f3 cf 10 84 a9 96 9f  37 f3 c3 c3 17 b0 a8 ab  ........ 7.......
+[DEBUG] 0040: c7 2f 16 8b 90 95 60 34  9d 12 dc 30 ff 86 45 09  ./....`4 ...0..E.
+[DEBUG] 0050: ae 68 8f 8e 05 5f fb 1e  cd 5b 45                 .h..._.. .[E
+[DEBUG] Device Public key sha-256 hash:
+[DEBUG] 0000: 12 fc 96 9a 0b 07 2e 74  50 3d 62 db 4c 9d 50 6e  .......t P=b.L.Pn
+[DEBUG] 0010: e1 11 e2 3c 0f a5 33 74  bb ac 9a f8 7e e1 ea 4f  ...<..3t ....~..O
+[DEBUG] Device auth material index
+[DEBUG] 0000: 74 bb ac 9a f8 7e e1 ea  4f                       t....~.. O
+[DEBUG] First 2 characters of SSID
+[DEBUG] 0000: 42 30                                             B0
+[DEBUG] Product index
+[DEBUG] 0000: 35 4b 32 6b                                       5K2k
+[DEBUG] Base85 source stream:
+[DEBUG] 0000: bb ac 9a f8 7e e1 ea 4f  35 4b 32 6b 9f 82 09 30  ....~..O 5K2k...0
+[DEBUG] 0010: 99 13 73 0a 01 53 0c 5e                           ..s..S.^
+[DEBUG] SSID
+[DEBUG] 0000: 42 30 79 52 34 65 7b 65  26 4f 6d 2a 48 41 5e 79  B0yR4e{e &Om*HA^y
+[DEBUG] 0010: 55 70 4d 6e 57 36 6e 47  3c 73 67 30 61 46 5a 4b  UpMnW6nG <sg0aFZK
+[DEBUG] Calculated SSID:
+[DEBUG] 0000: 42 30 79 52 34 65 7b 65  26 4f 6d 2a 48 41 5e 79  B0yR4e{e &Om*HA^y
+[DEBUG] 0010: 55 70 4d 6e 57 36 6e 47  3c 73 67 30 61 46 5a 4b  UpMnW6nG <sg0aFZK
+[DEBUG] Cloud pub key bytes:
+[DEBUG] 0000: 30 59 30 13 06 07 2a 86  48 ce 3d 02 01 06 08 2a  0Y0...*. H.=....*
+[DEBUG] 0010: 86 48 ce 3d 03 01 07 03  42 00 04 89 59 03 63 d0  .H.=.... B...Y.c.
+[DEBUG] 0020: 92 a3 d6 9e 38 44 a4 1f  2f 32 bf 5e 56 2c 32 b3  ....8D.. /2.^V,2.
+[DEBUG] 0030: 5f 75 2a 50 e5 79 4c 93  57 87 a6 22 bb c9 3e 07  _u*P.yL. W.."..>.
+[DEBUG] 0040: 9f 62 38 1a 73 2c bf 5d  90 b7 ee f5 fc b0 9f 64  .b8.s,.] .......d
+[DEBUG] 0050: e8 d8 7e bd 1f 76 5e bd  17 3c 3e                 ..~..v^. .<>
+[DEBUG] Ecdh shared secret bytes:
+[DEBUG] 0000: 60 91 9d ac 48 81 02 e1  d5 d5 d3 61 f0 c8 5c 33  `...H... ...a..\3
+[DEBUG] 0010: fe c0 c7 7c 47 3b ec f1  ad a1 35 56 36 24 c9 05  ...|G;.. ..5V6$..
+[DEBUG] HMAC bytes:
+[DEBUG] 0000: 59 a1 31 42 19 80 5a 40  fc 31 15 5d 85 6f 11 85  Y.1B..Z@ .1.].o..
+[DEBUG] 0010: 76 4f 3a 4a a4 83 ba 11  a9 8b d8 09 3d 52 72 75  vO:J.... ....=Rru
+[DEBUG] Base64 encoded Passphrase bytes:
+[DEBUG] 0000: 57 61 45 78 51 68 6d 41  57 6b 44 38 4d 52 56 64  WaExQhmA WkD8MRVd
+[DEBUG] 0010: 68 57 38 52 68 58 5a 50  4f 6b 71 6b 67 37 6f 52  hW8RhXZP Okqkg7oR
+[DEBUG] 0020: 71 59 76 59 43 54 31 53  63 6e 55 3d              qYvYCT1S cnU=
+[DEBUG] Calculated passphrase:
+[DEBUG] 0000: 57 61 45 78 51 68 6d 41  57 6b 44 38 4d 52 56 64  WaExQhmA WkD8MRVd
+[DEBUG] 0010: 68 57 38 52 68 58 5a 50  4f 6b 71 6b 67 37 6f 52  hW8RhXZP Okqkg7oR
+[DEBUG] 0020: 71 59 76 59 43 54 31 53  63 6e 55 3d              qYvYCT1S cnU=
+[DEBUG] Successfully generated encoded setup network
+[DEBUG] Execute Wi-Fi provisionee state NOT_PROVISIONED
+[DEBUG] Execute Wi-Fi provisionee state CONNECTING_TO_SETUP_NETWORK
+[DEBUG] Add Wi-Fi configuration: B0yR4e{e&Om*HA^yUpMnW6nG<sg0aFZK
+Wi-Fi Configuration:
+
+ mode=0 (0-STA,1-AP) saveConfig=0 
+ 
+ STA Configuration :
+ channel=0 
+ autoConnect=1 
+ ssid=B0yR4e{e&Om*HA^yUpMnW6nG<sg0aFZK 
+ passphase=WaExQhmAWkD8MRVdhW8RhXZPOkqkg7oRqYvYCT1ScnU= 
+ authentication type=4 (1-Open,2-WEP,3-Mixed mode(WPA/WPA2),4-WPA2,5-Mixed mode(WPA2/WPA3),6-WPA3)
+IP address obtained = 10.201.126.242 
+Gateway IP address = 10.201.126.241 
+
+[DEBUG] Wi-Fi Connection Callback 0
+
+[DEBUG] Connected to AP: B0yR4e{e&Om*HA^yUpMnW6nG<sg0aFZK:WaExQhmAWkD8MRVdhW8RhXZPOkqkg7oRqYvYCT1ScnU=
+
+[DEBUG] Connected to setup network
+[DEBUG] Execute Wi-Fi provisionee state START_PROVISIONING
+[DEBUG] DSS client sending request to: https://dp-sps-na.amazon.com:8888/api/v1/startProvisioningSession
+[DEBUG] Amazon free RTOS HTTPS compat function start...
+[DEBUG] Request successfully initialized...
+[DEBUG] Response Initialized successfully...
+[INFO] Successfully made a request response cycle...
+[INFO] HTTPS operation returned: 200
+[DEBUG] Processing header: x-amzn-dss-signature: MEYCIQCharY1RFXJI9OiwC0LZ7/eJyy+MuBfXLVQ1f5QqBRqTwIhAOAlzPiOVnxXKcUbqaM4zi8BRDxjy3b6Vck514/jkCjU
+[DEBUG] Processing header: x-amzn-RequestId: 1765521e-3714-4774-86d6-de54221d4d0b
+[DEBUG] Response Body Stream
+[DEBUG] 0000: 7b 22 63 61 6e 50 72 6f  63 65 65 64 22 3a 74 72  {"canPro ceed":tr
+[DEBUG] 0010: 75 65 2c 22 6e 65 78 74  50 72 6f 76 69 73 69 6f  ue,"next Provisio
+[DEBUG] 0020: 6e 69 6e 67 53 74 61 74  65 22 3a                 ningStat e":
+[DEBUG] Signature is valid.
+[DEBUG] DSS client received HTTP status code: 200
+[DEBUG] Returned connection attempt:
+[DEBUG] 0000: 42 30 79 52 34 65 7b 65  26 4f 6d 2a 48 41 5e 79  B0yR4e{e &Om*HA^y
+[DEBUG] 0010: 55 70 4d 6e 57 36 6e 47  3c 73 67 30 61 46 5a 4b  UpMnW6nG <sg0aFZK
+[ERROR] Trying to get the 1-th wifi attempt. Max 0.
+[DEBUG] DSS client sending request to: https://dp-sps-na.amazon.com:8888/api/v1/report
+[DEBUG] Amazon free RTOS HTTPS compat function start...
+[DEBUG] Request successfully initialized...
+[DEBUG] Response Initialized successfully...
+[INFO] Successfully made a request response cycle...
+[INFO] HTTPS operation returned: 200
+[DEBUG] Processing header: x-amzn-dss-signature: MEQCID9B3hfhElI5vnugWmhhged3eKBEw+QN1pG8iUvypO10AiAcHJ+7QLBgaZ29bASH5c3QVItWuxqUajt7SH48TIZtsg==
+[DEBUG] Processing header: x-amzn-RequestId: 7eeba853-a13a-4830-87ad-371545fd4d32
+[DEBUG] Response Body Stream
+[DEBUG] 0000: 7b 22 63 61 6e 50 72 6f  63 65 65 64 22 3a 74 72  {"canPro ceed":tr
+[DEBUG] 0010: 75 65 2c 22 6e 65 78 74  50 72 6f 76 69 73 69 6f  ue,"next Provisio
+[DEBUG] 0020: 6e 69 6e 67 53 74 61 74  65 22 3a 22 43 4f 4d 50  ningStat e":"COMP
+[DEBUG] 0030: 55 54 45 5f 43 4f 4e 46  49 47 55 52 41 54 49 4f  UTE_CONF IGURATIO
+[DEBUG] 0040: 4e 22 2c 22 6e 6f 6e 63  65 22 3a 22 2f 38 73 35  N","nonc e":"/8s5
+[DEBUG] 0050: 79 77 48 73 73 65 6d 77  4e 59 38 35 6d 56 4e 7a  ywHssemw NY85mVNz
+[DEBUG] 0060: 6d 61 75 30 4a 68 39 74  6d 34 50 22 2c 22 73 65  mau0Jh9t m4P","se
+[DEBUG] 0070: 73 73 69 6f 6e 49 64 22  3a 22 61 6d 7a 6e 31 2e  ssionId" :"amzn1.
+[DEBUG] 0080: 66 66 73 2e 77 73 73 2d  77 69 66 69 2d 73 65 73  ffs.wss- wifi-ses
+[DEBUG] 0090: 73 69 6f 6e 2d 69 64 2e  38 37 38 30 66 62 66 34  sion-id. 8780fbf4
+[DEBUG] 00a0: 2d 63 65 31 39 2d 34 61  30 37 2d 38 32 30 64 2d  -ce19-4a 07-820d-
+[DEBUG] 00b0: 37 37 33 36 32 38 61 63  32 64 32 30 22 7d 4d 6f  773628ac 2d20"}Mo
+[DEBUG] 00c0: 64 65 6c 22 3a 22 50 49  43 33 32 4d 5a 57 31 22  del":"PI C32MZW1"
+[DEBUG] 00d0: 2c 22 64 65 76 69 63 65  53 65 72 69 61 6c 22 3a  ,"device Serial":
+[DEBUG] 00e0: 22 57 46 49 33 32 22 2c  22 70 72 6f 64 75 63 74  "WFI32", "product
+[DEBUG] 00f0: 49 6e 64 65 78 22 3a 22  35 4b 32 6b 22 2c 22 73  Index":" 5K2k","s
+[DEBUG] 0100: 6f 66 74 77 61 72 65 56  65 72 73 69 6f 6e 49 6e  oftwareV ersionIn
+[DEBUG] 0110: 64 65 78 22 3a 22 30 2e  31 2e 30 22 2c 22 64 65  dex":"0. 1.0","de
+[DEBUG] 0120: 76 69 63 65 4e 61 6d 65  22 3a 22 57 46 49 33 32  viceName ":"WFI32
+[DEBUG] 0130: 2d 49 6f 54 2d 32 22 2c  22 66 69 72 6d 77 61 72  -IoT-2", "firmwar
+[DEBUG] 0140: 65 56 65 72 73 69 6f 6e  22 3a 22 76 31 2e 31 2e  eVersion ":"v1.1.
+[DEBUG] 0150: 30 22 2c 22 68 61 72 64  77 61 72 65 56 65 72 73  0","hard wareVers
+[DEBUG] 0160: 69 6f 6e 22 3a 22 76 32  2e 30 22 7d 2c 22 73 65  ion":"v2 .0"},"se
+[DEBUG] 0170: 71 75 65 6e 63 65 4e 75  6d 62 65 72 22 3a 33 2c  quenceNu mber":3,
+[DEBUG] 0180: 22 63 75 72 72 65 6e 74  50 72 6f 76 69 73 69 6f  "current Provisio
+[DEBUG] 0190: 6e 69 6e 67 53 74 61 74  65 22 3a 22 53 54 41 52  ningStat e":"STAR
+[DEBUG] 01a0: 54 5f 50 52 4f 56 49 53  49 4f 4e 49 4e 47 22 2c  T_PROVIS IONING",
+[DEBUG] 01b0: 22 72 65 67 69 73 74 72  61 74 69 6f 6e 53 74 61  "registr ationSta
+[DEBUG] 01c0: 74 65 22 3a 22 43 4f 4d  50 4c 45 54 45 22 2c 22  te":"COM PLETE","
+[DEBUG] 01d0: 73 74 61 74 65 54 72 61  6e 73 69 74 69 6f 6e 52  stateTra nsitionR
+[DEBUG] 01e0: 65 73 75 6c 74 22 3a 22  53 55 43 43 45 53 53 22  esult":" SUCCESS"
+[DEBUG] 01f0: 2c 22 77 69 66 69 4e 65  74 77 6f 72 6b 49 6e 66  ,"wifiNe tworkInf
+[DEBUG] 0200: 6f 4c 69 73 74 22 3a 5b  7b 22 73 73 69 64 22 3a  oList":[ {"ssid":
+[DEBUG] 0210: 22 5c 22 30 5c 75 30 30  30 31 5c 75 30 30 30 30  "\"0\u00 01\u0000
+[DEBUG] 0220: 90 b8 5c 75 30 30 31 66  5c 75 30 30 30 32 80 5c  ..\u001f \u0002.\
+[DEBUG] 0230: 75 30 30 30 30 5c 75 30  30 30 30 5c 75 30 30 30  u0000\u0 000\u000
+[DEBUG] 0240: 30 5c 75 30 30 30 30 98  21 5c 75 30 30 30 32 80  0\u0000. !\u0002.
+[DEBUG] 0250: 8c 38 5c 75 30 30 30 35  90 5c 75 30 30 30 30 5c  .8\u0005 .\u0000\
+[DEBUG] 0260: 75 30 30 30 30 5c 75 30  30 30 30 5c 75 30 30 30  u0000\u0 000\u000
+[DEBUG] 0270: 30 68 67 5c 6e 90 78 20  5c 75 30 30 30 32 80 5c  0hg\n.x  \u0002.\
+[DEBUG] 0280: 22 22 2c 22 73 65 63 75  72 69 74 79 50 72 6f 74  "","secu rityProt
+[DEBUG] 0290: 6f 63 6f 6c 22 3a 22 57  50 41 5f 50 53 4b 22 2c  ocol":"W PA_PSK",
+[DEBUG] 02a0: 22 77 69 66 69 43 6f 6e  6e 65 63 74 69 6f 6e 53  "wifiCon nectionS
+[DEBUG] 02b0: 74 61 74 65 22 3a 22 49  44 4c 45 22 7d 5d 7d     tate":"I DLE"}]}
+[DEBUG] Signature is valid.
+[DEBUG] DSS client received HTTP status code: 200
+[DEBUG] Execute Wi-Fi provisionee state COMPUTE_CONFIGURATION
+[DEBUG] DSS client sending request to: https://dp-sps-na.amazon.com:8888/api/v1/computeConfigurationData
+[DEBUG] Amazon free RTOS HTTPS compat function start...
+[DEBUG] Request successfully initialized...
+[DEBUG] Response Initialized successfully...
+[INFO] Successfully made a request response cycle...
+[INFO] HTTPS operation returned: 200
+[DEBUG] Processing header: x-amzn-dss-signature: MEYCIQD9UMPK1lh8TXyYU5zQ2BP/e9H9AtLKEPfKyfGwAJfvOQIhAOpmRLA3fg3MOhcv+kygGjkbjrL94pinPFLu49SnAexH
+[DEBUG] Processing header: x-amzn-RequestId: 0e26341d-3f98-478d-9bf2-cc692817450f
+[DEBUG] Response Body Stream
+[DEBUG] 0000: 7b 22 63 61 6e 50 72 6f  63 65 65 64 22 3a 74 72  {"canPro ceed":tr
+[DEBUG] 0010: 75 65 2c 22 63 6f 6e 66  69 67 75 72 61 74 69 6f  ue,"conf iguratio
+[DEBUG] 0020: 6e 22 3a 7b 22 46 46 53  2e 53 65 73 73 69 6f 6e  n":{"FFS .Session
+[DEBUG] 0030: 54 6f 6b 65 6e 22 3a 22  61 6d 7a 6e 31 2e 66 66  Token":" amzn1.ff
+[DEBUG] 0040: 73 2e 77 73 73 2d 77 69  66 69 2d 73 65 73 73 69  s.wss-wi fi-sessi
+[DEBUG] 0050: 6f 6e 2d 74 6f 6b 65 6e  2e 39 30 65 36 37 33 65  on-token .90e673e
+[DEBUG] 0060: 33 2d 34 36 30 61 2d 34  38 35 35 2d 38 36 33 66  3-460a-4 855-863f
+[DEBUG] 0070: 2d 38 65 31 36 64 39 37  39 32 31 65 34 22 2c 22  -8e16d97 921e4","
+[DEBUG] 0080: 4c 6f 63 61 6c 65 43 6f  6e 66 69 67 75 72 61 74  LocaleCo nfigurat
+[DEBUG] 0090: 69 6f 6e 2e 4c 61 6e 67  75 61 67 65 4c 6f 63 61  ion.Lang uageLoca
+[DEBUG] 00a0: 6c 65 22 3a 22 65 6e 5f  55 53 22 2c 22 4c 6f 63  le":"en_ US","Loc
+[DEBUG] 00b0: 61 6c 65 43 6f 6e 66 69  67 75 72 61 74 69 6f 6e  aleConfi guration
+[DEBUG] 00c0: 2e 4d 61 72 6b 65 74 70  6c 61 63 65 22 3a 22 41  .Marketp lace":"A
+[DEBUG] 00d0: 54 56 50 44 4b 49 4b 58  30 44 45 52 22 2c 22 53  TVPDKIKX 0DER","S
+[DEBUG] 00e0: 6d 61 72 74 48 6f 6d 65  2e 41 6c 65 78 61 45 76  martHome .AlexaEv
+[DEBUG] 00f0: 65 6e 74 47 61 74 65 77  61 79 45 6e 64 70 6f 69  entGatew ayEndpoi
+[DEBUG] 0100: 6e 74 22 3a 22 61 70 69  2e 61 6d 61 7a 6f 6e 61  nt":"api .amazona
+[DEBUG] 0110: 6c 65 78 61 2e 63 6f 6d  22 2c 22 54 69 6d 65 2e  lexa.com ","Time.
+[DEBUG] 0120: 55 54 43 22 3a 22 32 30  32 31 2d 31 32 2d 30 38  UTC":"20 21-12-08
+[DEBUG] 0130: 54 31 38 3a 35 36 3a 32  34 5a 22 7d 2c 22 6e 65  T18:56:2 4Z"},"ne
+[DEBUG] 0140: 78 74 50 72 6f 76 69 73  69 6f 6e 69 6e 67 53 74  xtProvis ioningSt
+[DEBUG] 0150: 61 74 65 22 3a 22 50 4f  53 54 5f 57 49 46 49 5f  ate":"PO ST_WIFI_
+[DEBUG] 0160: 53 43 41 4e 5f 44 41 54  41 22 2c 22 6e           SCAN_DAT A","n
+[DEBUG] Signature is valid.
+[DEBUG] Storing configuration entry with key: FFS.SessionToken
+[DEBUG] String value:
+[DEBUG] 0000: 61 6d 7a 6e 31 2e 66 66  73 2e 77 73 73 2d 77 69  amzn1.ff s.wss-wi
+[DEBUG] 0010: 66 69 2d 73 65 73 73 69  6f 6e 2d 74 6f 6b 65 6e  fi-sessi on-token
+[DEBUG] 0020: 2e 39 30 65 36 37 33 65  33 2d 34 36 30 61 2d 34  .90e673e 3-460a-4
+[DEBUG] 0030: 38 35 35 2d 38 36 33 66  2d 38 65 31 36 64 39 37  855-863f -8e16d97
+[DEBUG] 0040: 39 32 31 65 34                                    921e4
+[WARNING] Client does not support storing this configuration
+[ERROR] ffsSetConfigurationMapValue(userContext, configurationKey, configurationValue) returned NOT_IMPLEMENTED
+[ERROR] ffsSetConfigurationValue(userContext, key, value) returned NOT_IMPLEMENTED
+[DEBUG] Ignoring unsupported configuration entry
+[DEBUG] Storing configuration entry with key: LocaleConfiguration.LanguageLocale
+[DEBUG] String value:
+[DEBUG] 0000: 65 6e 5f 55 53                                    en_US
+[WARNING] Client does not support storing this configuration
+[ERROR] ffsSetConfigurationMapValue(userContext, configurationKey, configurationValue) returned NOT_IMPLEMENTED
+[ERROR] ffsSetConfigurationValue(userContext, key, value) returned NOT_IMPLEMENTED
+[DEBUG] Ignoring unsupported configuration entry
+[DEBUG] Storing configuration entry with key: LocaleConfiguration.Marketplace
+[DEBUG] String value:
+[DEBUG] 0000: 41 54 56 50 44 4b 49 4b  58 30 44 45 52           ATVPDKIK X0DER
+[WARNING] Client does not support storing this configuration
+[ERROR] ffsSetConfigurationMapValue(userContext, configurationKey, configurationValue) returned NOT_IMPLEMENTED
+[ERROR] ffsSetConfigurationValue(userContext, key, value) returned NOT_IMPLEMENTED
+[DEBUG] Ignoring unsupported configuration entry
+[DEBUG] Storing configuration entry with key: SmartHome.AlexaEventGatewayEndpoint
+[DEBUG] String value:
+[DEBUG] 0000: 61 70 69 2e 61 6d 61 7a  6f 6e 61 6c 65 78 61 2e  api.amaz onalexa.
+[DEBUG] 0010: 63 6f 6d                                          com
+[WARNING] Client does not support storing this configuration
+[ERROR] ffsSetConfigurationMapValue(userContext, configurationKey, configurationValue) returned NOT_IMPLEMENTED
+[ERROR] ffsSetConfigurationValue(userContext, key, value) returned NOT_IMPLEMENTED
+[DEBUG] Ignoring unsupported configuration entry
+[DEBUG] Storing configuration entry with key: Time.UTC
+[DEBUG] String value:
+[DEBUG] 0000: 32 30 32 31 2d 31 32 2d  30 38 54 31 38 3a 35 36  2021-12- 08T18:56
+[DEBUG] 0010: 3a 32 34 5a                                       :24Z
+[WARNING] Client does not support storing this configuration
+[ERROR] ffsSetConfigurationMapValue(userContext, configurationKey, configurationValue) returned NOT_IMPLEMENTED
+[ERROR] ffsSetConfigurationValue(userContext, key, value) returned NOT_IMPLEMENTED
+[DEBUG] Ignoring unsupported configuration entry
+[DEBUG] DSS client received HTTP status code: 200
+[DEBUG] DSS client sending request to: https://dp-sps-na.amazon.com:8888/api/v1/report
+[DEBUG] Amazon free RTOS HTTPS compat function start...
+[DEBUG] Request successfully initialized...
+[DEBUG] Response Initialized successfully...
+[INFO] Successfully made a request response cycle...
+[INFO] HTTPS operation returned: 200
+[DEBUG] Processing header: x-amzn-dss-signature: MEYCIQCajxxwfBjXyEG2JO67JweNVcABOKDJVRCSGoL8lY+UVQIhAMir9r39EDhgqfk3KgcfLUs7Q4Ka6pVp9Vv9DviQQmRC
+[DEBUG] Processing header: x-amzn-RequestId: fe08433f-34ae-4ae1-8dc6-6c856d244ce9
+[DEBUG] Response Body Stream
+[DEBUG] 0000: 7b 22 63 61 6e 50 72 6f  63 65 65 64 22 3a 74 72  {"canPro ceed":tr
+[DEBUG] 0010: 75 65 2c 22 6e 65 78 74  50 72 6f 76 69 73 69 6f  ue,"next Provisio
+[DEBUG] 0020: 6e 69 6e 67 53 74 61 74  65 22 3a 22 50 4f 53 54  ningStat e":"POST
+[DEBUG] 0030: 5f 57 49 46 49 5f 53 43  41 4e 5f 44 41 54 41 22  _WIFI_SC AN_DATA"
+[DEBUG] 0040: 2c 22 6e 6f 6e 63 65 22  3a 22 2f 38 73 35 79 77  ,"nonce" :"/8s5yw
+[DEBUG] 0050: 48 73 73 65 6d 77 4e 59  38 35 6d 56 4e 7a 6d 61  HssemwNY 85mVNzma
+[DEBUG] 0060: 75 30 4a 68 39 74 6d 34  50 22 2c 22 73 65 73 73  u0Jh9tm4 P","sess
+[DEBUG] 0070: 69 6f 6e 49 64 22 3a 22  61 6d 7a 6e 31 2e 66 66  ionId":" amzn1.ff
+[DEBUG] 0080: 73 2e 77 73 73 2d 77 69  66 69 2d 73 65 73 73 69  s.wss-wi fi-sessi
+[DEBUG] 0090: 6f 6e 2d 69 64 2e 38 37  38 30 66 62 66 34 2d 63  on-id.87 80fbf4-c
+[DEBUG] 00a0: 65 31 39 2d 34 61 30 37  2d 38 32 30 64 2d 37 37  e19-4a07 -820d-77
+[DEBUG] 00b0: 33 36 32 38 61 63 32 64  32 30 22 7d 63 65 4d 6f  3628ac2d 20"}ceMo
+[DEBUG] 00c0: 64 65 6c 22 3a 22 50 49  43 33 32 4d 5a 57 31 22  del":"PI C32MZW1"
+[DEBUG] 00d0: 2c 22 64 65 76 69 63 65  53 65 72 69 61 6c 22 3a  ,"device Serial":
+[DEBUG] 00e0: 22 57 46 49 33 32 22 2c  22 70 72 6f 64 75 63 74  "WFI32", "product
+[DEBUG] 00f0: 49 6e 64 65 78 22 3a 22  35 4b 32 6b 22 2c 22 73  Index":" 5K2k","s
+[DEBUG] 0100: 6f 66 74 77 61 72 65 56  65 72 73 69 6f 6e 49 6e  oftwareV ersionIn
+[DEBUG] 0110: 64 65 78 22 3a 22 30 2e  31 2e 30 22 2c 22 64 65  dex":"0. 1.0","de
+[DEBUG] 0120: 76 69 63 65 4e 61 6d 65  22 3a 22 57 46 49 33 32  viceName ":"WFI32
+[DEBUG] 0130: 2d 49 6f 54 2d 32 22 2c  22 66 69 72 6d 77 61 72  -IoT-2", "firmwar
+[DEBUG] 0140: 65 56 65 72 73 69 6f 6e  22 3a 22 76 31 2e 31 2e  eVersion ":"v1.1.
+[DEBUG] 0150: 30 22 2c 22 68 61 72 64  77 61 72 65 56 65 72 73  0","hard wareVers
+[DEBUG] 0160: 69 6f 6e 22 3a 22 76 32  2e 30 22 7d 2c 22 73 65  ion":"v2 .0"},"se
+[DEBUG] 0170: 71 75 65 6e 63 65 4e 75  6d 62 65 72 22 3a 36 2c  quenceNu mber":6,
+[DEBUG] 0180: 22 63 75 72 72 65 6e 74  50 72 6f 76 69 73 69 6f  "current Provisio
+[DEBUG] 0190: 6e 69 6e 67 53 74 61 74  65 22 3a 22 43 4f 4d 50  ningStat e":"COMP
+[DEBUG] 01a0: 55 54 45 5f 43 4f 4e 46  49 47 55 52 41 54 49 4f  UTE_CONF IGURATIO
+[DEBUG] 01b0: 4e 22 2c 22 72 65 67 69  73 74 72 61 74 69 6f 6e  N","regi stration
+[DEBUG] 01c0: 53 74 61 74 65 22 3a 22  43 4f 4d 50 4c 45 54 45  State":" COMPLETE
+[DEBUG] 01d0: 22 2c 22 73 74 61 74 65  54 72 61 6e 73 69 74 69  ","state Transiti
+[DEBUG] 01e0: 6f 6e 52 65 73 75 6c 74  22 3a 22 53 55 43 43 45  onResult ":"SUCCE
+[DEBUG] 01f0: 53 53 22 7d                                       SS"}
+[DEBUG] Signature is valid.
+[DEBUG] DSS client received HTTP status code: 200
+[DEBUG] Execute Wi-Fi provisionee state POST_WIFI_SCAN_DATA
+Starting Custom Scan ...
+
+Scan Configuration:
+
+ mode=1 (0-Passive,1-Active) 
+ Channel=0 (0=All)
+ Input SSID List="" 
+ List Delimiter=',' 
+ Channel Mask=0x1fff 
+ Slots=1 
+ Active Slot Time=10 
+ Passive Slot Time=120 
+ Probes=1 
+ Match Mode=1 (0-StopOnFirst,1-FindAll) 
+
+
+[DEBUG] Scan Results: #07
+[DEBUG] wsn-2g
+[DEBUG] Master Bedroom speaker.o
+[DEBUG] CB House
+[DEBUG] SETUP-496F
+[DEBUG] There's No Place Like 127.0.0.1
+[DEBUG] SETUP-FE2A
+[DEBUG] HP-Print-75-ENVY 4500 series
+[DEBUG] Found 7.
+[DEBUG] DSS client sending request to: https://dp-sps-na.amazon.com:8888/api/v1/postWifiScanData
+[DEBUG] Amazon free RTOS HTTPS compat function start...
+[DEBUG] Request successfully initialized...
+[DEBUG] Response Initialized successfully...
+[INFO] Successfully made a request response cycle...
+[INFO] HTTPS operation returned: 200
+[DEBUG] Processing header: x-amzn-dss-signature: MEQCIBcm5RHwDTtr9vSuqRSm7N6xgsstAGvU8wbR25d8CdKwAiAv6b3HMDUT69DHWuJ46+uDZKonNdGuUPm/J0i7qMYURQ==
+[DEBUG] Processing header: x-amzn-RequestId: a3137a70-66b0-47fc-9200-44767979a5b6
+[DEBUG] Response Body Stream
+[DEBUG] 0000: 7b 22 61 6c 6c 43 72 65  64 65 6e 74 69 61 6c 73  {"allCre dentials
+[DEBUG] 0010: 46 6f 75 6e 64 22 3a 66  61 6c 73 65 2c 22 63 61  Found":f alse,"ca
+[DEBUG] 0020: 6e 50 72 6f 63 65 65 64  22 3a 74 72 75 65 2c 22  nProceed ":true,"
+[DEBUG] 0030: 6e 6f 6e 63 65 22 3a 22  4f 66 63 4b 31 6e 4b 51  nonce":" OfcK1nKQ
+[DEBUG] 0040: 63 51 78 76 45 49 53 44  57 44 5a 61 6d 50 33 73  cQxvEISD WDZamP3s
+[DEBUG] 0050: 6b 41 4f 44 54 62 6a 22  2c 22 73 65 71 75 65 6e  kAODTbj" ,"sequen
+[DEBUG] 0060: 63 65 4e 75 6d 62 65 72  22 3a 31 2c 22 73 65 73  ceNumber ":1,"ses
+[DEBUG] 0070: 73 69 6f 6e 49 64 22 3a  22 61 6d 7a 6e 31 2e 66  sionId": "amzn1.f
+[DEBUG] 0080: 66 73 2e 77 73 73 2d 77  69 66 69 2d 73 65 73 73  fs.wss-w ifi-sess
+[DEBUG] 0090: 69 6f 6e 2d 69 64 2e 38  37 38 30 66 62 66 34 2d  ion-id.8 780fbf4-
+[DEBUG] 00a0: 63 65 31 39 2d 34 61 30  37 2d 38 32 30 64 2d 37  ce19-4a0 7-820d-7
+[DEBUG] 00b0: 37 33 36 32 38 61 63 32  64 32 30 22 2c 22 74 6f  73628ac2 d20","to
+[DEBUG] 00c0: 74 61 6c 43 72 65 64 65  6e 74 69 61 6c 73 46 6f  talCrede ntialsFo
+[DEBUG] 00d0: 75 6e 64 22 3a 31 7d 65  53 65 72 69 61 6c 22 3a  und":1}e Serial":
+[DEBUG] 00e0: 22 57 46 49 33 32 22 2c  22 70 72 6f 64 75 63 74  "WFI32", "product
+[DEBUG] 00f0: 49 6e 64 65 78 22 3a 22  35 4b 32 6b 22 2c 22 73  Index":" 5K2k","s
+[DEBUG] 0100: 6f 66 74 77 61 72 65 56  65 72 73 69 6f 6e 49 6e  oftwareV ersionIn
+[DEBUG] 0110: 64 65 78 22 3a 22 30 2e  31 2e 30 22 2c 22 64 65  dex":"0. 1.0","de
+[DEBUG] 0120: 76 69 63 65 4e 61 6d 65  22 3a 22 57 46 49 33 32  viceName ":"WFI32
+[DEBUG] 0130: 2d 49 6f 54 2d 32 22 2c  22 66 69 72 6d 77 61 72  -IoT-2", "firmwar
+[DEBUG] 0140: 65 56 65 72 73 69 6f 6e  22 3a 22 76 31 2e 31 2e  eVersion ":"v1.1.
+[DEBUG] 0150: 30 22 2c 22 68 61 72 64  77 61 72 65 56 65 72 73  0","hard wareVers
+[DEBUG] 0160: 69 6f 6e 22 3a 22 76 32  2e 30 22 7d 2c 22 73 65  ion":"v2 .0"},"se
+[DEBUG] 0170: 71 75 65 6e 63 65 4e 75  6d 62 65 72 22 3a 31 2c  quenceNu mber":1,
+[DEBUG] 0180: 22 77 69 66 69 53 63 61  6e 44 61 74 61 4c 69 73  "wifiSca nDataLis
+[DEBUG] 0190: 74 22 3a 5b 7b 22 73 73  69 64 22 3a 22 5c 22 77  t":[{"ss id":"\"w
+[DEBUG] 01a0: 73 6e 2d 32 67 5c 22 22  2c 22 62 73 73 69 64 22  sn-2g\"" ,"bssid"
+[DEBUG] 01b0: 3a 22 32 34 3a 46 35 3a  41 32 3a 30 43 3a 37 33  :"24:F5: A2:0C:73
+[DEBUG] 01c0: 3a 43 33 22 2c 22 73 65  63 75 72 69 74 79 50 72  :C3","se curityPr
+[DEBUG] 01d0: 6f 74 6f 63 6f 6c 22 3a  22 57 50 41 5f 50 53 4b  otocol": "WPA_PSK
+[DEBUG] 01e0: 22 2c 22 72 73 73 69 22  3a 2d 34 35 2c 22 66 72  ","rssi" :-45,"fr
+[DEBUG] 01f0: 65 71 75 65 6e 63 79 22  3a 36 7d 2c 7b 22 73 73  equency" :6},{"ss
+[DEBUG] 0200: 69 64 22 3a 22 5c 22 4d  61 73 74 65 72 20 42 65  id":"\"M aster Be
+[DEBUG] 0210: 64 72 6f 6f 6d 20 73 70  65 61 6b 65 72 2e 6f 5c  droom sp eaker.o\
+[DEBUG] 0220: 22 22 2c 22 62 73 73 69  64 22 3a 22 46 41 3a 38  "","bssi d":"FA:8
+[DEBUG] 0230: 46 3a 43 41 3a 35 43 3a  34 46 3a 36 45 22 2c 22  F:CA:5C: 4F:6E","
+[DEBUG] 0240: 73 65 63 75 72 69 74 79  50 72 6f 74 6f 63 6f 6c  security Protocol
+[DEBUG] 0250: 22 3a 22 4f 50 45 4e 22  2c 22 72 73 73 69 22 3a  ":"OPEN" ,"rssi":
+[DEBUG] 0260: 2d 32 38 2c 22 66 72 65  71 75 65 6e 63 79 22 3a  -28,"fre quency":
+[DEBUG] 0270: 36 7d 2c 7b 22 73 73 69  64 22 3a 22 5c 22 43 42  6},{"ssi d":"\"CB
+[DEBUG] 0280: 20 48 6f 75 73 65 5c 22  22 2c 22 62 73 73 69 64   House\" ","bssid
+[DEBUG] 0290: 22 3a 22 35 38 3a 39 36  3a 33 30 3a 43 39 3a 42  ":"58:96 :30:C9:B
+[DEBUG] 02a0: 39 3a 44 33 22 2c 22 73  65 63 75 72 69 74 79 50  9:D3","s ecurityP
+[DEBUG] 02b0: 72 6f 74 6f 63 6f 6c 22  3a 22 57 50 41 5f 50 53  rotocol" :"WPA_PS
+[DEBUG] 02c0: 4b 22 2c 22 72 73 73 69  22 3a 2d 35 32 2c 22 66  K","rssi ":-52,"f
+[DEBUG] 02d0: 72 65 71 75 65 6e 63 79  22 3a 31 7d 2c 7b 22 73  requency ":1},{"s
+[DEBUG] 02e0: 73 69 64 22 3a 22 5c 22  53 45 54 55 50 2d 34 39  sid":"\" S
+[DEBUG
+[DEBUG
+[DEBUG
+[DEBUG
+[DEBUG
+[DEBUG] Signature is valid.
+[DEBUG] DSS client received HTTP status code: 200
+[DEBUG] Total credentials found: 1
+[INFO] Total Credentials Found = 1
+
+[DEBUG] Stop posting Wi-Fi scan data
+[DEBUG] DSS client sending request to: https://dp-sps-na.amazon.com:8888/api/v1/report
+[DEBUG] Amazon free RTOS HTTPS compat function start...
+[DEBUG] Request successfully initialized...
+[DEBUG] Response Initialized successfully...
+[INFO] Successfully made a request response cycle...
+[INFO] HTTPS operation returned: 200
+[DEBUG] Processing header: x-amzn-dss-signature: MEUCIER96D/S/K/5loSDZgp4FzMJbq894X5tkipuMHAcLB2BAiEAgorI4QO+kXlXjDlDqv3L8ivwmR0gtOv1vK8dNeYidqk=
+[DEBUG] Processing header: x-amzn-RequestId: e59b1206-101c-48ba-8665-717272e472d0
+[DEBUG] Response Body Stream
+[DEBUG] 0000: 7b 22 63 61 6e 50 72 6f  63 65 65 64 22 3a 74 72  {"canPro ceed":tr
+[DEBUG] 0010: 75 65 2c 22 6e 65 78 74  50 72 6f 76 69 73 69 6f  ue,"next Provisio
+[DEBUG] 0020: 6e 69 6e 67 53 74 61 74  65 22 3a 22 47 45 54 5f  ningStat e":"GET_
+[DEBUG] 0030: 57 49 46 49 5f 4c 49 53  54 22 2c 22 6e 6f 6e 63  WIFI_LIS T","nonc
+[DEBUG] 0040: 65 22 3a 22 2f 38 73 35  79 77 48 73 73 65 6d 77  e":"/8s5 ywHssemw
+[DEBUG] 0050: 4e 59 38 35 6d 56 4e 7a  6d 61 75 30 4a 68 39 74  NY85mVNz mau0Jh9t
+[DEBUG] 0060: 6d 34 50 22 2c 22 73 65  73 73 69 6f 6e 49 64 22  m4P","se ssionId"
+[DEBUG] 0070: 3a 22 61 6d 7a 6e 31 2e  66 66 73 2e 77 73 73 2d  :"amzn1. ffs.wss-
+[DEBUG] 0080: 77 69 66 69 2d 73 65 73  73 69 6f 6e 2d 69 64 2e  wifi-ses sion-id.
+[DEBUG] 0090: 38 37 38 30 66 62 66 34  2d 63 65 31 39 2d 34 61  8780fbf4 -ce19-4a
+[DEBUG] 00a0: 30 37 2d 38 32 30 64 2d  37 37 33 36 32 38 61 63  07-820d- 773628ac
+[DEBUG] 00b0: 32 64 32 30 22 7d 2c 22  64 65 76 69 63 65 4d 6f  2d20"}," deviceMo
+[DEBUG] 00c0: 64 65 6c 22 3a 22 50 49  43 33 32 4d 5a 57 31 22  del":"PI C32MZW1"
+[DEBUG] 00d0: 2c 22 64 65 76 69 63 65  53 65 72 69 61 6c 22 3a  ,"device Serial":
+[DEBUG] 00e0: 22 57 46 49 33 32 22 2c  22 70 72 6f 64 75 63 74  "WFI32", "product
+[DEBUG] 00f0: 49 6e 64 65 78 22 3a 22  35 4b 32 6b 22 2c 22 73  Index":" 5K2k","s
+[DEBUG] 0100: 6f 66 74 77 61 72 65 56  65 72 73 69 6f 6e 49 6e  oftwareV ersionIn
+[DEBUG] 0110: 64 65 78 22 3a 22 30 2e  31 2e 30 22 2c 22 64 65  dex":"0. 1.0","de
+[DEBUG] 0120: 76 69 63 65 4e 61 6d 65  22 3a 22 57 46 49 33 32  viceName ":"WFI32
+[DEBUG] 0130: 2d 49 6f 54 2d 32 22 2c  22 66 69 72 6d 77 61 72  -IoT-2", "firmwar
+[DEBUG] 0140: 65 56 65 72 73 69 6f 6e  22 3a 22 76 31 2e 31 2e  eVersion ":"v1.1.
+[DEBUG] 0150: 30 22 2c 22 68 61 72 64  77 61 72 65 56 65 72 73  0","hard wareVers
+[DEBUG] 0160: 69 6f 6e 22 3a 22 76 32  2e 30 22 7d 2c 22 73 65  ion":"v2 .0"},"se
+[DEBUG] 0170: 71 75 65 6e 63 65 4e 75  6d 62 65 72 22 3a 39 2c  quenceNu mber":9,
+[DEBUG] 0180: 22 63 75 72 72 65 6e 74  50 72 6f 76 69 73 69 6f  "current Provisio
+[DEBUG] 0190: 6e 69 6e 67 53 74 61 74  65 22 3a 22 50 4f 53 54  ningStat e":"POST
+[DEBUG] 01a0: 5f 57 49 46 49 5f 53 43  41 4e 5f 44 41 54 41 22  _WIFI_SC AN_DATA"
+[DEBUG] 01b0: 2c 22 72 65 67 69 73 74  72 61 74 69 6f 6e 53 74  ,"regist rationSt
+[DEBUG] 01c0: 61 74 65 22 3a 22 43 4f  4d 50 4c 45 54 45 22 2c  ate":"CO MPLETE",
+[DEBUG] 01d0: 22 73 74 61 74 65 54 72  61 6e 73 69 74 69 6f 6e  "stateTr ansition
+[DEBUG] 01e0: 52 65 73 75 6c 74 22 3a  22 53 55 43 43 45 53 53  Result": "SUCCESS
+[DEBUG] 01f0: 22 7d                                             "}
+[DEBUG] Signature is valid.
+[DEBUG] DSS client received HTTP status code: 200
+[DEBUG] Execute Wi-Fi provisionee state GET_WIFI_LIST
+[DEBUG] DSS client sending request to: https://dp-sps-na.amazon.com:8888/api/v1/getWifiCredentials
+[DEBUG] Amazon free RTOS HTTPS compat function start...
+[DEBUG] Request successfully initialized...
+[DEBUG] Response Initialized successfully...
+[INFO] Successfully made a request response cycle...
+[INFO] HTTPS operation returned: 200
+[DEBUG] Processing header: x-amzn-dss-signature: MEUCIFZKRrwEsSBW42H7rdajLJ6xqPzs77i15rkj9iPg2bMhAiEA/0a/Ohnz8Lxolb+J+WAZxmaNpp8nmqm0nWpc0AahieY=
+[DEBUG] Processing header: x-amzn-RequestId: 571105ba-8d98-4de7-b1ae-2375df01ca8a
+[DEBUG] Response Body Stream
+[DEBUG] 0000: 7b 22 61 6c 6c 43 72 65  64 65 6e 74 69 61 6c 73  {"allCre dentials
+[DEBUG] 0010: 52 65 74 75 72 6e 65 64  22 3a 74 72 75 65 2c 22  Returned ":true,"
+[DEBUG] 0020: 63 61 6e 50 72 6f 63 65  65 64 22 3a 74 72 75 65  canProce ed":true
+[DEBUG] 0030: 2c 22 6e 6f 6e 63 65 22  3a 22 74 4c 4a 43 49 4a  ,"nonce" :"tLJCIJ
+[DEBUG] 0040: 56 2f 41 67 2b 57 62 35  4e 50 67 54 6a 58 59 4f  V/Ag+Wb5 NPgTjXYO
+[DEBUG] 0050: 6a 7a 6e 30 41 54 77 34  36 22 2c 22 73 65 71 75  jzn0ATw4 6","sequ
+[DEBUG] 0060: 65 6e 63 65 4e 75 6d 62  65 72 22 3a 31 2c 22 73  enceNumb er":1,"s
+[DEBUG] 0070: 65 73 73 69 6f 6e 49 64  22 3a 22 61 6d 7a 6e 31  essionId ":"amzn1
+[DEBUG] 0080: 2e 66 66 73 2e 77 73 73  2d 77 69 66 69 2d 73 65  .ffs.wss -wifi-se
+[DEBUG] 0090: 73 73 69 6f 6e 2d 69 64  2e 38 37 38 30 66 62 66  ssion-id .8780fbf
+[DEBUG] 00a0: 34 2d 63 65 31 39 2d 34  61 30 37 2d 38 32 30 64  4-ce19-4 a07-820d
+[DEBUG] 00b0: 2d 37 37 33 36 32 38 61  63 32 64 32 30 22 2c 22  -773628a c2d20","
+[DEBUG] 00c0: 77 69 66 69 43 72 65 64  65 6e 74 69 61 6c 73 4c  wifiCred entialsL
+[DEBUG] 00d0: 69 73 74 22 3a 5b 7b 22  66 72 65 71 75 65 6e 63  ist":[{" frequenc
+[DEBUG] 00e0: 79 22 3a 30 2c 22 6b 65  79 22 3a 22 5c 22 62 72  y":0,"ke y":"\"br
+[DEBUG] 00f0: 75 63 65 6e 65 67 6c 65  79 5c 22 22 2c 22 6b 65  ucenegle y\"","ke
+[DEBUG] 0100: 79 49 6e 64 65 78 22 3a  30 2c 22 70 72 69 6f 72  yIndex": 0,"prior
+[DEBUG] 0110: 69 74 79 22 3a 30 2c 22  73 65 63 75 72 69 74 79  ity":0," security
+[DEBUG] 0120: 50 72 6f 74 6f 63 6f 6c  22 3a 22 57 50 41 5f 50  Protocol ":"WPA_P
+[DEBUG] 0130: 53 4b 22 2c 22 73 73 69  64 22 3a 22 5c 22 77 73  SK","ssi d":"\"ws
+[DEBUG] 0140: 6e 2d 32 67 5c 22 22 7d  5d 7d 22 76 31 2e 31 2e  n-2g\""} ]}"v1.1.
+[DEBUG] 0150: 30 22 2c 22 68 61 72 64  77 61 72 65 56 65 72 73  0","hard wareVers
+[DEBUG] 0160: 69 6f 6e 22 3a 22 76 32  2e 30 22 7d 2c 22 73 65  ion":"v2 .0"},"se
+[DEBUG] 0170: 71 75 65 6e 63 65 4e 75  6d 62 65 72 22 3a 31 7d  quenceNu mber":1}
+[DEBUG] Signature is valid.
+[DEBUG] Add Wi-Fi configuration: wsn-2g
+
+[DEBUG] DSS client received HTTP status code: 200
+[DEBUG] All credentials returned by cloud
+[DEBUG] Stop getting Wi-Fi credentials
+[DEBUG] DSS client sending request to: https://dp-sps-na.amazon.com:8888/api/v1/report
+[DEBUG] Amazon free RTOS HTTPS compat function start...
+[DEBUG] Request successfully initialized...
+[DEBUG] Response Initialized successfully...
+[INFO] Successfully made a request response cycle...
+[INFO] HTTPS operation returned: 200
+[DEBUG] Processing header: x-amzn-dss-signature: MEQCID0Hn6q8tR6vVXO+ejFhkCwWR5xxlNpiBv1LzlZCfBJuAiAtQt74paRhn/ja/xqI6dBocdp4MlMLghfFC73fAjb6Og==
+[DEBUG] Processing header: x-amzn-RequestId: 8655701f-f709-44a9-8e56-d6c214f85974
+[DEBUG] Response Body Stream
+[DEBUG] 0000: 7b 22 63 61 6e 50 72 6f  63 65 65 64 22 3a 74 72  {"canPro ceed":tr
+[DEBUG] 0010: 75 65 2c 22 6e 65 78 74  50 72 6f 76 69 73 69 6f  ue,"next Provisio
+[DEBUG] 0020: 6e 69 6e 67 53 74 61 74  65 22 3a 22 43 4f 4e 4e  ningStat e":"CONN
+[DEBUG] 0030: 45 43 54 49 4e 47 5f 54  4f 5f 55 53 45 52 5f 4e  ECTING_T O_USER_N
+[DEBUG] 0040: 45 54 57 4f 52 4b 22 2c  22 6e 6f 6e 63 65 22 3a  ETWORK", "nonce":
+[DEBUG] 0050: 22 2f 38 73 35 79 77 48  73 73 65 6d 77 4e 59 38  "/8s5ywH ssemwNY8
+[DEBUG] 0060: 35 6d 56 4e 7a 6d 61 75  30 4a 68 39 74 6d 34 50  5mVNzmau 0Jh9tm4P
+[DEBUG] 0070: 22 2c 22 73 65 73 73 69  6f 6e 49 64 22 3a 22 61  ","sessi onId":"a
+[DEBUG] 0080: 6d 7a 6e 31 2e 66 66 73  2e 77 73 73 2d 77 69 66  mzn1.ffs .wss-wif
+[DEBUG] 0090: 69 2d 73 65 73 73 69 6f  6e 2d 69 64 2e 38 37 38  i-sessio n-id.878
+[DEBUG] 00a0: 30 66 62 66 34 2d 63 65  31 39 2d 34 61 30 37 2d  0fbf4-ce 19-4a07-
+[DEBUG] 00b0: 38 32 30 64 2d 37 37 33  36 32 38 61 63 32 64 32  820d-773 628ac2d2
+[DEBUG] 00c0: 30 22 7d 22 3a 22 50 49  43 33 32 4d 5a 57 31 22  0"}":"PI C32MZW1"
+[DEBUG] 00d0: 2c 22 64 65 76 69 63 65  53 65 72 69 61 6c 22 3a  ,"device Serial":
+[DEBUG] 00e0: 22 57 46 49 33 32 22 2c  22 70 72 6f 64 75 63 74  "WFI32", "product
+[DEBUG] 00f0: 49 6e 64 65 78 22 3a 22  35 4b 32 6b 22 2c 22 73  Index":" 5K2k","s
+[DEBUG] 0100: 6f 66 74 77 61 72 65 56  65 72 73 69 6f 6e 49 6e  oftwareV ersionIn
+[DEBUG] 0110: 64 65 78 22 3a 22 30 2e  31 2e 30 22 2c 22 64 65  dex":"0. 1.0","de
+[DEBUG] 0120: 76 69 63 65 4e 61 6d 65  22 3a 22 57 46 49 33 32  viceName ":"WFI32
+[DEBUG] 0130: 2d 49 6f 54 2d 32 22 2c  22 66 69 72 6d 77 61 72  -IoT-2", "firmwar
+[DEBUG] 0140: 65 56 65 72 73 69 6f 6e  22 3a 22 76 31 2e 31 2e  eVersion ":"v1.1.
+[DEBUG] 0150: 30 22 2c 22 68 61 72 64  77 61 72 65 56 65 72 73  0","hard wareVers
+[DEBUG] 0160: 69 6f 6e 22 3a 22 76 32  2e 30 22 7d 2c 22 73 65  ion":"v2 .0"},"se
+[DEBUG] 0170: 71 75 65 6e 63 65 4e 75  6d 62 65 72 22 3a 31 32  quenceNu mber":12
+[DEBUG] 0180: 2c 22 63 75 72 72 65 6e  74 50 72 6f 76 69 73 69  ,"curren tProvisi
+[DEBUG] 0190: 6f 6e 69 6e 67 53 74 61  74 65 22 3a 22 47 45 54  oningSta te":"GET
+[DEBUG] 01a0: 5f 57 49 46 49 5f 4c 49  53 54 22 2c 22 72 65 67  _WIFI_LI ST","reg
+[DEBUG] 01b0: 69 73 74 72 61 74 69 6f  6e 53 74 61 74 65 22 3a  istratio nState":
+[DEBUG] 01c0: 22 43 4f 4d 50 4c 45 54  45 22 2c 22 73 74 61 74  "COMPLET E","stat
+[DEBUG] 01d0: 65 54 72 61 6e 73 69 74  69 6f 6e 52 65 73 75 6c  eTransit ionResul
+[DEBUG] 01e0: 74 22 3a 22 53 55 43 43  45 53 53 22 7d           t":"SUCC ESS"}
+[DEBUG] Signature is valid.
+[DEBUG] DSS client received HTTP status code: 200
+[DEBUG] Execute Wi-Fi provisionee state CONNECTING_TO_USER_NETWORK
+[DEBUG] Start disconnecting from setup network
+[DEBUG] Disconnected from setup network
+[DEBUG] Start connecting to user networks
+[DEBUG] Close existing HTTP connections
+STA DisConnected
+
+[DEBUG] Wi-Fi Connection Callback 1
+
+[DEBUG] Wi-Fi Disconnection successful
+
+[DEBUG] Wi-Fi Connection Callback 3
+IP address obtained = 192.168.1.105 
+Gateway IP address = 192.168.1.1 
+
+[DEBUG] Wi-Fi Connection Callback 0
+
+[DEBUG] Connected to AP: wsn-2g:brucenegley
+
+[DEBUG] Connected to user network
+[DEBUG] Returned connection attempt:
+[DEBUG] 0000: 77 73 6e 2d 32 67                                 wsn-2g
+[ERROR] Trying to get the 2-th wifi attempt. Max 1.
+[DEBUG] DSS client sending request to: https://dp-sps-na.amazon.com:443/api/v1/report
+[DEBUG] Amazon free RTOS HTTPS compat function start...
+[DEBUG] Request successfully initialized...
+[DEBUG] Response Initialized successfully...
+[INFO] Successfully made a request response cycle...
+[INFO] HTTPS operation returned: 200
+[DEBUG] Processing header: x-amzn-dss-signature: MEUCIFVe173s6Wwql/yCljVmWlw03EQkpODBTR4RYy7whx1GAiEAg6v9+x3mCn2UOX3QF+R2g1f5KpTBFjiwhAw5YkTwyZ8=
+[DEBUG] Processing header: x-amzn-RequestId: 4c0cc4e0-cc7e-4d63-b5d1-4a1ce9ab16aa
+[DEBUG] Response Body Stream
+[DEBUG] 0000: 7b 22 63 61 6e 50 72 6f  63 65 65 64 22 3a 74 72  {"canPro ceed":tr
+[DEBUG] 0010: 75 65 2c 22 6e 65 78 74  50 72 6f 76 69 73 69 6f  ue,"next Provisio
+[DEBUG] 0020: 6e 69 6e 67 53 74 61 74  65 22 3a 22 43 4f 4e 4e  ningStat e":"CONN
+[DEBUG] 0030: 45 43 54 45 44 5f 54 4f  5f 55 53 45 52 5f 4e 45  ECTED_TO _USER_NE
+[DEBUG] 0040: 54 57 4f 52 4b 22 2c 22  6e 6f 6e 63 65 22 3a 22  TWORK"," nonce":"
+[DEBUG] 0050: 2f 38 73 35 79 77 48 73  73 65 6d 77 4e 59 38 35  /8s5ywHs semwNY85
+[DEBUG] 0060: 6d 56 4e 7a 6d 61 75 30  4a 68 39 74 6d 34 50 22  mVNzmau0 Jh9tm4P"
+[DEBUG] 0070: 2c 22 73 65 73 73 69 6f  6e 49 64 22 3a 22 61 6d  ,"sessio nId":"am
+[DEBUG] 0080: 7a 6e 31 2e 66 66 73 2e  77 73 73 2d 77 69 66 69  zn1.ffs. wss-wifi
+[DEBUG] 0090: 2d 73 65 73 73 69 6f 6e  2d 69 64 2e 38 37 38 30  -session -id.8780
+[DEBUG] 00a0: 66 62 66 34 2d 63 65 31  39 2d 34 61 30 37 2d 38  fbf4-ce1 9-4a07-8
+[DEBUG] 00b0: 32 30 64 2d 37 37 33 36  32 38 61 63 32 64 32 30  20d-7736 28ac2d20
+[DEBUG] 00c0: 22 7d 6c 22 3a 22 50 49  43 33 32 4d 5a 57 31 22  "}l":"PI C32MZW1"
+[DEBUG] 00d0: 2c 22 64 65 76 69 63 65  53 65 72 69 61 6c 22 3a  ,"device Serial":
+[DEBUG] 00e0: 22 57 46 49 33 32 22 2c  22 70 72 6f 64 75 63 74  "WFI32", "product
+[DEBUG] 00f0: 49 6e 64 65 78 22 3a 22  35 4b 32 6b 22 2c 22 73  Index":" 5K2k","s
+[DEBUG] 0100: 6f 66 74 77 61 72 65 56  65 72 73 69 6f 6e 49 6e  oftwareV ersionIn
+[DEBUG] 0110: 64 65 78 22 3a 22 30 2e  31 2e 30 22 2c 22 64 65  dex":"0. 1.0","de
+[DEBUG] 0120: 76 69 63 65 4e 61 6d 65  22 3a 22 57 46 49 33 32  viceName ":"WFI32
+[DEBUG] 0130: 2d 49 6f 54 2d 32 22 2c  22 66 69 72 6d 77 61 72  -IoT-2", "firmwar
+[DEBUG] 0140: 65 56 65 72 73 69 6f 6e  22 3a 22 76 31 2e 31 2e  eVersion ":"v1.1.
+[DEBUG] 0150: 30 22 2c 22 68 61 72 64  77 61 72 65 56 65 72 73  0","hard wareVers
+[DEBUG] 0160: 69 6f 6e 22 3a 22 76 32  2e 30 22 7d 2c 22 73 65  ion":"v2 .0"},"se
+[DEBUG] 0170: 71 75 65 6e 63 65 4e 75  6d 62 65 72 22 3a 31 34  quenceNu mber":14
+[DEBUG] 0180: 2c 22 63 75 72 72 65 6e  74 50 72 6f 76 69 73 69  ,"curren tProvisi
+[DEBUG] 0190: 6f 6e 69 6e 67 53 74 61  74 65 22 3a 22 43 4f 4e  oningSta te":"CON
+[DEBUG] 01a0: 4e 45 43 54 49 4e 47 5f  54 4f 5f 55 53 45 52 5f  NECTING_ TO_USER_
+[DEBUG] 01b0: 4e 45 54 57 4f 52 4b 22  2c 22 72 65 67 69 73 74  NETWORK" ,"regist
+[DEBUG] 01c0: 72 61 74 69 6f 6e 53 74  61 74 65 22 3a 22 43 4f  rationSt ate":"CO
+[DEBUG] 01d0: 4d 50 4c 45 54 45 22 2c  22 73 74 61 74 65 54 72  MPLETE", "stateTr
+[DEBUG] 01e0: 61 6e 73 69 74 69 6f 6e  52 65 73 75 6c 74 22 3a  ansition Result":
+[DEBUG] 01f0: 22 53 55 43 43 45 53 53  22 2c 22 77 69 66 69 4e  "SUCCESS ","wifiN
+[DEBUG] 0200: 65 74 77 6f 72 6b 49 6e  66 6f 4c 69 73 74 22 3a  etworkIn foList":
+[DEBUG] 0210: 5b 7b 22 73 73 69 64 22  3a 22 5c 22 30 5c 75 30  [{"ssid" :"\"0\u0
+[DEBUG] 0220: 30 30 31 5c 75 30 30 30  30 90 b8 5c 75 30 30 31  001\u000 0..\u001
+[DEBUG] 0230: 66 5c 22 22 2c 22 73 65  63 75 72 69 74 79 50 72  f\"","se curityPr
+[DEBUG] 0240: 6f 74 6f 63 6f 6c 22 3a  22 57 50 41 5f 50 53 4b  otocol": "WPA_PSK
+[DEBUG] 0250: 22 2c 22 77 69 66 69 43  6f 6e 6e 65 63 74 69 6f  ","wifiC onnectio
+[DEBUG] 0260: 6e 53 74 61 74 65 22 3a  22 49 44 4c 45 22 7d 5d  nState": "IDLE"}]
+[DEBUG] 0270: 7d                                                }
+[DEBUG] Signature is valid.
+[DEBUG] DSS client received HTTP status code: 200
+[DEBUG] Execute Wi-Fi provisionee state CONNECTED_TO_USER_NETWORK
+[DEBUG] DSS client sending request to: https://dp-sps-na.amazon.com:443/api/v1/report
+[DEBUG] Amazon free RTOS HTTPS compat function start...
+[DEBUG] Request successfully initialized...
+[DEBUG] Response Initialized successfully...
+[INFO] Successfully made a request response cycle...
+[INFO] HTTPS operation returned: 200
+[DEBUG] Processing header: x-amzn-dss-signature: MEUCIQDG7YKA4xEMpICMZxxuIHTOScAedRFf5HXqrIEjA9TeSAIgdZpL2wcDBJ6NTPqK8e9rhz18TLWGcrO7ZwYo6/mo3Lc=
+[DEBUG] Processing header: x-amzn-RequestId: 5655be58-fc45-49eb-9199-5a697816fdb4
+[DEBUG] Response Body Stream
+[DEBUG] 0000: 7b 22 63 61 6e 50 72 6f  63 65 65 64 22 3a 74 72  {"canPro ceed":tr
+[DEBUG] 0010: 75 65 2c 22 6e 65 78 74  50 72 6f 76 69 73 69 6f  ue,"next Provisio
+[DEBUG] 0020: 6e 69 6e 67 53 74 61 74  65 22 3a 22 44 4f 4e 45  ningStat e":"DONE
+[DEBUG] 0030: 22 2c 22 6e 6f 6e 63 65  22 3a 22 2f 38 73 35 79  ","nonce ":"/8s5y
+[DEBUG] 0040: 77 48 73 73 65 6d 77 4e  59 38 35 6d 56 4e 7a 6d  wHssemwN Y85mVNzm
+[DEBUG] 0050: 61 75 30 4a 68 39 74 6d  34 50 22 2c 22 73 65 73  au0Jh9tm 4P","ses
+[DEBUG] 0060: 73 69 6f 6e 49 64 22 3a  22 61 6d 7a 6e 31 2e 66  sionId": "amzn1.f
+[DEBUG] 0070: 66 73 2e 77 73 73 2d 77  69 66 69 2d 73 65 73 73  fs.wss-w ifi-sess
+[DEBUG] 0080: 69 6f 6e 2d 69 64 2e 38  37 38 30 66 62 66 34 2d  ion-id.8 780fbf4-
+[DEBUG] 0090: 63 65 31 39 2d 34 61 30  37 2d 38 32 30 64 2d 37  ce19-4a0 7-820d-7
+[DEBUG] 00a0: 37 33 36 32 38 61 63 32  64 32 30 22 7d 6c 6f 67  73628ac2 d20"}log
+[DEBUG] 00b0: 79 20 49 6e 63 22 2c 22  64 65 76 69 63 65 4d 6f  y Inc"," deviceMo
+[DEBUG] 00c0: 64 65 6c 22 3a 22 50 49  43 33 32 4d 5a 57 31 22  del":"PI C32MZW1"
+[DEBUG] 00d0: 2c 22 64 65 76 69 63 65  53 65 72 69 61 6c 22 3a  ,"device Serial":
+[DEBUG] 00e0: 22 57 46 49 33 32 22 2c  22 70 72 6f 64 75 63 74  "WFI32", "product
+[DEBUG] 00f0: 49 6e 64 65 78 22 3a 22  35 4b 32 6b 22 2c 22 73  Index":" 5K2k","s
+[DEBUG] 0100: 6f 66 74 77 61 72 65 56  65 72 73 69 6f 6e 49 6e  oftwareV ersionIn
+[DEBUG] 0110: 64 65 78 22 3a 22 30 2e  31 2e 30 22 2c 22 64 65  dex":"0. 1.0","de
+[DEBUG] 0120: 76 69 63 65 4e 61 6d 65  22 3a 22 57 46 49 33 32  viceName ":"WFI32
+[DEBUG] 0130: 2d 49 6f 54 2d 32 22 2c  22 66 69 72 6d 77 61 72  -IoT-2", "firmwar
+[DEBUG] 0140: 65 56 65 72 73 69 6f 6e  22 3a 22 76 31 2e 31 2e  eVersion ":"v1.1.
+[DEBUG] 0150: 30 22 2c 22 68 61 72 64  77 61 72 65 56 65 72 73  0","hard wareVers
+[DEBUG] 0160: 69 6f 6e 22 3a 22 76 32  2e 30 22 7d 2c 22 73 65  ion":"v2 .0"},"se
+[DEBUG] 0170: 71 75 65 6e 63 65 4e 75  6d 62 65 72 22 3a 31 36  quenceNu mber":16
+[DEBUG] 0180: 2c 22 63 75 72 72 65 6e  74 50 72 6f 76 69 73 69  ,"curren tProvisi
+[DEBUG] 0190: 6f 6e 69 6e 67 53 74 61  74 65 22 3a 22 43 4f 4e  oningSta te":"CON
+[DEBUG] 01a0: 4e 45 43 54 45 44 5f 54  4f 5f 55 53 45 52 5f 4e  NECTED_T O_USER_N
+[DEBUG] 01b0: 45 54 57 4f 52 4b 22 2c  22 72 65 67 69 73 74 72  ETWORK", "registr
+[DEBUG] 01c0: 61 74 69 6f 6e 53 74 61  74 65 22 3a 22 43 4f 4d  ationSta te":"COM
+[DEBUG] 01d0: 50 4c 45 54 45 22 2c 22  73 74 61 74 65 54 72 61  PLETE"," stateTra
+[DEBUG] 01e0: 6e 73 69 74 69 6f 6e 52  65 73 75 6c 74 22 3a 22  nsitionR esult":"
+[DEBUG] 01f0: 53 55 43 43 45 53 53 22  7d                       SUCCESS" }
+[DEBUG] Signature is valid.
+[DEBUG] DSS client received HTTP status code: 200
+[DEBUG] Ffs Wi-Fi provisionee task reached terminal state
+[DEBUG] End Ffs Wi-Fi provisionee task
+>
+>
+>wifiprov get
+
+ mode=0 (0-STA,1-AP) saveConfig=1 countryCode=GEN
+ 
+ STA Configuration :
+ channel=0 
+ autoConnect=1 
+ ssid=wsn-2g 
+ passphase=brucenegley 
+ authentication type=4 (1-Open,2-WEP,3-Mixed mode(WPA/WPA2),4-WPA2,5-Mixed mode(WPA2/WPA3),6-WPA3) 
+>
+>
+>netinfo
+---------- Interface <wlan0/PIC32MZW1> ---------- 
+Host Name: MCHPBOARD_W     - NBNS disabled 
+IPv4 Address: 192.168.1.105
+Mask: 255.255.255.0
+Gateway: 192.168.1.1
+DNS1: 192.168.1.1
+DNS2: 0.0.0.0
+MAC Address: e8:eb:1b:c6:42:34
+dhcp is ON
+Link is UP
+Status: Ready
+>
+>
