@@ -45,7 +45,7 @@ The following diagram shows the FFS demo setup for PIC32MZ-W1 / WFI32E01.
 </p>
 
 
-On power up, the PIC32MZ-W1 / WFI32E01 device running FFS demo will compute a unique SSID and passphrase usign the given Product ID and Device Type Public Key details. Then it starts a directed scan to find nearby Amazon Provisioner devices, once the Amazon Provisioner device in the viscinity receives scan request, it brings up a hidden secured SoftAP and lets the Provisionee device to contact to it. 
+On power up, the PIC32MZ-W1 / WFI32E01 device running FFS demo will compute a unique SSID and passphrase usign the given Product ID and Device Type Public Key details. Then it starts a directed scan to find nearby Amazon Provisioner devices, once the Amazon Provisioner device in the viscinity receives scan request, it brings up a hidden secured SoftAP and lets the Provisionee device to connect to it. 
 
 On successful connection, the Provisionee establishes a secured HTTP connection with Device Setup Service (DSS) running on the Provisioner and shares the product details. The DSS will associate the device with the user's Amazon account and will proceed with the provisioning process. 
 
