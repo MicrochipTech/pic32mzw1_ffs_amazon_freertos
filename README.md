@@ -34,7 +34,7 @@ The Amazon FFS (Wi-Fi Simple Setup) requires,
 - Wi-Fi Service
 - Net Service
 
-	- Note:- The FFS demo needs manual modifications in the net and wireless system services. Upcoming release would include these changes and avoid manual changes described in the demo setps. 
+	- Note:- The FFS demo needs manual modifications in the net and wireless system services. Upcoming release would include these changes and avoid manual code changes described in the demo setps. While regenerating the code these should not be overwritten.
 
 ## Demo Setup 
 The FFS demo needs an Amazon Provisionee device (Ex: Alexa Echo Dot), a Home AP whose credentials are already saved in the Amazon Wi-Fi Locker and a PIC32MZ-W1 / WFI32E01 board running the FFS Demo.
@@ -74,9 +74,9 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 7. The signed DHA certificate and private key are flashed into the Non Volatile Memory (NVM) of the device.
 8. The device product ID and compressed DHA public key extracted from the device certificate needs to be submitted to Amazon using the [Test device Template](https://developer.amazon.com/frustration-free-setup/console/v2/manage/submit-test-devices)
 9. Amazon will register the device details into the user's Amazon account. It will be used by Amazon Provisione to compute the SoftAP credentials.
-10. Now the device is ready for the Frustration Free Setup
+10. Now follow the next section to add Frustration Free Setup (FFS) capability on PIC32MZ-W1 / WFI32E01
 
-#### Using DHA in PIC32MZW1 FFS Project
+#### Using DHA in PIC32MZ-W1 / WFI32E01 FFS Project
 1. The above steps would result in following files
 	-  dak.conf
 	-  dak-params.pem
@@ -91,8 +91,8 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 	-  **certificate.pem**
 	-  dha-control-log-public-key.txt
     -  **device_type_pubkey.pem**
-2. Choose the PIC32MZW1 H3 project to which the FFS capability is needed, its good to start with *paho_mqtt_tls_client* project.
-3. Checkout the [PIC32MZW1 FreeRTOS FFS](https://github.com/MicrochipTech/pic32mzw1_ffs_amazon_freertos.git) repo in the project's *../firmware/src* folder
+2. Choose the PIC32MZ-W1 MPLAB Harmoney 3 project to which the FFS capability is needed, its good to start with *paho_mqtt_tls_client* project.
+3. Checkout the [PIC32MZ-W1 FreeRTOS FFS](https://github.com/MicrochipTech/pic32mzw1_ffs_amazon_freertos.git) repo in the project's *../firmware/src* folder
 4. Copy the **private_key**, **certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools* folder
 5. Run the *create-ffs-credentials.py* command with device certificate and keys files 
 <p align="center"><img width="480" src="Docs/ffs-cert-script-cmd.png">
@@ -122,7 +122,7 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 
 11. Download the [WSS over Wi-Fi SDK](https://developer.amazon.com/frustration-free-setup/console/v2/ajax/download/sdk) and add the *../FrustrationFreeSetupCSDK/libffs* library source into the project
 
-12. Add the PIC32MZW1 FreeRTOS WSS SDK *../pic32mzw1_ffs_amazon_freertos* (app and src) into the project
+12. Add the PIC32MZ-W1 FreeRTOS WSS source (downloaded at step 3) from *../pic32mzw1_ffs_amazon_freertos* (app and src) folder into the project
 
 13. Edit the Device Type ID and Product Unique ID in the *../app/app_amazon_ffs.c file
 <p align="center"><img width="480" src="Docs/product-details.png">
