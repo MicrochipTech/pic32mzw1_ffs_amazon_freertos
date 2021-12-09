@@ -140,11 +140,11 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 ## Memory Requirements
 - The FFS task involves EC cryptographic computations and needs to have around 5K stack memory
 
-### Demo console output
+## Demo console output
 - The FFS Console logs are disabled by default and can be enabled by adding the FFS_DEBUG macro in the preprocessor.
 Please refer the [sample console output](Docs/FFSConsoleOutput.log) of the FFS Demo for more details on the provision flow
 
-### FAQ
+## FAQ
 1. **Can FFS demo work with any Amazon Provisioner device?**
 
 	No, the default FFS demo certificates are linked to  Amazon user's account. The demo will work only with those Amazon Provisioner devices which are logged in with same user's credentials
