@@ -103,7 +103,7 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 </p>
 
 - Note:- The FFS device certificate is a chain certificate and it needs to be in PEM format and wolfSSL_CTX_use_certificate_buffer() call needs to be replaced with wolfSSL_CTX_use_certificate_chain_buffer() in net_press_enc_glue.c
-7. The Amazon DSS server needs to Encrypt then MAC and Extended Master features of TLS conenction and hence manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h file
+7. The Amazon DSS server needs to have Encrypt then MAC and Extended Master features of TLS conenction and hence manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h file
 
 8. By default the WolfSSL signature verify option is disabled by NO_SIG_WRAPPER macro. FFS demo needs to uncomment NO_SIG_WRAPPER in configuration.h file
 
