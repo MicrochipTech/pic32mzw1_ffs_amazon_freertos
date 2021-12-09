@@ -62,7 +62,7 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 ## Enabling WSS on PIC32MZ-W1 / WFI32E01
 #### Device Attestation and Authorization
 
-1. In order to enable FFS, the product (PIC32MZ-W1 / WFI32E01 development board in our demo) should be registered at [FFS product registration](https://developer.amazon.com/frustration-free-setup/console/v2/onboard/request-device-registration)
+1. In order to enable FFS, the product (PIC32MZ-W1 / WFI32E01 development board) should be registered at [FFS product registration](https://developer.amazon.com/frustration-free-setup/console/v2/onboard/request-device-registration)
 2. The successful registration would provide a unique Product Type ID, Product ID and a DSS public key. Save the DSS public key in a file *device_type_pubkey.pem*
 <p align="center"><img width="480" src="Docs/ffs-dev-registration-dss-pubKey.png">
 </p>
