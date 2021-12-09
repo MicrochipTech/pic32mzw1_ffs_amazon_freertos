@@ -1,6 +1,6 @@
 # Amazon Frustration Free Setup for PIC32MZ-W1 / WFI32E01
 
-Devices: **| PIC32 WFI32E | WFI32 | PIC32MZ-W8 |**
+Devices: **| PIC32 WFI32E | WFI32 | PIC32MZ-W1 |**
 
 Features: **| Amazon Frustration Free Setup| Wi-Fi Setup Service (WSS) |**
 
@@ -136,8 +136,8 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 <p align="center"><img width="480" src="Docs/project-include.png">
 </p>
 
-## Memory Footprint
-- 
+## Memory Requirements
+- The FFS task involves EC cryptographic computations and needs to have around 5K stack memory
 
 ### Demo console output
 - The FFS Console logs are disabled by default and can be enabled by adding the FFS_DEBUG macro in the preprocessor.
