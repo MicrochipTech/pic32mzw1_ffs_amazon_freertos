@@ -37,7 +37,7 @@ The Amazon FFS (Wi-Fi Simple Setup) requires,
 	- Note:- The FFS demo needs manual modifications in the net and wireless system services. Upcoming release would include these changes and avoid manual code changes described in the demo setps. While regenerating the code these should not be overwritten.
 
 ## Demo Setup 
-The FFS demo needs an Amazon Provisionee device (Ex: Alexa Echo Dot), a Home AP whose credentials are already saved in the Amazon Wi-Fi Locker and a PIC32MZ-W1 / WFI32E01 board running the FFS Demo.
+The FFS demo needs an Amazon Provisionee device (Ex: Alexa Echo Dot), a Home AP, whose credentials are already saved in the Amazon Wi-Fi Locker and a PIC32MZ-W1 / WFI32E01 board running the FFS Demo.
 
 The following diagram shows the FFS demo setup for PIC32MZ-W1 / WFI32E01.
 
@@ -116,7 +116,7 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 <p align="center"><img width="480" src="Docs/sni-support.png">
 </p>
 
-10. Make sure the Wi-Fi service has the scanning capability and *autoconnect* is disabled
+10. Make sure the Wi-Fi service has the scanning capability enabled and *autoconnect* disabled. 
 <p align="center"><img width="480" src="Docs/enable-scanning-autoconnect.png">
 </p>
 
