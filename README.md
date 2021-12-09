@@ -50,7 +50,7 @@ On power up, the PIC32MZ-W1 / WFI32E01 device running FFS demo will compute a un
 On successful connection, the Provisionee establishes a secured HTTP connection with Device Setup Service (DSS) running on the Provisioner and shares the product details. The DSS will associate the device with the user's Amazon account and will proceed with the provisioning process. 
 
 Now the Provisionee will scan and share the available access points in the vicinity. The DSS would look for a match in the user's Amazon Wi-Fi Locker, and provides the credentials of the matching Access point.
-The FFS device will used the received credentials and connect to home AP and updates the connections status back to the DSS.
+The FFS device will use the received credentials and connect to home AP and updates the connections status back to the DSS.
 
 Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frustration-free-setup/understand-wi-fi-simple-setup.html) for more details. 
 
@@ -67,14 +67,15 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 <p align="center"><img width="480" src="Docs/ffs-dev-registration-dss-pubKey.png">
 </p>
 
-3. The successful registration would enable to generate device certificates and keys
+3. The successful registration would enable generation of device specific certificates and keys
 4. The FFS setup provides, [Device Attestation Key(DAK)](https://developer.amazon.com/frustration-free-setup/console/v2/manage-daks) which acts as a Certificate Authority for the FFS devices
 5. The DAK generates certificate signing request and private key pair, the csr(certificate signing request) will be signed by Amazon. 
-6. In the next process, the Device Hardware Authentication (DHA) material is generated and signed by the DAK.
-7. The signed DHA certificate and private key are flashed into the Non Volatile Memory (NVM) of the device
-8. The device product ID and compressed DHA public key is extracted from the certificate and submitted to Amazon using the [Test device Template](https://developer.amazon.com/frustration-free-setup/console/v2/manage/submit-test-devices)
-9. Amazon will register the device details into the user's Amazon account, and uses them to compute the Provisioner's SoftAP credentials.
+6. In the next process, the Device Hardware Authentication (DHA) material is generated which will be signed by DAK.
+7. The signed DHA certificate and private key are flashed into the Non Volatile Memory (NVM) of the device.
+8. The device product ID and compressed DHA public key extracted from the device certificate needs to be submitted to Amazon using the [Test device Template](https://developer.amazon.com/frustration-free-setup/console/v2/manage/submit-test-devices)
+9. Amazon will register the device details into the user's Amazon account. It will be used by Amazon Provisione to compute the SoftAP credentials.
 10. Now the device is ready for the Frustration Free Setup
+
 #### Using DHA in PIC32MZW1 FFS Project
 1. The above steps would result in following files
 	-  dak.conf
