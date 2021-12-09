@@ -72,7 +72,7 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 5. The DAK generates certificate signing request and private key pair, the csr(certificate signing request) will be signed by Amazon. 
 6. In the next process, the Device Hardware Authentication (DHA) material is generated and signed by the DAK.
 7. The signed DHA certificate and private key are flashed into the Non Volatile Memory (NVM) of the device
-8. The device product ID and DHA public key is extracted from the certificate and shared with amazon through a control log end point
+8. The device product ID and compressed DHA public key is extracted from the certificate and submitted to Amazon using the [Test device Template](https://developer.amazon.com/frustration-free-setup/console/v2/manage/submit-test-devices)
 9. Amazon would use this information to register the device into the user's Amazon account 
 10. Now the device is ready for the Frustration Free Setup
 #### Using DHA in PIC32MZW1 FFS Project
