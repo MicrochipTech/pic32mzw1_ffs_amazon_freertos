@@ -108,7 +108,7 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 
 7. It will generate the *../app/amazon_ffs_certs.h* which needs be used in the MHC presentation layer configuration
 
-8. Open the project MHC window and navigate to *Active Components -> TCP/IP Stack -> Presentation layer*  and change; 
+8. Open the project MHC window and navigate to *Active Components -> System Configuration -> TCP/IP Stack -> PRESENTATION LAYER -> Presentation layer*  and change; 
 	- The CA certificate and TLS credentials file name to "amazon_ffs_certs.h"
 	- Set CA Certificate format to ASN
 	- Modify the CA certificate data variable name to "caCert"
@@ -120,61 +120,64 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 	- Modify Variable name containing Data for device private key to "devicePvtKey"
 	- Modify Variable name containing Size of device certificate to "devicePvtKey_len"
 
-	**Note:** *The WSS device certificate generated during the DAK process is a chain certificate and WolfSSL API needs it in PEM format, hence 'Device Certificate and Private Key format' set to ASN is only valid for the devicePvtKey. The deviceCert will be in PEM format. (These are generated automatically using the python script)*
-
 <p align="center"><img width="480" src="Docs/mhc-amazon-ffs-cert.png">
 </p>
 
-9. As the Provisionee device certificate is a chain certificate and it is created PEM format and hence instead of the wolfSSL_CTX_use_certificate_buffer() call use the wolfSSL_CTX_use_certificate_chain_buffer() in net_press_enc_glue.c. Also move the wolfSSL_CTX_set_verify() call just after the CTX creation.
-<p align="center"><img width="480" src="Docs/net-pres-changes.png">
-</p>
+**Note:** *The WSS device certificate generated during the DAK process is a chain certificate and WolfSSL API needs it in PEM format, hence 'Device Certificate and Private Key format' set to ASN is only valid for the devicePvtKey. The deviceCert will be in PEM format. (These are generated automatically using the python script)*
 
-10. Modify the TCP socket Tx buffer size to 1024 bytes and Rx buffer size to 2048.
+9. Navigate to *Active Components -> System Configuration -> TCP/IP Stack -> TRANSPORT LAYER -> TCP*  and modify the TCP socket Tx buffer size to 1024 bytes and Rx buffer size to 2048.
+
 <p align="center"><img width="480" src="Docs/tcp-tx-rx-changes.png">
 </p>
 
-	***Note:* The Tx buffer size increase reduces the Tx re-transmitions from application while sending the scan results to DSS server and Rx buffer increase fixes Amazon Frustration DSS server issue while sending FF status/failure status. 
+	**Note:** The Tx buffer size increase reduces the Tx re-transmitions from application while sending the scan results to DSS server and Rx buffer increase fixes Amazon Frustration DSS server issue while sending FF status/failure status. 
 
 
-11. Enable SNI option in the wolfSSL library and set the NET_PRES_SNI_HOST_NAME to "*dp-sps-na.amazon.com*" in *net_pres_enc_glue.h* file
+10. Navigate to *Active Components -> System Configuration -> wolfSSL Library and enable SNI option. 
 <p align="center"><img width="480" src="Docs/sni-support.png">
 </p>
 
-12. Make sure the Wi-Fi service has the scanning capability enabled and *autoconnect* disabled. 
+11. Navigate to *Active Components -> WIFI SERVICE and enable the scanning capability and disable  *autoconnect*(Provisionee should not use default connection and connect).
 <p align="center"><img width="480" src="Docs/enable-scanning-autoconnect.png">
 </p>
 
-13. Save the MHC configuration and Generate the code
+12. Save the MHC configuration and Generate the code
 
-14. The Amazon Provisioner does not support SNTP requests and hence the FFS demo disables the certificate verify and SNTP functionalities. It needs to add TCPIP_SNTP_IsEnabled() check in the Wireless system net client task as shown in the below screenshot.
+13. Open *net_pres_enc_glue.h* file in project files and set the NET_PRES_SNI_HOST_NAME to "*dp-sps-na.amazon.com*" 
+
+14. As the Provisionee device certificate is a chain certificate and it is created PEM format and hence instead of the wolfSSL_CTX_use_certificate_buffer() call use the wolfSSL_CTX_use_certificate_chain_buffer() in net_press_enc_glue.c. Also move the wolfSSL_CTX_set_verify() call just after the CTX creation.
+<p align="center"><img width="480" src="Docs/net-pres-changes.png">
+</p>
+
+15. The Amazon Provisioner does not support SNTP requests and hence the FFS demo disables the certificate verify and SNTP functionalities. It needs to add TCPIP_SNTP_IsEnabled() check in the Wireless system net client task as shown in the below screenshot.
 
 <p align="center"><img width="480" src="Docs/sntp-changes.png">
 </p>
 
-15. The Amazon DSS server needs to have 'Encrypt then MAC' and 'Extended Master' features of TLS conenction and hence manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h or user.h(avoids code comparision while MHC code regeneration) file
+16. The Amazon DSS server needs to have 'Encrypt then MAC' and 'Extended Master' features of TLS conenction and hence manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h or user.h(avoids code comparision while MHC code regeneration) file
 
-16. By default the WolfSSL signature verify option is disabled by NO_SIG_WRAPPER macro. FFS demo needs to uncomment NO_SIG_WRAPPER in configuration.h file
+17. By default the WolfSSL signature verify option is disabled by NO_SIG_WRAPPER macro. FFS demo needs to uncomment NO_SIG_WRAPPER in configuration.h file
 
 <p align="center"><img width="480" src="Docs/wolfssl-config.png">
 </p>
 
-17. Download the [WSS over Wi-Fi SDK](https://developer.amazon.com/frustration-free-setup/console/v2/ajax/download/sdk) and add the *../FrustrationFreeSetupCSDK/libffs* library source into the project
+18. Download the [WSS over Wi-Fi SDK](https://developer.amazon.com/frustration-free-setup/console/v2/ajax/download/sdk) and add the *../FrustrationFreeSetupCSDK/libffs* library source into the project
 
-18. Add the PIC32MZ-W1 FreeRTOS WSS source (downloaded at step 3) from *../pic32mzw1_ffs_amazon_freertos* (app and src) folder into the project
+19. Add the PIC32MZ-W1 FreeRTOS WSS source (downloaded at step 3) from *../pic32mzw1_ffs_amazon_freertos* (app and src) folder into the project
 
-19. Edit the Device Type ID and Product Unique ID in the *../app/app_amazon_ffs.c file
+20. Edit the Device Type ID and Product Unique ID in the *../app/app_amazon_ffs.c file
 <p align="center"><img width="480" src="Docs/product-details.png">
 </p>
 
-20. Invoke the FFS_Tasks() from the Applicaiton task 
+21. Invoke the FFS_Tasks() from the Applicaiton task 
 <p align="center"><img width="480" src="Docs/ffs-app-init.png">
 </p>
 
-21. Provided an extra 5Kb of thread stack to accommodate the FFS memory requirements. By default the app task is created in the task.c file of the MPLAB Hamorny 3 project
+22. Provided an extra 5Kb of thread stack to accommodate the FFS memory requirements. By default the app task is created in the task.c file of the MPLAB Hamorny 3 project
 <p align="center"><img width="480" src="Docs/app-thd-stack.png">
 </p>
 
-22. The Amazon FFS library follows c99 C programming languge standard. Add the -std=c99 in the project properties -> xc32-gcc -> Additional options 
+23. The Amazon FFS library follows c99 C programming languge standard. Add the -std=c99 in the project properties -> xc32-gcc -> Additional options 
 <p align="center"><img width="480" src="Docs/c-standard-c99.png">
 </p>
 
