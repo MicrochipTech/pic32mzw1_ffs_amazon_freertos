@@ -123,21 +123,20 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 <p align="center"><img width="480" src="Docs/mhc-amazon-ffs-cert.png">
 </p>
 
-**Note:** *The WSS device certificate generated during the DAK process is a chain certificate and WolfSSL API needs it in PEM format, hence 'Device Certificate and Private Key format' set to ASN is only valid for the devicePvtKey. The deviceCert will be in PEM format. (These are generated automatically using the python script)*
+- Note: The WSS device certificate generated during the DAK process is a chain certificate and WolfSSL API needs it in PEM format, hence 'Device Certificate and Private Key format' set to ASN is only valid for the devicePvtKey. The deviceCert will be in PEM format. (These are generated automatically using the python script)*
 
 9. Navigate to *Active Components -> System Configuration -> TCP/IP Stack -> TRANSPORT LAYER -> TCP*  and modify the TCP socket Tx buffer size to 1024 bytes and Rx buffer size to 2048.
 
 <p align="center"><img width="480" src="Docs/tcp-tx-rx-changes.png">
 </p>
 
-	**Note:** The Tx buffer size increase reduces the Tx re-transmitions from application while sending the scan results to DSS server and Rx buffer increase fixes Amazon Frustration DSS server issue while sending FF status/failure status. 
+- Note: The Tx buffer size increase reduces the Tx re-transmitions from application while sending the scan results to DSS server and also reduces TLS handshake time. The server and Rx buffer increase fixes Amazon Frustration DSS server issue while sending FFS success/failure status. 
 
-
-10. Navigate to *Active Components -> System Configuration -> wolfSSL Library and enable SNI option. 
+10. Navigate to *Active Components -> System Configuration -> wolfSSL Library* and enable SNI option. 
 <p align="center"><img width="480" src="Docs/sni-support.png">
 </p>
 
-11. Navigate to *Active Components -> WIFI SERVICE and enable the scanning capability and disable  *autoconnect*(Provisionee should not use default connection and connect).
+11. Navigate to *Active Components -> WIFI SERVICE* and enable the scanning capability and disable  *autoconnect* (Provisionee should not use default connection and connect).
 <p align="center"><img width="480" src="Docs/enable-scanning-autoconnect.png">
 </p>
 
