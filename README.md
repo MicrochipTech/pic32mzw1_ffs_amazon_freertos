@@ -13,7 +13,7 @@ The Amazon Frustration Free Setup (FFS) for Wi-Fi devices is called [**Wi-Fi Sim
 The Amazon FFS (Wi-Fi Simple Setup) requires, 
 - A device(PIC32MZ-W1 / WFI32E01), [pre-attested](https://developer.amazon.com/docs/frustration-free-setup/provisionee-manufacturing.html#requesting-a-dak-from-amazon) to users Amazon Account
 - At least one [Amazon Provisionee device](https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html#testing-your-device) connected to internet
-- Wi-Fi credentials must be available at Amazon Wi-Fi Locker 
+- Wi-Fi credentials must be available at [Amazon Wi-Fi Locker](https://www.amazon.com/gp/help/customer/display.html?nodeId=202122980) (a Amazon server)
 
 ## Hardware Requirements
 - PIC32MZ-W1 Curiosity or WFI32-IoT board
@@ -45,12 +45,12 @@ The following diagram shows the FFS demo setup for PIC32MZ-W1 / WFI32E01.
 </p>
 
 
-On power up, the PIC32MZ-W1 / WFI32E01 device running FFS demo will compute a unique SSID and passphrase usign the given Product ID and Device Type Public Key details. Then it starts a directed scan to find nearby Amazon Provisioner devices, once the Amazon Provisioner device in the viscinity receives scan request, it brings up a hidden secured SoftAP and lets the Provisionee device to connect to it. 
+On power up, the PIC32MZ-W1 / WFI32E01 device running FFS demo will compute a unique SSID and passphrase using the given Product ID and Device Type Public Key details. Then it starts a directed scan to find nearby Amazon Provisioner devices, once the Amazon Provisioner device in the vicinity receives scan request, it brings up a hidden secured SoftAP and lets the Provisionee device to connect to it. 
 
 On successful connection, the Provisionee establishes a secured HTTP connection with Device Setup Service (DSS) running on the Provisioner and shares the product details. The DSS will associate the device with the user's Amazon account and will proceed with the provisioning process. 
 
 Now the Provisionee will scan and share the available access points in the vicinity. The DSS would look for a match in the user's Amazon Wi-Fi Locker, and provides the credentials of the matching Access point.
-The FFS device will use the received credentials and connect to home AP and updates the connections status back to the DSS.
+The Provisionee will use the received credentials and connect to home AP and updates the connections status back to the DSS.
 
 Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frustration-free-setup/understand-wi-fi-simple-setup.html) for more details. 
 
@@ -68,7 +68,7 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 </p>
 
 3. The successful registration would enable generation of device specific certificates and keys
-4. The FFS setup provides, [Device Attestation Key(DAK)](https://developer.amazon.com/frustration-free-setup/console/v2/manage-daks) which acts as a Certificate Authority for the FFS devices
+4. The FFS setup provides, [Device Attestation Key(DAK)](https://developer.amazon.com/frustration-free-setup/console/v2/manage-daks) which acts as a Certificate Authority for the Provisionee's
 5. The DAK generates certificate signing request and private key pair, the csr(certificate signing request) will be signed by Amazon. 
 6. In the next process, the Device Hardware Authentication (DHA) material is generated which will be signed by DAK.
 7. The signed DHA certificate and private key are flashed into the Non Volatile Memory (NVM) of the device.
@@ -103,8 +103,8 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 <p align="center"><img width="480" src="Docs/mhc-amazon-ffs-cert.png">
 </p>
 
-- Note:- The FFS device certificate is a chain certificate and it needs to be in PEM format and wolfSSL_CTX_use_certificate_buffer() call needs to be replaced with wolfSSL_CTX_use_certificate_chain_buffer() in net_press_enc_glue.c
-7. The Amazon DSS server needs to have Encrypt then MAC and Extended Master features of TLS conenction and hence manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h file
+- Note:- The Provisionee device certificate is a chain certificate and it needs to be in PEM format and wolfSSL_CTX_use_certificate_buffer() call needs to be replaced with wolfSSL_CTX_use_certificate_chain_buffer() in net_press_enc_glue.c
+7. The Amazon DSS server needs to have 'Encrypt then MAC' and 'Extended Master' features of TLS conenction and hence manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h file
 
 8. By default the WolfSSL signature verify option is disabled by NO_SIG_WRAPPER macro. FFS demo needs to uncomment NO_SIG_WRAPPER in configuration.h file
 
@@ -151,7 +151,7 @@ Please refer the [sample console output](Docs/FFSConsoleOutput.log) of the FFS D
 
 2. **Can FFS demo work with a Amazon Provisioner device connected to 5GHz router?**
 
-	No, the Amazon Provisioner disables 2.4Ghz when it is connected to 5GHz AP so, the PIC32MZ-W1 would fail to connect to Provisioner device.
+	No, the Amazon Provisioner disables 2.4Ghz when it is connected to 5GHz AP so, the PIC32MZ-W1 would fail to connect to Provisioner device as we only support 2.4GHz.
 
 
 
