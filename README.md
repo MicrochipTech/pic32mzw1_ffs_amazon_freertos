@@ -211,7 +211,7 @@ Please refer the [sample console output](Docs/FFSConsoleOutput.log) of the FFS D
 
 2. **Can FFS demo work with a Amazon Provisioner device connected to 5GHz router?**
 
-	No, the Amazon Provisioner disables 2.4Ghz when it is connected to 5GHz AP so, the PIC32MZ-W1 would fail to connect to Provisioner device as we only support 2.4GHz.
+	No, the Amazon Provisioner disables 2.4Ghz when it is connected to 5GHz AP so, the PIC32MZ-W1 would fail to connect to Provisioner device as it only support 2.4GHz.
 
 
 
