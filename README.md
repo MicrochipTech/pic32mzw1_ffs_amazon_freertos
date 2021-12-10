@@ -110,11 +110,11 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 
 8. Open the project MHC window and navigate to *Active Components -> System Configuration -> TCP/IP Stack -> PRESENTATION LAYER -> Presentation layer*  and change; 
 	- The CA certificate and TLS credentials file name to "amazon_ffs_certs.h"
-	- Set CA Certificate format to ASN
+	- Set CA Certificate format to ASN1
 	- Modify the CA certificate data variable name to "caCert"
 	- Modify the CA certificate Size variable name to "caCert_len"
 	- Enable 'Support X509 TLS mutual authentication'
-	- Set Device Certificate and Private Key format to ASN
+	- Set Device Certificate and Private Key format to ASN1
 	- Modify Variable name containing Data for device certificate to "deviceCert"
 	- Modify Variable name containing Size of device certificate to "deviceCert_len"
 	- Modify Variable name containing Data for device private key to "devicePvtKey"
@@ -123,7 +123,7 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 <p align="center"><img width="480" src="Docs/mhc-amazon-ffs-cert.png">
 </p>
 
-- Note: The WSS device certificate generated during the DAK process is a chain certificate and WolfSSL API needs it in PEM format, hence 'Device Certificate and Private Key format' set to ASN is only valid for the devicePvtKey. The deviceCert will be in PEM format. (These are generated automatically using the python script)*
+- Note: The WSS device certificate generated during the DAK process is a chain certificate and WolfSSL API needs it in PEM format, hence 'Device Certificate and Private Key format' set to ASN1 is only valid for the devicePvtKey. The deviceCert will be in PEM format. (These are generated automatically using the python script)*
 
 9. Navigate to *Active Components -> System Configuration -> TCP/IP Stack -> TRANSPORT LAYER -> TCP*  and modify the TCP socket Tx buffer size to 1024 bytes and Rx buffer size to 2048.
 
