@@ -123,7 +123,7 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 <p align="center"><img width="480" src="Docs/mhc-amazon-ffs-cert.png">
 </p>
 
-- Note: The WSS device certificate generated during the DAK process is a chain certificate and WolfSSL API needs it in PEM format, hence 'Device Certificate and Private Key format' set to ASN1 is only valid for the devicePvtKey. The deviceCert will be in PEM format. (These are generated automatically using the python script)*
+- Note: The WSS device certificate generated during the DAK process is a chain certificate and WolfSSL API needs it in PEM format, hence even though the 'Device Certificate and Private Key format' set to ASN1, it is valid only for the devicePvtKey. The deviceCert will be in PEM format in generated amazon_ffs_certs.h (generated automatically using the python script) file
 
 9. Navigate to *Active Components -> System Configuration -> TCP/IP Stack -> TRANSPORT LAYER -> TCP*  and modify the TCP socket Tx buffer size to 1024 bytes and Rx buffer size to 2048.
 
