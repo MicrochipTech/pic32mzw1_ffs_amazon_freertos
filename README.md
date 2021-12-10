@@ -49,7 +49,7 @@ On power up, the PIC32MZ-W1 / WFI32E01 device running FFS demo will compute a un
 
 On successful connection, the Provisionee establishes a secured HTTP connection with Device Setup Service (DSS) running on the Provisioner and shares the product details. The DSS will associate the device with the user's Amazon account and will proceed with the provisioning process. 
 
-Now the Provisionee will scan and share the available access points in the vicinity. The DSS would look for a match in the user's Amazon Wi-Fi Locker, and provides the credentials of the matching Access point.
+Now the Provisionee will scan and share the available access points in the vicinity with DSS. The DSS would look for a match in the user's Amazon Wi-Fi Locker, and provides the credentials of the matching Access point.
 The Provisionee will use the received credentials and connect to home AP and updates the connections status back to the DSS.
 
 Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frustration-free-setup/understand-wi-fi-simple-setup.html) for more details. 
@@ -77,7 +77,8 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 10. Now follow the next section to add Frustration Free Setup (FFS) capability on PIC32MZ-W1 / WFI32E01
 
 ## Example Project
-	A working example of FFS 
+
+A working example of FFS 
 
 #### Using DHA in PIC32MZ-W1 / WFI32E01 FFS Project
 1. The above steps would result in following files
@@ -97,55 +98,69 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 2. Choose the PIC32MZ-W1 MPLAB Harmoney 3 project to which the FFS capability is needed, its good to start with *paho_mqtt_tls_client* project.
 3. Checkout the [PIC32MZ-W1 FreeRTOS FFS](https://github.com/MicrochipTech/pic32mzw1_ffs_amazon_freertos.git) repo in the project's *../firmware/src* folder
 4. Copy the **private_key**, **certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools* folder
-5. Run the *create-ffs-credentials.py* command with device certificate and keys files 
+5. Install the certificate creation python script requirements using the pip3 install -r requirements.txt
+<p align="center"><img width="480" src="Docs/ffs-python-requirements.png">
+</p>
+
+6. Run the *create-ffs-credentials.py* command with device certificate and keys files
 <p align="center"><img width="480" src="Docs/ffs-cert-script-cmd.png">
 </p>
 
-6. It will generate the *../app/amazon_ffs_certs.h* which needs be used in the MHC presentation layer configuration
-7. Open the project MHC window and navigate to *Active Components -> TCP/IP Stack -> Presentation layer*  and change the file name to amazon_ffs_certs.h. The cert and key variable names will match the default names.
+7. It will generate the *../app/amazon_ffs_certs.h* which needs be used in the MHC presentation layer configuration
+8. Open the project MHC window and navigate to *Active Components -> TCP/IP Stack -> Presentation layer*  and change the file name to amazon_ffs_certs.h. The cert and key variable names will match the default names.
 <p align="center"><img width="480" src="Docs/mhc-amazon-ffs-cert.png">
 </p>
 
 - Note:- The Provisionee device certificate is a chain certificate and it needs to be in PEM format and wolfSSL_CTX_use_certificate_buffer() call needs to be replaced with wolfSSL_CTX_use_certificate_chain_buffer() in net_press_enc_glue.c
-7. The Amazon DSS server needs to have 'Encrypt then MAC' and 'Extended Master' features of TLS conenction and hence manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h file
+9. The Amazon DSS server needs to have 'Encrypt then MAC' and 'Extended Master' features of TLS conenction and hence manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h file
 
-8. By default the WolfSSL signature verify option is disabled by NO_SIG_WRAPPER macro. FFS demo needs to uncomment NO_SIG_WRAPPER in configuration.h file
+10. By default the WolfSSL signature verify option is disabled by NO_SIG_WRAPPER macro. FFS demo needs to uncomment NO_SIG_WRAPPER in configuration.h file
 
 
 <p align="center"><img width="480" src="Docs/wolfssl-config.png">
 </p>
 
-9. Enable SNI option in the wolfSSL library and set the NET_PRES_SNI_HOST_NAME to "*dp-sps-na.amazon.com*" in *net_pres_enc_glue.h* file
+10. Enable SNI option in the wolfSSL library and set the NET_PRES_SNI_HOST_NAME to "*dp-sps-na.amazon.com*" in *net_pres_enc_glue.h* file
 <p align="center"><img width="480" src="Docs/sni-support.png">
 </p>
 
-10. Make sure the Wi-Fi service has the scanning capability enabled and *autoconnect* disabled. 
+11. Make sure the Wi-Fi service has the scanning capability enabled and *autoconnect* disabled. 
 <p align="center"><img width="480" src="Docs/enable-scanning-autoconnect.png">
 </p>
 
-11. Download the [WSS over Wi-Fi SDK](https://developer.amazon.com/frustration-free-setup/console/v2/ajax/download/sdk) and add the *../FrustrationFreeSetupCSDK/libffs* library source into the project
+12. Download the [WSS over Wi-Fi SDK](https://developer.amazon.com/frustration-free-setup/console/v2/ajax/download/sdk) and add the *../FrustrationFreeSetupCSDK/libffs* library source into the project
 
-12. Add the PIC32MZ-W1 FreeRTOS WSS source (downloaded at step 3) from *../pic32mzw1_ffs_amazon_freertos* (app and src) folder into the project
+13. Add the PIC32MZ-W1 FreeRTOS WSS source (downloaded at step 3) from *../pic32mzw1_ffs_amazon_freertos* (app and src) folder into the project
 
-13. Edit the Device Type ID and Product Unique ID in the *../app/app_amazon_ffs.c file
+14. Edit the Device Type ID and Product Unique ID in the *../app/app_amazon_ffs.c file
 <p align="center"><img width="480" src="Docs/product-details.png">
 </p>
 
-14. Invoke the FFS_Tasks() from the Applicaiton task 
+15. Invoke the FFS_Tasks() from the Applicaiton task 
 <p align="center"><img width="480" src="Docs/ffs-app-init.png">
 </p>
 
-15. Add the include path in the project settings and build the project
+16. Provided an extra 5Kb of thread stack to accommodate the FFS memory requirements. By default the app task is created in the task.c file of the MPLAB Hamorny 3 project
+<p align="center"><img width="480" src="Docs/app-thd-stack.png">
+</p>
+
+16. The Amazon FFS library follows c99 C programming languge standard. Add the -std=c99 in the project properties -> xc32-gcc -> Additional options 
+<p align="center"><img width="480" src="Docs/c-standard-c99.png">
+</p>
+
+16. Add the include path in the project settings and build the project
 
 <p align="center"><img width="480" src="Docs/project-include.png">
 </p>
 
 ## Memory Requirements
-- The FFS memory consumption on PIC32MZ-W1 are as follows:-
-| Flash     | RAM  		|
-|:----------|:----------|
-| Cell 1    | Cell 2    |
-| Cell 1    | Cell 2    |
+- The FFS memory consumption on PIC32MZ-W1 are as follows, it includes the Amazon FFS library and PIC32MZ-W1 abstraction layer.
+
+
+	| Text | Data  |
+	|:----------|:----------|
+	| 71480    | 3812    |
+
 
 
 - The FFS task involves EC cryptographic computations and needs to have around 5K stack memory
