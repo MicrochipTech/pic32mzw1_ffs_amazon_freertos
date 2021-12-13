@@ -1,7 +1,5 @@
 # Amazon Frustration Free Setup for PIC32MZ-W1 / WFI32E01
 
-Topics: **| WFI32 | PIC32MZW1 |**
-
 Devices: **| PIC32 WFI32E | WFI32 | PIC32MZW1 |**
 
 Features: **| Amazon Frustration Free Setup| Wi-Fi Setup Service (WSS) |**
