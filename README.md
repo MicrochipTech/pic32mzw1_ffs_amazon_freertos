@@ -124,14 +124,14 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 <p align="center"><img width="480" src="Docs/mhc-amazon-ffs-cert.png">
 </p>
 
-- Note: The WSS device certificate generated during the DAK process is a chain certificate and WolfSSL API needs it in PEM format, hence even though the 'Device Certificate and Private Key format' set to ASN1, it is valid only for the devicePvtKey. The deviceCert will be in PEM format in generated amazon_ffs_certs.h (generated automatically using the python script) file
+- Note: The WSS device certificate generated during the DAK process is a chain certificate and WolfSSL API for chain certificate only accepts PEM format. Hence, even though the 'Device Certificate and Private Key format' in MHC is set to ASN1, only the devicePvtKey is in DER(ASN1) format. The deviceCert will be in PEM format in the generated amazon_ffs_certs.h file.
 
 9. Navigate to *Active Components -> System Configuration -> TCP/IP Stack -> TRANSPORT LAYER -> TCP*  and modify the TCP socket Tx buffer size to 1024 bytes and Rx buffer size to 2048.
 
 <p align="center"><img width="480" src="Docs/tcp-tx-rx-changes.png">
 </p>
 
-- Note: The Tx buffer size increase reduces the Tx re-transmitions from application while sending the scan results to DSS server and also reduces TLS handshake time. The server and Rx buffer increase fixes Amazon Frustration DSS server issue while sending FFS success/failure status. 
+- Note: The Tx buffer size increase reduces the Tx re-transmitions from application while sending the scan results to DSS server, it also reduces TLS handshake time and speeds up the FFS time. The Rx buffer increase fixes TLS handshake issue with DSS server and enables PIC32MZ-W1 to share Home AP connection status wtih DSS. 
 
 10. Navigate to *Active Components -> System Configuration -> wolfSSL Library* and enable SNI option. 
 <p align="center"><img width="480" src="Docs/sni-support.png">
@@ -145,16 +145,16 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 
 13. Open *net_pres_enc_glue.h* file in project files and set the NET_PRES_SNI_HOST_NAME to "*dp-sps-na.amazon.com*" 
 
-14. As the Provisionee device certificate is a chain certificate and it is created PEM format and hence instead of the wolfSSL_CTX_use_certificate_buffer() call use the wolfSSL_CTX_use_certificate_chain_buffer() in net_press_enc_glue.c. Also move the wolfSSL_CTX_set_verify() call just after the CTX creation.
+14. The Provisionee device certificate is a chain certificate, hence instead of the wolfSSL_CTX_use_certificate_buffer() call use the wolfSSL_CTX_use_certificate_chain_buffer() in net_press_enc_glue.c. Also move the wolfSSL_CTX_set_verify() call just after the CTX creation.
 <p align="center"><img width="480" src="Docs/net-pres-changes.png">
 </p>
 
-15. The Amazon Provisioner does not support SNTP requests and hence the FFS demo disables the certificate verify and SNTP functionalities. It needs to add TCPIP_SNTP_IsEnabled() check in the Wireless system net client task as shown in the below screenshot.
+15. The Amazon Provisioner does not support SNTP requests and hence the FFS demo disables the SNTP functionalities and disables the certificate verify feature. It requires to add TCPIP_SNTP_IsEnabled() check in the Wireless system net service client task, as shown in the below screenshot.
 
 <p align="center"><img width="480" src="Docs/sntp-changes.png">
 </p>
 
-16. The Amazon DSS server needs to have 'Encrypt then MAC' and 'Extended Master' features of TLS conenction and hence manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h or user.h(avoids code comparision while MHC code regeneration) file
+16. In addition, the Amazon DSS server needs to have 'Encrypt then MAC' and 'Extended Master' features of TLS conenction. So, manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h or user.h(avoids code comparision during MHC code regeneration) file
 
 17. By default the WolfSSL signature verify option is disabled by NO_SIG_WRAPPER macro. FFS demo needs to uncomment NO_SIG_WRAPPER in configuration.h file
 
