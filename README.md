@@ -196,7 +196,7 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 	| 71480    | 3812    |
 
 
-- The FFS task involves EC cryptographic computations and needs to have around 5K stack memory
+- The FFS task involves deeper call stack with large local variables. It also needs EC cryptographic computations, To accomodate these memory needs the FFS task needs to around 5KB of stack memory
 
 ## Demo console output
 - The FFS Console logs are disabled by default and can be enabled by adding the FFS_DEBUG macro in the preprocessor.
@@ -204,7 +204,11 @@ Please refer the [sample console output](Docs/FFSConsoleOutput.log) of the FFS D
 
 ## Known issues and Limitations
 
-- Enabling FFS_DEBUG pushes a lot of debug prints into the SYS console object. The console UART fails to push out all these bytes through UART Tx interrupt. It is suggested to increase the UART1_WRITE_BUFFER_SIZE (default 1024 bytes) to 2048 or more if the console prints are not clear. 
+- Enabling FFS_DEBUG pushes a lot of debug prints into the SYS console object. The console UART fails to push out all these bytes through UART Tx interrupt. It is suggested to increase the UART1_WRITE_BUFFER_SIZE (default 1024 bytes) to 2048 or more if the console prints are not clear.
+
+- Lesser than 2048 bytes of TCP RX buffer size results in TLS handshake failure with Amazon DSS server.
+
+ 
 
 ## FAQ
 1. **Can FFS demo work with any Amazon Provisioner device?**
