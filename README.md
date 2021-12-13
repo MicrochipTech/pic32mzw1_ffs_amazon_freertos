@@ -2,7 +2,7 @@
 
 Devices: **| PIC32 WFI32E | WFI32 | PIC32MZW1 |**
 
-Features: **| Amazon Frustration Free Setup| Wi-Fi Setup Service (WSS) |**
+Features: **| Amazon Frustration Free Setup | Wi-Fi Setup Service (WSS) |**
 
 ## Introduction
 
@@ -13,7 +13,7 @@ The Amazon Frustration Free Setup (FFS) for Wi-Fi devices is called [**Wi-Fi Sim
 The Amazon FFS (Wi-Fi Simple Setup) requires, 
 - A device(PIC32MZ-W1 / WFI32E01), [pre-attested](https://developer.amazon.com/docs/frustration-free-setup/provisionee-manufacturing.html#requesting-a-dak-from-amazon) to users Amazon Account
 - At least one [Amazon Provisionee device](https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html#testing-your-device) connected to internet
-- Wi-Fi credentials must be available at [Amazon Wi-Fi Locker](https://www.amazon.com/gp/help/customer/display.html?nodeId=202122980) (a Amazon server)
+- Home AP credentials saved at [Amazon Wi-Fi Locker](https://www.amazon.com/gp/help/customer/display.html?nodeId=202122980) (a Amazon server)
 
 ## Hardware Requirements
 - PIC32MZ-W1 Curiosity or WFI32-IoT board
@@ -34,7 +34,7 @@ The Amazon FFS (Wi-Fi Simple Setup) requires,
 - NET Service
 - Wireles System Service
 
-	- Note:- The FFS demo needs manual modifications in the net and wireless system services. Upcoming release would include these changes and avoid manual code changes described in the demo setps. While regenerating the code these should not be overwritten.
+	- Note:- The FFS demo needs manual modifications in the net and wireless system services. Upcoming release would include these changes and avoid manual code changes that are described in the demo steps. While regenerating the code these manual code changes should not be overwritten.
 
 ## Demo Setup 
 The FFS demo needs an Amazon Provisionee device (Ex: Alexa Echo Dot), a Home AP, whose credentials are already saved in the Amazon Wi-Fi Locker and a PIC32MZ-W1 / WFI32E01 board running the FFS Demo.
@@ -47,9 +47,9 @@ The following diagram shows the FFS demo setup for PIC32MZ-W1 / WFI32E01.
 
 On power up, the PIC32MZ-W1 / WFI32E01 device running FFS demo will compute a unique SSID and passphrase using the given Product ID and Device Type Public Key details. Then it starts a directed scan to find nearby Amazon Provisioner devices, once the Amazon Provisioner device in the vicinity receives scan request, it brings up a hidden secured SoftAP and lets the Provisionee device to connect to it. 
 
-On successful connection, the Provisionee establishes a secured HTTP connection with Device Setup Service (DSS) running on the Provisioner and shares the product details. The DSS will associate the device with the user's Amazon account and will proceed with the provisioning process. 
+On successful connection, the Provisionee establishes a secured HTTP connection with Device Setup Service (DSS) running on the Provisioner and shares the product details. The DSS will associate the device with the user's Amazon account and proceed with the provisioning process. 
 
-Now the Provisionee will scan and share the available access points in the vicinity with DSS. The DSS would look for a match in the user's Amazon Wi-Fi Locker and share the credentials of the matching Access point.
+Now the Provisionee will scan and share the available access points in the vicinity with DSS. The DSS would look for a match in the user's Amazon Wi-Fi Locker and shares the Wi-Fi credentials of matching Access point.
 The Provisionee will use the received credentials to connect to home AP and update connection status back to the Amazon DSS.
 
 Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frustration-free-setup/understand-wi-fi-simple-setup.html) for more details. 
@@ -63,12 +63,12 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 #### Device Attestation and Authorization
 
 1. In order to enable FFS, the product (PIC32MZ-W1 / WFI32E01 development board) should be registered at [FFS product registration](https://developer.amazon.com/frustration-free-setup/console/v2/onboard/request-device-registration)
-2. The successful registration would provide a unique Product Type ID, Product ID and a DSS public key. Save the DSS public key in a file *device_type_pubkey.pem*
+2. The successful registration will provide a unique Product Type ID, Product ID and a DSS public key. Save the DSS public key in a file *device_type_pubkey.pem*
 <p align="center"><img width="480" src="Docs/ffs-dev-registration-dss-pubKey.png">
 </p>
 
-3. The successful registration would enable generation of device specific certificates and keys
-4. The FFS setup provides, [Device Attestation Key(DAK)](https://developer.amazon.com/frustration-free-setup/console/v2/manage-daks) which acts as Provisionee's Certificate Authority.
+3. Using these information, device specific certificates and keys can be generated. 
+4. The Amazon FFS setup provides, [Device Attestation Key(DAK)](https://developer.amazon.com/frustration-free-setup/console/v2/manage-daks) which acts as Provisionee's Certificate Authority.
 5. The DAK generates certificate signing request and private key pair, the csr(certificate signing request) will be signed by Amazon. 
 6. In the next process, the Device Hardware Authentication (DHA) material is generated which will be signed by DAK.
 7. The signed DHA certificate and private key are flashed into the Non Volatile Memory (NVM) of the device.
