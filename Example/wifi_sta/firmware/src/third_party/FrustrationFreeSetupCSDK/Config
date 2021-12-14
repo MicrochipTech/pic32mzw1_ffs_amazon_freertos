@@ -1,0 +1,42 @@
+# -*-perl-*-
+
+package.FrustrationFreeSetupCSDK = {
+    interfaces = (1.0);
+
+    deploy = {
+        generic = true;
+    };
+
+    build-environment = {
+        chroot = basic;
+        network-access = blocked; # open
+    };
+
+    build-system = now-you-cmake;
+    build-tools = {
+        1.0 = {
+            NowYouCMake = 1.0;
+            NowYouCMakeExtraScripts = 1.0;
+            CRuntime = 1.0;
+            LCov = 1.1x;
+        };
+    };
+
+    dependencies = {
+        1.0 = {
+            Googletest = 1.x;
+            CRuntime = 1.0;
+        };
+    };
+
+    runtime-dependencies = {
+        1.0 = {
+        };
+    };
+
+    test-dependencies = {
+        1.0 = {
+        };
+    };
+
+};
