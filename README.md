@@ -1,4 +1,9 @@
+<style>
+H4{color:Red !important;}
+</style>
 # Amazon Frustration Free Setup for PIC32MZ-W1 / WFI32E01
+
+#### **It is a beta relase package and requires manual code changes, the final release planned for next quarter will be much simpler**
 
 Devices: **| PIC32 WFI32E | WFI32 | PIC32MZW1 |**
 
@@ -12,23 +17,23 @@ The Amazon Frustration Free Setup (FFS) for Wi-Fi devices is called [**Wi-Fi Sim
 
 The Amazon FFS (Wi-Fi Simple Setup) requires, 
 - A device(PIC32MZ-W1 / WFI32E01), [pre-attested](https://developer.amazon.com/docs/frustration-free-setup/provisionee-manufacturing.html#requesting-a-dak-from-amazon) with user's Amazon Account
-- A Amazon [Provisionee device](https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html#testing-your-device) connected to internet
+- A Amazon [Provisioner device](https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html#testing-your-device) connected to internet
 - A Home AP, who has it's credentials saved at [Amazon Wi-Fi Locker](https://www.amazon.com/gp/help/customer/display.html?nodeId=202122980) (a Amazon server)
 
-## Hardware Requirements
+### Hardware Requirements
 - [PIC32MZ-W1 Curiosity](https://www.microchip.com/en-us/development-tool/EV12F11A) or [WFI32-IoT board](https://www.microchip.com/en-us/development-tool/EV36W50A)
 - [Amazon Provisioner Device](https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html#testing-your-device)
 - Access Point with Internet
 
-## Software Requirements
-- [MPLAB XIDE](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide) (v5.50 or later)
+### Software Requirements
+- [MPLAB X IDE](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide) (v5.50 or later)
 - [MPLAB XC32](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers) (v2.41 or later)
 - [MPLAB Harmony 3](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-harmony-v3)
 - [python 3.x](https://www.python.org/downloads/)
 
 	- Note: The project was developed and tested using the MPLAB X v5.50, MPLAB XC32 v2.41 and python 3.9
 
-## MPLAB Harmony 3 Project prerequisite
+### MPLAB Harmony 3 Project prerequisite
 - FreeRTOS 
 - Wolf-SSL 
 - NET Service
@@ -59,8 +64,8 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 
 
 
-## Enabling WSS on PIC32MZ-W1 / WFI32E01
-#### Device Attestation and Authorization
+### Enabling WSS on PIC32MZ-W1 / WFI32E01
+### Device Attestation and Authorization
 
 1. In order to enable FFS, the product (PIC32MZ-W1 / WFI32E01 development board) should be registered at [FFS product registration](https://developer.amazon.com/frustration-free-setup/console/v2/onboard/request-device-registration)
 2. The successful registration will provide a unique Product Type ID, Product ID and a DSS public key. Save the DSS public key in a file *device_type_pubkey.pem*
@@ -80,7 +85,7 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 
 A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is available in the [Example](Example/) folder of the repository. The example project uses wifi_sta example as a base.
 
-#### Using DHA in PIC32MZ-W1 / WFI32E01 FFS Project
+### Using DHA in PIC32MZ-W1 / WFI32E01 FFS Project
 1. The "Device Attestation and Authorization" steps would result in following files
 	-  dak.conf
 	-  dak-params.pem
@@ -173,7 +178,7 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 <p align="center"><img width="480" src="Docs/ffs-app-init.png">
 </p>
 
-22. Provided an extra 5Kb of thread stack to accommodate the FFS memory requirements. By default the app task is created in the task.c file of the MPLAB Hamorny 3 project
+22. Provided an extra 5KB words of thread stack to accommodate the FFS memory requirements. By default the app task is created in the task.c file of the MPLAB Hamorny 3 project
 <p align="center"><img width="480" src="Docs/app-thd-stack.png">
 </p>
 
@@ -196,7 +201,7 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 	| 71480    | 3812    |
 
 
-- The FFS task involves deeper call stack with large local variables. It also needs EC cryptographic computations, To accomodate these memory needs the FFS task needs to around 5KB of stack memory
+- The FFS task involves deeper call stack with large local variables. It also needs EC cryptographic computations, To accomodate these memory needs the FFS task needs an extra 5K words of stack memory
 
 ## Demo console output
 - The FFS Console logs are disabled by default and can be enabled by adding the FFS_DEBUG macro in the preprocessor.
