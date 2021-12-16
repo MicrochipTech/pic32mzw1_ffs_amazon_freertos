@@ -1,0 +1,13 @@
+Copyright 2018 Amazon.com, Inc. or its affiliates.  All rights reserved.
+
+AMAZON PROPRIETARY/CONFIDENTIAL
+
+These materials are licensed as "Restricted Program Materials" under the Program Materials License Agreement (the "Agreement") in connection with the Amazon Wi-Fi Simple Setup Program.  The Agreement is available at https://developer.amazon.com/public/support/pml.html.  See the Agreement for the specific terms and conditions of the Agreement.  Capitalized terms not defined in this file have the meanings given to them in the Agreement.
+
+In addition to the terms and conditions of the Agreement, the following terms and conditions apply to these materials, with the exception of files identified as a "Modifiable File" within the file header.  If there is a conflict between the terms and conditions of the Agreement and those of this file, the terms and conditions of this file will apply.
+
+1.         You may not modify any source code in any file in this package. 
+
+If you do not agree to the above terms and conditions, you may not use any file in this package.
+
+YOUR USE OF THE PROGRAM MATERIALS IN OR ASSOCIATED WITH THIS PACKAGE IS AT YOUR SOLE RISK.  IN NO EVENT WILL AMAZON BE LIABLE FOR ANY DAMAGES, INCLUDING WITHOUT LIMITATION ANY DIRECT, INDIRECT, CONSEQUENTIAL, SPECIAL, INCIDENTAL, OR PUNITIVE DAMAGES (INCLUDING FOR ANY LOSS OF GOODWILL, BUSINESS INTERRUPTION, LOST PROFITS OR DATA, OR COMPUTER FAILURE OR MALFUNCTION) ARISING FROM OR RELATING TO SUCH PROGRAM MATERIALS, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, EVEN IF AMAZON HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  THESE LIMITATIONS AND DISCLAIMERS APPLY EXCEPT TO THE EXTENT PROHIBITED BY APPLICABLE LAW.
