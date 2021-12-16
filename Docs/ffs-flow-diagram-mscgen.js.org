@@ -1,0 +1,25 @@
+# Amazon FFS flow 
+msc {
+  hscale="2.0", wordwraparcs=on;
+
+  Provisionee, Provisioner, DSS;
+
+
+  Provisionee => Provisioner [label="Conenct to Provisioner's SoftAP"];
+  Provisionee => Provisioner [label="Establish HTTPS Connection with DSS"];
+  Provisioner >> DSS [label="Connect to DSS"];
+  --- [label="HTTPS Link is up"] ;
+  Provisionee => Provisioner [label="Send the device details to DSS"];
+  Provisioner >> DSS [label = "Device details"];
+  DSS << DSS [label = "Associate the device to user account"];
+  DSS >> Provisioner [label = "Device association success"];
+  Provisioner => Provisionee [label = "Device is associated"];
+
+  Provisionee => Provisioner [label = "Scan Wi-Fi Devices and send results to DSS"];
+  Provisioner >> DSS [label = "Scan results"];  
+  DSS >> DSS [label = "Check with user's Wi-Fi locker for a match"];
+  DSS >> Provisioner [label = "Match found, share the credentials"];  
+  Provisioner => Provisionee [label="Received the Home AP credentials"];
+  
+}
+
