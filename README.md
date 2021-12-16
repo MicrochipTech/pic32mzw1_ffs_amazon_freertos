@@ -1,6 +1,3 @@
-<style>
-H4{color:Red !important;}
-</style>
 # Amazon Frustration Free Setup for PIC32MZ-W1 / WFI32E01
 
 #### **It is a beta relase package and requires manual code changes, the final release planned for next quarter will be much simpler**
