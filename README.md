@@ -56,7 +56,7 @@ The Provisionee will use the received credentials to connect to home AP and upda
 
 Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frustration-free-setup/understand-wi-fi-simple-setup.html) for more details. 
 
-<p align="center"><img width="480" src="Docs/WSS-FlowDiagram.png">
+<p align="center"><img width="480" src="Docs/mscgenjs_chart.jpg">
 </p>
 
 
