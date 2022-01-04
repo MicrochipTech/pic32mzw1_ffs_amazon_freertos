@@ -1,6 +1,6 @@
 # Amazon Frustration Free Setup for PIC32MZ-W1 / WFI32E01
 
-#### **It is a beta relase package and requires manual code changes, the final release planned for next quarter will be much simpler**
+#### **It is a beta relase package and requires manual code changes, the final release planned for CQ1-2022 will be much simpler**
 
 Devices: **| PIC32 WFI32E | WFI32 | PIC32MZW1 |**
 
