@@ -100,6 +100,15 @@ FFS_RESULT ffsComputeECDHKey(struct FfsUserContext_s *userContext, FfsStream_t *
     ecc_key pubKey, privKey;
     
     wc_ecc_init(&privKey);
+    
+    ret = wc_KeyPemToDer(FFS_STREAM_NEXT_READ(userContext->devicePrivateKey), (word32)FFS_STREAM_DATA_SIZE(userContext->devicePrivateKey), 
+            FFS_STREAM_NEXT_READ(userContext->devicePrivateKey), (word32)FFS_STREAM_DATA_SIZE(userContext->devicePrivateKey), NULL);
+    if(ret < 0)
+    {
+        ffsLogDebug("Failed to Convert PEM to DER\n");
+        return FFS_ERROR;
+    } 
+    
     if((ret = wc_EccPrivateKeyDecode(FFS_STREAM_NEXT_READ(userContext->devicePrivateKey), &idx, &privKey, 
             FFS_STREAM_DATA_SIZE(userContext->devicePrivateKey)) < 0))
     {

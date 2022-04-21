@@ -152,7 +152,7 @@ bool NET_PRES_EncProviderStreamClientInit0(NET_PRES_TransportObject * transObjec
         wolfSSL_CTX_free(net_pres_wolfSSLInfoStreamClient0.context);
         return false;
     }
-    if (wolfSSL_CTX_use_PrivateKey_buffer(net_pres_wolfSSLInfoStreamClient0.context, pvtKeyPtr, pvtKeyLen, SSL_FILETYPE_ASN1) != SSL_SUCCESS)
+    if (wolfSSL_CTX_use_PrivateKey_buffer(net_pres_wolfSSLInfoStreamClient0.context, pvtKeyPtr, pvtKeyLen, WOLFSSL_FILETYPE_ASN1) != SSL_SUCCESS)
     {
         // Couldn't load the device private key
         //SYS_CONSOLE_MESSAGE("Something went wrong loading the device private key\r\n");

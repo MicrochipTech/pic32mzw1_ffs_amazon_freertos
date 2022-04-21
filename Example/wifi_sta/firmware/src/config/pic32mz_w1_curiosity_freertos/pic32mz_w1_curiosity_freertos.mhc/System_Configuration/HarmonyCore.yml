@@ -37,13 +37,13 @@ children:
         - type: Pairs
           children:
           - type: Pair
-            attributes: {description: 'TRUE', value: '2', key: ENABLE_DRV_COMMON}
+            attributes: {description: 'TRUE', value: '6', key: ENABLE_DRV_COMMON}
           - type: Pair
-            attributes: {description: 'TRUE', value: '3', key: ENABLE_SYS_COMMON}
+            attributes: {description: 'TRUE', value: '7', key: ENABLE_SYS_COMMON}
           - type: Pair
-            attributes: {description: 'FALSE', value: '0', key: ENABLE_SYS_MEDIA}
+            attributes: {description: 'TRUE', value: '2', key: ENABLE_SYS_MEDIA}
           - type: Pair
-            attributes: {description: 'FALSE', value: '0', key: ENABLE_SYS_PORTS}
+            attributes: {description: 'TRUE', value: '1', key: ENABLE_SYS_PORTS}
           - type: Pair
             attributes: {description: 'FALSE', value: '0', key: ENABLE_SYS_DMA}
           - type: Pair
@@ -108,7 +108,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: HarmonyCore, value: 'false'}
+        attributes: {id: HarmonyCore, value: 'true'}
   - type: Boolean
     attributes: {id: ENABLE_SYS_COMMON}
     children:
@@ -130,6 +130,32 @@ children:
       - type: Dynamic
         attributes: {id: HarmonyCore, value: 'true'}
   - type: Boolean
+    attributes: {id: ENABLE_SYS_MEDIA}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: readOnly}
+        children:
+        - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: HarmonyCore, value: 'true'}
+  - type: Boolean
+    attributes: {id: ENABLE_SYS_PORTS}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: readOnly}
+        children:
+        - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: HarmonyCore, value: 'true'}
+  - type: Boolean
     attributes: {id: ENABLE_SYS_RESET}
     children:
     - type: Attributes
@@ -138,6 +164,26 @@ children:
         attributes: {id: readOnly}
         children:
         - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: sysWifiPic32mzw1, value: 'true'}
+  - type: Integer
+    attributes: {id: GEN_APP_RTOS_TASK_0_DELAY}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: sysWifiPic32mzw1, value: '4000'}
+  - type: Boolean
+    attributes: {id: GEN_APP_RTOS_TASK_0_USE_DELAY}
+    children:
     - type: Values
       children:
       - type: Dynamic
@@ -278,6 +324,33 @@ children:
         children:
         - {type: Value, value: 'true'}
   - type: File
+    attributes: {id: PORTS_DEF}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'true'}
+  - type: File
+    attributes: {id: PORTS_HEADER}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'true'}
+  - type: File
+    attributes: {id: PORTS_MAPPING}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'true'}
+  - type: File
     attributes: {id: RESET_DEF}
     children:
     - type: Attributes
@@ -321,6 +394,15 @@ children:
         children:
         - {type: Value, value: 'true'}
   - type: File
+    attributes: {id: SYSTEM_MEDIA}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'true'}
+  - type: File
     attributes: {id: SYSTEM_MODULE}
     children:
     - type: Attributes
@@ -331,6 +413,33 @@ children:
         - {type: Value, value: 'true'}
   - type: File
     attributes: {id: SYSTEM_ROOT}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'true'}
+  - type: File
+    attributes: {id: SYS_CACHE_DEF}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'true'}
+  - type: File
+    attributes: {id: SYS_CACHE_HEADER}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'true'}
+  - type: File
+    attributes: {id: SYS_CACHE_SOURCE}
     children:
     - type: Attributes
       children:

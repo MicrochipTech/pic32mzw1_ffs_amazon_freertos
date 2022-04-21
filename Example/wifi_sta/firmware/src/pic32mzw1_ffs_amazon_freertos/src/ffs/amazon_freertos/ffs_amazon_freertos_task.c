@@ -46,6 +46,7 @@ FFS_PROVISIONING_RESULT ffsProvisionDevice(FfsProvisioningArguments_t *provision
         return FFS_PROVISIONING_RESULT_INVALID_ARGUEMENT;
     }
 
+
     // No certificate?
     if (provisioningArguments->certificate == NULL) {
         ffsLogError("Provide non-null certificate data to provision device.");

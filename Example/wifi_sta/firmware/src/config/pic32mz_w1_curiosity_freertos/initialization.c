@@ -100,7 +100,7 @@
 #pragma config CLASSBDIS =         DISABLE
 #pragma config USBIDIO =         ON
 #pragma config VBUSIO =         ON
-#pragma config HSSPIEN =         OFF
+#pragma config HSSPIEN =         ON
 #pragma config SMCLR =      MCLR_NORM
 #pragma config USBDMTRIM =      0
 #pragma config USBDPTRIM =      0
@@ -149,6 +149,58 @@
 // Section: Driver Initialization Data
 // *****************************************************************************
 // *****************************************************************************
+// <editor-fold defaultstate="collapsed" desc="DRV_MEMORY Instance 0 Initialization Data">
+
+static uint8_t gDrvMemory0EraseBuffer[DRV_SST26_ERASE_BUFFER_SIZE] CACHE_ALIGN;
+
+static DRV_MEMORY_CLIENT_OBJECT gDrvMemory0ClientObject[DRV_MEMORY_CLIENTS_NUMBER_IDX0];
+
+static DRV_MEMORY_BUFFER_OBJECT gDrvMemory0BufferObject[DRV_MEMORY_BUFFER_QUEUE_SIZE_IDX0];
+
+const DRV_MEMORY_DEVICE_INTERFACE drvMemory0DeviceAPI = {
+    .Open               = DRV_SST26_Open,
+    .Close              = DRV_SST26_Close,
+    .Status             = DRV_SST26_Status,
+    .SectorErase        = DRV_SST26_SectorErase,
+    .Read               = DRV_SST26_Read,
+    .PageWrite          = DRV_SST26_PageWrite,
+    .EventHandlerSet    = (DRV_MEMORY_DEVICE_EVENT_HANDLER_SET)DRV_SST26_EventHandlerSet,
+    .GeometryGet        = (DRV_MEMORY_DEVICE_GEOMETRY_GET)DRV_SST26_GeometryGet,
+    .TransferStatusGet  = (DRV_MEMORY_DEVICE_TRANSFER_STATUS_GET)DRV_SST26_TransferStatusGet
+};
+
+const DRV_MEMORY_INIT drvMemory0InitData =
+{
+    .memDevIndex                = DRV_SST26_INDEX,
+    .memoryDevice               = &drvMemory0DeviceAPI,
+    .isMemDevInterruptEnabled   = true,
+    .isFsEnabled                = true,
+    .deviceMediaType            = (uint8_t)SYS_FS_MEDIA_TYPE_SPIFLASH,
+    .ewBuffer                   = &gDrvMemory0EraseBuffer[0],
+    .clientObjPool              = (uintptr_t)&gDrvMemory0ClientObject[0],
+    .bufferObj                  = (uintptr_t)&gDrvMemory0BufferObject[0],
+    .queueSize                  = DRV_MEMORY_BUFFER_QUEUE_SIZE_IDX0,
+    .nClientsMax                = DRV_MEMORY_CLIENTS_NUMBER_IDX0
+};
+
+// </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="DRV_SST26 Initialization Data">
+
+const DRV_SST26_PLIB_INTERFACE drvSST26PlibAPI = {
+    .writeRead          = (DRV_SST26_PLIB_WRITE_READ)SPI1_WriteRead,
+    .write              = (DRV_SST26_PLIB_WRITE)SPI1_Write,
+    .read               = (DRV_SST26_PLIB_READ)SPI1_Read,
+    .isBusy             = (DRV_SST26_PLIB_IS_BUSY)SPI1_IsBusy,
+    .callbackRegister   = (DRV_SST26_PLIB_CALLBACK_REGISTER)SPI1_CallbackRegister,
+};
+
+const DRV_SST26_INIT drvSST26InitData =
+{
+    .sst26Plib      = &drvSST26PlibAPI,
+    .chipSelectPin  = DRV_SST26_CHIP_SELECT_PIN
+};
+// </editor-fold>
+
 static CRYPT_RNG_CTX wdrvRngCtx;
 static const WDRV_PIC32MZW_SYS_INIT wdrvPIC32MZW1InitData = {
     .pCryptRngCtx  = &wdrvRngCtx,
@@ -172,6 +224,189 @@ SYSTEM_OBJECTS sysObj;
 // Section: Library/Stack Initialization Data
 // *****************************************************************************
 // *****************************************************************************
+/* Net Presentation Layer Data Definitions */
+#include "net_pres/pres/net_pres_enc_glue.h"
+
+static const NET_PRES_TransportObject netPresTransObject0SS = {
+    .fpOpen        = (NET_PRES_TransOpen)TCPIP_TCP_ServerOpen,
+    .fpLocalBind         = (NET_PRES_TransBind)TCPIP_TCP_Bind,
+    .fpRemoteBind        = (NET_PRES_TransBind)TCPIP_TCP_RemoteBind,
+    .fpOptionGet         = (NET_PRES_TransOption)TCPIP_TCP_OptionsGet,
+    .fpOptionSet         = (NET_PRES_TransOption)TCPIP_TCP_OptionsSet,
+    .fpIsConnected       = (NET_PRES_TransBool)TCPIP_TCP_IsConnected,
+    .fpWasReset          = (NET_PRES_TransBool)TCPIP_TCP_WasReset,
+    .fpWasDisconnected   = (NET_PRES_TransBool)TCPIP_TCP_WasDisconnected,
+    .fpDisconnect        = (NET_PRES_TransBool)TCPIP_TCP_Disconnect,
+    .fpConnect           = (NET_PRES_TransBool)TCPIP_TCP_Connect,
+    .fpClose             = (NET_PRES_TransClose)TCPIP_TCP_Close,
+    .fpSocketInfoGet     = (NET_PRES_TransSocketInfoGet)TCPIP_TCP_SocketInfoGet,
+    .fpFlush             = (NET_PRES_TransBool)TCPIP_TCP_Flush,
+    .fpPeek              = (NET_PRES_TransPeek)TCPIP_TCP_ArrayPeek,
+    .fpDiscard           = (NET_PRES_TransDiscard)TCPIP_TCP_Discard,
+    .fpHandlerRegister   = (NET_PRES_TransHandlerRegister)TCPIP_TCP_SignalHandlerRegister,
+    .fpHandlerDeregister = (NET_PRES_TransSignalHandlerDeregister)TCPIP_TCP_SignalHandlerDeregister,
+    .fpRead              = (NET_PRES_TransRead)TCPIP_TCP_ArrayGet,
+    .fpWrite             = (NET_PRES_TransWrite)TCPIP_TCP_ArrayPut,
+    .fpReadyToRead       = (NET_PRES_TransReady)TCPIP_TCP_GetIsReady,
+    .fpReadyToWrite      = (NET_PRES_TransReady)TCPIP_TCP_PutIsReady,
+    .fpIsPortDefaultSecure = (NET_PRES_TransIsPortDefaultSecured)TCPIP_Helper_TCPSecurePortGet,
+};
+static const NET_PRES_TransportObject netPresTransObject0SC = {
+    .fpOpen        = (NET_PRES_TransOpen)TCPIP_TCP_ClientOpen,
+    .fpLocalBind         = (NET_PRES_TransBind)TCPIP_TCP_Bind,
+    .fpRemoteBind        = (NET_PRES_TransBind)TCPIP_TCP_RemoteBind,
+    .fpOptionGet         = (NET_PRES_TransOption)TCPIP_TCP_OptionsGet,
+    .fpOptionSet         = (NET_PRES_TransOption)TCPIP_TCP_OptionsSet,
+    .fpIsConnected       = (NET_PRES_TransBool)TCPIP_TCP_IsConnected,
+    .fpWasReset          = (NET_PRES_TransBool)TCPIP_TCP_WasReset,
+    .fpWasDisconnected   = (NET_PRES_TransBool)TCPIP_TCP_WasDisconnected,
+    .fpDisconnect        = (NET_PRES_TransBool)TCPIP_TCP_Disconnect,
+    .fpConnect           = (NET_PRES_TransBool)TCPIP_TCP_Connect,
+    .fpClose             = (NET_PRES_TransClose)TCPIP_TCP_Close,
+    .fpSocketInfoGet     = (NET_PRES_TransSocketInfoGet)TCPIP_TCP_SocketInfoGet,
+    .fpFlush             = (NET_PRES_TransBool)TCPIP_TCP_Flush,
+    .fpPeek              = (NET_PRES_TransPeek)TCPIP_TCP_ArrayPeek,
+    .fpDiscard           = (NET_PRES_TransDiscard)TCPIP_TCP_Discard,
+    .fpHandlerRegister   = (NET_PRES_TransHandlerRegister)TCPIP_TCP_SignalHandlerRegister,
+    .fpHandlerDeregister = (NET_PRES_TransSignalHandlerDeregister)TCPIP_TCP_SignalHandlerDeregister,
+    .fpRead              = (NET_PRES_TransRead)TCPIP_TCP_ArrayGet,
+    .fpWrite             = (NET_PRES_TransWrite)TCPIP_TCP_ArrayPut,
+    .fpReadyToRead       = (NET_PRES_TransReady)TCPIP_TCP_GetIsReady,
+    .fpReadyToWrite      = (NET_PRES_TransReady)TCPIP_TCP_PutIsReady,
+    .fpIsPortDefaultSecure = (NET_PRES_TransIsPortDefaultSecured)TCPIP_Helper_TCPSecurePortGet,
+};
+static const NET_PRES_TransportObject netPresTransObject0DS = {
+    .fpOpen        = (NET_PRES_TransOpen)TCPIP_UDP_ServerOpen,
+    .fpLocalBind         = (NET_PRES_TransBind)TCPIP_UDP_Bind,
+    .fpRemoteBind        = (NET_PRES_TransBind)TCPIP_UDP_RemoteBind,
+    .fpOptionGet         = (NET_PRES_TransOption)TCPIP_UDP_OptionsGet,
+    .fpOptionSet         = (NET_PRES_TransOption)TCPIP_UDP_OptionsSet,
+    .fpIsConnected       = (NET_PRES_TransBool)TCPIP_UDP_IsConnected,
+    .fpWasReset          = NULL,
+    .fpWasDisconnected   = NULL,
+    .fpDisconnect        = (NET_PRES_TransBool)TCPIP_UDP_Disconnect,
+    .fpConnect          = NULL,
+    .fpClose             = (NET_PRES_TransClose)TCPIP_UDP_Close,
+    .fpSocketInfoGet     = (NET_PRES_TransSocketInfoGet)TCPIP_UDP_SocketInfoGet,
+    .fpFlush             = (NET_PRES_TransBool)TCPIP_UDP_Flush,
+    .fpPeek              = NULL,
+    .fpDiscard           = (NET_PRES_TransDiscard)TCPIP_UDP_Discard,
+    .fpHandlerRegister   = (NET_PRES_TransHandlerRegister)TCPIP_UDP_SignalHandlerRegister,
+    .fpHandlerDeregister = (NET_PRES_TransSignalHandlerDeregister)TCPIP_UDP_SignalHandlerDeregister,
+    .fpRead              = (NET_PRES_TransRead)TCPIP_UDP_ArrayGet,
+    .fpWrite             = (NET_PRES_TransWrite)TCPIP_UDP_ArrayPut,
+    .fpReadyToRead       = (NET_PRES_TransReady)TCPIP_UDP_GetIsReady,
+    .fpReadyToWrite      = (NET_PRES_TransReady)TCPIP_UDP_PutIsReady,
+    .fpIsPortDefaultSecure = (NET_PRES_TransIsPortDefaultSecured)TCPIP_Helper_UDPSecurePortGet,
+};
+static const NET_PRES_TransportObject netPresTransObject0DC = {
+    .fpOpen        = (NET_PRES_TransOpen)TCPIP_UDP_ClientOpen,
+    .fpLocalBind         = (NET_PRES_TransBind)TCPIP_UDP_Bind,
+    .fpRemoteBind        = (NET_PRES_TransBind)TCPIP_UDP_RemoteBind,
+    .fpOptionGet         = (NET_PRES_TransOption)TCPIP_UDP_OptionsGet,
+    .fpOptionSet         = (NET_PRES_TransOption)TCPIP_UDP_OptionsSet,
+    .fpIsConnected       = (NET_PRES_TransBool)TCPIP_UDP_IsConnected,
+    .fpWasReset          = NULL,
+    .fpWasDisconnected   = NULL,
+    .fpDisconnect        = (NET_PRES_TransBool)TCPIP_UDP_Disconnect,
+    .fpConnect          = NULL,
+    .fpClose             = (NET_PRES_TransClose)TCPIP_UDP_Close,
+    .fpSocketInfoGet     = (NET_PRES_TransSocketInfoGet)TCPIP_UDP_SocketInfoGet,
+    .fpFlush             = (NET_PRES_TransBool)TCPIP_UDP_Flush,
+    .fpPeek              = NULL,
+    .fpDiscard           = (NET_PRES_TransDiscard)TCPIP_UDP_Discard,
+    .fpHandlerRegister   = (NET_PRES_TransHandlerRegister)TCPIP_UDP_SignalHandlerRegister,
+    .fpHandlerDeregister = (NET_PRES_TransSignalHandlerDeregister)TCPIP_UDP_SignalHandlerDeregister,
+    .fpRead              = (NET_PRES_TransRead)TCPIP_UDP_ArrayGet,
+    .fpWrite             = (NET_PRES_TransWrite)TCPIP_UDP_ArrayPut,
+    .fpReadyToRead       = (NET_PRES_TransReady)TCPIP_UDP_GetIsReady,
+    .fpReadyToWrite      = (NET_PRES_TransReady)TCPIP_UDP_PutIsReady,
+    .fpIsPortDefaultSecure = (NET_PRES_TransIsPortDefaultSecured)TCPIP_Helper_UDPSecurePortGet,
+};
+
+static const NET_PRES_INST_DATA netPresCfgs[] = 
+{  
+        
+    {
+        .pTransObject_ss = &netPresTransObject0SS,
+        .pTransObject_sc = &netPresTransObject0SC,
+        .pTransObject_ds = &netPresTransObject0DS,
+        .pTransObject_dc = &netPresTransObject0DC,
+        .pProvObject_ss = NULL,
+        .pProvObject_sc = &net_pres_EncProviderStreamClient0,
+        .pProvObject_ds = NULL,
+        .pProvObject_dc = NULL,
+    },
+        
+};
+
+static const NET_PRES_INIT_DATA netPresInitData = 
+{
+    .numLayers = sizeof(netPresCfgs) / sizeof(NET_PRES_INST_DATA),
+    .pInitData = netPresCfgs
+};
+  
+ 
+
+// <editor-fold defaultstate="collapsed" desc="File System Initialization Data">
+
+
+const SYS_FS_MEDIA_MOUNT_DATA sysfsMountTable[SYS_FS_VOLUME_NUMBER] =
+{
+    {NULL}
+};
+
+const SYS_FS_FUNCTIONS FatFsFunctions =
+{
+    .mount             = FATFS_mount,
+    .unmount           = FATFS_unmount,
+    .open              = FATFS_open,
+    .read              = FATFS_read,
+    .close             = FATFS_close,
+    .seek              = FATFS_lseek,
+    .fstat             = FATFS_stat,
+    .getlabel          = FATFS_getlabel,
+    .currWD            = FATFS_getcwd,
+    .getstrn           = FATFS_gets,
+    .openDir           = FATFS_opendir,
+    .readDir           = FATFS_readdir,
+    .closeDir          = FATFS_closedir,
+    .chdir             = FATFS_chdir,
+    .chdrive           = FATFS_chdrive,
+    .write             = FATFS_write,
+    .tell              = FATFS_tell,
+    .eof               = FATFS_eof,
+    .size              = FATFS_size,
+    .mkdir             = FATFS_mkdir,
+    .remove            = FATFS_unlink,
+    .setlabel          = FATFS_setlabel,
+    .truncate          = FATFS_truncate,
+    .chmode            = FATFS_chmod,
+    .chtime            = FATFS_utime,
+    .rename            = FATFS_rename,
+    .sync              = FATFS_sync,
+    .putchr            = FATFS_putc,
+    .putstrn           = FATFS_puts,
+    .formattedprint    = FATFS_printf,
+    .testerror         = FATFS_error,
+    .formatDisk        = (FORMAT_DISK)FATFS_mkfs,
+    .partitionDisk     = FATFS_fdisk,
+    .getCluster        = FATFS_getclusters
+};
+
+
+
+const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ] =
+{
+    {
+        .nativeFileSystemType = FAT,
+        .nativeFileSystemFunctions = &FatFsFunctions
+    },
+};
+
+
+// </editor-fold>
+
 
 
 static const DRV_BA414E_INIT_DATA ba414eInitData = 
@@ -179,6 +414,46 @@ static const DRV_BA414E_INIT_DATA ba414eInitData =
 };
   
  
+
+/******************************************************
+ * USB Driver Initialization
+ ******************************************************/
+
+uint8_t __attribute__((aligned(512))) USB_ALIGN endPointTable1[DRV_USBFS_ENDPOINTS_NUMBER * 32];
+
+
+const DRV_USBFS_INIT drvUSBFSInit =
+{
+	 /* Assign the endpoint table */
+    .endpointTable= endPointTable1,
+
+
+
+
+	/* Interrupt Source for USB module */
+	.interruptSource = INT_SOURCE_USB,
+    
+    /* USB Controller to operate as USB Device */
+    .operationMode = DRV_USBFS_OPMODE_DEVICE,
+	
+	.operationSpeed = USB_SPEED_FULL,
+ 
+	/* Stop in idle */
+    .stopInIdle = false,
+	
+	    /* Suspend in sleep */
+    .suspendInSleep = false,
+ 
+    /* Identifies peripheral (PLIB-level) ID */
+    .usbID = USB_ID_1,
+	
+
+};
+
+
+
+
+
 
 
 // <editor-fold defaultstate="collapsed" desc="TCP/IP Stack Initialization Data">
@@ -375,130 +650,6 @@ SYS_MODULE_OBJ TCPIP_STACK_Init(void)
 }
 // </editor-fold>
 
-/* Net Presentation Layer Data Definitions */
-#include "net_pres/pres/net_pres_enc_glue.h"
-
-static const NET_PRES_TransportObject netPresTransObject0SS = {
-    .fpOpen        = (NET_PRES_TransOpen)TCPIP_TCP_ServerOpen,
-    .fpLocalBind         = (NET_PRES_TransBind)TCPIP_TCP_Bind,
-    .fpRemoteBind        = (NET_PRES_TransBind)TCPIP_TCP_RemoteBind,
-    .fpOptionGet         = (NET_PRES_TransOption)TCPIP_TCP_OptionsGet,
-    .fpOptionSet         = (NET_PRES_TransOption)TCPIP_TCP_OptionsSet,
-    .fpIsConnected       = (NET_PRES_TransBool)TCPIP_TCP_IsConnected,
-    .fpWasReset          = (NET_PRES_TransBool)TCPIP_TCP_WasReset,
-    .fpWasDisconnected   = (NET_PRES_TransBool)TCPIP_TCP_WasDisconnected,
-    .fpDisconnect        = (NET_PRES_TransBool)TCPIP_TCP_Disconnect,
-    .fpConnect           = (NET_PRES_TransBool)TCPIP_TCP_Connect,
-    .fpClose             = (NET_PRES_TransClose)TCPIP_TCP_Close,
-    .fpSocketInfoGet     = (NET_PRES_TransSocketInfoGet)TCPIP_TCP_SocketInfoGet,
-    .fpFlush             = (NET_PRES_TransBool)TCPIP_TCP_Flush,
-    .fpPeek              = (NET_PRES_TransPeek)TCPIP_TCP_ArrayPeek,
-    .fpDiscard           = (NET_PRES_TransDiscard)TCPIP_TCP_Discard,
-    .fpHandlerRegister   = (NET_PRES_TransHandlerRegister)TCPIP_TCP_SignalHandlerRegister,
-    .fpHandlerDeregister = (NET_PRES_TransSignalHandlerDeregister)TCPIP_TCP_SignalHandlerDeregister,
-    .fpRead              = (NET_PRES_TransRead)TCPIP_TCP_ArrayGet,
-    .fpWrite             = (NET_PRES_TransWrite)TCPIP_TCP_ArrayPut,
-    .fpReadyToRead       = (NET_PRES_TransReady)TCPIP_TCP_GetIsReady,
-    .fpReadyToWrite      = (NET_PRES_TransReady)TCPIP_TCP_PutIsReady,
-    .fpIsPortDefaultSecure = (NET_PRES_TransIsPortDefaultSecured)TCPIP_Helper_TCPSecurePortGet,
-};
-static const NET_PRES_TransportObject netPresTransObject0SC = {
-    .fpOpen        = (NET_PRES_TransOpen)TCPIP_TCP_ClientOpen,
-    .fpLocalBind         = (NET_PRES_TransBind)TCPIP_TCP_Bind,
-    .fpRemoteBind        = (NET_PRES_TransBind)TCPIP_TCP_RemoteBind,
-    .fpOptionGet         = (NET_PRES_TransOption)TCPIP_TCP_OptionsGet,
-    .fpOptionSet         = (NET_PRES_TransOption)TCPIP_TCP_OptionsSet,
-    .fpIsConnected       = (NET_PRES_TransBool)TCPIP_TCP_IsConnected,
-    .fpWasReset          = (NET_PRES_TransBool)TCPIP_TCP_WasReset,
-    .fpWasDisconnected   = (NET_PRES_TransBool)TCPIP_TCP_WasDisconnected,
-    .fpDisconnect        = (NET_PRES_TransBool)TCPIP_TCP_Disconnect,
-    .fpConnect           = (NET_PRES_TransBool)TCPIP_TCP_Connect,
-    .fpClose             = (NET_PRES_TransClose)TCPIP_TCP_Close,
-    .fpSocketInfoGet     = (NET_PRES_TransSocketInfoGet)TCPIP_TCP_SocketInfoGet,
-    .fpFlush             = (NET_PRES_TransBool)TCPIP_TCP_Flush,
-    .fpPeek              = (NET_PRES_TransPeek)TCPIP_TCP_ArrayPeek,
-    .fpDiscard           = (NET_PRES_TransDiscard)TCPIP_TCP_Discard,
-    .fpHandlerRegister   = (NET_PRES_TransHandlerRegister)TCPIP_TCP_SignalHandlerRegister,
-    .fpHandlerDeregister = (NET_PRES_TransSignalHandlerDeregister)TCPIP_TCP_SignalHandlerDeregister,
-    .fpRead              = (NET_PRES_TransRead)TCPIP_TCP_ArrayGet,
-    .fpWrite             = (NET_PRES_TransWrite)TCPIP_TCP_ArrayPut,
-    .fpReadyToRead       = (NET_PRES_TransReady)TCPIP_TCP_GetIsReady,
-    .fpReadyToWrite      = (NET_PRES_TransReady)TCPIP_TCP_PutIsReady,
-    .fpIsPortDefaultSecure = (NET_PRES_TransIsPortDefaultSecured)TCPIP_Helper_TCPSecurePortGet,
-};
-static const NET_PRES_TransportObject netPresTransObject0DS = {
-    .fpOpen        = (NET_PRES_TransOpen)TCPIP_UDP_ServerOpen,
-    .fpLocalBind         = (NET_PRES_TransBind)TCPIP_UDP_Bind,
-    .fpRemoteBind        = (NET_PRES_TransBind)TCPIP_UDP_RemoteBind,
-    .fpOptionGet         = (NET_PRES_TransOption)TCPIP_UDP_OptionsGet,
-    .fpOptionSet         = (NET_PRES_TransOption)TCPIP_UDP_OptionsSet,
-    .fpIsConnected       = (NET_PRES_TransBool)TCPIP_UDP_IsConnected,
-    .fpWasReset          = NULL,
-    .fpWasDisconnected   = NULL,
-    .fpDisconnect        = (NET_PRES_TransBool)TCPIP_UDP_Disconnect,
-    .fpConnect          = NULL,
-    .fpClose             = (NET_PRES_TransClose)TCPIP_UDP_Close,
-    .fpSocketInfoGet     = (NET_PRES_TransSocketInfoGet)TCPIP_UDP_SocketInfoGet,
-    .fpFlush             = (NET_PRES_TransBool)TCPIP_UDP_Flush,
-    .fpPeek              = NULL,
-    .fpDiscard           = (NET_PRES_TransDiscard)TCPIP_UDP_Discard,
-    .fpHandlerRegister   = (NET_PRES_TransHandlerRegister)TCPIP_UDP_SignalHandlerRegister,
-    .fpHandlerDeregister = (NET_PRES_TransSignalHandlerDeregister)TCPIP_UDP_SignalHandlerDeregister,
-    .fpRead              = (NET_PRES_TransRead)TCPIP_UDP_ArrayGet,
-    .fpWrite             = (NET_PRES_TransWrite)TCPIP_UDP_ArrayPut,
-    .fpReadyToRead       = (NET_PRES_TransReady)TCPIP_UDP_GetIsReady,
-    .fpReadyToWrite      = (NET_PRES_TransReady)TCPIP_UDP_PutIsReady,
-    .fpIsPortDefaultSecure = (NET_PRES_TransIsPortDefaultSecured)TCPIP_Helper_UDPSecurePortGet,
-};
-static const NET_PRES_TransportObject netPresTransObject0DC = {
-    .fpOpen        = (NET_PRES_TransOpen)TCPIP_UDP_ClientOpen,
-    .fpLocalBind         = (NET_PRES_TransBind)TCPIP_UDP_Bind,
-    .fpRemoteBind        = (NET_PRES_TransBind)TCPIP_UDP_RemoteBind,
-    .fpOptionGet         = (NET_PRES_TransOption)TCPIP_UDP_OptionsGet,
-    .fpOptionSet         = (NET_PRES_TransOption)TCPIP_UDP_OptionsSet,
-    .fpIsConnected       = (NET_PRES_TransBool)TCPIP_UDP_IsConnected,
-    .fpWasReset          = NULL,
-    .fpWasDisconnected   = NULL,
-    .fpDisconnect        = (NET_PRES_TransBool)TCPIP_UDP_Disconnect,
-    .fpConnect          = NULL,
-    .fpClose             = (NET_PRES_TransClose)TCPIP_UDP_Close,
-    .fpSocketInfoGet     = (NET_PRES_TransSocketInfoGet)TCPIP_UDP_SocketInfoGet,
-    .fpFlush             = (NET_PRES_TransBool)TCPIP_UDP_Flush,
-    .fpPeek              = NULL,
-    .fpDiscard           = (NET_PRES_TransDiscard)TCPIP_UDP_Discard,
-    .fpHandlerRegister   = (NET_PRES_TransHandlerRegister)TCPIP_UDP_SignalHandlerRegister,
-    .fpHandlerDeregister = (NET_PRES_TransSignalHandlerDeregister)TCPIP_UDP_SignalHandlerDeregister,
-    .fpRead              = (NET_PRES_TransRead)TCPIP_UDP_ArrayGet,
-    .fpWrite             = (NET_PRES_TransWrite)TCPIP_UDP_ArrayPut,
-    .fpReadyToRead       = (NET_PRES_TransReady)TCPIP_UDP_GetIsReady,
-    .fpReadyToWrite      = (NET_PRES_TransReady)TCPIP_UDP_PutIsReady,
-    .fpIsPortDefaultSecure = (NET_PRES_TransIsPortDefaultSecured)TCPIP_Helper_UDPSecurePortGet,
-};
-
-static const NET_PRES_INST_DATA netPresCfgs[] = 
-{  
-        
-    {
-        .pTransObject_ss = &netPresTransObject0SS,
-        .pTransObject_sc = &netPresTransObject0SC,
-        .pTransObject_ds = &netPresTransObject0DS,
-        .pTransObject_dc = &netPresTransObject0DC,
-        .pProvObject_ss = NULL,
-        .pProvObject_sc = &net_pres_EncProviderStreamClient0,
-        .pProvObject_ds = NULL,
-        .pProvObject_dc = NULL,
-    },
-        
-};
-
-static const NET_PRES_INIT_DATA netPresInitData = 
-{
-    .numLayers = sizeof(netPresCfgs) / sizeof(NET_PRES_INST_DATA),
-    .pInitData = netPresCfgs
-};
-  
- 
-
 
 
 // *****************************************************************************
@@ -506,20 +657,6 @@ static const NET_PRES_INIT_DATA netPresInitData =
 // Section: System Initialization
 // *****************************************************************************
 // *****************************************************************************
-
-const SYS_NET_Config g_sSysNetConfig0 =
-{
-	.mode = SYS_NET_INDEX0_MODE, 
-	.intf = SYS_NET_INDEX0_INTF,
-	.port = SYS_NET_INDEX0_PORT,
-	.enable_reconnect = SYS_NET_INDEX0_RECONNECT,
-	.enable_tls = SYS_NET_INDEX0_ENABLE_TLS,
-    .ip_prot = SYS_NET_INDEX0_IPPROT,
-	.host_name = SYS_NET_INDEX0_HOST_NAME,
-};
-
-
-
 // <editor-fold defaultstate="collapsed" desc="SYS_TIME Initialization Data">
 
 const SYS_TIME_PLIB_INTERFACE sysTimePlibAPI = {
@@ -570,6 +707,20 @@ const SYS_CONSOLE_INIT sysConsole0Init =
 
 
 // </editor-fold>
+
+
+const SYS_NET_Config g_sSysNetConfig0 =
+{
+	.mode = SYS_NET_INDEX0_MODE, 
+	.intf = SYS_NET_INDEX0_INTF,
+	.port = SYS_NET_INDEX0_PORT,
+	.enable_reconnect = SYS_NET_INDEX0_RECONNECT,
+	.enable_tls = SYS_NET_INDEX0_ENABLE_TLS,
+    .ip_prot = SYS_NET_INDEX0_IPPROT,
+	.host_name = SYS_NET_INDEX0_HOST_NAME,
+};
+
+
 
 
 const SYS_CMD_INIT sysCmdInit =
@@ -632,13 +783,13 @@ static void STDIO_BufferModeSet(void)
 void SYS_Initialize ( void* data )
 {
 
-    /* Start out with interrupts disabled before configuring any modules */
-    __builtin_disable_interrupts();
-
     STDIO_BufferModeSet();
 
 
-  
+    /* Start out with interrupts disabled before configuring any modules */
+    __builtin_disable_interrupts();
+
+
     PMU_Initialize();
 	CLK_Initialize();
 
@@ -649,24 +800,31 @@ void SYS_Initialize ( void* data )
 
 	GPIO_Initialize();
 
+    CORETIMER_Initialize();
+	SPI1_Initialize();
+
     NVM_Initialize();
 
 	UART3_Initialize();
 
-    CORETIMER_Initialize();
 	UART1_Initialize();
 
+	BSP_Initialize();
+
+    sysObj.drvMemory0 = DRV_MEMORY_Initialize((SYS_MODULE_INDEX)DRV_MEMORY_INDEX_0, (SYS_MODULE_INIT *)&drvMemory0InitData);
+
+    sysObj.drvSST26 = DRV_SST26_Initialize((SYS_MODULE_INDEX)DRV_SST26_INDEX, (SYS_MODULE_INIT *)&drvSST26InitData);
 
     /* Initialize the PIC32MZW1 Driver */
     CRYPT_RNG_Initialize(&wdrvRngCtx);
     sysObj.drvWifiPIC32MZW1 = WDRV_PIC32MZW_Initialize(WDRV_PIC32MZW_SYS_IDX_0, (SYS_MODULE_INIT*)&wdrvPIC32MZW1InitData);
 
 
-
-    SYS_NET_Initialize();
-
     sysObj.sysTime = SYS_TIME_Initialize(SYS_TIME_INDEX_0, (SYS_MODULE_INIT *)&sysTimeInitData);
     sysObj.sysConsole0 = SYS_CONSOLE_Initialize(SYS_CONSOLE_INDEX_0, (SYS_MODULE_INIT *)&sysConsole0Init);
+
+
+    SYS_NET_Initialize();
 
     SYS_CMD_Initialize((SYS_MODULE_INIT*)&sysCmdInit);
 
@@ -678,7 +836,19 @@ void SYS_Initialize ( void* data )
     SYS_ASSERT(sysObj.syswifi  != SYS_MODULE_OBJ_INVALID, "SYS_WIFI_Initialize Failed" );
 
 
+    /*** File System Service Initialization Code ***/
+    SYS_FS_Initialize( (const void *) sysFSInit );
+
     sysObj.ba414e = DRV_BA414E_Initialize(0, (SYS_MODULE_INIT*)&ba414eInitData);
+
+
+	 /* Initialize the USB device layer */
+    sysObj.usbDevObject0 = USB_DEVICE_Initialize (USB_DEVICE_INDEX_0 , ( SYS_MODULE_INIT* ) & usbDevInitData);
+	
+	
+
+	/* Initialize USB Driver */ 
+    sysObj.drvUSBFSObject = DRV_USBFS_Initialize(DRV_USBFS_INDEX_0, (SYS_MODULE_INIT *) &drvUSBFSInit);	
 
 
 /* Network Presentation Layer Initialization */

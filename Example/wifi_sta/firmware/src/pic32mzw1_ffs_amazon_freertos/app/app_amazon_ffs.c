@@ -48,6 +48,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
+#include "app.h"
 #include "amazon_ffs_certs.h"
 #include "ffs/amazon_freertos/ffs_amazon_freertos_task.h"
 
@@ -62,33 +63,40 @@ const char *const FFS_DEVICE_DEVICE_NAME        =  "WFI32-IoT-2";
 const char *const FFS_DEVICE_PRODUCT_INDEX      =  "5K2k";
 
 
-typedef enum {
-    FFS_STATE_INIT = 0,
-    FFS_STATE_START,
-    FFS_STATE_HTTP,
-    FFS_STATE_DONE,
-}FFS_STATE_t; 
-
 
 FFS_RESULT FFS_Init(SYSTEM_OBJECTS *sysObj, FfsProvisioningArguments_t *ffsProvArgs)
 {    
    
-    ffsProvArgs->privateKey = devicePvtKey;
-    ffsProvArgs->privateKeySize = (devicePvtKey_len);
+    //ffsProvArgs->privateKey = devicePvtKey;
+    //ffsProvArgs->privateKeySize = (devicePvtKey_len);
+    app_aquire_ffs_file(FFS_DEV_KEY_FILE, &ffsProvArgs->privateKey, &ffsProvArgs->privateKeySize);
+        
+    //ffsProvArgs->deviceTypePublicKey = device_type_public_key_der;
+    //ffsProvArgs->deviceTypePublicKeySize = (sizeof_device_type_public_key_der);    
+    app_aquire_ffs_file(FFS_DEV_TYPE_PUB_KEY, &ffsProvArgs->deviceTypePublicKey, &ffsProvArgs->deviceTypePublicKeySize);
+            
+    //ffsProvArgs->publicKey = device_public_key_der;
+    //ffsProvArgs->publicKeySize = (sizeof_device_public_key_der);
+    app_aquire_ffs_file(FFS_DEV_PUB_KEY, &ffsProvArgs->publicKey, &ffsProvArgs->publicKeySize);
     
-    ffsProvArgs->deviceTypePublicKey = device_type_public_key_der;
-    ffsProvArgs->deviceTypePublicKeySize = (sizeof_device_type_public_key_der);    
-            
-    ffsProvArgs->publicKey = device_public_key_der;
-    ffsProvArgs->publicKeySize = (sizeof_device_public_key_der);
-            
-    ffsProvArgs->certificate = deviceCert;
-    ffsProvArgs->certificateSize = deviceCert_len;    
+    //ffsProvArgs->certificate = deviceCert;
+    //ffsProvArgs->certificateSize = deviceCert_len;  
+    app_aquire_ffs_file(FFS_DEV_CERT_FILE, &ffsProvArgs->certificate, &ffsProvArgs->certificateSize);
        
     return FFS_SUCCESS;
 }
 
-void FFS_Tasks(SYSTEM_OBJECTS *sysObj)
+void FFS_DeInit(void)
+{
+    app_release_ffs_file(FFS_DEV_ROOT_CERT);
+    app_release_ffs_file(FFS_DEV_KEY_FILE);
+    app_release_ffs_file(FFS_DEV_TYPE_PUB_KEY);
+    app_release_ffs_file(FFS_DEV_PUB_KEY);
+    app_release_ffs_file(FFS_DEV_CERT_FILE);
+    
+}
+
+FFS_STATE_t FFS_Tasks(SYSTEM_OBJECTS *sysObj)
 {
     static FFS_STATE_t gFfsTaskState = FFS_STATE_INIT;
     static FfsProvisioningArguments_t ffsProvisionObj;
@@ -105,19 +113,21 @@ void FFS_Tasks(SYSTEM_OBJECTS *sysObj)
         case FFS_STATE_START:
         {            
             if(ffsProvisionDevice(&ffsProvisionObj) == FFS_PROVISIONING_RESULT_PROVISIONED)
-            {              
-              gFfsTaskState = FFS_STATE_DONE;  
-            }
-                     
-            break;
-        }
+            {                                                            
+                gFfsTaskState = FFS_STATE_DONE;  
+            }                     
+            break;    
+        }       
+        
         case FFS_STATE_DONE:
         {
-             
+            FFS_DeInit(); 
+            break;
         }
-        break;
+        
         
         default:
             break;
     };
+    return gFfsTaskState;
 }

@@ -36,19 +36,19 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 
 #include "net_pres/pres/net_pres_certstore.h"
 #define USE_CERT_BUFFERS_2048
-#include "amazon_ffs_certs.h"
+#include "app.h"
 
 bool NET_PRES_CertStoreGetCACerts(const uint8_t ** certPtr, int32_t * certSize, uint8_t certIndex)
 {
-    *certPtr = caCert;
-    *certSize = caCert_len;
+    *certPtr = appData.caCert;
+    *certSize = appData.caCert_len;
     return true;
 }
 bool NET_PRES_CertStoreGetDeviceTlsParams(const uint8_t ** certPtr, int32_t * certSize, const uint8_t ** pvtKeyPtr, int32_t * pvtKeySize, uint8_t certIndex)
 {
-    *certPtr = deviceCert;
-    *certSize = deviceCert_len;
-    *pvtKeyPtr = devicePvtKey;
-    *pvtKeySize = devicePvtKey_len;
+    *certPtr = appData.deviceCert;
+    *certSize = appData.deviceCert_len;
+    *pvtKeyPtr = appData.devicePvtKey;
+    *pvtKeySize = appData.devicePvtKey_len;
     return true;
 }

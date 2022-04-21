@@ -182,7 +182,8 @@ FFS_RESULT ffsGetWifiConnectionDetails(struct FfsUserContext_s *userContext, Ffs
 {
     // Get attempted AP profile and its connection result from Wifi Manager.
     SYS_WIFI_CONFIG wifiNetworkProfile;
-    SYS_WIFI_CtrlMsg (userContext->sysObj->syswifi, SYS_WIFI_GETWIFICONFIG, &wifiNetworkProfile, sizeof(SYS_WIFI_CONFIG));
+    FFS_WIFI_CONNECTION_STATE connectionState;
+    FFS_CHECK_RESULT(ffsWifiManagerGetConnectionDetails(userContext, &wifiNetworkProfile, &connectionState));    
     
     wifiConnectionDetails->ssidStream = ffsCreateInputStream((uint8_t*)wifiNetworkProfile.staConfig.ssid, strlen((char *)wifiNetworkProfile.staConfig.ssid));
     
@@ -202,7 +203,7 @@ FFS_RESULT ffsGetWifiConnectionDetails(struct FfsUserContext_s *userContext, Ffs
 
     wifiConnectionDetails->hasErrorDetails = false;
     
-    wifiConnectionDetails->state = FFS_WIFI_CONNECTION_STATE_ASSOCIATED;
+    wifiConnectionDetails->state = connectionState;
     
     return FFS_SUCCESS;      
 }
@@ -337,7 +338,7 @@ FFS_RESULT ffsGetSetupNetworkConfiguration(struct FfsUserContext_s *userContext,
 FFS_RESULT ffsWifiProvisioneeCanProceed(struct FfsUserContext_s *userContext,
         bool *canProceed)
 {
-    *canProceed = true;
+    *canProceed = true;    
     return FFS_SUCCESS;
 }
 

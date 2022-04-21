@@ -18,3 +18,5 @@
 **/*.KEIL/*.uvguix.*
 Gemfile*
 **/__pycache__
+/Example/wifi_sta/firmware/pic32mz_w1_curiosity_freertos.X/build/
+/Example/wifi_sta/firmware/pic32mz_w1_curiosity_freertos.X/dist/

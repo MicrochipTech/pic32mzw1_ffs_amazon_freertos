@@ -27,7 +27,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #ifndef _AMAZON_FFS_PIC32MZW1_H_
 #define _AMAZON_FFS_PIC32MZW1_H_
 
-static const unsigned char device_public_key_der[] =
+static const unsigned char device_public_key_der_org[] =
 {
 0x30, 0x59, 0x30, 0x13, 0x06, 0x07, 0x2A, 0x86, 0x48, 0xCE, 
 0x3D, 0x02, 0x01, 0x06, 0x08, 0x2A, 0x86, 0x48, 0xCE, 0x3D, 
@@ -41,10 +41,10 @@ static const unsigned char device_public_key_der[] =
 0x45, 
 };
 /* size is 91 */
-static const int sizeof_device_public_key_der = sizeof(device_public_key_der);
+static const int sizeof_device_public_key_der_org = sizeof(device_public_key_der_org);
 
 
-static const unsigned char device_type_public_key_der[] =
+static const unsigned char device_type_public_key_der_org[] =
 {
 0x30, 0x59, 0x30, 0x13, 0x06, 0x07, 0x2A, 0x86, 0x48, 0xCE, 
 0x3D, 0x02, 0x01, 0x06, 0x08, 0x2A, 0x86, 0x48, 0xCE, 0x3D, 
@@ -58,10 +58,10 @@ static const unsigned char device_type_public_key_der[] =
 0x3E, 
 };
 /* size is 91 */
-static const int sizeof_device_type_public_key_der = sizeof(device_type_public_key_der);
+static const int sizeof_device_type_public_key_der_org = sizeof(device_type_public_key_der_org);
 
 
-static const unsigned char devicePvtKey[] =
+static const unsigned char devicePvtKey_org[] =
 {
 0x30, 0x77, 0x02, 0x01, 0x01, 0x04, 0x20, 0x7F, 0x18, 0x9C, 
 0x1E, 0x26, 0x1D, 0xF2, 0xA4, 0x3A, 0xDD, 0xAE, 0x38, 0xDB, 
@@ -78,9 +78,9 @@ static const unsigned char devicePvtKey[] =
 0x45, 
 };
 /* size is 121 */
-static const int devicePvtKey_len = sizeof(devicePvtKey);
+static const int devicePvtKey_len_org = sizeof(devicePvtKey_org);
 
-static const unsigned char caCert[] =
+static const unsigned char caCert_org[] =
 {
 0x30, 0x82, 0x04, 0x0F, 0x30, 0x82, 0x02, 0xF7, 0xA0, 0x03, 
 0x02, 0x01, 0x02, 0x02, 0x01, 0x00, 0x30, 0x0D, 0x06, 0x09, 
@@ -189,10 +189,10 @@ static const unsigned char caCert[] =
 0x1F, 0x17, 0x94, 
 };
 /* size is 1043 */
-static const int caCert_len = sizeof(caCert);
+static const int caCert_len = sizeof(caCert_org);
 
 
-static const unsigned char deviceCert[] =
+static const unsigned char deviceCert_org[] =
 {
 "-----BEGIN CERTIFICATE-----\
 MIIBgjCCASegAwIBAgIJAJos/s783EEZMAoGCCqGSM49BAMCMDsxHTAbBgkrBgEE\
@@ -288,6 +288,6 @@ H8biMA4GA1UdDwEB/wQEAwIBhjAKBggqhkjOPQQDAgNJADBGAiEAoCM4t1cMuTeu\
 "
 };
 /* size is 5575 */
-static const int deviceCert_len = sizeof(deviceCert);
+static const int deviceCert_len_org = sizeof(deviceCert_org);
 
 #endif /*_AMAZON_FFS_PIC32MZW1_H_*/

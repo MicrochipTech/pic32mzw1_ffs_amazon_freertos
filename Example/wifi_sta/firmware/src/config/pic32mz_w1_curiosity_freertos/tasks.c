@@ -59,6 +59,39 @@
 // Section: RTOS "Tasks" Routine
 // *****************************************************************************
 // *****************************************************************************
+/* Handle for the APP_Tasks. */
+TaskHandle_t xAPP_Tasks;
+
+void _APP_Tasks(  void *pvParameters  )
+{
+    while(1)
+    {
+        APP_Tasks();
+        vTaskDelay(400 / portTICK_PERIOD_MS);
+    }
+}
+
+
+void _NET_PRES_Tasks(  void *pvParameters  )
+{   
+    while(1)
+    {
+        NET_PRES_Tasks(sysObj.netPres);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+    }
+}
+
+
+void _SYS_FS_Tasks(  void *pvParameters  )
+{
+    while(1)
+    {
+        SYS_FS_Tasks();
+        vTaskDelay(10 / portTICK_PERIOD_MS);
+    }
+}
+
+
 
 void _DRV_BA414E_Tasks(  void *pvParameters  )
 {
@@ -68,16 +101,25 @@ void _DRV_BA414E_Tasks(  void *pvParameters  )
     }
 }
 
-/* Handle for the APP_Tasks. */
-TaskHandle_t xAPP_Tasks;
-
-void _APP_Tasks(  void *pvParameters  )
-{   
+void _USB_DEVICE_Tasks(  void *pvParameters  )
+{
     while(1)
     {
-        APP_Tasks();
+				 /* USB Device layer tasks routine */
+        USB_DEVICE_Tasks(sysObj.usbDevObject0);
+        vTaskDelay(10 / portTICK_PERIOD_MS);
     }
 }
+
+void _DRV_MEMORY_0_Tasks(  void *pvParameters  )
+{
+    while(1)
+    {
+        DRV_MEMORY_Tasks(sysObj.drvMemory0);
+        vTaskDelay(DRV_MEMORY_RTOS_DELAY_IDX0 / portTICK_PERIOD_MS);
+    }
+}
+
 
 
 void _TCPIP_STACK_Task(  void *pvParameters  )
@@ -85,7 +127,7 @@ void _TCPIP_STACK_Task(  void *pvParameters  )
     while(1)
     {
         TCPIP_STACK_Task(sysObj.tcpip);
-        vTaskDelay(1 / portTICK_PERIOD_MS);
+        vTaskDelay(4 / portTICK_PERIOD_MS);
     }
 }
 
@@ -98,16 +140,6 @@ void _SYS_CMD_Tasks(  void *pvParameters  )
     }
 }
 
-
-
-void _NET_PRES_Tasks(  void *pvParameters  )
-{
-    while(1)
-    {
-        NET_PRES_Tasks(sysObj.netPres);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-    }
-}
 
 static void _WDRV_PIC32MZW1_Tasks(  void *pvParameters  )
 {
@@ -131,7 +163,7 @@ void _SYS_WIFI_Task(  void *pvParameters  )
     while(1)
     {
         SYS_WIFI_Tasks(sysObj.syswifi);
-        vTaskDelay(1 / portTICK_PERIOD_MS);
+        vTaskDelay(4 / portTICK_PERIOD_MS);
     }
 }
 
@@ -156,6 +188,15 @@ void SYS_Tasks ( void )
     /* Maintain system services */
     
 
+    xTaskCreate( _SYS_FS_Tasks,
+        "SYS_FS_TASKS",
+        SYS_FS_STACK_SIZE,
+        (void*)NULL,
+        SYS_FS_PRIORITY,
+        (TaskHandle_t*)NULL
+    );
+
+
     xTaskCreate( _SYS_CMD_Tasks,
         "SYS_CMD_TASKS",
         SYS_CMD_RTOS_STACK_SIZE,
@@ -168,6 +209,14 @@ void SYS_Tasks ( void )
 
 
     /* Maintain Device Drivers */
+        xTaskCreate( _DRV_MEMORY_0_Tasks,
+        "DRV_MEM_0_TASKS",
+        DRV_MEMORY_STACK_SIZE_IDX0,
+        (void*)NULL,
+        DRV_MEMORY_PRIORITY_IDX0,
+        (TaskHandle_t*)NULL
+    );
+    
         xTaskCreate( _WDRV_PIC32MZW1_Tasks,
         "WDRV_PIC32MZW1_Tasks",
         1024,
@@ -181,11 +230,31 @@ void SYS_Tasks ( void )
 
     /* Maintain Middleware & Other Libraries */
     
+    xTaskCreate( _NET_PRES_Tasks,
+        "NET_PRES_Tasks",
+        NET_PRES_RTOS_STACK_SIZE,
+        (void*)NULL,
+        NET_PRES_RTOS_TASK_PRIORITY,
+        (TaskHandle_t*)NULL
+    );
+
+
+
     xTaskCreate( _DRV_BA414E_Tasks,
         "DRV_BA414E_Tasks",
         DRV_BA414E_RTOS_STACK_SIZE,
         (void*)NULL,
         DRV_BA414E_RTOS_TASK_PRIORITY,
+        (TaskHandle_t*)NULL
+    );
+
+
+    /* Create OS Thread for USB_DEVICE_Tasks. */
+    xTaskCreate( _USB_DEVICE_Tasks,
+        "USB_DEVICE_TASKS",
+        1024,
+        (void*)NULL,
+        1,
         (TaskHandle_t*)NULL
     );
 
@@ -196,16 +265,6 @@ void SYS_Tasks ( void )
         TCPIP_RTOS_STACK_SIZE,
         (void*)NULL,
         TCPIP_RTOS_PRIORITY,
-        (TaskHandle_t*)NULL
-    );
-
-
-
-    xTaskCreate( _NET_PRES_Tasks,
-        "NET_PRES_Tasks",
-        NET_PRES_RTOS_STACK_SIZE,
-        (void*)NULL,
-        NET_PRES_RTOS_TASK_PRIORITY,
         (TaskHandle_t*)NULL
     );
 

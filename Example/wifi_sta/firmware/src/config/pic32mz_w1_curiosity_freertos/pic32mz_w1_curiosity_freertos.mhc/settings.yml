@@ -5,7 +5,7 @@ frameworkPath: ../../..
 processor: PIC32MZ1025W104132
 projectName: ''
 settings:
-  PackageFilter: crypto;dev_packs;net;core;bsp;quick_docs;usb;cryptoauthlib;wireless_wifi;csp;wireless_system_pic32mzw1_wfi32e01;wireless_apps_pic32mzw1_wfi32e01
+  PackageFilter: crypto;dev_packs;net;core;bsp;csp_apps_pic32mz_w1;quick_docs;usb;cryptoauthlib;wireless_wifi;csp;harmony-services;wireless_system_pic32mzw1_wfi32e01;wireless_apps_pic32mzw1_wfi32e01;aws_cloud
   FORCE_OPTIMIZATION: 'false'
   GENERATE_BACKUP: 'true'
   CMSISPath: ./dev_packs/arm/CMSIS/5.8.0

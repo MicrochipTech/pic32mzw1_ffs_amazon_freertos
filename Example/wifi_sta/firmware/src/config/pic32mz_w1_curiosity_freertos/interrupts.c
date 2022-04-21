@@ -63,6 +63,9 @@
 
 void CORE_TIMER_InterruptHandler( void );
 void NVM_InterruptHandler( void );
+void DRV_USBFS_USB_Handler( void );
+void SPI1_RX_InterruptHandler( void );
+void SPI1_TX_InterruptHandler( void );
 void UART1_FAULT_InterruptHandler( void );
 void UART1_RX_InterruptHandler( void );
 void UART1_TX_InterruptHandler( void );
@@ -75,6 +78,7 @@ void DRV_BA414E_ErrorInterruptHandler( void );
 
 
 /* All the handlers are defined here.  Each will call its PLIB-specific function. */
+
 void CORE_TIMER_Handler (void)
 {
     CORE_TIMER_InterruptHandler();
@@ -85,6 +89,21 @@ void CORE_TIMER_Handler (void)
 void FLASH_CONTROL_Handler (void)
 {
     NVM_InterruptHandler();
+}
+
+void USB_Handler (void)
+{
+    DRV_USBFS_USB_Handler();
+}
+
+void SPI1_RX_Handler (void)
+{
+    SPI1_RX_InterruptHandler();
+}
+
+void SPI1_TX_Handler (void)
+{
+    SPI1_TX_InterruptHandler();
 }
 
 void UART1_FAULT_Handler (void)

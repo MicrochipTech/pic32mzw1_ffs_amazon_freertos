@@ -76,15 +76,21 @@ void ffsPrivateWifiCallback(uint32_t event, void * data,void *cookie )
 {        
     ffsLogDebug("Wi-Fi Connection Callback %d\r\n", event);
     if(event == SYS_WIFI_CONNECT)
-    {        
+    {          
         const EventBits_t resultBits = FFS_WIFI_MANAGER_BIT_CONNECT_SUCCESS;
-        xEventGroupSetBits(sTaskResultEventGroup, resultBits);
+        xEventGroupSetBits(sTaskResultEventGroup, resultBits);        
     }
     else if(event == SYS_WIFI_DISCONNECT)
-    {        
+    {                
         const EventBits_t resultBits = FFS_WIFI_MANAGER_BIT_DISCONNECT_SUCCESS;
-        xEventGroupSetBits(sTaskResultEventGroup, resultBits);
+        xEventGroupSetBits(sTaskResultEventGroup, resultBits);        
     }   
+    else if(event == SYS_WIFI_AUTO_CONNECT_FAIL)
+    {        
+        const EventBits_t resultBits = FFS_WIFI_MANAGER_BIT_CONNECT_ERROR;
+        xEventGroupSetBits(sTaskResultEventGroup, resultBits);  
+        sWifiAttemptsState[sWifiAttemptsNum] = FFS_WIFI_CONNECTION_STATE_FAILED; 
+    } 
 }
 
 static FFS_RESULT ffsPrivateWifiManagerConnect(FfsUserContext_t *userContext)
@@ -113,7 +119,7 @@ static FFS_RESULT ffsPrivateWifiManagerConnect(FfsUserContext_t *userContext)
         }
         else
         {
-            sWifiCurrStaProfile.saveConfig = 1;
+            //sWifiCurrStaProfile.saveConfig = 1;
             ffsLogDebug("Wi-Fi Disconnection successful\r\n");            
         }
     }
@@ -390,8 +396,8 @@ FFS_RESULT ffsWifiManagerGetConnectionDetails(const FfsUserContext_t *userContex
 {
     
     FFS_TAKE_LOCK_FOR(sWifiCurrStaProfile);
-
-    if (sWifiCurrState == FFS_WIFI_CONNECTION_STATE_ASSOCIATED && !WDRV_PIC32MZW_MACLinkCheck(userContext->sysObj->syswifi))
+    
+    if (sWifiCurrState != FFS_WIFI_CONNECTION_STATE_ASSOCIATED && !WDRV_PIC32MZW_MACLinkCheck(userContext->sysObj->syswifi))
     {
         sWifiCurrState = FFS_WIFI_CONNECTION_STATE_DISCONNECTED;
     }

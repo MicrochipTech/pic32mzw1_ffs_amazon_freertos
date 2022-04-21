@@ -57,19 +57,27 @@
 */
 void GPIO_Initialize ( void )
 {
+    /* Disable JTAG since at least one of its pins is configured for Non-JTAG function */
+    CFGCON0bits.JTAGEN = 0;
+
     /* PORTA Initialization */
-
+    LATA = 0x2; /* Initial Latch Value */
+    TRISACLR = 0x2; /* Direction Control */
+    ANSELACLR = 0x400; /* Digital Mode Enable */
     /* PORTB Initialization */
-
+    ANSELBCLR = 0x100; /* Digital Mode Enable */
     /* PORTC Initialization */
-
+    LATC = 0x200; /* Initial Latch Value */
+    TRISCCLR = 0x200; /* Direction Control */
     /* PORTK Initialization */
-
+    LATK = 0x7000; /* Initial Latch Value */
+    TRISKCLR = 0x7000; /* Direction Control */
 
     /* Unlock system for PPS configuration */
     SYSKEY = 0x00000000;
     SYSKEY = 0xAA996655;
     SYSKEY = 0x556699AA;
+
     CFGCON0bits.IOLOCK = 0;
 
     /* PPS Input Remapping */
@@ -80,6 +88,7 @@ void GPIO_Initialize ( void )
 
     /* Lock back the system after PPS configuration */
     CFGCON0bits.IOLOCK = 1;
+
     SYSKEY = 0x00000000;
 
 }

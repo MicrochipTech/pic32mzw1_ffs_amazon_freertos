@@ -32,6 +32,8 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include "configuration.h"
+#include "system/fs/sys_fs.h"
+#include "usb/usb_device.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -45,8 +47,18 @@ extern "C" {
 // *****************************************************************************
 // Section: Type Definitions
 // *****************************************************************************
-// *****************************************************************************
-
+// *****************************************************************************  
+#define APP_MOUNT_NAME          "/mnt/myDrive1"
+#define APP_DEVICE_NAME         "/dev/mtda1"
+#define APP_FS_TYPE             FAT
+ 
+#define FFS_ROOT_CERT_FILE_NAME                     APP_MOUNT_NAME"/ffsRootCa.der"
+#define FFS_DEVICE_PUB_KEY_FILE_NAME                APP_MOUNT_NAME"/ffsDevPublic.key"
+#define FFS_DEVICE_TYPE_PUBKEY_FILE_NAME            APP_MOUNT_NAME"/ffsDevTypePublic.key" 
+#define FFS_DEVICE_CRT_FILE_NAME                    APP_MOUNT_NAME"/certificate.pem"
+#define FFS_DEVICE_KEY_FILE_NAME                    APP_MOUNT_NAME"/private_key.pem"    
+    
+#define FFS_WIFI_CFG_FILE_NAME                      APP_MOUNT_NAME"/ffs_wifi.cfg"    
 // *****************************************************************************
 /* Application states
 
@@ -57,13 +69,98 @@ extern "C" {
     This enumeration defines the valid application states.  These states
     determine the behavior of the application at various times.
 */
+    
+typedef enum 
+{
+    FFS_DEV_ROOT_CERT,
+    FFS_DEV_CERT_FILE,
+    FFS_DEV_KEY_FILE,
+    FFS_DEV_TYPE_PUB_KEY,
+    FFS_DEV_PUB_KEY,
+    FFS_DEV_FILES_MAX            
+}FFS_DEV_FILES_IDX_t;
+
+typedef enum {
+    FFS_STATE_INIT = 0,
+    FFS_STATE_START,
+    FFS_STATE_HTTP,
+    FFS_STATE_DONE,
+}FFS_STATE_t; 
 
 typedef enum
 {
     /* Application's state machine's initial state. */
     APP_STATE_INIT=0,
+            
     APP_STATE_FFS_TASK,
+            
     APP_STATE_SERVICE_TASKS,
+    /* The app mounts the disk */
+    APP_MOUNT_DISK,
+            
+    /* The app USB connect MSD*/
+    APP_MSD_CONNECT,
+
+    /* The app formats the disk. */
+    APP_FORMAT_DISK,
+
+    /* The app opens the FFS Config file */
+    APP_OPEN_FFS_CFG_FILE,
+    
+    /* The app opens the file */
+    APP_OPEN_ROOT_CA_FILE,
+            
+    /* The app opens the file */
+    APP_OPEN_DEV_CERT_FILE,
+    
+    /* The app opens the file */
+    APP_OPEN_DEV_PRIV_KEY_FILE,
+
+    /* The app opens the FFS Config file */
+    APP_OPEN_FFS_DEV_TYPE_FILE,
+
+    /* The app opens the FFS Config file */
+    APP_OPEN_FFS_DEV_PUB_FILE,
+            
+    /* The app writes data to the file */
+    APP_WRITE_TO_FILE,
+
+    /* The app performs a file sync operation. */
+    APP_FLUSH_FILE,
+
+    /* The read the FFS CONFIG FILE Stat */
+    APP_READ_FFS_CFG_FILE_STAT,
+            
+    /* The app checks the file status */
+    APP_READ_FILE_STAT,
+
+    /* The app checks the file size */
+    APP_READ_FILE_SIZE,
+
+    /* The app does a file seek to the end of the file. */
+    APP_DO_FILE_SEEK,
+
+    /* The app checks for EOF */
+    APP_CHECK_EOF,
+
+    /* The app does another file seek, to move file pointer to the beginning of
+     * the file. */
+    APP_DO_ANOTHER_FILE_SEEK,
+
+    /* The app reads and verifies the written data. */
+    APP_READ_FILE_CONTENT,
+
+    /* The app closes the file. */
+    APP_CLOSE_FILE,
+
+    /* The app unmounts the disk. */
+    APP_UNMOUNT_DISK,
+
+    /* The app idles */
+    APP_IDLE,
+
+    /* An app error has occurred */
+    APP_ERROR                                    
     /* TODO: Define states used by the application state machine. */
 
 } APP_STATES;
@@ -86,11 +183,43 @@ typedef struct
 {
     /* The application's current state */
     APP_STATES state;
+    
+    /* SYS_FS File handle */
+    SYS_FS_HANDLE fileHandle;
+    
+    /* USB Device Handle */
+    USB_DEVICE_HANDLE usbDeviceHandle;
+    
+    uint8_t *caCert;
+    
+    size_t caCert_len;
+    
+    /* Read Buffer */
+    uint8_t *devPubKeyBuf;
+    /* Read Buffer */
+    size_t devPubKeyBuf_Len;
+    
+    /* Read Buffer */
+    uint8_t *devTypePubKeyBuf;
+    /* Read Buffer */
+    size_t devTypePubKeyBuf_Len;
+    
+    /* Read Buffer */
+    uint8_t *deviceCert;
+    /* File Size */
+    size_t deviceCert_len;
+    
+    /* Read Buffer */
+    uint8_t *devicePvtKey;
+    /* File Size */
+    size_t devicePvtKey_len;
+        
+    SYS_FS_FSTAT fileStatus;
 
-    /* TODO: Define any additional data used by the application. */
-
+    long fileSize;
 } APP_DATA;
 
+extern APP_DATA appData;
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Callback Routines
@@ -172,6 +301,9 @@ void APP_Initialize ( void );
 void APP_Tasks( void );
 
 
+void app_aquire_ffs_file(FFS_DEV_FILES_IDX_t fileType, const unsigned char **fileBuffer, size_t* fileSize);
+
+void app_release_ffs_file(FFS_DEV_FILES_IDX_t fileType);
 
 #endif /* _APP_H */
 
