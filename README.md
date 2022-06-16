@@ -110,6 +110,8 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 </p>
 
 7. It will generate the *../app/amazon_ffs_certs.h* which needs be used in the MHC presentation layer configuration
+8. The WFI32-IoT board brings up a Mass Storage Device (MSD) to load the certificate files 
+<p align="center"><img width="480" src="Docs/MSD_for_certs.JPG">
 
 8. Open the project MHC window and navigate to *Active Components -> System Configuration -> TCP/IP Stack -> PRESENTATION LAYER -> Presentation layer*  and change; 
 	- The CA certificate and TLS credentials file name to "amazon_ffs_certs.h"
