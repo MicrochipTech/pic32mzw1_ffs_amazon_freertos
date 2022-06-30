@@ -43,7 +43,7 @@ The FFS demo needs an Amazon Provisionee device (Ex: Alexa Echo Dot), a Home AP,
 
 The following diagram shows the FFS demo setup for PIC32MZ-W1 / WFI32E01.
 
-<p align="center"><img width="480" src="Docs/FFS-Setup.png">
+<p align="center"><img width="600" src="Docs/FFS-Setup.png">
 </p>
 
 
@@ -56,7 +56,7 @@ The Provisionee will use the received credentials to connect to home AP and upda
 
 Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frustration-free-setup/understand-wi-fi-simple-setup.html) for more details. 
 
-<p align="center"><img width="480" src="Docs/mscgenjs_chart.jpg">
+<p align="center"><img width="600" src="Docs/mscgenjs_chart.jpg">
 </p>
 
 
@@ -66,7 +66,7 @@ Refer [Understanding Wi-Fi Simple Setup](https://developer.amazon.com/docs/frust
 
 1. In order to enable FFS, the product (PIC32MZ-W1 / WFI32E01 development board) should be registered at [FFS product registration](https://developer.amazon.com/frustration-free-setup/console/v2/onboard/request-device-registration)
 2. The successful registration will provide a unique Product Type ID, Product ID and a DSS public key. Save the DSS public key in a file *device_type_pubkey.pem*
-<p align="center"><img width="480" src="Docs/ffs-dev-registration-dss-pubKey.png">
+<p align="center"><img width="600" src="Docs/ffs-dev-registration-dss-pubKey.png">
 </p>
 
 3. Using these information, device specific certificates and keys can be generated. 
@@ -102,7 +102,7 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 3. Checkout the [PIC32MZ-W1 FreeRTOS FFS](https://github.com/MicrochipTech/pic32mzw1_ffs_amazon_freertos.git) repo in the project's *../firmware/src* folder
 4. Copy the **private_key**, **certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools* folder.
 5. Install the certificate creation python script requirements using the *pip3 install -r requirements.txt*
-<p align="center"><img width="480" src="Docs/ffs-python-requirements.png">
+<p align="center"><img width="600" src="Docs/ffs-python-requirements.png">
 </p>
 
 6. Run the *create-ffs-credentials.py -r SRootCA.cer -c **device-certificate.pem** -k **private_key.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files.
@@ -111,19 +111,19 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 	- ffsDevPublic.key
 	- ffsDevTypePublic.key
 
-<p align="center"><img width="480" src="Docs/ffs-cert-script-cmd.png">
+<p align="center"><img width="600" src="Docs/ffs-cert-script-cmd.png">
 </p>
  
 7. Now we have all the files necessory to configure/enable the FFS
 
 8. The WFI32-IoT emulates a MSD(Mass Storage Devcie) while running the demo for the first time.
 
-<p align="center"><img width="480" src="Docs/first_boot_log.png">
+<p align="center"><img width="600" src="Docs/first_boot_log.png">
 </p>
 
 9. Copy the above generated files as requested in the above log.
 
-<p align="center"><img width="480" src="Docs/MSD_for_certs.png">
+<p align="center"><img width="600" src="Docs/MSD_for_certs.png">
 </p>
 
 10. Open the project MHC window and navigate to *Active Components -> System Configuration -> TCP/IP Stack -> PRESENTATION LAYER -> Presentation layer*  and change; 
@@ -138,24 +138,24 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 	- Modify Variable name containing Data for device private key to "appData.devicePvtKey"
 	- Modify Variable name containing Size of device certificate to "appData.devicePvtKey_len"
 
-<p align="center"><img width="480" src="Docs/mhc-amazon-ffs-cert.png">
+<p align="center"><img width="600" src="Docs/mhc-amazon-ffs-cert.png">
 </p>
 
 - Note: The WSS device certificate generated during the DAK process is a chain certificate and WolfSSL API for chain certificate only accepts PEM format. Hence, even though the 'Device Certificate and Private Key format' in MHC is set to ASN1, only the devicePvtKey is in DER(ASN1) format. The deviceCert will be in PEM format in the generated amazon_ffs_certs.h file.
 
 11. Navigate to *Active Components -> System Configuration -> TCP/IP Stack -> TRANSPORT LAYER -> TCP*  and modify the TCP socket Tx buffer size to 1024 bytes and Rx buffer size to 2048.
 
-<p align="center"><img width="480" src="Docs/tcp-tx-rx-changes.png">
+<p align="center"><img width="600" src="Docs/tcp-tx-rx-changes.png">
 </p>
 
 - Note: The Tx buffer size increase reduces the Tx re-transmitions from application while sending the scan results to DSS server, it also reduces TLS handshake time and speeds up the FFS time. The Rx buffer increase fixes TLS handshake issue with DSS server and enables PIC32MZ-W1 to share Home AP connection status wtih DSS. 
 
 12. Navigate to *Active Components -> System Configuration -> wolfSSL Library* and enable SNI option. 
-<p align="center"><img width="480" src="Docs/sni-support.png">
+<p align="center"><img width="600" src="Docs/sni-support.png">
 </p>
 
 13. Navigate to *Active Components -> WIFI SERVICE* and enable the scanning capability and disable  *autoconnect* (Provisionee should not use default connection and connect).
-<p align="center"><img width="480" src="Docs/enable-scanning-autoconnect.png">
+<p align="center"><img width="600" src="Docs/enable-scanning-autoconnect.png">
 </p>
 
 14. Save the MHC configuration and Generate the code
@@ -163,19 +163,19 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 15. Open *net_pres_enc_glue.h* file in project files and set the NET_PRES_SNI_HOST_NAME to "*dp-sps-na.amazon.com*" 
 
 16. The Provisionee device certificate is a chain certificate, hence instead of the wolfSSL_CTX_use_certificate_buffer() call use the wolfSSL_CTX_use_certificate_chain_buffer() in net_press_enc_glue.c. Also move the wolfSSL_CTX_set_verify() call just after the CTX creation.
-<p align="center"><img width="480" src="Docs/net-pres-changes.png">
+<p align="center"><img width="600" src="Docs/net-pres-changes.png">
 </p>
 
 17. The Amazon Provisioner does not support SNTP requests and hence the FFS demo disables the SNTP functionalities and disables the certificate verify feature. It requires to add TCPIP_SNTP_IsEnabled() check in the Wireless system net service client task, as shown in the below screenshot.
 
-<p align="center"><img width="480" src="Docs/sntp-changes.png">
+<p align="center"><img width="600" src="Docs/sntp-changes.png">
 </p>
 
 18. In addition, the Amazon DSS server needs to have 'Encrypt then MAC' and 'Extended Master' features of TLS conenction. So, manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h or user.h(avoids code comparision during MHC code regeneration) file
 
 19. By default the WolfSSL signature verify option is disabled by NO_SIG_WRAPPER macro. FFS demo needs to uncomment NO_SIG_WRAPPER in configuration.h file
 
-<p align="center"><img width="480" src="Docs/wolfssl-config.png">
+<p align="center"><img width="600" src="Docs/wolfssl-config.png">
 </p>
 
 20. Download the [WSS over Wi-Fi SDK](https://developer.amazon.com/frustration-free-setup/console/v2/ajax/download/sdk) and add the *../FrustrationFreeSetupCSDK/libffs* library source into the project
@@ -183,24 +183,24 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 21. Add the PIC32MZ-W1 FreeRTOS WSS source (downloaded at step 3) from *../pic32mzw1_ffs_amazon_freertos* (app and src) folder into the project
 
 22. Edit the Device Type ID and Product Unique ID in the *../app/app_amazon_ffs.c file
-<p align="center"><img width="480" src="Docs/product-details.png">
+<p align="center"><img width="600" src="Docs/product-details.png">
 </p>
 
 23. Invoke the FFS_Tasks() from the Applicaiton task 
-<p align="center"><img width="480" src="Docs/ffs-app-init.png">
+<p align="center"><img width="600" src="Docs/ffs-app-init.png">
 </p>
 
 24. Provided an extra 5KB words of thread stack to accommodate the FFS memory requirements. By default the app task is created in the task.c file of the MPLAB Hamorny 3 project
-<p align="center"><img width="480" src="Docs/app-thd-stack.png">
+<p align="center"><img width="600" src="Docs/app-thd-stack.png">
 </p>
 
 25. The Amazon FFS library follows c99 C programming languge standard. Add the -std=c99 in the project properties -> xc32-gcc -> Additional options 
-<p align="center"><img width="480" src="Docs/c-standard-c99.png">
+<p align="center"><img width="600" src="Docs/c-standard-c99.png">
 </p>
 
 26. Add the include path in the project settings and build the project
 
-<p align="center"><img width="480" src="Docs/project-include.png">
+<p align="center"><img width="600" src="Docs/project-include.png">
 </p>
 
 ## Memory Requirements
@@ -210,7 +210,7 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 
 	| Text | Data  |
 	|:----------|:----------|
-	| 71480    | 3812    |
+	| 71600    | 3812    |
 
 
 - The FFS task involves deeper call stack with large local variables. It also needs EC cryptographic computations, To accomodate these memory needs the FFS task needs an extra 5K words of stack memory
