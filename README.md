@@ -116,7 +116,7 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
  
 7. Now we have all the files necessory to configure/enable the FFS
 
-8. First time, when the WFI32-IoT running the demo would emulate the MSD (Mass Storage Devcie).
+8. The WFI32-IoT emulates a MSD(Mass Storage Devcie) while running the demo for the first time.
 
 <p align="center"><img width="480" src="Docs/first_boot_log.png">
 </p>
@@ -162,43 +162,43 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 
 15. Open *net_pres_enc_glue.h* file in project files and set the NET_PRES_SNI_HOST_NAME to "*dp-sps-na.amazon.com*" 
 
-14. The Provisionee device certificate is a chain certificate, hence instead of the wolfSSL_CTX_use_certificate_buffer() call use the wolfSSL_CTX_use_certificate_chain_buffer() in net_press_enc_glue.c. Also move the wolfSSL_CTX_set_verify() call just after the CTX creation.
+16. The Provisionee device certificate is a chain certificate, hence instead of the wolfSSL_CTX_use_certificate_buffer() call use the wolfSSL_CTX_use_certificate_chain_buffer() in net_press_enc_glue.c. Also move the wolfSSL_CTX_set_verify() call just after the CTX creation.
 <p align="center"><img width="480" src="Docs/net-pres-changes.png">
 </p>
 
-16. The Amazon Provisioner does not support SNTP requests and hence the FFS demo disables the SNTP functionalities and disables the certificate verify feature. It requires to add TCPIP_SNTP_IsEnabled() check in the Wireless system net service client task, as shown in the below screenshot.
+17. The Amazon Provisioner does not support SNTP requests and hence the FFS demo disables the SNTP functionalities and disables the certificate verify feature. It requires to add TCPIP_SNTP_IsEnabled() check in the Wireless system net service client task, as shown in the below screenshot.
 
 <p align="center"><img width="480" src="Docs/sntp-changes.png">
 </p>
 
-17. In addition, the Amazon DSS server needs to have 'Encrypt then MAC' and 'Extended Master' features of TLS conenction. So, manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h or user.h(avoids code comparision during MHC code regeneration) file
+18. In addition, the Amazon DSS server needs to have 'Encrypt then MAC' and 'Extended Master' features of TLS conenction. So, manually add HAVE_EXTENDED_MASTER and HAVE_ENCRYPT_THEN_MAC macros in the configuration.h or user.h(avoids code comparision during MHC code regeneration) file
 
-18. By default the WolfSSL signature verify option is disabled by NO_SIG_WRAPPER macro. FFS demo needs to uncomment NO_SIG_WRAPPER in configuration.h file
+19. By default the WolfSSL signature verify option is disabled by NO_SIG_WRAPPER macro. FFS demo needs to uncomment NO_SIG_WRAPPER in configuration.h file
 
 <p align="center"><img width="480" src="Docs/wolfssl-config.png">
 </p>
 
-19. Download the [WSS over Wi-Fi SDK](https://developer.amazon.com/frustration-free-setup/console/v2/ajax/download/sdk) and add the *../FrustrationFreeSetupCSDK/libffs* library source into the project
+20. Download the [WSS over Wi-Fi SDK](https://developer.amazon.com/frustration-free-setup/console/v2/ajax/download/sdk) and add the *../FrustrationFreeSetupCSDK/libffs* library source into the project
 
-20. Add the PIC32MZ-W1 FreeRTOS WSS source (downloaded at step 3) from *../pic32mzw1_ffs_amazon_freertos* (app and src) folder into the project
+21. Add the PIC32MZ-W1 FreeRTOS WSS source (downloaded at step 3) from *../pic32mzw1_ffs_amazon_freertos* (app and src) folder into the project
 
-21. Edit the Device Type ID and Product Unique ID in the *../app/app_amazon_ffs.c file
+22. Edit the Device Type ID and Product Unique ID in the *../app/app_amazon_ffs.c file
 <p align="center"><img width="480" src="Docs/product-details.png">
 </p>
 
-22. Invoke the FFS_Tasks() from the Applicaiton task 
+23. Invoke the FFS_Tasks() from the Applicaiton task 
 <p align="center"><img width="480" src="Docs/ffs-app-init.png">
 </p>
 
-23. Provided an extra 5KB words of thread stack to accommodate the FFS memory requirements. By default the app task is created in the task.c file of the MPLAB Hamorny 3 project
+24. Provided an extra 5KB words of thread stack to accommodate the FFS memory requirements. By default the app task is created in the task.c file of the MPLAB Hamorny 3 project
 <p align="center"><img width="480" src="Docs/app-thd-stack.png">
 </p>
 
-24. The Amazon FFS library follows c99 C programming languge standard. Add the -std=c99 in the project properties -> xc32-gcc -> Additional options 
+25. The Amazon FFS library follows c99 C programming languge standard. Add the -std=c99 in the project properties -> xc32-gcc -> Additional options 
 <p align="center"><img width="480" src="Docs/c-standard-c99.png">
 </p>
 
-25. Add the include path in the project settings and build the project
+26. Add the include path in the project settings and build the project
 
 <p align="center"><img width="480" src="Docs/project-include.png">
 </p>
