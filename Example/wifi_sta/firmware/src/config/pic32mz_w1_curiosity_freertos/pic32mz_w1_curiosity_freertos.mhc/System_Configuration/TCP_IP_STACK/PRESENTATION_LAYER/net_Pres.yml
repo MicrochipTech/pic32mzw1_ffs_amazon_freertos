@@ -34,7 +34,7 @@ children:
       - type: Dynamic
         attributes: {id: net_Pres, value: wolfssl/certs_test.h}
       - type: User
-        attributes: {value: amazon_ffs_certs.h}
+        attributes: {value: app.h}
   - type: KeyValueSet
     attributes: {id: NET_PRES_BLOB_CLIENT_CERT_FORMAT}
     children:
@@ -52,7 +52,7 @@ children:
       - type: Dynamic
         attributes: {id: net_Pres, value: sizeof_client_cert_der_2048}
       - type: User
-        attributes: {value: caCert_len}
+        attributes: {value: appData.caCert_len}
   - type: String
     attributes: {id: NET_PRES_BLOB_CLIENT_CERT_VARIABLE}
     children:
@@ -61,7 +61,7 @@ children:
       - type: Dynamic
         attributes: {id: net_Pres, value: client_cert_der_2048}
       - type: User
-        attributes: {value: caCert}
+        attributes: {value: appData.caCert}
   - type: String
     attributes: {id: NET_PRES_BLOB_CLIENT_DEVICE_CERT_LEN_VARIABLE}
     children:
@@ -71,6 +71,10 @@ children:
         attributes: {id: visible}
         children:
         - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: appData.deviceCert_len}
   - type: String
     attributes: {id: NET_PRES_BLOB_CLIENT_DEVICE_CERT_VARIABLE}
     children:
@@ -80,6 +84,10 @@ children:
         attributes: {id: visible}
         children:
         - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: appData.deviceCert}
   - type: String
     attributes: {id: NET_PRES_BLOB_CLIENT_DEVICE_PVT_KEY_LEN_VARIABLE}
     children:
@@ -89,6 +97,10 @@ children:
         attributes: {id: visible}
         children:
         - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: appData.devicePvtKey_len}
   - type: String
     attributes: {id: NET_PRES_BLOB_CLIENT_DEVICE_PVT_KEY_VARIABLE}
     children:
@@ -101,7 +113,7 @@ children:
     - type: Values
       children:
       - type: User
-        attributes: {value: devicePvtKey}
+        attributes: {value: appData.devicePvtKey}
   - type: String
     attributes: {id: NET_PRES_BLOB_CLIENT_MUTUAL_AUTH_FILENAME}
     children:
@@ -114,7 +126,7 @@ children:
     - type: Values
       children:
       - type: User
-        attributes: {value: amazon_ffs_certs.h}
+        attributes: {value: app.h}
   - type: KeyValueSet
     attributes: {id: NET_PRES_BLOB_CLIENT_MUTUAL_AUTH_FORMAT}
     children:

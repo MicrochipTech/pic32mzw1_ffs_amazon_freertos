@@ -52,13 +52,19 @@ extern "C" {
 #define APP_DEVICE_NAME         "/dev/mtda1"
 #define APP_FS_TYPE             FAT
  
-#define FFS_ROOT_CERT_FILE_NAME                     APP_MOUNT_NAME"/ffsRootCa.der"
-#define FFS_DEVICE_PUB_KEY_FILE_NAME                APP_MOUNT_NAME"/ffsDevPublic.key"
-#define FFS_DEVICE_TYPE_PUBKEY_FILE_NAME            APP_MOUNT_NAME"/ffsDevTypePublic.key" 
-#define FFS_DEVICE_CRT_FILE_NAME                    APP_MOUNT_NAME"/certificate.pem"
-#define FFS_DEVICE_KEY_FILE_NAME                    APP_MOUNT_NAME"/private_key.pem"    
+#define FFS_ROOT_CERT_FILE_NAME                 "ffsRootCa.der"
+#define FFS_DEVICE_PUB_KEY_FILE_NAME            "ffsDevPublic.key"
+#define FFS_DEVICE_TYPE_PUBKEY_FILE_NAME        "ffsDevTypePublic.key"
+#define FFS_DEVICE_CRT_FILE_NAME                "certificate.pem"
+#define FFS_DEVICE_KEY_FILE_NAME                "private_key.pem"
     
-#define FFS_WIFI_CFG_FILE_NAME                      APP_MOUNT_NAME"/ffs_wifi.cfg"    
+#define FFS_ROOT_CERT_FILE                     APP_MOUNT_NAME"/"FFS_ROOT_CERT_FILE_NAME
+#define FFS_DEVICE_PUB_KEY_FILE                APP_MOUNT_NAME"/"FFS_DEVICE_PUB_KEY_FILE_NAME
+#define FFS_DEVICE_TYPE_PUBKEY_FILE            APP_MOUNT_NAME"/"FFS_DEVICE_TYPE_PUBKEY_FILE_NAME
+#define FFS_DEVICE_CRT_FILE                    APP_MOUNT_NAME"/"FFS_DEVICE_CRT_FILE_NAME
+#define FFS_DEVICE_KEY_FILE                    APP_MOUNT_NAME"/"FFS_DEVICE_KEY_FILE_NAME    
+    
+#define FFS_WIFI_CFG_FILE                      APP_MOUNT_NAME"/ffs_wifi.cfg"    
 // *****************************************************************************
 /* Application states
 

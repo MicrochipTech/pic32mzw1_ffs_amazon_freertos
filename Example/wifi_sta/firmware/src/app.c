@@ -233,7 +233,10 @@ void APP_Tasks ( void )
 
                 USB_DEVICE_EventHandlerSet(appData.usbDeviceHandle, USBDeviceEventHandler, (uintptr_t) &appData);
                 appData.state = APP_IDLE;
-                SYS_CONSOLE_PRINT("Copy %s and %s files to the MSD and reboot!\n", FFS_DEVICE_CRT_FILE_NAME, FFS_DEVICE_KEY_FILE_NAME);
+                SYS_CONSOLE_PRINT("Copy following files to MSD and reboot!\n1)\t%s\n2)\t%s\n3)\t%s\n4)\t%s\n5)\t%s\n", 
+                        FFS_ROOT_CERT_FILE_NAME, 
+                        FFS_DEVICE_PUB_KEY_FILE_NAME, FFS_DEVICE_TYPE_PUBKEY_FILE_NAME,
+                        FFS_DEVICE_CRT_FILE_NAME, FFS_DEVICE_KEY_FILE_NAME);
             } else {
                 appData.state = APP_ERROR;
             }
@@ -265,10 +268,10 @@ void APP_Tasks ( void )
         case APP_OPEN_ROOT_CA_FILE:
         {
             appData.state = APP_FORMAT_DISK;
-            appData.fileHandle = SYS_FS_FileOpen(FFS_ROOT_CERT_FILE_NAME, SYS_FS_FILE_OPEN_READ);              
+            appData.fileHandle = SYS_FS_FileOpen(FFS_ROOT_CERT_FILE, SYS_FS_FILE_OPEN_READ);              
             if(appData.fileHandle != SYS_FS_HANDLE_INVALID)            
             {                        
-                if(SYS_FS_FileStat(FFS_ROOT_CERT_FILE_NAME, &appData.fileStatus) == SYS_FS_RES_SUCCESS)
+                if(SYS_FS_FileStat(FFS_ROOT_CERT_FILE, &appData.fileStatus) == SYS_FS_RES_SUCCESS)
                 {
                     size_t bytes_read = 0;
                     appData.caCert = OSAL_Malloc(appData.fileStatus.fsize);
@@ -295,10 +298,10 @@ void APP_Tasks ( void )
         case APP_OPEN_DEV_CERT_FILE:
         {
             appData.state = APP_FORMAT_DISK;
-            appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_CRT_FILE_NAME, SYS_FS_FILE_OPEN_READ);              
+            appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_CRT_FILE, SYS_FS_FILE_OPEN_READ);              
             if(appData.fileHandle != SYS_FS_HANDLE_INVALID)            
             {                        
-                if(SYS_FS_FileStat(FFS_DEVICE_CRT_FILE_NAME, &appData.fileStatus) == SYS_FS_RES_SUCCESS)
+                if(SYS_FS_FileStat(FFS_DEVICE_CRT_FILE, &appData.fileStatus) == SYS_FS_RES_SUCCESS)
                 {
                     size_t bytes_read = 0;
                     appData.deviceCert = OSAL_Malloc(appData.fileStatus.fsize);
@@ -325,10 +328,10 @@ void APP_Tasks ( void )
         case APP_OPEN_DEV_PRIV_KEY_FILE:
         {
             appData.state = APP_FORMAT_DISK; 
-            appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_KEY_FILE_NAME, SYS_FS_FILE_OPEN_READ);              
+            appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_KEY_FILE, SYS_FS_FILE_OPEN_READ);              
             if(appData.fileHandle != SYS_FS_HANDLE_INVALID)            
             {                
-                if(SYS_FS_FileStat(FFS_DEVICE_KEY_FILE_NAME, &appData.fileStatus) == SYS_FS_RES_SUCCESS)
+                if(SYS_FS_FileStat(FFS_DEVICE_KEY_FILE, &appData.fileStatus) == SYS_FS_RES_SUCCESS)
                 {                    
                     size_t bytes_read = 0;
                     appData.devicePvtKey = OSAL_Malloc(appData.fileStatus.fsize);
@@ -355,10 +358,10 @@ void APP_Tasks ( void )
         case APP_OPEN_FFS_DEV_TYPE_FILE:
         {
             appData.state = APP_FORMAT_DISK; 
-            appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_TYPE_PUBKEY_FILE_NAME, SYS_FS_FILE_OPEN_READ);              
+            appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_TYPE_PUBKEY_FILE, SYS_FS_FILE_OPEN_READ);              
             if(appData.fileHandle != SYS_FS_HANDLE_INVALID)            
             {                
-                if(SYS_FS_FileStat(FFS_DEVICE_TYPE_PUBKEY_FILE_NAME, &appData.fileStatus) == SYS_FS_RES_SUCCESS)
+                if(SYS_FS_FileStat(FFS_DEVICE_TYPE_PUBKEY_FILE, &appData.fileStatus) == SYS_FS_RES_SUCCESS)
                 {                    
                     size_t bytes_read = 0;
                     appData.devTypePubKeyBuf = OSAL_Malloc(appData.fileStatus.fsize);
@@ -385,10 +388,10 @@ void APP_Tasks ( void )
         case APP_OPEN_FFS_DEV_PUB_FILE:
         {
             appData.state = APP_FORMAT_DISK; 
-            appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_PUB_KEY_FILE_NAME, SYS_FS_FILE_OPEN_READ);              
+            appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_PUB_KEY_FILE, SYS_FS_FILE_OPEN_READ);              
             if(appData.fileHandle != SYS_FS_HANDLE_INVALID)            
             {                
-                if(SYS_FS_FileStat(FFS_DEVICE_PUB_KEY_FILE_NAME, &appData.fileStatus) == SYS_FS_RES_SUCCESS)
+                if(SYS_FS_FileStat(FFS_DEVICE_PUB_KEY_FILE, &appData.fileStatus) == SYS_FS_RES_SUCCESS)
                 {                    
                     size_t bytes_read = 0;
                     appData.devPubKeyBuf = OSAL_Malloc(appData.fileStatus.fsize);
@@ -415,14 +418,14 @@ void APP_Tasks ( void )
         case APP_OPEN_FFS_CFG_FILE:
         {                     
             
-            appData.fileHandle = SYS_FS_FileOpen(FFS_WIFI_CFG_FILE_NAME, SYS_FS_FILE_OPEN_READ);              
+            appData.fileHandle = SYS_FS_FileOpen(FFS_WIFI_CFG_FILE, SYS_FS_FILE_OPEN_READ);              
             if(appData.fileHandle == SYS_FS_HANDLE_INVALID)
             {
                 appData.state = APP_OPEN_ROOT_CA_FILE;
             }
             else
             {
-                if(SYS_FS_FileStat(FFS_WIFI_CFG_FILE_NAME, &appData.fileStatus) == SYS_FS_RES_FAILURE)
+                if(SYS_FS_FileStat(FFS_WIFI_CFG_FILE, &appData.fileStatus) == SYS_FS_RES_FAILURE)
                 {
                     SYS_CONSOLE_MESSAGE("FFS Configuration file stat failure\r\n");
                     appData.state = APP_OPEN_ROOT_CA_FILE;
@@ -434,7 +437,7 @@ void APP_Tasks ( void )
                     if(SWITCH1_Get() == SWITCH1_STATE_PRESSED)    
                     {
                         LED_RED_Toggle();
-                        SYS_FS_FileDirectoryRemove(FFS_WIFI_CFG_FILE_NAME);
+                        SYS_FS_FileDirectoryRemove(FFS_WIFI_CFG_FILE);
                         vTaskDelay(1000 / portTICK_PERIOD_MS);
                         appData.state = APP_OPEN_ROOT_CA_FILE;                        
                         SYS_CONSOLE_PRINT("FFS Configuration is deleted!\n");
@@ -478,7 +481,7 @@ void APP_Tasks ( void )
                 SYS_FS_HANDLE ffsFileHandle;                
                 SYS_CONSOLE_MESSAGE("\n#################################################################\n");      
                 LED_BLUE_On();
-                ffsFileHandle = SYS_FS_FileOpen(FFS_WIFI_CFG_FILE_NAME, SYS_FS_FILE_OPEN_WRITE_PLUS);
+                ffsFileHandle = SYS_FS_FileOpen(FFS_WIFI_CFG_FILE, SYS_FS_FILE_OPEN_WRITE_PLUS);
                 if(ffsFileHandle == SYS_FS_HANDLE_INVALID)
                 {
                     SYS_CONSOLE_MESSAGE("Failed to open FFS write config file\n");

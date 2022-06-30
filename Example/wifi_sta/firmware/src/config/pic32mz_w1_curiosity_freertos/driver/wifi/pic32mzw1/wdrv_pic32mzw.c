@@ -51,8 +51,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "wdrv_pic32mzw_cfg.h"
 #include "drv_pic32mzw1_crypto.h"
 #include "tcpip/tcpip_mac_object.h"
-#include "tcpip/src/link_list.h"
-#include "tcpip/src/tcpip_manager_control.h"
+//#include "tcpip/src/link_list.h"
+//#include "tcpip/src/tcpip_manager_control.h"
 #include <sys/kmem.h>
 
 #pragma region name="wlan_mem" origin=0xa0040000 size=0x10000
@@ -61,8 +61,9 @@ extern uint8_t g_macaddress[6];
 extern pktmem_priority_t g_pktmem_pri[NUM_MEM_PRI_LEVELS];
 
 bool DRV_PIC32MZW_StoreBSSScanResult(const DRV_PIC32MZW_SCAN_RESULTS *const pScanResult);
+#ifdef H3_CRYPTO
 bool DRV_PIC32MZW1_Crypto_Random_Init(CRYPT_RNG_CTX *pRngCtx);
-
+#endif
 // *****************************************************************************
 // *****************************************************************************
 // Section: PIC32MZW Driver Defines
@@ -478,7 +479,7 @@ static WDRV_PIC32MZW_PKT_LIST_NODE* _DRV_PIC32MZW_PktListRemove
     None.
 
 */
-
+#if 0
 static bool _DRV_PIC32MZW_PktListDeinit(WDRV_PIC32MZW_PKT_LIST *pPktList)
 {
     if (NULL == pPktList)
@@ -495,7 +496,7 @@ static bool _DRV_PIC32MZW_PktListDeinit(WDRV_PIC32MZW_PKT_LIST *pPktList)
 
     return true;
 }
-
+#endif
 // *****************************************************************************
 // *****************************************************************************
 // Section: PIC32MZW Driver Internal Implementation
@@ -884,9 +885,9 @@ static bool _WDRV_PIC32MZW_ValidateInitData
     }
 
     memset(pCtrl->regDomName, 0, WDRV_PIC32MZW_REGDOMAIN_MAX_NAME_LEN);
-
+#ifdef H3_CRYPTO
     DRV_PIC32MZW1_Crypto_Random_Init(pInitData->pCryptRngCtx);
-
+#endif
     if (regDomNamelength > 0)
     {
         memcpy(pCtrl->regDomName, pInitData->pRegDomName, regDomNamelength);
@@ -1462,7 +1463,11 @@ void WDRV_PIC32MZW_Tasks(SYS_MODULE_OBJ object)
         {
             if (OSAL_RESULT_TRUE == OSAL_SEM_Pend(&pic32mzwCtrlDescriptor.drvAccessSemaphore, 0))
             {
+                //OSAL_CRITSECT_DATA_TYPE critSect;
+                //critSect = OSAL_CRIT_Enter(OSAL_CRIT_TYPE_HIGH);
                 wdrv_pic32mzw_user_main();
+                //OSAL_CRIT_Leave(OSAL_CRIT_TYPE_HIGH, critSect);
+                
                 OSAL_SEM_Post(&pic32mzwCtrlDescriptor.drvAccessSemaphore);
 
                 pDcpt->sysStat = SYS_STATUS_READY_EXTENDED;
@@ -1508,12 +1513,16 @@ void WDRV_PIC32MZW_Tasks(SYS_MODULE_OBJ object)
 
                     pAllocHdr = (DRV_PIC32MZW_MEM_ALLOC_HDR*)TCPIP_Helper_SingleListHeadRemove(&pic32mzwWIDTxQueue);
 
-                    OSAL_CRIT_Leave(OSAL_CRIT_TYPE_LOW, critSect);
+                    //OSAL_CRIT_Leave(OSAL_CRIT_TYPE_LOW, critSect);
 
                     if (NULL != pAllocHdr)
                     {
+                        //OSAL_CRITSECT_DATA_TYPE critSect;
+                        //critSect = OSAL_CRIT_Enter(OSAL_CRIT_TYPE_HIGH);
                         wdrv_pic32mzw_process_cfg_message(pAllocHdr->memory);
+                        //OSAL_CRIT_Leave(OSAL_CRIT_TYPE_HIGH, critSect);
                     }
+                    OSAL_CRIT_Leave(OSAL_CRIT_TYPE_LOW, critSect);
                 }
 
                 wdrv_pic32mzw_mac_controller_task();
@@ -1960,7 +1969,7 @@ TCPIP_MAC_RES WDRV_PIC32MZW_MACPacketTx(DRV_HANDLE handle, TCPIP_MAC_PACKET* ptr
 {
     WDRV_PIC32MZW_DCPT *const pDcpt = (WDRV_PIC32MZW_DCPT *const)handle;
     uint8_t *payLoadPtr;
-    int pktLen = 0;
+    int pktLen = 0; 
     uint8_t pktTos = 0;
 
     if ((DRV_HANDLE_INVALID == handle) || (NULL == pDcpt) || (NULL == pDcpt->pMac))
@@ -1977,7 +1986,7 @@ TCPIP_MAC_RES WDRV_PIC32MZW_MACPacketTx(DRV_HANDLE handle, TCPIP_MAC_PACKET* ptr
     {
         return TCPIP_MAC_RES_PACKET_ERR;
     }
-
+#if 0
     TCPIP_MAC_ETHERNET_HEADER *pEthHdr;
 
     pEthHdr = (TCPIP_MAC_ETHERNET_HEADER*)ptrPacket->pMacLayer;
@@ -2019,8 +2028,9 @@ TCPIP_MAC_RES WDRV_PIC32MZW_MACPacketTx(DRV_HANDLE handle, TCPIP_MAC_PACKET* ptr
         default:
         {
             break;
-        }
+        }       
     }
+#endif 
 
 #ifdef WDRV_PIC32MZW_MAC_TX_PKT_INSPECT_HOOK
     WDRV_PIC32MZW_MAC_TX_PKT_INSPECT_HOOK(ptrPacket);
@@ -3242,7 +3252,7 @@ void DRV_PIC32MZW_MACEthernetSendPacket
 
     ptrPacket->pDSeg->segLen = lengthEthMsg - ETHERNET_HDR_LEN;
     ptrPacket->pktFlags |= TCPIP_MAC_PKT_FLAG_QUEUED;
-    ptrPacket->tStamp = SYS_TMR_TickCountGet();
+    ptrPacket->tStamp = 1;//SYS_TMR_TickCountGet();
 
     ptrPacket->ackFunc = _DRV_PIC32MZW_AllocPktCallback;
     ptrPacket->ackParam = pAllocHdr;

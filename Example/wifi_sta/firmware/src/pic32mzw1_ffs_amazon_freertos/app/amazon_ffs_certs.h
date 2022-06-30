@@ -24,6 +24,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 
 /*GENERATED FILE*/
+#if 0
 #ifndef _AMAZON_FFS_PIC32MZW1_H_
 #define _AMAZON_FFS_PIC32MZW1_H_
 
@@ -291,3 +292,4 @@ H8biMA4GA1UdDwEB/wQEAwIBhjAKBggqhkjOPQQDAgNJADBGAiEAoCM4t1cMuTeu\
 static const int deviceCert_len_org = sizeof(deviceCert_org);
 
 #endif /*_AMAZON_FFS_PIC32MZW1_H_*/
+#endif
