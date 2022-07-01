@@ -1,13 +1,13 @@
 from os import pipe, write
-import sys, getopt
+import sys, getopt, os
 from  cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import serialization
 from cryptography import x509
 
 def main(argv):
 	ffsRootCa = 'SRootCA.cer'   	
-	ffsDevTypePubKey = 'device-type-public.key'
-	ffsDevCert = 'device-certificate.pem'	
+	ffsDevTypePubKey = 'device_type_pubkey.pem'
+	ffsDevCert = 'certificate.pem'	
 	try:
 		opts, args = getopt.getopt(argv,"hr:c:k:t:",["ca=","cert=","key=","type="])
 	except getopt.GetoptError:
@@ -28,12 +28,14 @@ def main(argv):
 	print('Device Certificate file is ', ffsDevCert)	
 	print('Device Type Public file is ', ffsDevTypePubKey)
 	print("-------Root CA-------")
-	##Amazon FFS DSS CA
+	if(os.path.isdir("./msd") == False):
+		os.mkdir("./msd")
+    ##Amazon FFS DSS CA
 	with open(ffsRootCa, 'rb') as fHdl:
 		try:
 			certHdl = x509.load_der_x509_certificate(fHdl.read())
 			caCertArray = certHdl.public_bytes(serialization.Encoding.DER)
-			with open("../ffsRootCa.der", 'wb') as file:
+			with open("./msd/ffsRootCa.der", 'wb') as file:
 				file.write(caCertArray)				
 		except Exception as e:
 			print(e)
@@ -46,7 +48,7 @@ def main(argv):
 			pubKeyHdl = certHdl.public_key()			
 			pubKeyBytes = pubKeyHdl.public_bytes(serialization.Encoding.DER,
 			serialization.PublicFormat.SubjectPublicKeyInfo)			
-			with open("../ffsDevPublic.key", 'wb') as file:
+			with open("./msd/ffsDevPublic.key", 'wb') as file:
 				file.write(pubKeyBytes)	
 		except Exception as e:
 			print(e)			
@@ -58,7 +60,7 @@ def main(argv):
 			devTypePubKeyHdl = serialization.load_pem_public_key(fHdl.read(), default_backend())
 			devTypePubKeyBytes = devTypePubKeyHdl.public_bytes(serialization.Encoding.DER, 
 			serialization.PublicFormat.SubjectPublicKeyInfo)
-			with open("../ffsDevTypePublic.key", 'wb') as file:
+			with open("./msd/ffsDevTypePublic.key", 'wb') as file:
 				file.write(devTypePubKeyBytes)	
 		except Exception as e:
 			print(e)
