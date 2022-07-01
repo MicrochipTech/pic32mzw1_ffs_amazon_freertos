@@ -1,4 +1,5 @@
 # Amazon Frustration Free Setup for PIC32MZ-W1 / WFI32E01
+<img src="Docs/IoT-Made-Easy-Logo.png" width=100>
 
 #### **It is a beta relase package and requires manual code changes, the final release planned for CQ1-2022 will be much simpler**
 
