@@ -106,7 +106,7 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 <p align="center"><img width="600" src="Docs/ffs-python-requirements.png">
 </p>
 
-6. Run the *create-ffs-credentials.py -r SRootCA.cer -c **device-certificate.pem** -k **private_key.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files.
+6. Run the *create-ffs-msd-files.py -r SRootCA.cer -c **device-certificate.pem** -k **private_key.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files.
 
 	- ffsRootCA.cer
 	- ffsDevPublic.key
