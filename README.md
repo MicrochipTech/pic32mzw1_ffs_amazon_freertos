@@ -25,7 +25,7 @@ The Amazon FFS (Wi-Fi Simple Setup) requires,
 
 ### Software Requirements
 - [MPLAB X IDE](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide) (v5.50 or later)
-- [MPLAB XC32](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers) (v2.41 or later)
+- [MPLAB XC32](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers) (v3.01 or later)
 - [MPLAB Harmony 3](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-harmony-v3)
 - [python 3.x](https://www.python.org/downloads/)
 
@@ -106,7 +106,7 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 <p align="center"><img width="600" src="Docs/ffs-python-requirements.png">
 </p>
 
-6. Run the *create-ffs-msd-files.py -r SRootCA.cer -c **device-certificate.pem** -k **private_key.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files.
+6. Run the *create-ffs-msd-files.py -r [SRootCA.cer](https://ssl-ccp.secureserver.net/repository/sf-class2-root.crt) -c **device-certificate.pem** -k **private_key.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files.
 
 	- ffsRootCA.cer
 	- ffsDevPublic.key
@@ -195,11 +195,7 @@ A modified and tested example of FFS project for PIC32MZ-W1 / WFI32E01 is availa
 <p align="center"><img width="600" src="Docs/app-thd-stack.png">
 </p>
 
-25. The Amazon FFS library follows c99 C programming languge standard. Add the -std=c99 in the project properties -> xc32-gcc -> Additional options 
-<p align="center"><img width="600" src="Docs/c-standard-c99.png">
-</p>
-
-26. Add the include path in the project settings and build the project
+25. Add the include path in the project settings and build the project
 
 <p align="center"><img width="600" src="Docs/project-include.png">
 </p>
