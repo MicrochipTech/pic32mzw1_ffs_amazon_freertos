@@ -233,9 +233,9 @@ void APP_Tasks ( void )
 
                 USB_DEVICE_EventHandlerSet(appData.usbDeviceHandle, USBDeviceEventHandler, (uintptr_t) &appData);
                 appData.state = APP_IDLE;
-                SYS_CONSOLE_PRINT("Copy following files to MSD and reboot!\n1)\t%s\n2)\t%s\n3)\t%s\n4)\t%s\n5)\t%s\n", 
+                SYS_CONSOLE_PRINT("Copy following files to MSD and reboot!\n\t- %s\n\t- %s\n\t- %s\n\t- %s\n\t- %s\n", 
                         FFS_ROOT_CERT_FILE_NAME, 
-                        FFS_DEVICE_PUB_KEY_FILE_NAME, FFS_DEVICE_TYPE_PUBKEY_FILE_NAME,
+                        FFS_DEVICE_TYPE_PUBKEY_FILE_NAME, FFS_DEVICE_PUB_KEY_FILE_NAME,
                         FFS_DEVICE_CRT_FILE_NAME, FFS_DEVICE_KEY_FILE_NAME);
             } else {
                 appData.state = APP_ERROR;
@@ -579,10 +579,7 @@ void app_aquire_ffs_file(FFS_DEV_FILES_IDX_t fileType, const unsigned char **fil
                 *fileSize = 0;
                 *fileBuffer = NULL;
             break;
-    }
-    SYS_CONSOLE_PRINT("%s::file type = %d file size = %d\n", __func__, fileType, *fileSize);
-    
-        
+    }    
 }
 /*******************************************************************************
  End of File

@@ -750,7 +750,6 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/error-ssl.h</itemPath>
       </logicalFolder>
       <itemPath>../src/app.h</itemPath>
-      <itemPath>../src/pic32mzw1_ffs_amazon_freertos/app/amazon_ffs_certs.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -1749,6 +1748,8 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="10000000-100fffff"/>
+        <property key="programmerToGoFilePath"
+                  value="/Users/c21415/wfi32-iot/FFS/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/pic32mz_w1_curiosity_freertos.X/debug/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

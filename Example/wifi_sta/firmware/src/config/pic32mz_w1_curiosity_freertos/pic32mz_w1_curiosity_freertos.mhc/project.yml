@@ -356,13 +356,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: AD5CAAD66A56C9B5D17EB7E756C22D0C
-- generatedChecksum: C356E1DAD6180DE4075F1BD38B5D38DF
+- generatedChecksum: FBF53FFC458037E3BD44D4F66DBDED56
   logicalPath: config/pic32mz_w1_curiosity_freertos/driver/wifi/pic32mzw1
   name: drv_pic32mzw1_crypto.c
   physicalPath: driver/wifi/pic32mzw1
   security: NON_SECURE
   type: SOURCE
-  userChecksum: C356E1DAD6180DE4075F1BD38B5D38DF
+  userChecksum: FBF53FFC458037E3BD44D4F66DBDED56
 - generatedChecksum: F87DDE7DDF931D561BE17418915F16CB
   logicalPath: config/pic32mz_w1_curiosity_freertos/driver/sst26
   name: drv_sst26.c
@@ -377,13 +377,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: E8A25523C8CDDC97F3FD108E97BF4A9F
-- generatedChecksum: E65E55268349D2945F1AC4144D0327CC
+- generatedChecksum: 77A61E825804B2CA96FC95734161DDE6
   logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src
   name: drv_usbfs_device.c
   physicalPath: driver/usb/usbfs/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: E65E55268349D2945F1AC4144D0327CC
+  userChecksum: 77A61E825804B2CA96FC95734161DDE6
 - generatedChecksum: D81BD277BA41FC9B0E4C4A8B0AF30F86
   logicalPath: wolfcrypt
   name: dsa.c
@@ -1147,13 +1147,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 7CFE077AAF6C0B650844C683B48DFC8D
-- generatedChecksum: 815B4621A9440F22246D4C1DCAFB6B72
+- generatedChecksum: 53DCD16875B9708351BFC59CC23A262B
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: tasks.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 3B7CE0CBE2294E1FE077415281449528
+  userChecksum: DA64D695B0BB63A8BBD326E303D20BCB
 - generatedChecksum: B8810AC22D73CE43E5661105B6D3C8EB
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
   name: tcp.c
@@ -1301,13 +1301,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: F1955CEEEEFDA0A4DAAB50BBB0E6DC60
-- generatedChecksum: 5C58DCC19F4DC7CBA95E5A6017D2B542
+- generatedChecksum: CE786CFA4D2675F116B70FFC45C8C05C
   logicalPath: config/pic32mz_w1_curiosity_freertos/driver/wifi/pic32mzw1
   name: wdrv_pic32mzw.c
   physicalPath: driver/wifi/pic32mzw1
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 5C58DCC19F4DC7CBA95E5A6017D2B542
+  userChecksum: CE786CFA4D2675F116B70FFC45C8C05C
 - generatedChecksum: 5C2A427D83E5CCA5D980D9FEC6D02E5D
   logicalPath: config/pic32mz_w1_curiosity_freertos/driver/wifi/pic32mzw1
   name: wdrv_pic32mzw_assoc.c
@@ -4724,13 +4724,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 6C4A6859DB16EA8C046F995C6B6C1C6F
-- generatedChecksum: F127C67A3E33E5788C0F057F648EE57C
+- generatedChecksum: 6EB8F9F4A43B9BC2C7A58585AC679650
   logicalPath: config/pic32mz_w1_curiosity_freertos/usb
   name: usb_host.h
   physicalPath: usb
   security: NON_SECURE
   type: HEADER
-  userChecksum: F127C67A3E33E5788C0F057F648EE57C
+  userChecksum: 6EB8F9F4A43B9BC2C7A58585AC679650
 - generatedChecksum: 6EBC5E4D06FC96A02ADF3B7416957DD6
   logicalPath: config/pic32mz_w1_curiosity_freertos/usb
   name: usb_host_client_driver.h

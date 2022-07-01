@@ -120,15 +120,6 @@ void _DRV_MEMORY_0_Tasks(  void *pvParameters  )
     }
 }
 
-void _DRV_USBFS_Tasks(  void *pvParameters  )
-{
-    while(1)
-    {
-				 /* USB FS Driver Task Routine */
-        DRV_USBFS_Tasks(sysObj.drvUSBFSObject);
-        vTaskDelay(10 / portTICK_PERIOD_MS);
-    }
-}
 
 
 void _TCPIP_STACK_Task(  void *pvParameters  )

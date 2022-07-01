@@ -49,9 +49,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "wdrv_pic32mzw_common.h"
 #include "drv_pic32mzw1.h"
 #include "drv_pic32mzw1_crypto.h"
-#ifdef H3_CRYPTO
 #include "crypto/crypto.h"
-#endif
 #ifdef WDRV_PIC32MZW_BA414E_SUPPORT
 #include "driver/ba414e/drv_ba414e.h"
 #endif
@@ -140,9 +138,9 @@ static const CURVE_INFO g_SupportedCurves[] = {
 
 static CB_BA414E_INFO g_cb_ba414e_info[DRV_BA414E_NUM_CLIENTS] = {};
 #endif
-#ifdef H3_CRYPTO
+
 static CRYPT_RNG_CTX *rng_context;
-#endif
+
 void DRV_PIC32MZW_CryptoCallbackPush
 (
     DRV_PIC32MZW1_CRYPTO_CB fw_cb,
@@ -363,13 +361,11 @@ static void _DRV_PIC32MZW_Callback_Ba414e
 /*****************************************************************************/
 /* Big integer functions:   DRV_PIC32MZW1_Crypto_Random                      */
 /*****************************************************************************/
-#ifdef H3_CRYPTO
 bool DRV_PIC32MZW1_Crypto_Random_Init(CRYPT_RNG_CTX *pRngCtx)
 {
     rng_context = pRngCtx;
     return true;
 }
-#endif
 /* out = random array of length param_len.                                   */
 /* out is only valid if return is true.                                      */
 bool DRV_PIC32MZW1_Crypto_Random
@@ -379,8 +375,7 @@ bool DRV_PIC32MZW1_Crypto_Random
 )
 {
     bool ret = true;
-#ifdef H3_CRYPTO
-    
+
     if (NULL == out)
     {
         return false;
@@ -397,10 +392,7 @@ bool DRV_PIC32MZW1_Crypto_Random
     {
         ret = false;
     }
-#else
-    for(int i = 0; i < param_len; i++)
-        *(out++) = rand();
-#endif    
+
     return ret;
 }
 
@@ -408,7 +400,7 @@ bool DRV_PIC32MZW1_Crypto_Random
 /* HMAC_SHA256 functions.   DRV_PIC32MZW1_Crypto_HMACSHA256                  */
 /*****************************************************************************/
 /* Run a HMACSHA256 operation. */
-bool DRV_PIC32MZW1_Crypto_HMAC
+bool DRV_PIC32MZW1_Crypto_HMACSHA256
 (
         const uint8_t   *salt,
         uint16_t        salt_len,
@@ -417,7 +409,6 @@ bool DRV_PIC32MZW1_Crypto_HMAC
         uint8_t         *digest
 )
 {
-#ifdef H3_CRYPTO       
     CRYPT_HMAC_CTX *hmac_context;
     int i;
 
@@ -468,10 +459,6 @@ bool DRV_PIC32MZW1_Crypto_HMAC
 ERR:
     OSAL_Free(hmac_context);
     return false;
-#else
-    extern UINT azureGlue_crypto_hmac_256_calculate(UCHAR *key, UINT key_length, const UCHAR *input, UINT input_length, UCHAR *output);
-    return azureGlue_crypto_hmac_256_calculate((uint8_t *)salt, salt_len, input_data_buffers->data, input_data_buffers->data_len, digest);  
-#endif    
 }
 
 /*****************************************************************************/
