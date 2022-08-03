@@ -1,5 +1,5 @@
 # Amazon Frustration Free Setup for PIC32MZ-W1 / WFI32E01
-<img src="Docs/IoT-Made-Easy-Logo.png" width=100>
+<img src="../Docs/IoT-Made-Easy-Logo.png" width=100>
 
 #### **It is a beta relase package and requires manual code changes, the final release planned for CQ1-2022 will be much simpler**
 
@@ -9,18 +9,18 @@ Features: **| Amazon Frustration Free Setup | Wi-Fi Setup Service (WSS) |**
 
 ## Introduction
 
-The goal of this project is to demonstrate the [Amazon Frustration Free setup](https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html) on the PIC32MZ-W1 / WFI32E01.
+The goal of this project is to demonstrate the [Amazon Frustration Free setup](https://developer.amazon.com/../Docs/frustration-free-setup/understanding-ffs.html) on the PIC32MZ-W1 / WFI32E01.
 
-The Amazon Frustration Free Setup (FFS) for Wi-Fi devices is called [**Wi-Fi Simple Setup** (WSS)](https://developer.amazon.com/docs/frustration-free-setup/understand-wi-fi-simple-setup.html), it is designed to provision the new Wi-Fi devices to the Home network without any user interaction. 
+The Amazon Frustration Free Setup (FFS) for Wi-Fi devices is called [**Wi-Fi Simple Setup** (WSS)](https://developer.amazon.com/../Docs/frustration-free-setup/understand-wi-fi-simple-setup.html), it is designed to provision the new Wi-Fi devices to the Home network without any user interaction. 
 
 The Amazon FFS (Wi-Fi Simple Setup) requires, 
-- A device(PIC32MZ-W1 / WFI32E01), [pre-attested](https://developer.amazon.com/docs/frustration-free-setup/provisionee-manufacturing.html#requesting-a-dak-from-amazon) with user's Amazon Account
-- A Amazon [Provisioner device](https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html#testing-your-device) connected to internet
+- A device(PIC32MZ-W1 / WFI32E01), [pre-attested](https://developer.amazon.com/../Docs/frustration-free-setup/provisionee-manufacturing.html#requesting-a-dak-from-amazon) with user's Amazon Account
+- A Amazon [Provisioner device](https://developer.amazon.com/../Docs/frustration-free-setup/understanding-ffs.html#testing-your-device) connected to internet
 - A Home AP, who has it's credentials saved at [Amazon Wi-Fi Locker](https://www.amazon.com/gp/help/customer/display.html?nodeId=202122980) (a Amazon server)
 
 ### Hardware Requirements
 - [PIC32MZ-W1 Curiosity](https://www.microchip.com/en-us/development-tool/EV12F11A) or [WFI32-IoT board](https://www.microchip.com/en-us/development-tool/EV36W50A)
-- [Amazon Provisioner Device](https://developer.amazon.com/docs/frustration-free-setup/understanding-ffs.html#testing-your-device)
+- [Amazon Provisioner Device](https://developer.amazon.com/../Docs/frustration-free-setup/understanding-ffs.html#testing-your-device)
 - Access Point with Internet
 
 ### Software Requirements
@@ -39,7 +39,7 @@ The FFS demo needs an Amazon Provisionee device (Ex: Alexa Echo Dot), a Home AP,
 
 The following diagram shows the FFS demo setup for PIC32MZ-W1 / WFI32E01.
 
-<p align="center"><img width="600" src="Docs/FFS-Setup.png">
+<p align="center"><img width="600" src="../Docs/FFS-Setup.png">
 </p>
 
 
@@ -48,7 +48,7 @@ The following diagram shows the FFS demo setup for PIC32MZ-W1 / WFI32E01.
 
 1. In order to enable FFS, the product (PIC32MZ-W1 / WFI32E01 development board) should be registered at [FFS product registration](https://developer.amazon.com/frustration-free-setup/console/v2/onboard/request-device-registration) link
 2. The successful registration will provide a unique Product Type ID, Product ID and a DSS public key. Save the DSS public key in a file *device_type_pubkey.pem*
-<p align="center"><img width="600" src="Docs/ffs-dev-registration-dss-pubKey.png">
+<p align="center"><img width="600" src="../Docs/ffs-dev-registration-dss-pubKey.png">
 </p>
 
 3. Using these information, device specific certificates and keys can be generated. 
@@ -84,7 +84,7 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 3. Checkout the [PIC32MZ-W1 FreeRTOS FFS](https://github.com/MicrochipTech/pic32mzw1_ffs_amazon_freertos.git) repo in the project's *../firmware/src* folder
 4. Copy the **private_key**, **certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools* folder.
 5. Install the certificate creation python script requirements using the *pip3 install -r requirements.txt*
-<p align="center"><img width="600" src="Docs/ffs-python-requirements.png">
+<p align="center"><img width="600" src="../Docs/ffs-python-requirements.png">
 </p>
 
 6. Run the *create-ffs-msd-files.py -r [SRootCA.cer](https://ssl-ccp.secureserver.net/repository/sf-class2-root.crt) -c **device-certificate.pem** -k **private_key.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files.
@@ -93,19 +93,19 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 	- ffsDevPublic.key
 	- ffsDevTypePublic.key
 
-<p align="center"><img width="600" src="Docs/ffs-cert-script-cmd.png">
+<p align="center"><img width="600" src="../Docs/ffs-cert-script-cmd.png">
 </p>
  
 7. Now we have all the files necessory to configure/enable the FFS
 
 8. The WFI32-IoT emulates a MSD(Mass Storage Devcie) while running the demo for the first time.
 
-<p align="center"><img width="600" src="Docs/first_boot_log.png">
+<p align="center"><img width="600" src="../Docs/first_boot_log.png">
 </p>
 
 9. Copy all the above generated files into the MSD drive. The above log provides the list of files needed to enable FFS.
 
-<p align="center"><img width="600" src="Docs/MSD_for_certs.png">
+<p align="center"><img width="600" src="../Docs/MSD_for_certs.png">
 </p>
 
 
