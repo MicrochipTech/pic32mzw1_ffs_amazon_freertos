@@ -100,7 +100,7 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
  
 8. Now we have all the files necessory to configure/enable the FFS
 
-9. Navigate to 'File-> Open Project' and choose the project file available at *../firmware/src* folder
+9. Open the MPLAB X IDE and navigate to 'File-> Open Project' and choose the project file available at *../firmware/src* folder
 <p align="center"><img width="600" src="../Docs/mplabx-ProjectOpen-Step.png">
 </p>
 
@@ -108,22 +108,22 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 <p align="center"><img width="600" src="../Docs/mplabx-BuildFlash-Step.png">
 </p>
 
-11. The WFI32-IoT board emulates device console port, open the device console port using a terminal tool such as Teraterm or Termit. Use the baudrate 115200, parity None, stop bit 1.
-
-12. The WFI32-IoT emulates a MSD(Mass Storage Devcie) while running the demo for the first time. Or press and hold SW1 and SW2 during the boot up to force the MSD emulations.
-<p align="center"><img width="600" src="../Docs/ffs-msd_emulation.png">
-</p>
-
-12. The serial console of the device lists all the certificate and key files needed for the FFS. Copy all the five listed files to the MSD drive, these files are available in the "../tools" folder. 
+11. The WFI32-IoT board emulates device console serial port, open the device console port using any terminal tool such as Teraterm or Termit. Use the baudrate 115200, parity None, stop bit 1.
 <p align="center"><img width="600" src="../Docs/first_boot_log.png">
 </p>
 
-12. Open the default ffs_device.cfg file and provide the device specific details such as **CpuId**, **DeviceName** and **ProductIndex**
+12. The WFI32-IoT also emulates a MSD(Mass Storage Devcie) while running the demo for the first time. Or press and hold SW1 and SW2 during the boot up to force the MSD emulations.
+<p align="center"><img width="600" src="../Docs/ffs-msd-emulation.png">
+</p>
+
+13. The serial console output of the device lists all the certificate and key files needed for the FFS. Copy all the five listed files to the MSD, these files are available in the "../tools" folder. 
+
+
+14. Open the default ffs_device.cfg file in the MSD and provide the device specific details such as **CpuId**, **DeviceName** and **ProductIndex**
 <p align="center"><img width="600" src="../Docs/ffs-device-cfg.png">
 </p>
 
-
-14. Reboot the device and it would start the FFS process and connect to the Home AP. The successful FFS would result in stable BLUE LED otherwise the RED LED will be ON.
+15. Reboot the device and it would start the FFS process and connect to the Home AP. The successful FFS would result in stable BLUE LED otherwise the RED LED will be ON.
 
 
 ## Known issues and Limitations
