@@ -25,7 +25,6 @@ The Amazon FFS (Wi-Fi Simple Setup) requires,
 ### Software Requirements
 - [MPLAB X IDE](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide) (v5.50 or later)
 - [MPLAB XC32](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers) (v3.01)
-- [MPLAB Harmony 3](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-harmony-v3)
 - [python 3.x](https://www.python.org/downloads/)
 
 	- Note: The project was developed and tested using the MPLAB X v5.50, MPLAB XC32 v3.01 and python 3.9
