@@ -83,21 +83,13 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 
 4. Unzip the downloaded demo file and open MPLABX IDE 
 
-5. Navigate to 'File-> Open Project' and choose the project file available at *../firmware/src* folder
-<p align="center"><img width="600" src="../Docs/mplabx-ProjectOpen-Step.png">
-</p>
+5. Copy the **private_key**, **certificate.pem**, **device-certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools* folder.
 
-6. Right click on the project and select 'Production -> Make and Program Device Main Project' option  
-<p align="center"><img width="600" src="../Docs/mplabx-BuildFlash-Step.png">
-</p>
-
-7. Copy the **private_key**, **certificate.pem**, **device-certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools* folder.
-
-8. Install the certificate creation python script requirements using the *pip3 install -r requirements.txt*
+6. Install the certificate creation python script requirements using the *pip3 install -r requirements.txt*
 <p align="center"><img width="600" src="../Docs/ffs-python-requirements.png">
 </p>
 
-9. Run the *create-ffs-msd-files.py -r [SRootCA.cer](https://ssl-ccp.secureserver.net/repository/sf-class2-root.crt) -c **device-certificate.pem** -k **private_key.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files.
+7. Run the *create-ffs-msd-files.py -r [SRootCA.cer](https://ssl-ccp.secureserver.net/repository/sf-class2-root.crt) -c **device-certificate.pem** -k **private_key.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files.
 
 	- ffsRootCA.cer
 	- ffsDevPublic.key
@@ -106,7 +98,16 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 <p align="center"><img width="600" src="../Docs/ffs-cert-script-cmd.png">
 </p>
  
-10. Now we have all the files necessory to configure/enable the FFS
+8. Now we have all the files necessory to configure/enable the FFS
+
+9. Navigate to 'File-> Open Project' and choose the project file available at *../firmware/src* folder
+<p align="center"><img width="600" src="../Docs/mplabx-ProjectOpen-Step.png">
+</p>
+
+10. Right click on the project and select 'Production -> Make and Program Device Main Project' option  
+<p align="center"><img width="600" src="../Docs/mplabx-BuildFlash-Step.png">
+</p>
+
 
 11. The WFI32-IoT emulates a MSD(Mass Storage Devcie) while running the demo for the first time. Or press and hold SW1 and SW2 during the boot up to force the MSD emulations.
 
