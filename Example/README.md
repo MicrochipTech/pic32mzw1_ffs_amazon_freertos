@@ -45,7 +45,7 @@ The following diagram shows the FFS demo setup for PIC32MZ-W1 / WFI32E01.
 
 Following is the WFI32-IoT board diagram, the picture shoes the User configurable LEDs used to indicate the demo status and Switch1/Switch2 are used to configure the demo.
 
-<p align="center"><img width="600" src="../Docs/FFS-Setup.png">
+<p align="center"><img width="600" src="../Docs/wfi32-iot-board.png">
 </p>
 
 The following table describes the functionality of the switch inputs during the board boot up.
