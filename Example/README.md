@@ -52,7 +52,7 @@ The following table describes the functionality of the switch inputs during the 
 
 | Switch Status during boot-up  | Functionality  |
 |:----------|:----------|
-| Switch 1 and Switch 2 pressed    | Factory board resets the board, erases certificate and key files    |
+| Switch 1 and Switch 2 pressed    | Board factory reset, erases certificate and key files    |
 | Switch 1 pressed    | Erases the saved home AP credentials and restarts the FFS    |
 
 
