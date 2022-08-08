@@ -89,7 +89,7 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 <p align="center"><img width="600" src="../Docs/ffs-python-requirements.png">
 </p>
 
-7. Run the *create-ffs-msd-files.py -r [SRootCA.cer](https://ssl-ccp.secureserver.net/repository/sf-class2-root.crt) -c **device-certificate.pem** -k **private_key.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files under the **../tools/msd** folder.
+7. Open command prompt and navigate to ../tools folder, then run the *python create-ffs-msd-files.py -r [SRootCA.cer](https://ssl-ccp.secureserver.net/repository/sf-class2-root.crt) -c **certificate.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files under the **../tools/msd** folder.
 
 	- ffsRootCA.cer
 	- ffsDevPublic.key
@@ -117,7 +117,8 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 </p>
 
 13. The serial console output of the device lists all the certificate and key files needed for the FFS. Copy all the five listed files to the MSD, these files are available in the "../tools" folder. 
-
+<p align="center"><img width="600" src="../Docs/ffs-msd-files.png">
+</p>
 
 14. Open the default ffs_device.cfg file in the MSD and provide the device specific details such as **CpuId**, **DeviceName** and **ProductIndex**
 <p align="center"><img width="600" src="../Docs/ffs-device-cfg.png">
