@@ -48,13 +48,19 @@ Following is the WFI32-IoT board diagram, the picture shows the 'User configurab
 <p align="center"><img width="600" src="../Docs/wfi32-iot-board.png">
 </p>
 
-The following table describes the functionality of the switch inputs during the board boot up.
+The following table describes the functionality of the switch inputs during the board boot-up.
 
 | Switch Status during boot-up  | Functionality  |
 |:----------|:----------|
 | Switch 1 and Switch 2 pressed    | Board factory reset, erases certificate and key files    |
 | Switch 1 pressed    | Erases the saved home AP credentials and restarts the FFS    |
 
+Following are the LED status to indicate the FFS state.
+
+| LED Status  | Functionality  |
+|:----------|:----------|
+| Blue LED ON    | FFS successful, connected to home AP    |
+| Red LED ON    | FFS failure    |
 
 
 
