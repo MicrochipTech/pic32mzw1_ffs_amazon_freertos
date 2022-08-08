@@ -41,6 +41,22 @@ The following diagram shows the FFS demo setup for PIC32MZ-W1 / WFI32E01.
 <p align="center"><img width="600" src="../Docs/FFS-Setup.png">
 </p>
 
+## WFI32-IoT Board diagram
+
+Following is the WFI32-IoT board diagram, the picture shoes the User configurable LEDs used to indicate the demo status and Switch1/Switch2 are used to configure the demo.
+
+<p align="center"><img width="600" src="../Docs/FFS-Setup.png">
+</p>
+
+The following table describes the functionality of the switch inputs during the board boot up.
+
+| Switch Status during boot-up  | Functionality  |
+|:----------|:----------|
+| Switch 1 and Switch 2 pressed    | Factory board resets the board, erases certificate and key files    |
+| Switch 1 pressed    | Erases the saved home AP credentials and restarts the FFS    |
+
+
+
 
 ### Enabling WSS on PIC32MZ-W1 / WFI32E01
 #### Device Attestation and Authorization
