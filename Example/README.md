@@ -74,7 +74,7 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 	-  device-params.pem
 	-  device.csr
 	-  **private_key.pem**
-	-  **device-certificate.pem**
+	-  device-certificate.pem
 	-  **certificate.pem**
 	-  dha-control-log-public-key.txt
     -  **device_type_pubkey.pem**
@@ -83,7 +83,7 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 
 4. Unzip the downloaded demo file and open MPLABX IDE 
 
-5. Copy the **private_key.pem**, **certificate.pem**, **device-certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools folder.
+5. Copy the **private_key.pem**, **certificate.pem**, and **device_type_pubkey.pem** into the cloned repo's **../tools** folder.
 
 6. Install the certificate creation python script requirements using the *pip3 install -r requirements.txt*
 <p align="center"><img width="600" src="../Docs/ffs-python-requirements.png">
