@@ -57,6 +57,7 @@ extern "C" {
 #define FFS_DEVICE_TYPE_PUBKEY_FILE_NAME        "ffsDevTypePublic.key"
 #define FFS_DEVICE_CRT_FILE_NAME                "certificate.pem"
 #define FFS_DEVICE_KEY_FILE_NAME                "private_key.pem"
+#define FFS_DEVICE_CFG_FILE_NAME                "ffs_device.cfg"
     
 #define FFS_ROOT_CERT_FILE                     APP_MOUNT_NAME"/"FFS_ROOT_CERT_FILE_NAME
 #define FFS_DEVICE_PUB_KEY_FILE                APP_MOUNT_NAME"/"FFS_DEVICE_PUB_KEY_FILE_NAME
@@ -64,7 +65,34 @@ extern "C" {
 #define FFS_DEVICE_CRT_FILE                    APP_MOUNT_NAME"/"FFS_DEVICE_CRT_FILE_NAME
 #define FFS_DEVICE_KEY_FILE                    APP_MOUNT_NAME"/"FFS_DEVICE_KEY_FILE_NAME    
     
-#define FFS_WIFI_CFG_FILE                      APP_MOUNT_NAME"/ffs_wifi.cfg"    
+#define FFS_WIFI_CFG_FILE                      APP_MOUNT_NAME"/ffs_wifi.cfg"
+#define FFS_DEVICE_CFG_FILE                    APP_MOUNT_NAME"/"FFS_DEVICE_CFG_FILE_NAME   
+    
+#define FFS_DEVICE_NAME_JSON_TAG                "device_name"
+#define FFS_DEVICE_NAME_JSON_TAG                "device_name"
+    
+#define FFS_DEVICE_MANUFACTURER_NAME_JSON_TAG   "ManufacturerName"
+#define FFS_DEVICE_MODEL_NUMBER_JSON_TAG        "ModelNumber"
+#define FFS_DEVICE_SERIAL_NUMBER_JSON_TAG       "SerialNumber"
+#define FFS_DEVICE_PIN_JSON_TAG                 "DevicePin"
+#define FFS_DEVICE_HARDWARE_REVISION_JSON_TAG   "HardwareRevision"
+#define FFS_DEVICE_FIRMWARE_REVISION_JSON_TAG   "FirmwareRevision"
+#define FFS_DEVICE_CPU_ID_JSON_TAG              "CpuId"
+#define FFS_DEVICE_DEVICE_NAME_JSON_TAG         "DeviceName"
+#define FFS_DEVICE_PRODUCT_INDEX_JSON_TAG       "ProductIndex"
+
+#define FFS_DEVICE_CONFIG_PARAM_LEN             32    
+    
+extern char FFS_DEVICE_MANUFACTURER_NAME[];
+extern char FFS_DEVICE_MODEL_NUMBER[];
+extern char FFS_DEVICE_SERIAL_NUMBER[];
+extern char FFS_DEVICE_PIN[];
+extern char FFS_DEVICE_HARDWARE_REVISION[];
+extern char FFS_DEVICE_FIRMWARE_REVISION[];
+extern char FFS_DEVICE_CPU_ID[];
+extern char FFS_DEVICE_DEVICE_NAME[];
+extern char FFS_DEVICE_PRODUCT_INDEX[];
+
 // *****************************************************************************
 /* Application states
 
@@ -127,6 +155,9 @@ typedef enum
 
     /* The app opens the FFS Config file */
     APP_OPEN_FFS_DEV_PUB_FILE,
+            
+    /* The app opens the FFS device config json file */
+    APP_OPEN_FFS_DEV_CFG_FILE,
             
     /* The app writes data to the file */
     APP_WRITE_TO_FILE,

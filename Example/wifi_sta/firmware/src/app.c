@@ -28,6 +28,7 @@
 // *****************************************************************************
 
 #include "app.h"
+#include "cJSON.h"
 #include "definitions.h"                // SYS function prototypes
 
 #define MEMORY_FOOTPRINT
@@ -147,6 +148,7 @@ void USBDeviceEventHandler(USB_DEVICE_EVENT event, void * pEventData, uintptr_t 
 
 void APP_Initialize ( void )
 {    
+    asm("nop");
     /* Place the App state machine in its initial state. */
     appData.state = APP_STATE_INIT; 
         
@@ -258,8 +260,8 @@ void APP_Tasks ( void )
                 SYS_FS_DriveLabelSet(APP_MOUNT_NAME, "WFI32");
                 SYS_FS_CurrentDriveSet(APP_MOUNT_NAME);
                 SYS_CONSOLE_MESSAGE("Unable to find the device certificate and key files!\r\n");                
-                /* Format succeeded. Open a file. */
-                appData.state = APP_MSD_CONNECT;                              
+                /* Format succeeded. Open a file. */                
+                appData.state = APP_OPEN_FFS_DEV_CFG_FILE;
             
             }
             break;
@@ -281,7 +283,7 @@ void APP_Tasks ( void )
                     }
                     else if((bytes_read = SYS_FS_FileRead(appData.fileHandle, (void *)appData.caCert, appData.fileStatus.fsize)) > 0)                                            
                     {
-                        SYS_CONSOLE_PRINT("Root CA File read success %d!\r\n", bytes_read);                              
+                        SYS_CONSOLE_PRINT("Root CA file read success %d!\r\n", bytes_read);                              
                         if (appData.fileStatus.fsize == bytes_read)                        
                         {                    
                             /* The test was successful. */
@@ -311,7 +313,7 @@ void APP_Tasks ( void )
                     }
                     else if((bytes_read = SYS_FS_FileRead(appData.fileHandle, (void *)appData.deviceCert, appData.fileStatus.fsize)) > 0)                                            
                     {
-                        SYS_CONSOLE_PRINT("Certificate File read success %d!\r\n", bytes_read);                              
+                        SYS_CONSOLE_PRINT("Certificate file read success %d!\r\n", bytes_read);                              
                         if (appData.fileStatus.fsize == bytes_read)                        
                         {                    
                             /* The test was successful. */
@@ -341,7 +343,7 @@ void APP_Tasks ( void )
                     }
                     if((bytes_read = SYS_FS_FileRead(appData.fileHandle, (void *)appData.devicePvtKey, appData.fileStatus.fsize)) > 0)                    
                     {
-                        SYS_CONSOLE_PRINT("Device Private File read success %d!\r\n", bytes_read);                              
+                        SYS_CONSOLE_PRINT("Device Private file read success %d!\r\n", bytes_read);                              
                         if (appData.fileStatus.fsize == bytes_read)                        
                         {  
                             appData.devicePvtKey_len = appData.fileStatus.fsize;
@@ -371,7 +373,7 @@ void APP_Tasks ( void )
                     }
                     if((bytes_read = SYS_FS_FileRead(appData.fileHandle, (void *)appData.devTypePubKeyBuf, appData.fileStatus.fsize)) > 0)                    
                     {
-                        SYS_CONSOLE_PRINT("Device type public key File read success %d!\r\n", bytes_read);                              
+                        SYS_CONSOLE_PRINT("Device type public key file read success %d!\r\n", bytes_read);                              
                         if (appData.fileStatus.fsize == bytes_read)                        
                         {  
                             appData.devTypePubKeyBuf_Len = appData.fileStatus.fsize;
@@ -401,12 +403,12 @@ void APP_Tasks ( void )
                     }
                     if((bytes_read = SYS_FS_FileRead(appData.fileHandle, (void *)appData.devPubKeyBuf, appData.fileStatus.fsize)) > 0)                    
                     {
-                        SYS_CONSOLE_PRINT("Device public key File read success %d!\r\n", bytes_read);                              
+                        SYS_CONSOLE_PRINT("Device public key file read success %d!\r\n", bytes_read);                              
                         if (appData.fileStatus.fsize == bytes_read)                        
                         {  
                             appData.devPubKeyBuf_Len = appData.fileStatus.fsize;
                             /* The test was successful. */
-                            appData.state = APP_STATE_FFS_TASK;
+                            appData.state = APP_OPEN_FFS_DEV_CFG_FILE;                          
                         }
                     }
                 }                
@@ -459,7 +461,173 @@ void APP_Tasks ( void )
                 SYS_FS_FileClose(appData.fileHandle);
             }
             break;
-        }                
+        }  
+        
+        case APP_OPEN_FFS_DEV_CFG_FILE:
+        {
+            appData.state = APP_MSD_CONNECT; 
+            if(SYS_FS_FileStat(FFS_DEVICE_CFG_FILE_NAME, &appData.fileStatus) != SYS_FS_RES_SUCCESS)            
+            {                
+                appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_CFG_FILE, SYS_FS_FILE_OPEN_WRITE);              
+                if(appData.fileHandle != SYS_FS_HANDLE_INVALID)
+                {                    
+                    cJSON *jsonObj = cJSON_CreateObject();
+                    cJSON_AddItemToObject(jsonObj, FFS_DEVICE_MANUFACTURER_NAME_JSON_TAG, cJSON_CreateString((const char *)FFS_DEVICE_MANUFACTURER_NAME));
+                    cJSON_AddItemToObject(jsonObj, FFS_DEVICE_MODEL_NUMBER_JSON_TAG, cJSON_CreateString((const char *)FFS_DEVICE_MODEL_NUMBER));  
+                    cJSON_AddItemToObject(jsonObj, FFS_DEVICE_SERIAL_NUMBER_JSON_TAG, cJSON_CreateString((const char *)FFS_DEVICE_SERIAL_NUMBER));  
+                    cJSON_AddItemToObject(jsonObj, FFS_DEVICE_PIN_JSON_TAG, cJSON_CreateString((const char *)FFS_DEVICE_PIN));
+                    cJSON_AddItemToObject(jsonObj, FFS_DEVICE_HARDWARE_REVISION_JSON_TAG, cJSON_CreateString((const char *)FFS_DEVICE_HARDWARE_REVISION));  
+                    cJSON_AddItemToObject(jsonObj, FFS_DEVICE_FIRMWARE_REVISION_JSON_TAG, cJSON_CreateString((const char *)FFS_DEVICE_FIRMWARE_REVISION));                      
+                    cJSON_AddItemToObject(jsonObj, FFS_DEVICE_CPU_ID_JSON_TAG, cJSON_CreateString((const char *)FFS_DEVICE_CPU_ID));
+                    cJSON_AddItemToObject(jsonObj, FFS_DEVICE_DEVICE_NAME_JSON_TAG, cJSON_CreateString((const char *)FFS_DEVICE_DEVICE_NAME));  
+                    cJSON_AddItemToObject(jsonObj, FFS_DEVICE_PRODUCT_INDEX_JSON_TAG, cJSON_CreateString((const char *)FFS_DEVICE_PRODUCT_INDEX));  
+                    
+                    char * printBuffer = cJSON_Print(jsonObj);
+                                            
+                    if(printBuffer && (SYS_FS_FileWrite(appData.fileHandle, printBuffer, strlen(printBuffer)) == strlen(printBuffer)))                                                  
+                    { 
+                        SYS_FS_FileSync(appData.fileHandle);                        
+                    }
+                    else
+                    {
+                        SYS_CONSOLE_PRINT("Cloud Configuration file write fail!\n");
+                        appData.state = APP_ERROR;
+                    }
+                    cJSON_Delete(jsonObj);                     
+                    SYS_FS_FileClose(appData.fileHandle);  
+                }
+                else
+                {
+                    SYS_CONSOLE_PRINT("File open %s failed!\n", FFS_DEVICE_CFG_FILE);
+                    appData.state = APP_ERROR;
+                }
+                
+            }
+            else
+            {                
+                char *fileData = OSAL_Malloc(appData.fileStatus.fsize);
+                
+                if(fileData != NULL)
+                {
+                    appData.fileHandle = SYS_FS_FileOpen(appData.fileStatus.fname, SYS_FS_FILE_OPEN_READ);              
+
+                    if(SYS_FS_FileRead(appData.fileHandle, fileData, appData.fileStatus.fsize) == appData.fileStatus.fsize)                                                 
+                    {
+                        /*Parse the file */
+                        cJSON *messageJson = cJSON_Parse(fileData);
+                        if (messageJson == NULL) {
+                            const char *error_ptr = cJSON_GetErrorPtr();            
+                            if (error_ptr != NULL) {
+                                SYS_CONSOLE_PRINT("Message JSON parse Error. Error before: %s \r\n", error_ptr);
+                        }
+                            cJSON_Delete(messageJson);
+                            return;
+                        }
+
+                        cJSON *manu_id = cJSON_GetObjectItem(messageJson, FFS_DEVICE_MANUFACTURER_NAME_JSON_TAG);
+                        if (!manu_id || manu_id->type !=cJSON_String ) {
+                            SYS_CONSOLE_PRINT("JSON "FFS_DEVICE_MANUFACTURER_NAME_JSON_TAG" parsing error\r\n");
+                            cJSON_Delete(messageJson);
+                            return;
+                        }
+                        memset(FFS_DEVICE_MANUFACTURER_NAME, 0, FFS_DEVICE_CONFIG_PARAM_LEN);
+                        sprintf((char *)FFS_DEVICE_MANUFACTURER_NAME, "%s", manu_id->valuestring);
+
+                        //Get the ClientID
+                        cJSON *model_number = cJSON_GetObjectItem(messageJson, FFS_DEVICE_MODEL_NUMBER_JSON_TAG);
+                        if (!model_number || model_number->type !=cJSON_String ) {
+                            SYS_CONSOLE_PRINT("JSON "FFS_DEVICE_MODEL_NUMBER_JSON_TAG" parsing error\r\n");
+                            cJSON_Delete(messageJson);
+                            return;
+                        }
+                        memset(FFS_DEVICE_MODEL_NUMBER, 0, FFS_DEVICE_CONFIG_PARAM_LEN);
+                        sprintf((char *)FFS_DEVICE_MODEL_NUMBER, "%s", model_number->valuestring);
+
+                        //Get the ClientID
+                        cJSON *serial_num = cJSON_GetObjectItem(messageJson, FFS_DEVICE_SERIAL_NUMBER_JSON_TAG);
+                        if (!serial_num || serial_num->type !=cJSON_String ) {
+                            SYS_CONSOLE_PRINT("JSON "FFS_DEVICE_SERIAL_NUMBER_JSON_TAG" parsing error\r\n");
+                            cJSON_Delete(messageJson);
+                            return;
+                        }
+                        memset(FFS_DEVICE_SERIAL_NUMBER, 0, FFS_DEVICE_CONFIG_PARAM_LEN);
+                        sprintf((char *)FFS_DEVICE_SERIAL_NUMBER, "%s", serial_num->valuestring);
+
+                        cJSON *dev_pin = cJSON_GetObjectItem(messageJson, FFS_DEVICE_PIN_JSON_TAG);
+                        if (!dev_pin || dev_pin->type !=cJSON_String ) {
+                            SYS_CONSOLE_PRINT("JSON "FFS_DEVICE_PIN_JSON_TAG" parsing error\r\n");
+                            cJSON_Delete(messageJson);
+                            return;
+                        }
+                        memset(FFS_DEVICE_PIN, 0, FFS_DEVICE_CONFIG_PARAM_LEN);
+                        sprintf((char *)FFS_DEVICE_PIN, "%s", dev_pin->valuestring);
+
+                        //Get the ClientID
+                        cJSON *hw_rev= cJSON_GetObjectItem(messageJson, FFS_DEVICE_HARDWARE_REVISION_JSON_TAG);
+                        if (!hw_rev || hw_rev->type !=cJSON_String ) {
+                            SYS_CONSOLE_PRINT("JSON "FFS_DEVICE_HARDWARE_REVISION_JSON_TAG" parsing error\r\n");
+                            cJSON_Delete(messageJson);
+                            return;
+                        }
+                        memset(FFS_DEVICE_HARDWARE_REVISION, 0, FFS_DEVICE_CONFIG_PARAM_LEN);
+                        sprintf((char *)FFS_DEVICE_HARDWARE_REVISION, "%s", hw_rev->valuestring);
+
+                        //Get the ClientID
+                        cJSON *fw_rev = cJSON_GetObjectItem(messageJson, FFS_DEVICE_FIRMWARE_REVISION_JSON_TAG);
+                        if (!fw_rev || fw_rev->type !=cJSON_String ) {
+                            SYS_CONSOLE_PRINT("JSON "FFS_DEVICE_FIRMWARE_REVISION_JSON_TAG" parsing error\r\n");
+                            cJSON_Delete(messageJson);
+                            return;
+                        }
+                        memset(FFS_DEVICE_FIRMWARE_REVISION, 0, FFS_DEVICE_CONFIG_PARAM_LEN);
+                        sprintf((char *)FFS_DEVICE_FIRMWARE_REVISION, "%s", fw_rev->valuestring);
+                        
+                        //Get the ClientID
+                        cJSON *cpu_id = cJSON_GetObjectItem(messageJson, FFS_DEVICE_CPU_ID_JSON_TAG);
+                        if (!cpu_id || cpu_id->type !=cJSON_String ) {
+                            SYS_CONSOLE_PRINT("JSON "FFS_DEVICE_CPU_ID_JSON_TAG" parsing error\r\n");
+                            cJSON_Delete(messageJson);
+                            return;
+                        }
+                        memset(FFS_DEVICE_CPU_ID, 0, FFS_DEVICE_CONFIG_PARAM_LEN);
+                        sprintf((char *)FFS_DEVICE_CPU_ID, "%s", cpu_id->valuestring);
+                        
+                        cJSON *dev_name = cJSON_GetObjectItem(messageJson, FFS_DEVICE_DEVICE_NAME_JSON_TAG);
+                        if (!dev_name || dev_name->type !=cJSON_String ) {
+                            SYS_CONSOLE_PRINT("JSON "FFS_DEVICE_DEVICE_NAME_JSON_TAG" parsing error\r\n");
+                            cJSON_Delete(messageJson);
+                            return;
+                        }
+                        memset(FFS_DEVICE_DEVICE_NAME, 0, FFS_DEVICE_CONFIG_PARAM_LEN);
+                        sprintf((char *)FFS_DEVICE_DEVICE_NAME, "%s", dev_name->valuestring);
+                        
+                        cJSON *prod_idx = cJSON_GetObjectItem(messageJson, FFS_DEVICE_PRODUCT_INDEX_JSON_TAG);
+                        if (!prod_idx || prod_idx->type !=cJSON_String ) {
+                            SYS_CONSOLE_PRINT("JSON "FFS_DEVICE_PRODUCT_INDEX_JSON_TAG" parsing error\r\n");
+                            cJSON_Delete(messageJson);
+                            return;
+                        }
+                        memset(FFS_DEVICE_PRODUCT_INDEX, 0, FFS_DEVICE_CONFIG_PARAM_LEN);
+                        sprintf((char *)FFS_DEVICE_PRODUCT_INDEX, "%s", prod_idx->valuestring);   
+                        
+                        SYS_CONSOLE_PRINT("Device Configuration : -\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n\t%s\n", 
+                                FFS_DEVICE_MANUFACTURER_NAME,
+                                FFS_DEVICE_MODEL_NUMBER,
+                                FFS_DEVICE_PIN,
+                                FFS_DEVICE_HARDWARE_REVISION,
+                                FFS_DEVICE_FIRMWARE_REVISION,                                
+                                FFS_DEVICE_CPU_ID,
+                                FFS_DEVICE_DEVICE_NAME,
+                                FFS_DEVICE_PRODUCT_INDEX);
+                        
+                    }
+                    appData.state = APP_STATE_FFS_TASK;
+                    OSAL_Free(fileData);
+                }
+            }
+            
+            break;
+        }
 
         case APP_UNMOUNT_DISK:
         {
@@ -503,8 +671,7 @@ void APP_Tasks ( void )
                     SYS_FS_FileClose(ffsFileHandle);
                 }  
                 appData.state = APP_UNMOUNT_DISK;
-            } 
-            
+            }             
             break;    
         }
         
