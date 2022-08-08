@@ -83,7 +83,7 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 
 4. Unzip the downloaded demo file and open MPLABX IDE 
 
-5. Copy the **private_key.pem**, **certificate.pem**, **device-certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools* folder.
+5. Copy the **private_key.pem**, **certificate.pem**, **device-certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools folder.
 
 6. Install the certificate creation python script requirements using the *pip3 install -r requirements.txt*
 <p align="center"><img width="600" src="../Docs/ffs-python-requirements.png">
@@ -108,18 +108,22 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 <p align="center"><img width="600" src="../Docs/mplabx-BuildFlash-Step.png">
 </p>
 
+11. The WFI32-IoT board emulates device console port, open the device console port using a terminal tool such as Teraterm or Termit. Use the baudrate 115200, parity None, stop bit 1.
 
-11. The WFI32-IoT emulates a MSD(Mass Storage Devcie) while running the demo for the first time. Or press and hold SW1 and SW2 during the boot up to force the MSD emulations.
+12. The WFI32-IoT emulates a MSD(Mass Storage Devcie) while running the demo for the first time. Or press and hold SW1 and SW2 during the boot up to force the MSD emulations.
+<p align="center"><img width="600" src="../Docs/ffs-msd_emulation.png">
+</p>
 
+12. The serial console of the device lists all the certificate and key files needed for the FFS. Copy all the five listed files to the MSD drive, these files are available in the "../tools" folder. 
 <p align="center"><img width="600" src="../Docs/first_boot_log.png">
 </p>
 
-12. Copy all the above generated files into the MSD drive. The above log provides the list of files needed to enable FFS.
-
-<p align="center"><img width="600" src="../Docs/MSD_for_certs.png">
+12. Open the default ffs_device.cfg file and provide the device specific details such as **CpuId**, **DeviceName** and **ProductIndex**
+<p align="center"><img width="600" src="../Docs/ffs-device-cfg.png">
 </p>
 
-13. Reboot the device and it would start the FFS process and connect to the Home AP. The successful FFS would result in stable BLUE LED otherwise the RED LED will be ON.
+
+14. Reboot the device and it would start the FFS process and connect to the Home AP. The successful FFS would result in stable BLUE LED otherwise the RED LED will be ON.
 
 
 ## Known issues and Limitations
