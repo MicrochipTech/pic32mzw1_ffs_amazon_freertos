@@ -9,7 +9,7 @@ def main(argv):
 	ffsDevTypePubKey = 'device_type_pubkey.pem'
 	ffsDevCert = 'certificate.pem'	
 	try:
-		opts, args = getopt.getopt(argv,"hr:c:k:t:",["ca=","cert=","key=","type="])
+		opts, args = getopt.getopt(argv,"hr:c:t:",["ca=","cert=","type="])
 	except getopt.GetoptError:
 		print('create-ffs-credentials.py -r <root CA> -c <device certificate> -t <device type public key>')
 		sys.exit(2)
@@ -35,11 +35,10 @@ def main(argv):
 		try:
 			certHdl = x509.load_der_x509_certificate(fHdl.read())
 			caCertArray = certHdl.public_bytes(serialization.Encoding.DER)
-			with open("./msd/ffsRootCa.der", 'wb') as file:
+			with open("ffsRootCa.der", 'wb') as file:
 				file.write(caCertArray)				
 		except Exception as e:
 			print(e)
-
 
 	print("-------Pub Key-------")
 	with open(ffsDevCert, 'rb') as fHdl:
@@ -48,7 +47,7 @@ def main(argv):
 			pubKeyHdl = certHdl.public_key()			
 			pubKeyBytes = pubKeyHdl.public_bytes(serialization.Encoding.DER,
 			serialization.PublicFormat.SubjectPublicKeyInfo)			
-			with open("./msd/ffsDevPublic.key", 'wb') as file:
+			with open("ffsDevPublic.key", 'wb') as file:
 				file.write(pubKeyBytes)	
 		except Exception as e:
 			print(e)			
@@ -60,7 +59,7 @@ def main(argv):
 			devTypePubKeyHdl = serialization.load_pem_public_key(fHdl.read(), default_backend())
 			devTypePubKeyBytes = devTypePubKeyHdl.public_bytes(serialization.Encoding.DER, 
 			serialization.PublicFormat.SubjectPublicKeyInfo)
-			with open("./msd/ffsDevTypePublic.key", 'wb') as file:
+			with open("ffsDevTypePublic.key", 'wb') as file:
 				file.write(devTypePubKeyBytes)	
 		except Exception as e:
 			print(e)
