@@ -122,7 +122,7 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
  
 8. Now we have all the files necessory to configure/enable the FFS
 
-9. Open the MPLAB X IDE and navigate to 'File-> Open Project' and choose the project file available at *../firmware/src* folder
+9. Open the MPLAB X IDE and navigate to 'File-> Open Project' and choose the project file available at *..Example/wifi_sta/firmware/* folder
 <p align="center"><img width="600" src="../Docs/mplabx-ProjectOpen-Step.png">
 </p>
 
