@@ -73,7 +73,7 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 	-  device.conf
 	-  device-params.pem
 	-  device.csr
-	-  private_key.pem
+	-  **private_key.pem**
 	-  **device-certificate.pem**
 	-  **certificate.pem**
 	-  dha-control-log-public-key.txt
@@ -83,13 +83,13 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 
 4. Unzip the downloaded demo file and open MPLABX IDE 
 
-5. Copy the **private_key**, **certificate.pem**, **device-certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools* folder.
+5. Copy the **private_key.pem**, **certificate.pem**, **device-certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools* folder.
 
 6. Install the certificate creation python script requirements using the *pip3 install -r requirements.txt*
 <p align="center"><img width="600" src="../Docs/ffs-python-requirements.png">
 </p>
 
-7. Run the *create-ffs-msd-files.py -r [SRootCA.cer](https://ssl-ccp.secureserver.net/repository/sf-class2-root.crt) -c **device-certificate.pem** -k **private_key.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files.
+7. Run the *create-ffs-msd-files.py -r [SRootCA.cer](https://ssl-ccp.secureserver.net/repository/sf-class2-root.crt) -c **device-certificate.pem** -k **private_key.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files under the **../tools/msd** folder.
 
 	- ffsRootCA.cer
 	- ffsDevPublic.key
