@@ -43,7 +43,7 @@ The following diagram shows the FFS demo setup for PIC32MZ-W1 / WFI32E01.
 
 ## WFI32-IoT Board diagram
 
-Following is the WFI32-IoT board diagram, the picture shoes the User configurable LEDs used to indicate the demo status and Switch1/Switch2 are used to configure the demo.
+Following is the WFI32-IoT board diagram, the picture shows the 'User configurable LEDs' which are used to indicate the demo status and Switch1/Switch2 are used to configure the demo.
 
 <p align="center"><img width="600" src="../Docs/wfi32-iot-board.png">
 </p>
