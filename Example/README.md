@@ -1,7 +1,6 @@
 # Amazon Frustration Free Setup for PIC32MZ-W1 / WFI32E01
 <img src="../Docs/IoT-Made-Easy-Logo.png" width=100>
 
-#### **It is a beta relase package and requires manual code changes, the final release planned for CQ1-2022 will be much simpler**
 
 Devices: **| PIC32 WFI32E | WFI32 | PIC32MZW1 |**
 
@@ -76,18 +75,29 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 	-  device.csr
 	-  private_key.pem
 	-  **device-certificate.pem**
-	-  certificate.pem
+	-  **certificate.pem**
 	-  dha-control-log-public-key.txt
     -  **device_type_pubkey.pem**
 
-2. Choose the PIC32MZ-W1 MPLAB Harmoney 3 project to which the FFS capability is needed, we suggest to start with *paho_mqtt_tls_client* project.
-3. Checkout the [PIC32MZ-W1 FreeRTOS FFS](https://github.com/MicrochipTech/pic32mzw1_ffs_amazon_freertos.git) repo in the project's *../firmware/src* folder
-4. Copy the **private_key**, **certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools* folder.
-5. Install the certificate creation python script requirements using the *pip3 install -r requirements.txt*
+3. Download the [PIC32MZ-W1 FreeRTOS FFS](https://github.com/MicrochipTech/pic32mzw1_ffs_amazon_freertos/archive/refs/heads/master.zip) demo project zip file
+
+4. Unzip the downloaded demo file and open MPLABX IDE 
+
+5. Navigate to 'File-> Open Project' and choose the project file available at *../firmware/src* folder
+<p align="center"><img width="600" src="../Docs/mplabx-ProjectOpen-Step.png">
+</p>
+
+6. Right click on the project and select 'Production -> Make and Program Device Main Project' option  
+<p align="center"><img width="600" src="../Docs/mplabx-BuildFlash-Step.png">
+</p>
+
+7. Copy the **private_key**, **certificate.pem**, **device-certificate.pem** and **device_type_pubkey.pem** into the cloned repo *tools* folder.
+
+8. Install the certificate creation python script requirements using the *pip3 install -r requirements.txt*
 <p align="center"><img width="600" src="../Docs/ffs-python-requirements.png">
 </p>
 
-6. Run the *create-ffs-msd-files.py -r [SRootCA.cer](https://ssl-ccp.secureserver.net/repository/sf-class2-root.crt) -c **device-certificate.pem** -k **private_key.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files.
+9. Run the *create-ffs-msd-files.py -r [SRootCA.cer](https://ssl-ccp.secureserver.net/repository/sf-class2-root.crt) -c **device-certificate.pem** -k **private_key.pem** -t **device_type_pubkey.pem*** command, it will generate 3 certificate files.
 
 	- ffsRootCA.cer
 	- ffsDevPublic.key
@@ -96,18 +106,19 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 <p align="center"><img width="600" src="../Docs/ffs-cert-script-cmd.png">
 </p>
  
-7. Now we have all the files necessory to configure/enable the FFS
+10. Now we have all the files necessory to configure/enable the FFS
 
-8. The WFI32-IoT emulates a MSD(Mass Storage Devcie) while running the demo for the first time.
+11. The WFI32-IoT emulates a MSD(Mass Storage Devcie) while running the demo for the first time. Or press and hold SW1 and SW2 during the boot up to force the MSD emulations.
 
 <p align="center"><img width="600" src="../Docs/first_boot_log.png">
 </p>
 
-9. Copy all the above generated files into the MSD drive. The above log provides the list of files needed to enable FFS.
+12. Copy all the above generated files into the MSD drive. The above log provides the list of files needed to enable FFS.
 
 <p align="center"><img width="600" src="../Docs/MSD_for_certs.png">
 </p>
 
+13. Reboot the device and it would start the FFS process and connect to the Home AP. The successful FFS would result in stable BLUE LED otherwise the RED LED will be ON.
 
 
 ## Known issues and Limitations
