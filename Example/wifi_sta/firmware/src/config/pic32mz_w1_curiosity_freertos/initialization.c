@@ -55,14 +55,10 @@
 // ****************************************************************************
 // ****************************************************************************
 
-
-
-
 /*** FBCFG0 ***/
 #pragma config BUHSWEN =    OFF
 #pragma config PCSCMODE =    DUAL
 #pragma config BOOTISA =    MIPS32
-
 
 
 /*** DEVCFG0 ***/
@@ -108,7 +104,6 @@
 #pragma config WDTPSS =    PSS1
 
 
-
 /*** DEVCFG2 ***/
 #pragma config DMTINTV =    WIN_63_64
 #pragma config POSCMOD =    HS
@@ -126,7 +121,6 @@
 #pragma config DMTEN =    OFF
 
 
-
 /*** DEVCFG4 ***/
 #pragma config SOSCCFG =    0
 #pragma config VBZPBOREN =    ON
@@ -140,6 +134,7 @@
 
 /*** FCPN0 ***/
 #pragma config CP =    OFF
+
 
 
 
@@ -197,7 +192,7 @@ const DRV_SST26_PLIB_INTERFACE drvSST26PlibAPI = {
 const DRV_SST26_INIT drvSST26InitData =
 {
     .sst26Plib      = &drvSST26PlibAPI,
-    .chipSelectPin  = DRV_SST26_CHIP_SELECT_PIN
+    .chipSelectPin  = DRV_SST26_CHIP_SELECT_PIN,
 };
 // </editor-fold>
 
@@ -418,7 +413,7 @@ static const DRV_BA414E_INIT_DATA ba414eInitData =
 /******************************************************
  * USB Driver Initialization
  ******************************************************/
-
+ 
 uint8_t __attribute__((aligned(512))) USB_ALIGN endPointTable1[DRV_USBFS_ENDPOINTS_NUMBER * 32];
 
 
@@ -782,6 +777,8 @@ static void STDIO_BufferModeSet(void)
 
 void SYS_Initialize ( void* data )
 {
+    /* MISRAC 2012 deviation block start */
+    /* MISRA C-2012 Rule 2.2 deviated in this file.  Deviation record ID -  H3_MISRAC_2012_R_2_2_DR_1 */
 
     STDIO_BufferModeSet();
 
@@ -789,7 +786,7 @@ void SYS_Initialize ( void* data )
     /* Start out with interrupts disabled before configuring any modules */
     __builtin_disable_interrupts();
 
-
+  
     PMU_Initialize();
 	CLK_Initialize();
 
@@ -842,10 +839,9 @@ void SYS_Initialize ( void* data )
     sysObj.ba414e = DRV_BA414E_Initialize(0, (SYS_MODULE_INIT*)&ba414eInitData);
 
 
-	 /* Initialize the USB device layer */
+    /* Initialize the USB device layer */
     sysObj.usbDevObject0 = USB_DEVICE_Initialize (USB_DEVICE_INDEX_0 , ( SYS_MODULE_INIT* ) & usbDevInitData);
-	
-	
+
 
 	/* Initialize USB Driver */ 
     sysObj.drvUSBFSObject = DRV_USBFS_Initialize(DRV_USBFS_INDEX_0, (SYS_MODULE_INIT *) &drvUSBFSInit);	
@@ -869,6 +865,7 @@ SYS_ASSERT(sysObj.tcpip != SYS_MODULE_OBJ_INVALID, "TCPIP_STACK_Init Failed" );
     __builtin_enable_interrupts();
 
 
+    /* MISRAC 2012 deviation block end */
 }
 
 

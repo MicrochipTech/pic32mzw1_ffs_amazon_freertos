@@ -52,15 +52,15 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "amazon_ffs_certs.h"
 #include "ffs/amazon_freertos/ffs_amazon_freertos_task.h"
 
-const char *const FFS_DEVICE_MANUFACTURER_NAME  =  "Microchip Technology Inc";
-const char *const FFS_DEVICE_MODEL_NUMBER       =  "PIC32MZW1";
-const char *const FFS_DEVICE_SERIAL_NUMBER      =  "WFI32";
-const char *const FFS_DEVICE_PIN                =  "123456";
-const char *const FFS_DEVICE_HARDWARE_REVISION  =  "v2.0";
-const char *const FFS_DEVICE_FIRMWARE_REVISION  =  "v1.1.0";
-const char *const FFS_DEVICE_CPU_ID             =  "A13HOHDXTVQYZO";
-const char *const FFS_DEVICE_DEVICE_NAME        =  "WFI32-IoT-2";
-const char *const FFS_DEVICE_PRODUCT_INDEX      =  "5K2k";
+char FFS_DEVICE_MANUFACTURER_NAME[FFS_DEVICE_CONFIG_PARAM_LEN]  =  "Microchip Technology Inc";
+char FFS_DEVICE_MODEL_NUMBER[FFS_DEVICE_CONFIG_PARAM_LEN]       =  "PIC32MZW1";
+char FFS_DEVICE_SERIAL_NUMBER[FFS_DEVICE_CONFIG_PARAM_LEN]      =  "WFI32";
+char FFS_DEVICE_PIN[FFS_DEVICE_CONFIG_PARAM_LEN]                =  "123456";
+char FFS_DEVICE_HARDWARE_REVISION[FFS_DEVICE_CONFIG_PARAM_LEN]  =  "v2.0";
+char FFS_DEVICE_FIRMWARE_REVISION[FFS_DEVICE_CONFIG_PARAM_LEN]  =  "v1.1.0";
+char FFS_DEVICE_CPU_ID[FFS_DEVICE_CONFIG_PARAM_LEN]             =  "A13HOHDXTVQYZO";
+char FFS_DEVICE_DEVICE_NAME[FFS_DEVICE_CONFIG_PARAM_LEN]        =  "WFI32-IoT-2";
+char FFS_DEVICE_PRODUCT_INDEX[FFS_DEVICE_CONFIG_PARAM_LEN]      =  "5K2k";
 
 
 

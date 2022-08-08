@@ -76,6 +76,8 @@ children:
     children:
     - type: Values
       children:
+      - type: Dynamic
+        attributes: {id: net_Pres, value: 'true'}
       - type: User
         attributes: {value: 'true'}
   - type: Boolean

@@ -17,14 +17,14 @@
 #ifndef FFS_AMAZON_FREERTOS_DEVICE_CONFIGURATION_H_
 #define FFS_AMAZON_FREERTOS_DEVICE_CONFIGURATION_H_
 
-extern const char *const FFS_DEVICE_MANUFACTURER_NAME;
-extern const char *const FFS_DEVICE_MODEL_NUMBER;
-extern const char *const FFS_DEVICE_SERIAL_NUMBER;
-extern const char *const FFS_DEVICE_PIN;
-extern const char *const FFS_DEVICE_HARDWARE_REVISION;
-extern const char *const FFS_DEVICE_FIRMWARE_REVISION;
-extern const char *const FFS_DEVICE_CPU_ID;
-extern const char *const FFS_DEVICE_DEVICE_NAME;
-extern const char *const FFS_DEVICE_PRODUCT_INDEX;
+extern char FFS_DEVICE_MANUFACTURER_NAME[];
+extern char FFS_DEVICE_MODEL_NUMBER[];
+extern char FFS_DEVICE_SERIAL_NUMBER[];
+extern char FFS_DEVICE_PIN[];
+extern char FFS_DEVICE_HARDWARE_REVISION[];
+extern char FFS_DEVICE_FIRMWARE_REVISION[];
+extern char FFS_DEVICE_CPU_ID[];
+extern char FFS_DEVICE_DEVICE_NAME[];
+extern char FFS_DEVICE_PRODUCT_INDEX[];
 
 #endif /* FFS_AMAZON_FREERTOS_DEVICE_CONFIGURATION_H_ */

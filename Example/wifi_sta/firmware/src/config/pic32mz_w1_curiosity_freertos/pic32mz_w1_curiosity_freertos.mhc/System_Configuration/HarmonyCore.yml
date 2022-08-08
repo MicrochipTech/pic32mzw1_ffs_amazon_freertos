@@ -189,7 +189,7 @@ children:
     - type: Values
       children:
       - type: User
-        attributes: {value: '16384'}
+        attributes: {value: '24576'}
   - type: Boolean
     attributes: {id: GEN_APP_RTOS_TASK_0_USE_DELAY}
     children:
