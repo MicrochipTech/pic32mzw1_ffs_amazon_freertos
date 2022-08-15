@@ -83,6 +83,8 @@ extern "C" {
 
 #define FFS_DEVICE_CONFIG_PARAM_LEN             32    
     
+#define FFS_TIMEOUT_IN_SEC                      180    
+    
 extern char FFS_DEVICE_MANUFACTURER_NAME[];
 extern char FFS_DEVICE_MODEL_NUMBER[];
 extern char FFS_DEVICE_SERIAL_NUMBER[];
@@ -93,6 +95,7 @@ extern char FFS_DEVICE_CPU_ID[];
 extern char FFS_DEVICE_DEVICE_NAME[];
 extern char FFS_DEVICE_PRODUCT_INDEX[];
 
+extern uint32_t wifiConnCount;
 // *****************************************************************************
 /* Application states
 

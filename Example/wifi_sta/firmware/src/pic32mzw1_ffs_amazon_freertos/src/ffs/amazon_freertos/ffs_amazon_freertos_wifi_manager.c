@@ -56,6 +56,7 @@ FFS_DECLARE_LOCK_FOR(sWifiAttempts);
 
 static uint8_t sWifiAttemptsNum = 0;
 
+uint32_t wifiConnCount;
 
 /**
  * @brief Do wifi scan, putting results in sWifiScanList.
@@ -79,6 +80,7 @@ void ffsPrivateWifiCallback(uint32_t event, void * data,void *cookie )
     {          
         const EventBits_t resultBits = FFS_WIFI_MANAGER_BIT_CONNECT_SUCCESS;
         xEventGroupSetBits(sTaskResultEventGroup, resultBits);        
+        wifiConnCount++;
     }
     else if(event == SYS_WIFI_DISCONNECT)
     {                

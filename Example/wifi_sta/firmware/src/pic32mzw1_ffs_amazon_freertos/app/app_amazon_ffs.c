@@ -108,7 +108,7 @@ FFS_STATE_t FFS_Tasks(SYSTEM_OBJECTS *sysObj)
             FFS_Init(sysObj, &ffsProvisionObj);
             TCPIP_SNTP_Disable();
             gFfsTaskState = FFS_STATE_START;            
-            break;
+            //break;
         }
         case FFS_STATE_START:
         {            

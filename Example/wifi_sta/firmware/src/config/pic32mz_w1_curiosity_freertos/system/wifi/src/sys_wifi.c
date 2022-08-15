@@ -73,7 +73,7 @@ typedef struct
 } SYS_WIFI_OBJ; /* Wi-Fi System Service Object */
 
 /* Wi-Fi STA Mode, maximum auto connect retry */
-#define MAX_AUTO_CONNECT_RETRY                5
+#define MAX_AUTO_CONNECT_RETRY                1
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Data

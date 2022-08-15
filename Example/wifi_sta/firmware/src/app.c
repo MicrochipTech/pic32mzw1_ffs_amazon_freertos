@@ -76,6 +76,19 @@ uint8_t CACHE_ALIGN work[SYS_FS_FAT_MAX_SS];
 
 /* TODO:  Add any necessary local functions.
 */
+void ffs_status_indicate( uintptr_t context )
+{
+    static uint32_t ffsTimeTick = 0;    
+    ffsTimeTick++;
+    LED_GREEN_Toggle();
+    if(ffsTimeTick > FFS_TIMEOUT_IN_SEC)
+    {
+        ffsTimeTick = 0;
+        SYS_CONSOLE_MESSAGE("\n########################\nFFS Timed Out!\n########################\n");        
+        SYS_TIME_TimerDestroy(context);
+        LED_GREEN_Off();
+    }    
+}
 
 void appWifiCallback(uint32_t event, void * data,void *cookie )
 {
@@ -620,6 +633,7 @@ void APP_Tasks ( void )
                                 FFS_DEVICE_DEVICE_NAME,
                                 FFS_DEVICE_PRODUCT_INDEX);
                         
+                        cJSON_Delete(messageJson);                                                
                     }
                     appData.state = APP_STATE_FFS_TASK;
                     OSAL_Free(fileData);
@@ -643,10 +657,13 @@ void APP_Tasks ( void )
             break;
         }
         case APP_STATE_FFS_TASK:
-        {                          
-            if(FFS_Tasks(&sysObj) == FFS_STATE_DONE)
+        {                  
+            volatile SYS_TIME_HANDLE ffsTmrHdl;
+            ffsTmrHdl = SYS_TIME_CallbackRegisterMS(ffs_status_indicate, (uintptr_t)ffsTmrHdl, 1000, SYS_TIME_PERIODIC);
+            if(FFS_Tasks(&sysObj) == FFS_STATE_DONE && (wifiConnCount > 1))
             {
-                SYS_FS_HANDLE ffsFileHandle;                
+                SYS_FS_HANDLE ffsFileHandle;   
+                wifiConnCount = 0;
                 SYS_CONSOLE_MESSAGE("\n#################################################################\n");      
                 LED_BLUE_On();
                 ffsFileHandle = SYS_FS_FileOpen(FFS_WIFI_CFG_FILE, SYS_FS_FILE_OPEN_WRITE_PLUS);
@@ -671,7 +688,15 @@ void APP_Tasks ( void )
                     SYS_FS_FileClose(ffsFileHandle);
                 }  
                 appData.state = APP_UNMOUNT_DISK;
-            }             
+            }   
+            else
+            {
+                SYS_CONSOLE_MESSAGE("\n########################\nFFS Failure!\n########################\n");                
+                SYS_TIME_TimerDestroy(ffsTmrHdl);
+                LED_GREEN_Off();
+                appData.state = APP_UNMOUNT_DISK;
+                        
+            }
             break;    
         }
         
