@@ -440,13 +440,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: B3B5445B14BD9B6A35F1C5B995C9BBF7
-- generatedChecksum: D230A6B646D2E78CEAA6AA924E04FCA0
+- generatedChecksum: E558CA81A3F4FC10A2F360A0330126B9
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: exceptions.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: D230A6B646D2E78CEAA6AA924E04FCA0
+  userChecksum: E558CA81A3F4FC10A2F360A0330126B9
+- generatedChecksum: C73FC716A50DDB05718577E8BBE06959
+  logicalPath: config/pic32mz_w1_curiosity_freertos
+  name: exceptionsHandler.S
+  physicalPath: ''
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: C73FC716A50DDB05718577E8BBE06959
 - generatedChecksum: DCA1EBF9FB613863727700CF1EE42563
   logicalPath: wolfcrypt
   name: fe_448.c
@@ -796,7 +803,7 @@ files:
   physicalPath: peripheral/uart
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 2E78FD19BF4A6D25ADBCFDFA002A9AC7
+  userChecksum: 776DFFA14D089C68DD7DC8F3A06F03B1
 - generatedChecksum: 36C4BC95319E8F768DB05C702ADFBCC1
   logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/uart
   name: plib_uart3.c
@@ -1111,7 +1118,7 @@ files:
   physicalPath: system/net/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: DFDCFE5460F04D5FD39E54980552DB9A
+  userChecksum: CC1BA5378DC9E2FB6E7C4C9792374F00
 - generatedChecksum: 6E907D9AEFDAE88D8E9B23F0668846C6
   logicalPath: config/pic32mz_w1_curiosity_freertos/system
   name: sys_random_h2_adapter.c
@@ -1146,7 +1153,7 @@ files:
   physicalPath: system/wifi/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: E9FBC1D15C71DCF0B23AFDA39A298898
+  userChecksum: 4A9A3AF2AF7ED93CBC8E17B521EA6513
 - generatedChecksum: 7CFE077AAF6C0B650844C683B48DFC8D
   logicalPath: config/pic32mz_w1_curiosity_freertos/system/wifiprov
   name: sys_wifiprov.c
@@ -5122,7 +5129,7 @@ settings:
   delimiter: ''
   key: heap-size
   security: NON_SECURE
-  value: '175000'
+  value: '180000'
 - append: false
   category: C32-LD
   delimiter: ''

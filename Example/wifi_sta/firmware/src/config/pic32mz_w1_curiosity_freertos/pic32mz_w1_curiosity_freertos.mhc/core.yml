@@ -12,6 +12,13 @@ children:
       - type: Dynamic
         attributes: {id: core, value: '0'}
   - type: Boolean
+    attributes: {id: ADVANCED_EXCEPTION}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'true'}
+  - type: Boolean
     attributes: {id: BA414E_CLOCK_ENABLE}
     children:
     - type: Values
@@ -1182,6 +1189,37 @@ children:
       children:
       - type: Dynamic
         attributes: {id: sysWifiPic32mzw1, value: 'true'}
+  - type: File
+    attributes: {id: EXCEPTIONS_ASM}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'true'}
+  - type: File
+    attributes: {id: EXCEPTIONS_C}
+    children:
+    - type: Attributes
+      children:
+      - type: String
+        attributes: {id: source}
+        children:
+        - {type: Value, value: templates/advanced_exceptions_xc32_mips.c.ftl}
+  - type: Boolean
+    attributes: {id: FILTERING_EXCEPTION}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'false'}
   - type: Boolean
     attributes: {id: FLASH_CONTROL_INTERRUPT_ENABLE}
     children:
@@ -2091,7 +2129,7 @@ children:
       - type: String
         attributes: {id: value}
         children:
-        - {type: Value, value: '175000'}
+        - {type: Value, value: '180000'}
   - type: Integer
     attributes: {id: XC32_HEAP_SIZE}
     children:
@@ -2100,7 +2138,7 @@ children:
       - type: Dynamic
         attributes: {id: sysWifiPic32mzw1, value: '160000'}
       - type: User
-        attributes: {value: '175000'}
+        attributes: {value: '180000'}
   - type: KeyValueSet
     attributes: {id: clkSvcMode}
     children:

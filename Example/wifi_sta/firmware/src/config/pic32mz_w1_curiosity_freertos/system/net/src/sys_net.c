@@ -624,7 +624,7 @@ static bool SYS_NET_Ll_Link_Status(SYS_NET_Handle *hdl)
 
 TCPIP_DNS_RESULT SYS_NET_DNS_Resolve(SYS_NET_Handle *hdl)
 {
-    TCPIP_DNS_RESULT result = TCPIP_DNS_Resolve(hdl->cfg_info.host_name, TCPIP_DNS_TYPE_ANY);
+    TCPIP_DNS_RESULT result = TCPIP_DNS_Resolve(hdl->cfg_info.host_name, TCPIP_DNS_TYPE_A);
     if (result == TCPIP_DNS_RES_NAME_IS_IPADDRESS)
     {
         /* If Host Name is IP Address itself */

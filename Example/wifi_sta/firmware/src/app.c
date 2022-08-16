@@ -635,6 +635,7 @@ void APP_Tasks ( void )
                         
                         cJSON_Delete(messageJson);                                                
                     }
+                    SYS_FS_FileClose(appData.fileHandle);  
                     appData.state = APP_STATE_FFS_TASK;
                     OSAL_Free(fileData);
                 }
@@ -692,11 +693,10 @@ void APP_Tasks ( void )
             else
             {
                 SYS_CONSOLE_MESSAGE("\n########################\nFFS Failure!\n########################\n");                
-                SYS_TIME_TimerDestroy(ffsTmrHdl);
-                LED_GREEN_Off();
-                appData.state = APP_UNMOUNT_DISK;
-                        
             }
+            SYS_TIME_TimerDestroy(ffsTmrHdl);
+            LED_GREEN_Off();
+            appData.state = APP_UNMOUNT_DISK;
             break;    
         }
         
