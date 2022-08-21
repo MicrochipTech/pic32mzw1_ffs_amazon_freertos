@@ -330,6 +330,8 @@ children:
       children:
       - type: Dynamic
         attributes: {id: net_Pres, value: '32768'}
+      - type: User
+        attributes: {value: '24580'}
   - type: Integer
     attributes: {id: NET_PRES_SOCKETS}
     children:

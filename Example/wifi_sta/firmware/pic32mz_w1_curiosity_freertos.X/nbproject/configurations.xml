@@ -1624,7 +1624,7 @@
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
-        <property key="heap-size" value="180000"/>
+        <property key="heap-size" value="176000"/>
         <property key="input-libraries" value=""/>
         <property key="kseg-length" value=""/>
         <property key="kseg-origin" value=""/>
@@ -1844,7 +1844,7 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="10000000-100fffff"/>
         <property key="programmerToGoFilePath"
-                  value="/Users/c21415/wfi32-iot/FFS/trunk/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/pic32mz_w1_curiosity_freertos.X/debug/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos_ptg"/>
+                  value="/Users/c21415/wfi32-iot/FFS/work/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/pic32mz_w1_curiosity_freertos.X/debug/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

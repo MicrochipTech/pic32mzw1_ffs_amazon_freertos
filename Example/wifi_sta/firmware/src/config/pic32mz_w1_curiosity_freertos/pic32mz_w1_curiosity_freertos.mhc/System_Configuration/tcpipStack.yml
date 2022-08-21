@@ -48,7 +48,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: tcpipStack, value: '48'}
+        attributes: {id: tcpipStack, value: '25'}
   - type: Boolean
     attributes: {id: TCPIP_STACK_INTERFACE_CHANGE_SIGNALING}
     children:

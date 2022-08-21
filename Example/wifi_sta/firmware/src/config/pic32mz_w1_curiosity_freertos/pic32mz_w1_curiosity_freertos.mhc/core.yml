@@ -2129,7 +2129,7 @@ children:
       - type: String
         attributes: {id: value}
         children:
-        - {type: Value, value: '180000'}
+        - {type: Value, value: '176000'}
   - type: Integer
     attributes: {id: XC32_HEAP_SIZE}
     children:
@@ -2138,7 +2138,7 @@ children:
       - type: Dynamic
         attributes: {id: sysWifiPic32mzw1, value: '160000'}
       - type: User
-        attributes: {value: '180000'}
+        attributes: {value: '176000'}
   - type: KeyValueSet
     attributes: {id: clkSvcMode}
     children:

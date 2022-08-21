@@ -10,7 +10,14 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: tcpipTcp, value: '32040'}
+        attributes: {id: tcpipTcp, value: '16020'}
+  - type: Integer
+    attributes: {id: TCPIP_TCP_MAX_SOCKETS}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '5'}
   - type: Integer
     attributes: {id: TCPIP_TCP_SOCKET_DEFAULT_RX_SIZE}
     children:

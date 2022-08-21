@@ -803,7 +803,7 @@ files:
   physicalPath: peripheral/uart
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 776DFFA14D089C68DD7DC8F3A06F03B1
+  userChecksum: 2E78FD19BF4A6D25ADBCFDFA002A9AC7
 - generatedChecksum: 36C4BC95319E8F768DB05C702ADFBCC1
   logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/uart
   name: plib_uart3.c
@@ -1875,13 +1875,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 15AB6693CC2E1EE7AB845EE42A6AC762
-- generatedChecksum: 0528B4CB629C19D86E3CD2D081664BA2
+- generatedChecksum: 5B5CF2DFC23058B6D9BB5FA729988E3E
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: configuration.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 0528B4CB629C19D86E3CD2D081664BA2
+  userChecksum: 5B5CF2DFC23058B6D9BB5FA729988E3E
 - generatedChecksum: 66CDC9B1DAB0393100A835676816E8BF
   logicalPath: wolfcrypt
   name: cpuid.h
@@ -5129,7 +5129,7 @@ settings:
   delimiter: ''
   key: heap-size
   security: NON_SECURE
-  value: '180000'
+  value: '176000'
 - append: false
   category: C32-LD
   delimiter: ''

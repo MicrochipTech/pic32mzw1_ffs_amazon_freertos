@@ -1,7 +1,7 @@
 configName: pic32mz_w1_curiosity_freertos
 folderName: ''
 format_version: v1.0
-frameworkPath: ../../..
+frameworkPath: ../../../../../../H3_FFS
 processor: PIC32MZ1025W104132
 projectName: ''
 settings:
