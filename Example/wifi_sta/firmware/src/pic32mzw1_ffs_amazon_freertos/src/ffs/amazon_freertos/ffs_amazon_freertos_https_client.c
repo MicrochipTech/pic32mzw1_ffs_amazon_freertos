@@ -138,6 +138,7 @@ FFS_RESULT ffsHttpClientConnect(FfsHttpsConnectionContext_t *connCtx, SYS_HTTP_C
 
 int32_t ffsPrivateHttpClientRequest(void* cookie)
 {    
+    static uint32_t vTaskExpDelay;
     int32_t result = -1;
     FFS_TAKE_LOCK_FOR(sHttpStreamer);
     uint8_t httpReqRetry = FFS_HTTPS_REQUEST_TRIES;
@@ -148,17 +149,22 @@ int32_t ffsPrivateHttpClientRequest(void* cookie)
     /**Trigger connection if handle is NULL.*/
     if (sHttpConnProfile.httpConnected)
     {
+        vTaskExpDelay = 75;
         while(httpReqRetry--)
         {
+            ffsLogDebug("HTTP Request retry attempt %d", httpReqRetry);
             ffsPrivateHttpClientSetState(SYS_HTTP_CLIENT_STATE_SEND_REQ);
             const EventBits_t eventBits = xEventGroupWaitBits(sHttpClientResultEventGroup, FFS_HTTP_CLIENT_BIT_REQUEST_SUCCESS | FFS_HTTP_CLIENT_BIT_REQUEST_ERROR, pdTRUE, pdFALSE, portMAX_DELAY);
             if (eventBits & FFS_HTTP_CLIENT_BIT_REQUEST_ERROR)
-            {                                
+            {           
+                vTaskDelay(vTaskExpDelay / portTICK_PERIOD_MS);
+                vTaskExpDelay+=50;
                 continue;
             }        
             else
-            {
+            {                
                 result = 0;
+                vTaskExpDelay-=50;
                 break;
             }
         }
@@ -205,6 +211,7 @@ bool ffsPrivateHttpClientConnect()
 {
     SYS_NET_Config sSysNetCfg;
 
+    ffsLogDebug("Creating new HTTPS connection!");
     /* Open a TCP Socket via the NET Service */
     memset(&sSysNetCfg, 0, sizeof (sSysNetCfg));
     sSysNetCfg.enable_tls = sHttpConnProfile.httpCfg.isHttps;            
@@ -225,13 +232,12 @@ bool ffsPrivateHttpClientConnect()
 }
 
 int32_t ffsPrivateHttpClientSend(void)
-{
-    
+{        
     return SYS_NET_SendMsg(sHttpConnProfile.netSrvcHdl, (uint8_t*)sHttpStreamer.pBuffer, sHttpStreamer.uWrittenLen);        
 }
 
 static void ffsPrivateHttpClientManagerTask(void *cookie)
-{
+{    
     while(1)
     {  
         
@@ -250,7 +256,7 @@ static void ffsPrivateHttpClientManagerTask(void *cookie)
             case SYS_HTTP_CLIENT_STATE_SEND_REQ:
             {
                 int32_t result;                 
-                result = ffsPrivateHttpClientSend();                
+                result = ffsPrivateHttpClientSend();                 
                 const EventBits_t resultBits = (result > 0)? FFS_HTTP_CLIENT_BIT_REQUEST_SUCCESS:FFS_HTTP_CLIENT_BIT_REQUEST_ERROR;
                 xEventGroupSetBits(sHttpClientResultEventGroup, resultBits);  
                 ffsPrivateHttpClientSetState(SYS_HTTP_CLIENT_STATE_SEND_WAIT);
@@ -272,8 +278,8 @@ static void ffsPrivateHttpClientManagerTask(void *cookie)
             default:
                 break;
         }        
-        /**Let other task to run.*/
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        vTaskDelay(150 / portTICK_PERIOD_MS);
+        /**Let other task to run.*/        
     }
 }
 
@@ -494,6 +500,7 @@ static FFS_RESULT ffsConnectToServer(FfsHttpsConnectionContext_t *ffsHttpsConnCo
     // connection in some of the tries.
     while (result != FFS_SUCCESS && tryNum < FFS_HTTPS_CONNECT_TRIES) {
         result = ffsHttpClientConnect(ffsHttpsConnContext, &connectionInfo);
+        ffsLogDebug("FFS HTTP connect attempt %d", tryNum);
         tryNum += 1;
     }
     
@@ -552,7 +559,7 @@ FFS_RESULT ffsHttpClientReadContentLen(uint32_t *httpContentLen)
 FFS_RESULT ffsHttpClientReadResponse(uint16_t *respStatus)
 {
     char *dataPtr;
-    const EventBits_t eventBits = xEventGroupWaitBits(sHttpClientResultEventGroup, FFS_HTTP_CLIENT_BIT_RESPONSE_SUCCESS | FFS_HTTP_CLIENT_BIT_RESPONSE_ERROR, pdTRUE, pdFALSE, portMAX_DELAY);
+    const EventBits_t eventBits = xEventGroupWaitBits(sHttpClientResultEventGroup, FFS_HTTP_CLIENT_BIT_RESPONSE_SUCCESS | FFS_HTTP_CLIENT_BIT_RESPONSE_ERROR, pdTRUE, pdFALSE, FFS_HTTPS_TIMEOUT_MS);
     if (eventBits & FFS_HTTP_CLIENT_BIT_RESPONSE_SUCCESS)
     {                   
         dataPtr = strstr((char *)sHttpConnProfile.pUserBuff, "HTTP/");
@@ -563,6 +570,7 @@ FFS_RESULT ffsHttpClientReadResponse(uint16_t *respStatus)
     }        
     else
     {
+        ffsLogDebug("HTTPS Response failed!");
         return FFS_ERROR;
     }
     return FFS_SUCCESS;
@@ -594,6 +602,7 @@ FFS_RESULT ffsHttpPost(FfsUserContext_t *userContext, FfsHttpRequest_t *request,
     
     if (!userContext->ffsHttpsConnContext.isConnected)
     {
+        ffsLogDebug("Creating New HTTPS Link!");
         FFS_CHECK_RESULT(ffsConnectToServer(&userContext->ffsHttpsConnContext, &request->url.hostStream,
                 request->url.port));
     }
@@ -622,8 +631,8 @@ FFS_RESULT ffsHttpPost(FfsUserContext_t *userContext, FfsHttpRequest_t *request,
     // Initialize request
     FFS_CHECK_RESULT(ffsHttpRequestInit(&requestInfo, &responseInfo));
         
-    ffsLogDebug("Response Initialized successfully...");
-
+    //ffsLogDebug("Response Initialized successfully...");
+    //ffsLogStream("Request Body Stream", &request->bodyStream);
     // Make the request retrying on timeout
     result = ffsHttpClientRequest(userContext->ffsHttpsConnContext.connHdl);
     

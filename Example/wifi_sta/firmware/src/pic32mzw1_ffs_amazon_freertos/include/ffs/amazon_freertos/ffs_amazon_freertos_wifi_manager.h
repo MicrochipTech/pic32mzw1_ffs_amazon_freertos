@@ -22,7 +22,7 @@
 #include "ffs/amazon_freertos/ffs_amazon_freertos_user_context.h"
 
 #define FFS_WIFI_MANAGER_MAX_WIFI_ATTEMPTS      (5)  /**< Maximum number of APs in wifi attempt list */
-#define FFS_WIFI_MAX_APS_SUPPORTED              (30) /**< Maximum number of APs in scan list */
+#define FFS_WIFI_MAX_APS_SUPPORTED              (20) /**< Maximum number of APs in scan list */
 #define FFS_WIFI_MAX_SSID_LEN                   (33)//wificonfigMAX_SSID_LEN /**< Length of Wi-Fi SSID */
 
 /**

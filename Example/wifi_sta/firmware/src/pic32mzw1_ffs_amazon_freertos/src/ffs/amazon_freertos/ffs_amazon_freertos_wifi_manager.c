@@ -61,7 +61,7 @@ uint32_t wifiConnCount;
 /**
  * @brief Do wifi scan, putting results in sWifiScanList.
  */
-static FFS_RESULT ffsPrivateWifiManagerScan(const FfsUserContext_t *userContext);
+static FFS_RESULT ffsPrivateWifiManagerScan(FfsUserContext_t *userContext);
 
 /**
  * @brief Connect to AP stored in sWifiCurrStaProfile.
@@ -157,50 +157,41 @@ error:
 bool ffsPrivateWifiScanHandler (DRV_HANDLE handle, uint8_t index, uint8_t ofTotal, WDRV_PIC32MZW_BSS_INFO *pBSSInfo)
 {
     
-    FFS_TAKE_LOCK_FOR(sWifiScanList);
-    if (0 == ofTotal || ofTotal > FFS_WIFI_MAX_APS_SUPPORTED) 
-    {
-        ffsLogDebug("No AP Found... Rescan\r\n");
-        FFS_GIVE_LOCK_FOR(sWifiScanList);
-        const EventBits_t resultBits = FFS_WIFI_MANAGER_BIT_SCAN_ERROR;
-        xEventGroupSetBits(sTaskResultEventGroup, resultBits);
-    } 
-    else 
-    {    
-        if (index == 1)
-        {            
-            sWifiScanList.numAp = ofTotal;
-            ffsLogDebug("Scan Results: #%02d", ofTotal);
-        }
-        ffsLogDebug("%s", pBSSInfo->ctx.ssid.name);
-        memcpy((void *)&sWifiScanList.apInfo[index-1], pBSSInfo, sizeof(WDRV_PIC32MZW_BSS_INFO));
-        
-        if(index == ofTotal)
-        {
-            sWifiScanList.valid = true;
-            const EventBits_t resultBits = FFS_WIFI_MANAGER_BIT_SCAN_SUCCESS;
-            xEventGroupSetBits(sTaskResultEventGroup, resultBits);
-        }
-                
+    FFS_TAKE_LOCK_FOR(sWifiScanList);    
+       
+    if (index == 1)
+    {            
+        memset(&sWifiScanList, 0, sizeof(FfsWifiScanResults_t));            
     }
+    else
+    {            
+        if(pBSSInfo->ctx.ssid.length != 0 && sWifiScanList.numAp < FFS_WIFI_MAX_APS_SUPPORTED)
+        {
+            ffsLogDebug("%s", pBSSInfo->ctx.ssid.name);
+            memcpy((void *)&sWifiScanList.apInfo[sWifiScanList.numAp++], pBSSInfo, sizeof(WDRV_PIC32MZW_BSS_INFO));
+        }
+    }
+
+    if(index == ofTotal)
+    {
+        sWifiScanList.valid = true;
+        const EventBits_t resultBits = FFS_WIFI_MANAGER_BIT_SCAN_SUCCESS;
+        xEventGroupSetBits(sTaskResultEventGroup, resultBits);
+    }
+                    
     FFS_GIVE_LOCK_FOR(sWifiScanList);
     
     // return true to receive further results; otherwise return false if desired
     return true;
 }
 
-static FFS_RESULT ffsPrivateWifiManagerScan(const FfsUserContext_t *userContext)
+static FFS_RESULT ffsPrivateWifiManagerScan(FfsUserContext_t *userContext)
 {
     SYS_WIFI_SCAN_CONFIG scanConfig;
     SYS_WIFI_RESULT res;
     SYS_WIFI_STATUS wifiStatus;
     
-    FFS_TAKE_LOCK_FOR(sWifiScanList);
-    // Clear previous data.
-    // Indicating sWifiScanList.valid = false, sWifiScanList.numAp = 0.
-    memset(&sWifiScanList, 0, sizeof(FfsWifiScanResults_t));
-    FFS_GIVE_LOCK_FOR(sWifiScanList);
-    
+    userContext->scanListIndex = 0;
     wifiStatus = SYS_WIFI_GetStatus (userContext->sysObj->syswifi);
     if (wifiStatus > SYS_WIFI_STATUS_WDRV_OPEN_REQ)
     {
@@ -218,12 +209,11 @@ static FFS_RESULT ffsPrivateWifiManagerScan(const FfsUserContext_t *userContext)
             scanConfig.delimChar       = delimiter;
             scanConfig.pNotifyCallback = (void *)ffsPrivateWifiScanHandler;
             scanConfig.numProbes       = 1;
-            scanConfig.activeSlotTime  = SYS_WIFI_SCAN_ACTIVE_SLOT_TIME/2;
+            scanConfig.activeSlotTime  = SYS_WIFI_SCAN_ACTIVE_SLOT_TIME;
             scanConfig.passiveSlotTime = SYS_WIFI_SCAN_PASSIVE_SLOT_TIME;
             scanConfig.chan24Mask      = SYS_WIFI_SCAN_CHANNEL24_MASK;
             scanConfig.matchMode       = WDRV_PIC32MZW_SCAN_MATCH_MODE_FIND_ALL;
-
-            SYS_CONSOLE_PRINT("\r\nStarting Custom Scan ...\r\n");            
+            
             res = SYS_WIFI_CtrlMsg(sysObj.syswifi,SYS_WIFI_SCANREQ, &scanConfig, sizeof(SYS_WIFI_SCAN_CONFIG));
             if(SYS_WIFI_SUCCESS != res)
             {
@@ -277,8 +267,8 @@ FFS_RESULT ffsWifiManagerDeinit(const FfsUserContext_t *userContext)
 FFS_RESULT ffsWifiManagerResetScanResults(const FfsUserContext_t *userContext)
 {
     
-    FFS_TAKE_LOCK_FOR(sWifiScanList);
-    sWifiScanList.valid = false;
+    FFS_TAKE_LOCK_FOR(sWifiScanList);    
+    memset(&sWifiScanList, 0, sizeof(FfsWifiScanResults_t));
     FFS_GIVE_LOCK_FOR(sWifiScanList);
 
     return FFS_SUCCESS;
@@ -286,25 +276,20 @@ FFS_RESULT ffsWifiManagerResetScanResults(const FfsUserContext_t *userContext)
 
 
 FFS_RESULT ffsWifiManagerGetScannedNumberOfAps(const FfsUserContext_t *userContext, uint8_t *const numAp)
-{    
-    FFS_TAKE_LOCK_FOR(sWifiScanList);
-
+{        
     if(!sWifiScanList.valid)
-    {
-        FFS_GIVE_LOCK_FOR(sWifiScanList);
-        ffsPrivateWifiManagerScan(userContext);
+    {        
+        ffsPrivateWifiManagerScan((FfsUserContext_t *)userContext);
         const EventBits_t eventBits = xEventGroupWaitBits(sTaskResultEventGroup, FFS_WIFI_MANAGER_BIT_SCAN_SUCCESS | FFS_WIFI_MANAGER_BIT_SCAN_ERROR, pdTRUE, pdFALSE, portMAX_DELAY);
         if (eventBits & FFS_WIFI_MANAGER_BIT_SCAN_ERROR)
         {
             FFS_FAIL(FFS_ERROR);
         }
         
-        ffsLogDebug("Found %d.", sWifiScanList.numAp);
-        FFS_TAKE_LOCK_FOR(sWifiScanList);
+        ffsLogDebug("Found %d.", sWifiScanList.numAp);        
     }
     *numAp = sWifiScanList.numAp;
     
-    FFS_GIVE_LOCK_FOR(sWifiScanList);
     return FFS_SUCCESS;
 }
 
@@ -316,7 +301,7 @@ FFS_RESULT ffsWifiManagerGetScanResult(const FfsUserContext_t *userContext, WDRV
     {
         FFS_GIVE_LOCK_FOR(sWifiScanList);
        
-        ffsPrivateWifiManagerScan(userContext);
+        ffsPrivateWifiManagerScan((FfsUserContext_t *)userContext);
         const EventBits_t eventBits = xEventGroupWaitBits(sTaskResultEventGroup, FFS_WIFI_MANAGER_BIT_SCAN_SUCCESS | FFS_WIFI_MANAGER_BIT_SCAN_ERROR, pdTRUE, pdFALSE, portMAX_DELAY);
         if (eventBits & FFS_WIFI_MANAGER_BIT_SCAN_ERROR)
         {
