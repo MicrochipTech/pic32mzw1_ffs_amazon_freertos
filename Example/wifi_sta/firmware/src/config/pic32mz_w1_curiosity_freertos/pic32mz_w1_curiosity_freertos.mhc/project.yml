@@ -573,13 +573,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 62951755A45BA873C9775C77F461A8DF
-- generatedChecksum: 59F052008A1F940B4B39C5FA636BA65D
+- generatedChecksum: 48B410DB5558EB503FF1F25936663B68
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 59F052008A1F940B4B39C5FA636BA65D
+  userChecksum: 48B410DB5558EB503FF1F25936663B68
 - generatedChecksum: 479A727027F5AD9CBBDC717FD86D8B5E
   logicalPath: wolfcrypt
   name: integer.c
@@ -811,6 +811,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 36C4BC95319E8F768DB05C702ADFBCC1
+- generatedChecksum: 421E0E3D113AC4742E1A755A321D08DF
+  logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/wdt
+  name: plib_wdt.c
+  physicalPath: peripheral/wdt
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 421E0E3D113AC4742E1A755A321D08DF
 - generatedChecksum: 290251D6FF0845DC4259E0EF74DCB657
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: pmu_init.c
@@ -2106,13 +2113,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 7959E2B94CEE186632B984636D40C252
-- generatedChecksum: 02CE839CDD1B492C6CFF66B41A88F853
+- generatedChecksum: B7C1DA4310CE3199EBC1EC79D3166366
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: definitions.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 02CE839CDD1B492C6CFF66B41A88F853
+  userChecksum: B7C1DA4310CE3199EBC1EC79D3166366
 - generatedChecksum: 1EA4EDD5EA90F43EC407DE32441159A9
   logicalPath: FreeRTOS/Source/include
   name: deprecated_definitions.h
@@ -3142,6 +3149,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 9B4B2B2E7722D50697564E6D6E4F9E04
+- generatedChecksum: 2AD7259D0E303CE06622D0F1A6BBEC13
+  logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/wdt
+  name: plib_wdt.h
+  physicalPath: peripheral/wdt
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: 2AD7259D0E303CE06622D0F1A6BBEC13
 - generatedChecksum: 5D0C040C975701D3CDA4BBA6A6BA630D
   logicalPath: wolfcrypt
   name: poly1305.h

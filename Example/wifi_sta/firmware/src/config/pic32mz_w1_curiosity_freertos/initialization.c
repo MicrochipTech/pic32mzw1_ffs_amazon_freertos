@@ -112,7 +112,7 @@
 #pragma config WAKE2SPD =    ON
 #pragma config CKSWEN =    ON
 #pragma config FSCMEN =    ON
-#pragma config WDTPS =    PS1
+#pragma config WDTPS =    PS2048
 #pragma config WDTSPGM =    STOP
 #pragma config WINDIS =    NORMAL
 #pragma config WDTEN =    OFF

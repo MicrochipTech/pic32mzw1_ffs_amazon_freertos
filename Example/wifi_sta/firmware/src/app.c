@@ -81,8 +81,10 @@ void ffs_status_indicate( uintptr_t context )
     static uint32_t ffsTimeTick = 0;    
     ffsTimeTick++;
     LED_GREEN_Toggle();
+    WDT_Clear();
     if(ffsTimeTick > FFS_TIMEOUT_IN_SEC)
-    {
+    {      
+        WDT_Disable();
         ffsTimeTick = 0;
         SYS_CONSOLE_MESSAGE("\n########################\nFFS Timed Out!\n########################\n");        
         SYS_TIME_TimerDestroy(context);
@@ -431,8 +433,7 @@ void APP_Tasks ( void )
         } 
         
         case APP_OPEN_FFS_CFG_FILE:
-        {                     
-            
+        {   
             appData.fileHandle = SYS_FS_FileOpen(FFS_WIFI_CFG_FILE, SYS_FS_FILE_OPEN_READ);              
             if(appData.fileHandle == SYS_FS_HANDLE_INVALID)
             {
@@ -661,6 +662,7 @@ void APP_Tasks ( void )
         {                  
             volatile SYS_TIME_HANDLE ffsTmrHdl;
             ffsTmrHdl = SYS_TIME_CallbackRegisterMS(ffs_status_indicate, (uintptr_t)ffsTmrHdl, 1000, SYS_TIME_PERIODIC);
+            WDT_Enable();
             if(FFS_Tasks(&sysObj) == FFS_STATE_DONE && (wifiConnCount > 1))
             {
                 SYS_FS_HANDLE ffsFileHandle;   
@@ -694,6 +696,7 @@ void APP_Tasks ( void )
             {
                 SYS_CONSOLE_MESSAGE("\n########################\nFFS Failure!\n########################\n");                
             }
+            WDT_Disable();
             SYS_TIME_TimerDestroy(ffsTmrHdl);
             LED_GREEN_Off();
             appData.state = APP_UNMOUNT_DISK;

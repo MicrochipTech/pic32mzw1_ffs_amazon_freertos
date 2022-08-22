@@ -384,6 +384,9 @@
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/peripheral/uart/plib_uart1.h</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/peripheral/uart/plib_uart3.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="f9" displayName="wdt" projectFiles="true">
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/peripheral/wdt/plib_wdt.h</itemPath>
+            </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f2" displayName="system" projectFiles="true">
             <logicalFolder name="f11" displayName="cache" projectFiles="true">
@@ -907,6 +910,9 @@
             <logicalFolder name="f3" displayName="uart" projectFiles="true">
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/peripheral/uart/plib_uart1.c</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/peripheral/uart/plib_uart3.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f9" displayName="wdt" projectFiles="true">
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/peripheral/wdt/plib_wdt.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f6" displayName="stdio" projectFiles="true">
@@ -1844,7 +1850,7 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="10000000-100fffff"/>
         <property key="programmerToGoFilePath"
-                  value="/Users/c21415/wfi32-iot/FFS/work/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/pic32mz_w1_curiosity_freertos.X/debug/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos_ptg"/>
+                  value="/Users/c21415/wfi32-iot/FFS/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/pic32mz_w1_curiosity_freertos.X/debug/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

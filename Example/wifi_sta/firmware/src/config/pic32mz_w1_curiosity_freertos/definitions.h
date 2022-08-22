@@ -89,6 +89,7 @@
 #include "peripheral/gpio/plib_gpio.h"
 #include "peripheral/cache/plib_cache.h"
 #include "peripheral/evic/plib_evic.h"
+#include "peripheral/wdt/plib_wdt.h"
 #include "driver/sst26/drv_sst26.h"
 #include "wolfssl/wolfcrypt/port/pic32/crypt_wolfcryptcb.h"
 #include "driver/wifi/pic32mzw1/include/wdrv_pic32mzw_api.h"
@@ -230,7 +231,7 @@ typedef struct
 
     SYS_MODULE_OBJ  ba414e;
 
-	SYS_MODULE_OBJ  usbDevObject0;
+    SYS_MODULE_OBJ  usbDevObject0;
 
     SYS_MODULE_OBJ  drvMemory0;
 	SYS_MODULE_OBJ  drvUSBFSObject;
