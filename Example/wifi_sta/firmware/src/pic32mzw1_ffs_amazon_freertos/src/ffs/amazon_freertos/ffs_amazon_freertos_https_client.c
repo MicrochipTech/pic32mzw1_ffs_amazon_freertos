@@ -151,8 +151,7 @@ int32_t ffsPrivateHttpClientRequest(void* cookie)
     {
         vTaskExpDelay = 75;
         while(httpReqRetry--)
-        {
-            ffsLogDebug("HTTP Request retry attempt %d", httpReqRetry);
+        {            
             ffsPrivateHttpClientSetState(SYS_HTTP_CLIENT_STATE_SEND_REQ);
             const EventBits_t eventBits = xEventGroupWaitBits(sHttpClientResultEventGroup, FFS_HTTP_CLIENT_BIT_REQUEST_SUCCESS | FFS_HTTP_CLIENT_BIT_REQUEST_ERROR, pdTRUE, pdFALSE, portMAX_DELAY);
             if (eventBits & FFS_HTTP_CLIENT_BIT_REQUEST_ERROR)

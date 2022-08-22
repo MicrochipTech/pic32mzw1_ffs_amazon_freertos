@@ -433,33 +433,30 @@ void APP_Tasks ( void )
         } 
         
         case APP_OPEN_FFS_CFG_FILE:
-        {   
-            appData.fileHandle = SYS_FS_FileOpen(FFS_WIFI_CFG_FILE, SYS_FS_FILE_OPEN_READ);              
-            if(appData.fileHandle == SYS_FS_HANDLE_INVALID)
+        {                          
+            appData.state = APP_OPEN_ROOT_CA_FILE;
+            if(SYS_FS_FileStat(FFS_DEVICE_WIFI_CFG_FILE_NAME, &appData.fileStatus) == SYS_FS_RES_FAILURE)
             {
-                appData.state = APP_OPEN_ROOT_CA_FILE;
+                SYS_CONSOLE_MESSAGE("FFS Configuration file state failure\r\n");                
+                /* Reading file status was a failure */                                
             }
-            else
+            else                
             {
-                if(SYS_FS_FileStat(FFS_WIFI_CFG_FILE, &appData.fileStatus) == SYS_FS_RES_FAILURE)
+                SYS_WIFI_CONFIG ffsWifiCfg;                 
+                if(SWITCH1_Get() == SWITCH1_STATE_PRESSED)    
                 {
-                    SYS_CONSOLE_MESSAGE("FFS Configuration file stat failure\r\n");
-                    appData.state = APP_OPEN_ROOT_CA_FILE;
-                    /* Reading file status was a failure */                                
-                }
-                else                
-                {
-                    SYS_WIFI_CONFIG ffsWifiCfg;                 
-                    if(SWITCH1_Get() == SWITCH1_STATE_PRESSED)    
+                    LED_RED_Toggle();
+                    if(SYS_FS_FileDirectoryRemove(FFS_WIFI_CFG_FILE) == SYS_FS_RES_SUCCESS)                        
                     {
-                        LED_RED_Toggle();
-                        SYS_FS_FileDirectoryRemove(FFS_WIFI_CFG_FILE);
                         vTaskDelay(1000 / portTICK_PERIOD_MS);
-                        appData.state = APP_OPEN_ROOT_CA_FILE;                        
-                        SYS_CONSOLE_PRINT("FFS Configuration is deleted!\n");
+                        SYS_CONSOLE_MESSAGE("FFS Configuration is deleted!\n");
                         LED_RED_Toggle();
-                    } 
-                    else if(SYS_FS_FileRead(appData.fileHandle, (void *)&ffsWifiCfg, sizeof(ffsWifiCfg)) == sizeof(ffsWifiCfg))                                 
+                    }
+                } 
+                else
+                {
+                    appData.fileHandle = SYS_FS_FileOpen(FFS_WIFI_CFG_FILE, SYS_FS_FILE_OPEN_READ); 
+                    if(SYS_FS_FileRead(appData.fileHandle, (void *)&ffsWifiCfg, sizeof(ffsWifiCfg)) == sizeof(ffsWifiCfg))                                 
                     {                                                                    
                         ffsWifiCfg.staConfig.autoConnect = true;
                         SYS_WIFI_CtrlMsg (sysObj.syswifi, SYS_WIFI_REGCALLBACK, appWifiCallback, sizeof(SYS_WIFI_CALLBACK));
@@ -470,9 +467,9 @@ void APP_Tasks ( void )
                             SYS_CONSOLE_MESSAGE("##############################################################\n");
                             appData.state = APP_UNMOUNT_DISK;                        
                         }
-                    }
-                }
-                SYS_FS_FileClose(appData.fileHandle);
+                    }    
+                    SYS_FS_FileClose(appData.fileHandle);
+                }                                                         
             }
             break;
         }  
