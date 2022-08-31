@@ -100,7 +100,7 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 	-  dha-control-log-public-key.txt
     -  **device_type_pubkey.pem**
 
-3. Download the [PIC32MZ-W1 FreeRTOS FFS](https://github.com/MicrochipTech/pic32mzw1_ffs_amazon_freertos/archive/refs/heads/master.zip) demo project zip file
+3. Download the [PIC32MZ-W1 FreeRTOS FFS](https://github.com/MicrochipTech/pic32mzw1_ffs_amazon_freertos/archive/refs/tags/ffs_certified_v1.0.zip) demo project zip file
 
 4. Unzip the downloaded demo file and open MPLABX IDE 
 
