@@ -351,51 +351,51 @@ const SYS_FS_MEDIA_MOUNT_DATA sysfsMountTable[SYS_FS_VOLUME_NUMBER] =
     {NULL}
 };
 
-const SYS_FS_FUNCTIONS FatFsFunctions =
+
+
+const SYS_FS_FUNCTIONS LittleFSFunctions =
 {
-    .mount             = FATFS_mount,
-    .unmount           = FATFS_unmount,
-    .open              = FATFS_open,
-    .read              = FATFS_read,
-    .close             = FATFS_close,
-    .seek              = FATFS_lseek,
-    .fstat             = FATFS_stat,
-    .getlabel          = FATFS_getlabel,
-    .currWD            = FATFS_getcwd,
-    .getstrn           = FATFS_gets,
-    .openDir           = FATFS_opendir,
-    .readDir           = FATFS_readdir,
-    .closeDir          = FATFS_closedir,
-    .chdir             = FATFS_chdir,
-    .chdrive           = FATFS_chdrive,
-    .write             = FATFS_write,
-    .tell              = FATFS_tell,
-    .eof               = FATFS_eof,
-    .size              = FATFS_size,
-    .mkdir             = FATFS_mkdir,
-    .remove            = FATFS_unlink,
-    .setlabel          = FATFS_setlabel,
-    .truncate          = FATFS_truncate,
-    .chmode            = FATFS_chmod,
-    .chtime            = FATFS_utime,
-    .rename            = FATFS_rename,
-    .sync              = FATFS_sync,
-    .putchr            = FATFS_putc,
-    .putstrn           = FATFS_puts,
-    .formattedprint    = FATFS_printf,
-    .testerror         = FATFS_error,
-    .formatDisk        = (FORMAT_DISK)FATFS_mkfs,
-    .partitionDisk     = FATFS_fdisk,
-    .getCluster        = FATFS_getclusters
+    .mount             = LITTLEFS_mount,
+    .unmount           = LITTLEFS_unmount,
+    .open              = LITTLEFS_open,
+    .read              = LITTLEFS_read,
+    .close             = LITTLEFS_close,
+    .seek              = LITTLEFS_lseek,
+    .fstat             = LITTLEFS_stat,
+    .getlabel          = NULL,
+    .currWD            = NULL,
+    .getstrn           = NULL,
+    .openDir           = LITTLEFS_opendir,
+    .readDir           = LITTLEFS_readdir,
+    .closeDir          = LITTLEFS_closedir,
+    .chdir             = NULL,
+    .chdrive           = NULL,
+    .tell              = LITTLEFS_tell,
+    .eof               = LITTLEFS_eof,
+    .size              = LITTLEFS_size,
+    .write             = LITTLEFS_write,
+    .mkdir             = LITTLEFS_mkdir,
+    .remove            = LITTLEFS_remove,
+    .rename            = LITTLEFS_rename,
+    .truncate          = LITTLEFS_truncate,
+    .formatDisk        = (FORMAT_DISK)LITTLEFS_mkfs,
+    .sync              = LITTLEFS_sync,
+    .setlabel          = NULL,
+    .chmode            = NULL,
+    .chtime            = NULL, 
+    .putchr            = NULL,
+    .putstrn           = NULL,
+    .formattedprint    = NULL,
+    .testerror         = NULL,
+    .partitionDisk     = NULL,
+    .getCluster        = NULL
 };
-
-
 
 const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ] =
 {
     {
-        .nativeFileSystemType = FAT,
-        .nativeFileSystemFunctions = &FatFsFunctions
+        .nativeFileSystemType = LITTLEFS,
+        .nativeFileSystemFunctions = &LittleFSFunctions
     },
 };
 
@@ -409,46 +409,6 @@ static const DRV_BA414E_INIT_DATA ba414eInitData =
 };
   
  
-
-/******************************************************
- * USB Driver Initialization
- ******************************************************/
- 
-uint8_t __attribute__((aligned(512))) USB_ALIGN endPointTable1[DRV_USBFS_ENDPOINTS_NUMBER * 32];
-
-
-const DRV_USBFS_INIT drvUSBFSInit =
-{
-	 /* Assign the endpoint table */
-    .endpointTable= endPointTable1,
-
-
-
-
-	/* Interrupt Source for USB module */
-	.interruptSource = INT_SOURCE_USB,
-    
-    /* USB Controller to operate as USB Device */
-    .operationMode = DRV_USBFS_OPMODE_DEVICE,
-	
-	.operationSpeed = USB_SPEED_FULL,
- 
-	/* Stop in idle */
-    .stopInIdle = false,
-	
-	    /* Suspend in sleep */
-    .suspendInSleep = false,
- 
-    /* Identifies peripheral (PLIB-level) ID */
-    .usbID = USB_ID_1,
-	
-
-};
-
-
-
-
-
 
 
 // <editor-fold defaultstate="collapsed" desc="TCP/IP Stack Initialization Data">
@@ -529,7 +489,40 @@ const TCPIP_ICMP_MODULE_CONFIG tcpipICMPInitData =
 
 
 
+/*** DHCP server initialization data ***/
+TCPIP_DHCPS_ADDRESS_CONFIG DHCP_POOL_CONFIG[]=
+{
+    {
+        .interfaceIndex     = TCPIP_DHCP_SERVER_INTERFACE_INDEX_IDX0,
+        .poolIndex          = TCPIP_DHCP_SERVER_POOL_INDEX_IDX0,
+        .serverIPAddress    = TCPIP_DHCPS_DEFAULT_SERVER_IP_ADDRESS_IDX0,
+        .startIPAddRange    = TCPIP_DHCPS_DEFAULT_IP_ADDRESS_RANGE_START_IDX0,
+        .ipMaskAddress      = TCPIP_DHCPS_DEFAULT_SERVER_NETMASK_ADDRESS_IDX0,
+        .priDNS             = TCPIP_DHCPS_DEFAULT_SERVER_PRIMARY_DNS_ADDRESS_IDX0,
+        .secondDNS          = TCPIP_DHCPS_DEFAULT_SERVER_SECONDARY_DNS_ADDRESS_IDX0,
+        .poolEnabled        = TCPIP_DHCP_SERVER_POOL_ENABLED_IDX0,
+    },
+};
+const TCPIP_DHCPS_MODULE_CONFIG tcpipDHCPSInitData =
+{
+    .enabled            = true,
+    .deleteOldLease     = TCPIP_DHCP_SERVER_DELETE_OLD_ENTRIES,
+    .dhcpServerCnt      = TCPIP_DHCPS_MAX_NUMBER_INSTANCES,
+    .leaseEntries       = TCPIP_DHCPS_LEASE_ENTRIES_DEFAULT,
+    .entrySolvedTmo     = TCPIP_DHCPS_LEASE_SOLVED_ENTRY_TMO,
+    .dhcpServer         = (TCPIP_DHCPS_ADDRESS_CONFIG*)DHCP_POOL_CONFIG,
+};
 
+/*** FTP Server Initialization Data ***/
+const TCPIP_FTP_MODULE_CONFIG tcpipFTPInitData =
+{ 
+    .cmdPort            = TCPIP_FTPS_COMMAND_LISTEN_PORT, 
+    .dataPort           = TCPIP_FTPS_DATA_LISTEN_PORT, 
+    .nConnections       = TCPIP_FTP_MAX_CONNECTIONS,
+    .dataSktTxBuffSize  = TCPIP_FTP_DATA_SKT_TX_BUFF_SIZE,
+    .dataSktRxBuffSize  = TCPIP_FTP_DATA_SKT_RX_BUFF_SIZE,
+    .mountPath          = TCPIP_FTP_MOUNT_POINT,
+};
 
 
 /*** DNS Client Initialization Data ***/
@@ -543,6 +536,14 @@ const TCPIP_DNS_CLIENT_MODULE_CONFIG tcpipDNSClientInitData =
     .nIPv6Entries  = TCPIP_DNS_CLIENT_CACHE_PER_IPV6_ADDRESS,
 };
 
+/*** DNS Server Initialization Data ***/
+const TCPIP_DNSS_MODULE_CONFIG tcpipDNSServerInitData =
+{ 
+    .deleteOldLease         = TCPIP_DNSS_DELETE_OLD_LEASE,
+    .replyBoardAddr         = TCPIP_DNSS_REPLY_BOARD_ADDR,
+    .IPv4EntriesPerDNSName  = TCPIP_DNSS_CACHE_PER_IPV4_ADDRESS,
+    .IPv6EntriesPerDNSName  = 0,
+};
 
 
 /*** IPv4 Initialization Data ***/
@@ -599,9 +600,12 @@ const TCPIP_STACK_MODULE_CONFIG TCPIP_STACK_MODULE_CONFIG_TBL [] =
     {TCPIP_MODULE_UDP,              &tcpipUDPInitData},             // TCPIP_MODULE_UDP
     {TCPIP_MODULE_TCP,              &tcpipTCPInitData},             // TCPIP_MODULE_TCP
     {TCPIP_MODULE_DHCP_CLIENT,      &tcpipDHCPInitData},            // TCPIP_MODULE_DHCP_CLIENT
+    {TCPIP_MODULE_DHCP_SERVER,      &tcpipDHCPSInitData},           // TCPIP_MODULE_DHCP_SERVER
     {TCPIP_MODULE_DNS_CLIENT,       &tcpipDNSClientInitData},       // TCPIP_MODULE_DNS_CLIENT
+    {TCPIP_MODULE_DNS_SERVER,       &tcpipDNSServerInitData},       // TCPIP_MODULE_DNS_SERVER
     {TCPIP_MODULE_SNTP,             &tcpipSNTPInitData},            // TCPIP_MODULE_SNTP
 
+    {TCPIP_MODULE_FTP_SERVER,       &tcpipFTPInitData},             // TCPIP_MODULE_FTP
     { TCPIP_MODULE_MANAGER,         &tcpipHeapConfig },             // TCPIP_MODULE_MANAGER
 
 // MAC modules
@@ -800,6 +804,8 @@ void SYS_Initialize ( void* data )
     CORETIMER_Initialize();
 	SPI1_Initialize();
 
+    I2C2_Initialize();
+
     NVM_Initialize();
 
 	UART3_Initialize();
@@ -837,14 +843,6 @@ void SYS_Initialize ( void* data )
     SYS_FS_Initialize( (const void *) sysFSInit );
 
     sysObj.ba414e = DRV_BA414E_Initialize(0, (SYS_MODULE_INIT*)&ba414eInitData);
-
-
-    /* Initialize the USB device layer */
-    sysObj.usbDevObject0 = USB_DEVICE_Initialize (USB_DEVICE_INDEX_0 , ( SYS_MODULE_INIT* ) & usbDevInitData);
-
-
-	/* Initialize USB Driver */ 
-    sysObj.drvUSBFSObject = DRV_USBFS_Initialize(DRV_USBFS_INDEX_0, (SYS_MODULE_INIT *) &drvUSBFSInit);	
 
 
 /* Network Presentation Layer Initialization */

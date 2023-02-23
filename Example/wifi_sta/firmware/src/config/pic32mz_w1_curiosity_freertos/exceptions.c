@@ -123,7 +123,7 @@ void __attribute__((nomips16, noreturn)) _general_exception_handler (XCPT_FRAME*
     _excep_code = (_excep_code & 0x0000007C) >> 2;
 
     _CP0_StatusValue   = _CP0_GET_STATUS();
-    asm volatile("sw $sp,%0" : "=m" (_StackPointerValue));
+    __asm__ volatile("sw $sp,%0" : "=m" (_StackPointerValue));
     _BadVirtualAddress = _CP0_GET_BADVADDR();
     _ReturnAddress     = pXFrame->ra;
 

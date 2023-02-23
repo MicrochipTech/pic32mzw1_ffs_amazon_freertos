@@ -48,7 +48,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: tcpipStack, value: '25'}
+        attributes: {id: tcpipStack, value: '24'}
   - type: Boolean
     attributes: {id: TCPIP_STACK_INTERFACE_CHANGE_SIGNALING}
     children:
@@ -79,15 +79,6 @@ children:
       children:
       - type: Dynamic
         attributes: {id: sysWifiPic32mzw1, value: '4'}
-  - type: Menu
-    attributes: {id: TCPIP_STACK_RTOS_MENU}
-    children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: visible}
-        children:
-        - {type: Value, value: 'true'}
   - type: Boolean
     attributes: {id: TCPIP_STACK_SYS_RANDOM_H2_ADAPTER}
     children:
@@ -109,15 +100,6 @@ children:
       children:
       - type: Dynamic
         attributes: {id: sysWifiPic32mzw1, value: TCPIP_STACK_HEAP_TYPE_EXTERNAL_HEAP}
-  - type: File
-    attributes: {id: TCPIP_SYS_RTOS_TASK}
-    children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: enabled}
-        children:
-        - {type: Value, value: 'true'}
 - type: Attachments
   children:
   - type: DirectDependency

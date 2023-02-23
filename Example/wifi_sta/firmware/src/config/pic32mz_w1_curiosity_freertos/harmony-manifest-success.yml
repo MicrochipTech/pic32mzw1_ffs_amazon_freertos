@@ -4,8 +4,8 @@
 
 
 project: wifi_sta
-creation_date: 2022-08-21T22:16:50.381-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
-operating_system: Mac OS X
+creation_date: 2023-02-15T22:49:58.809-07:00[GMT-07:00]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+operating_system: Windows 10
 mhc_mode: IDE            # [IDE|Standalone|Headless]
 mhc_version: v3.8.5
 mplabx_version: v6.00        # if MPLAB X plugin only
@@ -13,8 +13,8 @@ plugin_version: v3.6.4        # if MPLAB X plugin only
 compiler: XC32 (3.01)
 
 modules:
+    - {name: "cryptoauthlib", version: "v3.2.4"}
     - {name: "csp", version: "v3.13.1"}
-    - {name: "usb", version: "v3.10.0"}
     - {name: "wolfssl", version: "v4.7.0"}
     - {name: "crypto", version: "v3.7.6"}
     - {name: "CMSIS-FreeRTOS", version: "v10.3.1"}
@@ -22,7 +22,7 @@ modules:
     - {name: "wireless_wifi", version: "v3.6.1"}
     - {name: "dev_packs", version: "v3.13.0"}
     - {name: "littlefs", version: "unknown"}
-    - {name: "wireless_system_pic32mzw1_wfi32e01", version: "unknown"}
+    - {name: "wireless_system_pic32mzw1_wfi32e01", version: "v3.6.1"}
     - {name: "net", version: "v3.8.0"}
     - {name: "bsp", version: "v3.13.0"}
 

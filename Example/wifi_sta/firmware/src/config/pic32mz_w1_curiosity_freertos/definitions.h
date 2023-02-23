@@ -50,8 +50,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "crypto/crypto.h"
-#include "usb/usb_device_msd.h"
-#include "usb/usb_msd.h"
 #include "driver/memory/drv_memory.h"
 #include "system/time/sys_time.h"
 #include "peripheral/coretimer/plib_coretimer.h"
@@ -62,25 +60,20 @@
 #include "system/reset/sys_reset.h"
 #include "osal/osal.h"
 #include "system/debug/sys_debug.h"
+#include "peripheral/i2c/master/plib_i2c2_master.h"
 #include "net_pres/pres/net_pres.h"
 #include "net_pres/pres/net_pres_encryptionproviderapi.h"
 #include "net_pres/pres/net_pres_transportapi.h"
 #include "net_pres/pres/net_pres_socketapi.h"
 #include "system/fs/sys_fs.h"
 #include "system/fs/sys_fs_media_manager.h"
-#include "system/fs/sys_fs_fat_interface.h"
-#include "system/fs/fat_fs/file_system/ff.h"
-#include "system/fs/fat_fs/file_system/ffconf.h"
-#include "system/fs/fat_fs/hardware_access/diskio.h"
+#include "system/fs/sys_fs_littlefs_interface.h"
 #include "driver/ba414e/drv_ba414e.h"
-#include "usb/usb_chapter_9.h"
-#include "usb/usb_device.h"
 #include "system/net/sys_net.h"
 #include "peripheral/nvm/plib_nvm.h"
 #include "peripheral/uart/plib_uart3.h"
 #include "peripheral/uart/plib_uart1.h"
 #include "bsp/bsp.h"
-#include "driver/usb/usbfs/drv_usbfs.h"
 #include "library/tcpip/tcpip.h"
 #include "system/sys_time_h2_adapter.h"
 #include "system/sys_random_h2_adapter.h"
@@ -231,11 +224,7 @@ typedef struct
 
     SYS_MODULE_OBJ  ba414e;
 
-    SYS_MODULE_OBJ  usbDevObject0;
-
     SYS_MODULE_OBJ  drvMemory0;
-	SYS_MODULE_OBJ  drvUSBFSObject;
-
 
     SYS_MODULE_OBJ  tcpip;
     SYS_MODULE_OBJ  drvSST26;
@@ -251,8 +240,6 @@ typedef struct
 // Section: extern declarations
 // *****************************************************************************
 // *****************************************************************************
-
-extern const USB_DEVICE_INIT usbDevInitData; 
 
 
 

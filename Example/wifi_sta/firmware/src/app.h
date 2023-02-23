@@ -32,8 +32,11 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include "configuration.h"
+#include "definitions.h"             // SYS function prototypes
 #include "system/fs/sys_fs.h"
 #include "usb/usb_device.h"
+#include "system/command/sys_command.h"
+//#include "system/wifiprov/sys_wifiprov.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -48,9 +51,9 @@ extern "C" {
 // Section: Type Definitions
 // *****************************************************************************
 // *****************************************************************************  
-#define APP_MOUNT_NAME          "/mnt/myDrive1"
+#define APP_MOUNT_NAME          "/mnt/myDrive1/"
 #define APP_DEVICE_NAME         "/dev/mtda1"
-#define APP_FS_TYPE             FAT
+#define APP_FS_TYPE             LITTLEFS
  
 #define FFS_ROOT_CERT_FILE_NAME                 "ffsRootCa.der"
 #define FFS_DEVICE_PUB_KEY_FILE_NAME            "ffsDevPublic.key"
@@ -59,7 +62,8 @@ extern "C" {
 #define FFS_DEVICE_KEY_FILE_NAME                "private_key.pem"
 #define FFS_DEVICE_CFG_FILE_NAME                "ffs_device.cfg"
 #define FFS_DEVICE_WIFI_CFG_FILE_NAME                "ffs_wifi.cfg"
-    
+#define FFS_DEVICE_FTPAUTH_FILE_NAME        "ftp_auth.cfg"
+
 #define FFS_ROOT_CERT_FILE                     APP_MOUNT_NAME"/"FFS_ROOT_CERT_FILE_NAME
 #define FFS_DEVICE_PUB_KEY_FILE                APP_MOUNT_NAME"/"FFS_DEVICE_PUB_KEY_FILE_NAME
 #define FFS_DEVICE_TYPE_PUBKEY_FILE            APP_MOUNT_NAME"/"FFS_DEVICE_TYPE_PUBKEY_FILE_NAME
@@ -67,7 +71,9 @@ extern "C" {
 #define FFS_DEVICE_KEY_FILE                    APP_MOUNT_NAME"/"FFS_DEVICE_KEY_FILE_NAME    
     
 #define FFS_WIFI_CFG_FILE                      APP_MOUNT_NAME"/"FFS_DEVICE_WIFI_CFG_FILE_NAME
-#define FFS_DEVICE_CFG_FILE                    APP_MOUNT_NAME"/"FFS_DEVICE_CFG_FILE_NAME   
+#define FFS_DEVICE_CFG_FILE                    APP_MOUNT_NAME"/"FFS_DEVICE_CFG_FILE_NAME 
+//#define FFS_DEVICE_CFG_FILE                 "/mnt/myDrive1/ffs_device.cfg"
+#define FFS_FTPAUTH_FILE                      APP_MOUNT_NAME"/"FFS_DEVICE_FTPAUTH_FILE_NAME
     
 #define FFS_DEVICE_NAME_JSON_TAG                "device_name"
 #define FFS_DEVICE_NAME_JSON_TAG                "device_name"
@@ -97,6 +103,9 @@ extern char FFS_DEVICE_DEVICE_NAME[];
 extern char FFS_DEVICE_PRODUCT_INDEX[];
 
 extern uint32_t wifiConnCount;
+
+//extern  SYS_WIFIPROV_CONFIG   g_wifiProvSrvcConfig;
+
 // *****************************************************************************
 /* Application states
 
@@ -133,15 +142,36 @@ typedef enum
     APP_STATE_FFS_TASK,
             
     APP_STATE_SERVICE_TASKS,
+            
     /* The app mounts the disk */
     APP_MOUNT_DISK,
+ 
+    /* The app erases NVM flash memory */            
+    APP_NVM_Erase,
+
+    /* The app performs NVM Read operation */               
+     APP_NVM_Read,  
             
-    /* The app USB connect MSD*/
-    APP_MSD_CONNECT,
+    /* The app verifies NVM read operation */            
+    APP_NVM_ReadVerify,     
+      
+    /* The app performs NVM Write operation */                 
+   APP_NVM_Write,
+            
+            
+            
+    /* The app initializes ECC608 */                
+    APP_ECC_Init,
+            
+    /* The app receives FFS config files*/
+    APP_GET_CFG_FILES,
 
     /* The app formats the disk. */
     APP_FORMAT_DISK,
 
+    /* The app checks for the FTP server user authentication file. */
+    APP_OPEN_FTPAUTH_FILE,            
+            
     /* The app opens the FFS Config file */
     APP_OPEN_FFS_CFG_FILE,
     
@@ -206,6 +236,45 @@ typedef enum
 
 } APP_STATES;
 
+/* File System types
+ 
+  Summary:
+ Types of file systems - one of the FS type can be mounted in this application.
+
+  Description:
+    This enumeration defines the valid FS types. The value will be compared with the data read from NVM, 
+    while deciding which FS was mounted during earlier app execution.
+*/
+
+typedef enum
+{
+    /* Types of File Systems */
+    LittleFS = 1,
+    FATFS = 2,
+    InvalidFS = 255,
+}LFSwFTP_FStypes;
+
+// *****************************************************************************
+
+/* FTP over LFS service flag for 'LFS mount and format complete' structure.
+
+  Summary:
+  
+  Description:
+ 
+  Remarks:
+   None.
+*/
+
+typedef struct 
+{
+    /* Type of FS mounted in this app, will be stored in the NVM. It will be read from NVM on subsequent resets, to decide whether to format FS again or not */
+    LFSwFTP_FStypes FSused;
+    
+    /*Flag to set if FS was mounted and formatted successfully during earlier app execution*/
+    bool isLFSmountFormatSuccess;
+    
+}SYS_LFSwFTP_CONFIG;
 
 // *****************************************************************************
 /* Application Data
@@ -227,6 +296,8 @@ typedef struct
     
     /* SYS_FS File handle */
     SYS_FS_HANDLE fileHandle;
+    
+    TCPIP_FTP_HANDLE        ftpHandle;
     
     /* USB Device Handle */
     USB_DEVICE_HANDLE usbDeviceHandle;
@@ -258,6 +329,7 @@ typedef struct
     SYS_FS_FSTAT fileStatus;
 
     long fileSize;
+   
 } APP_DATA;
 
 extern APP_DATA appData;
@@ -345,6 +417,13 @@ void APP_Tasks( void );
 void app_aquire_ffs_file(FFS_DEV_FILES_IDX_t fileType, const unsigned char **fileBuffer, size_t* fileSize);
 
 void app_release_ffs_file(FFS_DEV_FILES_IDX_t fileType);
+
+
+bool FTP_Command_Initialize(void);
+static int _Command_AddUser(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
+static int _Command_RemoveUser(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
+static inline void _Command_setECC(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
+static inline void _Command_setNVM(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 
 #endif /* _APP_H */
 

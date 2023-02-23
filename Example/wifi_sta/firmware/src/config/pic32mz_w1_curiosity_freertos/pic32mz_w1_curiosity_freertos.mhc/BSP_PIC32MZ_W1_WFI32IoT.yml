@@ -3,4 +3,4 @@ type: UniqueComponent
 attributes: {id: BSP_PIC32MZ_W1_WFI32IoT, bsp: 'true'}
 children:
 - type: ElementPosition
-  attributes: {x: '85', y: '218', id: BSP_PIC32MZ_W1_WFI32IoT}
+  attributes: {x: '365', y: '71', id: BSP_PIC32MZ_W1_WFI32IoT}

@@ -1,4 +1,11 @@
 files:
+- generatedChecksum: A894C63D65D4275B3B79883DC2A6C7BF
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal
+  name: ATECC608_0.c
+  physicalPath: library/cryptoauthlib/hal
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: A894C63D65D4275B3B79883DC2A6C7BF
 - generatedChecksum: F58DB2348A0FCE945652B285010E5F8A
   logicalPath: FreeRTOS/Source
   name: FreeRTOS_tasks.c
@@ -6,6 +13,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: F58DB2348A0FCE945652B285010E5F8A
+- generatedChecksum: 0D0C0705B405E8251172067CE64E5AEE
+  logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs/littlefs
+  name: LICENSE.md
+  physicalPath: system/fs/littlefs
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 0D0C0705B405E8251172067CE64E5AEE
 - generatedChecksum: 2DF7C661F71182DC8188521EF1ABAA64
   logicalPath: wolfcrypt
   name: aes.c
@@ -48,6 +62,391 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 0FB83C68B2F1920F45C6E17FA1AF2E79
+- generatedChecksum: D65C5C51F05EA0B1A7BC93D5F2768C94
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_basic.c
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: D65C5C51F05EA0B1A7BC93D5F2768C94
+- generatedChecksum: EAC4DB97EA75C9DFE56F3030EFBD1C2D
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_basic.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: EAC4DB97EA75C9DFE56F3030EFBD1C2D
+- generatedChecksum: 7A3C7433D5B1A51B74A8924E342D644E
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_bool.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 7A3C7433D5B1A51B74A8924E342D644E
+- generatedChecksum: F94BB7807F07FC7C5B1BB1F5CB62294F
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_cfgs.c
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: F94BB7807F07FC7C5B1BB1F5CB62294F
+- generatedChecksum: C7D1B750E8EA61EABA06447F1335DEE3
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_cfgs.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: C7D1B750E8EA61EABA06447F1335DEE3
+- generatedChecksum: 958A2F605D328A1DD679BACBA8AD4AFA
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_command.c
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 958A2F605D328A1DD679BACBA8AD4AFA
+- generatedChecksum: A699E93A802539F77DC8A54AB9961305
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_command.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: A699E93A802539F77DC8A54AB9961305
+- generatedChecksum: FBD4E05B7F4C8B1C877544FDA0E09A2B
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_compiler.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: FBD4E05B7F4C8B1C877544FDA0E09A2B
+- generatedChecksum: 5311664AD46C6A0A4C2B7FC5D5B0EDF6
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto
+  name: atca_crypto_hw_aes.h
+  physicalPath: library/cryptoauthlib/crypto
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 5311664AD46C6A0A4C2B7FC5D5B0EDF6
+- generatedChecksum: 65171793E500AE687BC8CCD3C6049D31
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto
+  name: atca_crypto_hw_aes_cbc.c
+  physicalPath: library/cryptoauthlib/crypto
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 65171793E500AE687BC8CCD3C6049D31
+- generatedChecksum: 08A64A9051E86869223102BA11C2A0AD
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto
+  name: atca_crypto_hw_aes_cmac.c
+  physicalPath: library/cryptoauthlib/crypto
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 08A64A9051E86869223102BA11C2A0AD
+- generatedChecksum: 2524D72F7A43204248272C0893543EB7
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto
+  name: atca_crypto_hw_aes_ctr.c
+  physicalPath: library/cryptoauthlib/crypto
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 2524D72F7A43204248272C0893543EB7
+- generatedChecksum: 044125C5B1E3A04BEC183A3F9DEB7832
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto
+  name: atca_crypto_sw.h
+  physicalPath: library/cryptoauthlib/crypto
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 044125C5B1E3A04BEC183A3F9DEB7832
+- generatedChecksum: 4B532B685AD0C9C275D5D5416B9E0145
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto
+  name: atca_crypto_sw_ecdsa.c
+  physicalPath: library/cryptoauthlib/crypto
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 4B532B685AD0C9C275D5D5416B9E0145
+- generatedChecksum: A9B48CDA4A6F4AE7EA0421C70C9AA8A2
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto
+  name: atca_crypto_sw_ecdsa.h
+  physicalPath: library/cryptoauthlib/crypto
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: A9B48CDA4A6F4AE7EA0421C70C9AA8A2
+- generatedChecksum: 2D568A8FCA40F20A3494C7701A8D56F1
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto
+  name: atca_crypto_sw_rand.c
+  physicalPath: library/cryptoauthlib/crypto
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 2D568A8FCA40F20A3494C7701A8D56F1
+- generatedChecksum: 54B5FFC548BD32AD9DCC330452BF8FBE
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto
+  name: atca_crypto_sw_rand.h
+  physicalPath: library/cryptoauthlib/crypto
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 54B5FFC548BD32AD9DCC330452BF8FBE
+- generatedChecksum: 7ED683421A04E7C89F264388445A65D3
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto
+  name: atca_crypto_sw_sha1.c
+  physicalPath: library/cryptoauthlib/crypto
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 7ED683421A04E7C89F264388445A65D3
+- generatedChecksum: A1D4B8DF10B6AB9164B16D14A4E49A32
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto
+  name: atca_crypto_sw_sha1.h
+  physicalPath: library/cryptoauthlib/crypto
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: A1D4B8DF10B6AB9164B16D14A4E49A32
+- generatedChecksum: 4393D6DEE59D21AC15E8E45B4C173AF8
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto
+  name: atca_crypto_sw_sha2.c
+  physicalPath: library/cryptoauthlib/crypto
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 4393D6DEE59D21AC15E8E45B4C173AF8
+- generatedChecksum: 87C1DA115439D884C952DCE47832318D
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto
+  name: atca_crypto_sw_sha2.h
+  physicalPath: library/cryptoauthlib/crypto
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 87C1DA115439D884C952DCE47832318D
+- generatedChecksum: 367980753E682BFC5D189349D2A8359A
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_debug.c
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 367980753E682BFC5D189349D2A8359A
+- generatedChecksum: DF024729BA32598B139988DB4C303D52
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_debug.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: DF024729BA32598B139988DB4C303D52
+- generatedChecksum: 43C5FF2398A4F18A68B28D6F44173072
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_device.c
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 43C5FF2398A4F18A68B28D6F44173072
+- generatedChecksum: 59ADBF11B2812B89C7634CA36FF9C482
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_device.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 59ADBF11B2812B89C7634CA36FF9C482
+- generatedChecksum: D795A75011D4314A4F797792DD5150FF
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_devtypes.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: D795A75011D4314A4F797792DD5150FF
+- generatedChecksum: 2090A10BE42B2E900D438ACCF45F953E
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal
+  name: atca_hal.c
+  physicalPath: library/cryptoauthlib/hal
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 2090A10BE42B2E900D438ACCF45F953E
+- generatedChecksum: 4419EE88967013244507A13FCAADAFD4
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal
+  name: atca_hal.h
+  physicalPath: library/cryptoauthlib/hal
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 4419EE88967013244507A13FCAADAFD4
+- generatedChecksum: E4D5015B6ED91C69BBF1AA82B29C876B
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_helpers.c
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: E4D5015B6ED91C69BBF1AA82B29C876B
+- generatedChecksum: 0B1D806FEDFACA63DEDCF4F3A6A8922C
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_helpers.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 0B1D806FEDFACA63DEDCF4F3A6A8922C
+- generatedChecksum: 3C0710375DF9A8D43FE5DD313CCB0F27
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/host
+  name: atca_host.c
+  physicalPath: library/cryptoauthlib/host
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 3C0710375DF9A8D43FE5DD313CCB0F27
+- generatedChecksum: FD9A5D00825CE29396BBE4306A643286
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/host
+  name: atca_host.h
+  physicalPath: library/cryptoauthlib/host
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: FD9A5D00825CE29396BBE4306A643286
+- generatedChecksum: E09C1465B725BB068B890D02BD6F887E
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_iface.c
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: E09C1465B725BB068B890D02BD6F887E
+- generatedChecksum: 695F23312CCF4E8E69687D8A5C6922EC
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_iface.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 695F23312CCF4E8E69687D8A5C6922EC
+- generatedChecksum: CA051859F3F10276EE04149B20E844AF
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/jwt
+  name: atca_jwt.c
+  physicalPath: library/cryptoauthlib/jwt
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: CA051859F3F10276EE04149B20E844AF
+- generatedChecksum: F41DD68794903B094FB89C320406C227
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/jwt
+  name: atca_jwt.h
+  physicalPath: library/cryptoauthlib/jwt
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: F41DD68794903B094FB89C320406C227
+- generatedChecksum: 020C76CD6D5D9555C514427B9B3EAC49
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal
+  name: atca_start_config.h
+  physicalPath: library/cryptoauthlib/hal
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 020C76CD6D5D9555C514427B9B3EAC49
+- generatedChecksum: 020C76CD6D5D9555C514427B9B3EAC49
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal
+  name: atca_start_iface.h
+  physicalPath: library/cryptoauthlib/hal
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 020C76CD6D5D9555C514427B9B3EAC49
+- generatedChecksum: C44F01BA65C6AC0A0BB2F1F257D2C405
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_status.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: C44F01BA65C6AC0A0BB2F1F257D2C405
+- generatedChecksum: D0A90D167AE776861335A1324E25575A
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_version.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: D0A90D167AE776861335A1324E25575A
+- generatedChecksum: 39B479CDDBCD8CEB51C6FDAD2D5D6527
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert.h
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 39B479CDDBCD8CEB51C6FDAD2D5D6527
+- generatedChecksum: 211050E83F1EB4D7E5E1B5EFE6693CC1
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_client.c
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 211050E83F1EB4D7E5E1B5EFE6693CC1
+- generatedChecksum: 481CEFA6107D950DA2593A78494043C4
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_client.h
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 481CEFA6107D950DA2593A78494043C4
+- generatedChecksum: E1F6E19BE0F5C1147E9CAEDEDE1866F1
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_date.c
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: E1F6E19BE0F5C1147E9CAEDEDE1866F1
+- generatedChecksum: E2AD6521ED3BA4CF60934CC5A66A14C2
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_date.h
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: E2AD6521ED3BA4CF60934CC5A66A14C2
+- generatedChecksum: 7EE1A85B7E90E04BAF4BCE9CD912FE79
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_def.c
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 7EE1A85B7E90E04BAF4BCE9CD912FE79
+- generatedChecksum: 7E81275CEC5D18195AFAB0069751E90F
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_def.h
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 7E81275CEC5D18195AFAB0069751E90F
+- generatedChecksum: CA5248E40F9A4EA9DD0811D8670F1D08
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_der.c
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: CA5248E40F9A4EA9DD0811D8670F1D08
+- generatedChecksum: 78E60FE1968E176C2FAAECFF28F15859
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_der.h
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 78E60FE1968E176C2FAAECFF28F15859
+- generatedChecksum: 1FD52A0985CB9AB9612CC71F43229BB3
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_host_hw.c
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 1FD52A0985CB9AB9612CC71F43229BB3
+- generatedChecksum: EEBBBFD34F708E36768B5D57BAF655E7
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_host_hw.h
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: EEBBBFD34F708E36768B5D57BAF655E7
+- generatedChecksum: 8F2BE817F0A3805F591C160C0AB2A8B1
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_host_sw.c
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 8F2BE817F0A3805F591C160C0AB2A8B1
+- generatedChecksum: 938C9787ED5322AEC1364D6F77BAE706
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_host_sw.h
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 938C9787ED5322AEC1364D6F77BAE706
+- generatedChecksum: B43120C9C0EBACC26AAE248978D18B77
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_pem.c
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: B43120C9C0EBACC26AAE248978D18B77
+- generatedChecksum: DD048659E440B34428ED209F89C42D9D
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert
+  name: atcacert_pem.h
+  physicalPath: library/cryptoauthlib/atcacert
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: DD048659E440B34428ED209F89C42D9D
 - generatedChecksum: 7136F7DF88C5587662FBE8079E791C84
   logicalPath: wolfcrypt/port/atmel
   name: atmel.c
@@ -76,6 +475,223 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 146319085C483D4BB39B6804959EBD14
+- generatedChecksum: 9A9FD6D62B08B8AADBBE32353C46EA78
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_aes.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 9A9FD6D62B08B8AADBBE32353C46EA78
+- generatedChecksum: C9552CA702A3272DF9CD9A0CF3C614FD
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_aes_gcm.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: C9552CA702A3272DF9CD9A0CF3C614FD
+- generatedChecksum: EA3115EBE1DA89D1E95D834CAD16F601
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_aes_gcm.h
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: EA3115EBE1DA89D1E95D834CAD16F601
+- generatedChecksum: C809D89533A3B6A51EC95631AA9DFA8E
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_basic.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: C809D89533A3B6A51EC95631AA9DFA8E
+- generatedChecksum: B758D2FD47C1126616F90198167BAD6A
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_basic.h
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: B758D2FD47C1126616F90198167BAD6A
+- generatedChecksum: F3AD226C19171591E360346CFBE434DB
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_checkmac.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: F3AD226C19171591E360346CFBE434DB
+- generatedChecksum: FE323E02A0C96954F9ABE1CE8E232564
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_command.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: FE323E02A0C96954F9ABE1CE8E232564
+- generatedChecksum: 3D5DDF979A720B13C7FC5E8A832DF470
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_command.h
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 3D5DDF979A720B13C7FC5E8A832DF470
+- generatedChecksum: 57E0F240F1B099695D5B6748AB517279
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_counter.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 57E0F240F1B099695D5B6748AB517279
+- generatedChecksum: A051664C0EF95B11F8704C782C386091
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_derivekey.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: A051664C0EF95B11F8704C782C386091
+- generatedChecksum: DC45ACDF1D3D192E0EA0A87F350CC912
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_ecdh.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: DC45ACDF1D3D192E0EA0A87F350CC912
+- generatedChecksum: 1A836CBF352441C9485004A883FE2970
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_execution.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 1A836CBF352441C9485004A883FE2970
+- generatedChecksum: 6389B47A7BB5B31BB86219D4EEC9C0C6
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_execution.h
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 6389B47A7BB5B31BB86219D4EEC9C0C6
+- generatedChecksum: B1D20F8912AAFEC2E7ECFB1893CED53A
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_gendig.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: B1D20F8912AAFEC2E7ECFB1893CED53A
+- generatedChecksum: 9CBB4A5DBEDC7922138C13102BBF427E
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_genkey.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 9CBB4A5DBEDC7922138C13102BBF427E
+- generatedChecksum: 90CF6B4413C50695A7E34B368B46AF64
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_hmac.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 90CF6B4413C50695A7E34B368B46AF64
+- generatedChecksum: 3FCBF4CC558A74D29A81891200F40683
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_info.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 3FCBF4CC558A74D29A81891200F40683
+- generatedChecksum: 7B5B0E48E616FDB02FC9709D2C5EBE0A
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_kdf.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 7B5B0E48E616FDB02FC9709D2C5EBE0A
+- generatedChecksum: EE6DE65AAC0A9C58A36F89440F6E198F
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_lock.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: EE6DE65AAC0A9C58A36F89440F6E198F
+- generatedChecksum: 20B46CB8E49C737F4188F4A91EE3F3C5
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_mac.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 20B46CB8E49C737F4188F4A91EE3F3C5
+- generatedChecksum: FD90915D431709C286467EC197335B0D
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_nonce.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: FD90915D431709C286467EC197335B0D
+- generatedChecksum: 22D727E0045A3270AC4846E6AB874A6B
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_privwrite.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 22D727E0045A3270AC4846E6AB874A6B
+- generatedChecksum: 8DCA31F01180F4FB97BF8F46A657DBDC
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_random.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 8DCA31F01180F4FB97BF8F46A657DBDC
+- generatedChecksum: 35EE707A04F8CEE2A71C2933E0089399
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_read.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 35EE707A04F8CEE2A71C2933E0089399
+- generatedChecksum: FA18A67FB43BAC71855BCC0C7FB362B9
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_secureboot.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: FA18A67FB43BAC71855BCC0C7FB362B9
+- generatedChecksum: 798A95E9A2660FC86177026E3A1D9ED3
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_selftest.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 798A95E9A2660FC86177026E3A1D9ED3
+- generatedChecksum: F388452FB7883443C0D7C19AF8654695
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_sha.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: F388452FB7883443C0D7C19AF8654695
+- generatedChecksum: 028C40272391E90C59F4CDD124A751C0
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_sign.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 028C40272391E90C59F4CDD124A751C0
+- generatedChecksum: 2F4206BBC22EE2931EAC403D8E73281D
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_updateextra.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 2F4206BBC22EE2931EAC403D8E73281D
+- generatedChecksum: BD4C5133631E08DFD182AA4B3A171DCD
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_verify.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: BD4C5133631E08DFD182AA4B3A171DCD
+- generatedChecksum: B08DAA501FAE836473175CF4F2F3B763
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib
+  name: calib_write.c
+  physicalPath: library/cryptoauthlib/calib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: B08DAA501FAE836473175CF4F2F3B763
 - generatedChecksum: DC58FA7C1211063D58ED28BA66D8297D
   logicalPath: wolfcrypt
   name: camellia.c
@@ -279,6 +895,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: A74371416E1A5A09AF4D7EC71E9EE906
+- generatedChecksum: 390FDC7BC149DBA5FF34402A30961B3A
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: cryptoauthlib.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 390FDC7BC149DBA5FF34402A30961B3A
 - generatedChecksum: E608269FFD2B895BDAEEAD87D5FC1FE5
   logicalPath: wolfcrypt
   name: cryptocb.c
@@ -321,13 +944,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 412F30E1E173E8BB91C29F79DACCAF97
-- generatedChecksum: 65F5B99DAB8ECAC3CB0624E73CA6E0A0
-  logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/hardware_access
-  name: diskio.c
-  physicalPath: system/fs/fat_fs/hardware_access
+- generatedChecksum: 6F3F7901B635F286D539A7ABF76F7C56
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
+  name: dhcps.c
+  physicalPath: library/tcpip/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 65F5B99DAB8ECAC3CB0624E73CA6E0A0
+  userChecksum: 6F3F7901B635F286D539A7ABF76F7C56
 - generatedChecksum: 75776948807707C602A3F619A74C3891
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
   name: dns.c
@@ -335,6 +958,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 75776948807707C602A3F619A74C3891
+- generatedChecksum: 47F8D23EB159ACCD0E02719B69022351
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
+  name: dnss.c
+  physicalPath: library/tcpip/src
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 47F8D23EB159ACCD0E02719B69022351
 - generatedChecksum: 7E3142C72C357BC5EB12B612417783DC
   logicalPath: config/pic32mz_w1_curiosity_freertos/driver/ba414e/src
   name: drv_ba414e.c
@@ -377,20 +1007,6 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: B54781AE0A949D961CF64B237F42B1CD
-- generatedChecksum: E8A25523C8CDDC97F3FD108E97BF4A9F
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src
-  name: drv_usbfs.c
-  physicalPath: driver/usb/usbfs/src
-  security: NON_SECURE
-  type: SOURCE
-  userChecksum: E8A25523C8CDDC97F3FD108E97BF4A9F
-- generatedChecksum: 77A61E825804B2CA96FC95734161DDE6
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src
-  name: drv_usbfs_device.c
-  physicalPath: driver/usb/usbfs/src
-  security: NON_SECURE
-  type: SOURCE
-  userChecksum: 77A61E825804B2CA96FC95734161DDE6
 - generatedChecksum: D81BD277BA41FC9B0E4C4A8B0AF30F86
   logicalPath: wolfcrypt
   name: dsa.c
@@ -446,7 +1062,7 @@ files:
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: E558CA81A3F4FC10A2F360A0330126B9
+  userChecksum: 127AFEAFF6479E43F6334AA0567FBCAF
 - generatedChecksum: C73FC716A50DDB05718577E8BBE06959
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: exceptionsHandler.S
@@ -475,20 +1091,6 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 77CC869BC8528641F4CBF2B2A81516B2
-- generatedChecksum: D991CF8C9FF9C5452F5D78B4D7BC766E
-  logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/file_system
-  name: ff.c
-  physicalPath: system/fs/fat_fs/file_system
-  security: NON_SECURE
-  type: SOURCE
-  userChecksum: D991CF8C9FF9C5452F5D78B4D7BC766E
-- generatedChecksum: 9E153A6D4F8E0EA1F6901BAED7DD80FD
-  logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/file_system
-  name: ffunicode.c
-  physicalPath: system/fs/fat_fs/file_system
-  security: NON_SECURE
-  type: SOURCE
-  userChecksum: 9E153A6D4F8E0EA1F6901BAED7DD80FD
 - generatedChecksum: CF89BE92AE72229779903C2E9A760455
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: freertos_hooks.c
@@ -496,6 +1098,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: CF89BE92AE72229779903C2E9A760455
+- generatedChecksum: EBA0971E45C14B4ED9C0ABF8E78C1D6C
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
+  name: ftp.c
+  physicalPath: library/tcpip/src
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: EBA0971E45C14B4ED9C0ABF8E78C1D6C
 - generatedChecksum: 71C659B6678D6C5D384A9AE57B433CCB
   logicalPath: wolfcrypt
   name: ge_448.c
@@ -517,6 +1126,34 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 5843F589E8328577489D05E58D1A5801
+- generatedChecksum: 0EF9A722499C1902B39A6D2DEBBD659C
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal
+  name: hal_freertos.c
+  physicalPath: library/cryptoauthlib/hal
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 0EF9A722499C1902B39A6D2DEBBD659C
+- generatedChecksum: 3459AC767423498DA8D92F144580EEC2
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal
+  name: hal_harmony_init.c
+  physicalPath: library/cryptoauthlib/hal
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 3459AC767423498DA8D92F144580EEC2
+- generatedChecksum: A0B02226E8192C9003F47508C980A3FB
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal
+  name: hal_i2c_harmony.c
+  physicalPath: library/cryptoauthlib/hal
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: A0B02226E8192C9003F47508C980A3FB
+- generatedChecksum: 04C90D6C19C62922CD1201770E617AB4
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal
+  name: hal_pic32_delay.c
+  physicalPath: library/cryptoauthlib/hal
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 04C90D6C19C62922CD1201770E617AB4
 - generatedChecksum: 840C84F9BA8AB2AD71BFC01F1229E0AC
   logicalPath: wolfcrypt
   name: hash.c
@@ -524,13 +1161,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 840C84F9BA8AB2AD71BFC01F1229E0AC
-- generatedChecksum: C991566B83550177108342CDCF6888A6
+- generatedChecksum: C13333EC95D004AAFF2F78E20CDAC054
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
   name: hash_fnv.c
   physicalPath: library/tcpip/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: C991566B83550177108342CDCF6888A6
+  userChecksum: C13333EC95D004AAFF2F78E20CDAC054
 - generatedChecksum: 9A555048379522BACA8216BFA898FC4A
   logicalPath: wolfcrypt
   name: hc128.c
@@ -573,13 +1210,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 62951755A45BA873C9775C77F461A8DF
-- generatedChecksum: 48B410DB5558EB503FF1F25936663B68
+- generatedChecksum: D5063A8D8A6E5F8C7EC5D9176043547F
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 48B410DB5558EB503FF1F25936663B68
+  userChecksum: D5063A8D8A6E5F8C7EC5D9176043547F
 - generatedChecksum: 479A727027F5AD9CBBDC717FD86D8B5E
   logicalPath: wolfcrypt
   name: integer.c
@@ -594,20 +1231,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 220A2225F19A59FAAA55DA070644B444
-- generatedChecksum: 0B2DE41FAD135453779AAF5CCC694053
+- generatedChecksum: 82E04915201F1B2AE062F2E6698D6EE1
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: interrupts.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 0B2DE41FAD135453779AAF5CCC694053
-- generatedChecksum: 8A683F64D7FE102B256A3067D0BE182A
+  userChecksum: 82E04915201F1B2AE062F2E6698D6EE1
+- generatedChecksum: 69CFD52D1C82D2905FEA608CDD093F9D
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: interrupts_a.S
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 8A683F64D7FE102B256A3067D0BE182A
+  userChecksum: 69CFD52D1C82D2905FEA608CDD093F9D
 - generatedChecksum: 519D48597914943C70DCEF6B6D591192
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
   name: ipv4.c
@@ -622,6 +1259,27 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: CBAF0F878E6CDF39AA78EC88E8AE5410
+- generatedChecksum: 7559E173529EABD8220A592BF5C64053
+  logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs/littlefs
+  name: lfs.c
+  physicalPath: system/fs/littlefs
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: C333CDBF08E75DFD25CB347971C8D3CB
+- generatedChecksum: B185FE9B8528945252A0074F547A5BB3
+  logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs/littlefs
+  name: lfs_bdio.c
+  physicalPath: system/fs/littlefs
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: B185FE9B8528945252A0074F547A5BB3
+- generatedChecksum: 6BCEC578EC2B005CD6E5D5996EB3BC54
+  logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs/littlefs
+  name: lfs_util.c
+  physicalPath: system/fs/littlefs
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 5E45BE173010601CFCB403B27B5010BA
 - generatedChecksum: 3FEE521CEF14928AE38E7FA9BF6D75E6
   logicalPath: FreeRTOS/Source
   name: list.c
@@ -755,13 +1413,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 0DA10C8889278A796D0EE4C6096B57C3
-- generatedChecksum: 0732D38A81232A0FDC72ED6E41B0EEC1
+- generatedChecksum: F3B19CFA9B5C5FC1CA9EFA41958C17B9
   logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/clk
   name: plib_clk.c
   physicalPath: peripheral/clk
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 0732D38A81232A0FDC72ED6E41B0EEC1
+  userChecksum: F3B19CFA9B5C5FC1CA9EFA41958C17B9
 - generatedChecksum: 2FEFEA0D4E94F5A5F3D76BAEC3D602E5
   logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/coretimer
   name: plib_coretimer.c
@@ -769,13 +1427,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 2FEFEA0D4E94F5A5F3D76BAEC3D602E5
-- generatedChecksum: D826232A535B9308EC706B5AAA8CFCA1
+- generatedChecksum: 025BC27B5169101D8200682BB3D5BA1D
   logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/evic
   name: plib_evic.c
   physicalPath: peripheral/evic
   security: NON_SECURE
   type: SOURCE
-  userChecksum: D826232A535B9308EC706B5AAA8CFCA1
+  userChecksum: 025BC27B5169101D8200682BB3D5BA1D
 - generatedChecksum: 35EB9BF46E325F20D984F039F98B01A0
   logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/gpio
   name: plib_gpio.c
@@ -783,6 +1441,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 35EB9BF46E325F20D984F039F98B01A0
+- generatedChecksum: 9637646B5A6E9B40DB177E9B603B68DD
+  logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/i2c/master
+  name: plib_i2c2_master.c
+  physicalPath: peripheral/i2c/master
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 17A23C87679F7DDC1B19CCB94DC0A201
 - generatedChecksum: AEEA2A1E497B15E7773F00D97A7BEA7E
   logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/nvm
   name: plib_nvm.c
@@ -902,6 +1567,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 051B0845EB9A08A2435DCC735574C6C4
+- generatedChecksum: 2678A6AC469B2CBC962FC647A763814C
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/hashes
+  name: sha1_routines.c
+  physicalPath: library/cryptoauthlib/crypto/hashes
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 2678A6AC469B2CBC962FC647A763814C
+- generatedChecksum: 604A05C17479FC6839FB64A83B4F5C36
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/hashes
+  name: sha1_routines.h
+  physicalPath: library/cryptoauthlib/crypto/hashes
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 604A05C17479FC6839FB64A83B4F5C36
 - generatedChecksum: C90FFB67D0F5A79C675FC2AA2F8BAAB9
   logicalPath: wolfcrypt
   name: sha256.c
@@ -909,6 +1588,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: C90FFB67D0F5A79C675FC2AA2F8BAAB9
+- generatedChecksum: F8BB44C367E52E7A3A24643E786055A7
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/hashes
+  name: sha2_routines.c
+  physicalPath: library/cryptoauthlib/crypto/hashes
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: F8BB44C367E52E7A3A24643E786055A7
+- generatedChecksum: 03F315974E54C941C8B481677BAE592A
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/hashes
+  name: sha2_routines.h
+  physicalPath: library/cryptoauthlib/crypto/hashes
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 03F315974E54C941C8B481677BAE592A
 - generatedChecksum: 124F5CCFA233F5BB30FC876A863DE53F
   logicalPath: wolfcrypt
   name: sha3.c
@@ -1091,27 +1784,34 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: B8C6C7356AC7841AECC7C779040F745C
-- generatedChecksum: 64197587C5A197FD05E94AB039A2DD66
+- generatedChecksum: F9C28B4237B8FAC29B1AB0F0D89E3FEC
   logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs
   name: sys_fs.c
   physicalPath: system/fs/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 64197587C5A197FD05E94AB039A2DD66
-- generatedChecksum: 1F79CD9E378D98E657FCEB0552B2B659
+  userChecksum: F9C28B4237B8FAC29B1AB0F0D89E3FEC
+- generatedChecksum: 62F800E16FB7123844C0943E8B7D34CC
   logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs
-  name: sys_fs_fat_interface.c
+  name: sys_fs_littlefs_interface.c
   physicalPath: system/fs/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 1F79CD9E378D98E657FCEB0552B2B659
-- generatedChecksum: 1115692CC0E3DF70C0007627FCAC6FFA
+  userChecksum: 62F800E16FB7123844C0943E8B7D34CC
+- generatedChecksum: 8CE95E23FB02A25F75AF45CC17618FAC
   logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs
   name: sys_fs_media_manager.c
   physicalPath: system/fs/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 1115692CC0E3DF70C0007627FCAC6FFA
+  userChecksum: 8CE95E23FB02A25F75AF45CC17618FAC
+- generatedChecksum: 75B14036B9ECCC3A806A4E5ADB440413
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src/common
+  name: sys_fs_shell.c
+  physicalPath: library/tcpip/src/common
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 75B14036B9ECCC3A806A4E5ADB440413
 - generatedChecksum: C95CE0ABB86E6B11CF77E8891D294510
   logicalPath: config/pic32mz_w1_curiosity_freertos/system/int
   name: sys_int.c
@@ -1119,7 +1819,7 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: C95CE0ABB86E6B11CF77E8891D294510
-- generatedChecksum: DFDCFE5460F04D5FD39E54980552DB9A
+- generatedChecksum: D09000317DB297DE17692B963011D269
   logicalPath: config/pic32mz_w1_curiosity_freertos/system/net
   name: sys_net.c
   physicalPath: system/net/src
@@ -1154,27 +1854,27 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: F849420C740D2B32346B4B4D9F46C136
-- generatedChecksum: B4852C2989EBBE099D756ADCAA304595
+- generatedChecksum: 877FAA0CD5198786AA4AA7845ED3A7F2
   logicalPath: config/pic32mz_w1_curiosity_freertos/system/wifi
   name: sys_wifi.c
   physicalPath: system/wifi/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 4A9A3AF2AF7ED93CBC8E17B521EA6513
-- generatedChecksum: 7CFE077AAF6C0B650844C683B48DFC8D
+  userChecksum: 4F12695F72A07B2ACEBF947769ECE59E
+- generatedChecksum: 5E3173FAAE326D98550D35A5CEB86947
   logicalPath: config/pic32mz_w1_curiosity_freertos/system/wifiprov
   name: sys_wifiprov.c
   physicalPath: system/wifiprov/src
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7CFE077AAF6C0B650844C683B48DFC8D
-- generatedChecksum: D2D4416CC6CCCCDB901B53B6ED22F79D
+  userChecksum: 5E3173FAAE326D98550D35A5CEB86947
+- generatedChecksum: 31F9AACB9DDC484ADCAED1D115F9C879
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: tasks.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: D2D4416CC6CCCCDB901B53B6ED22F79D
+  userChecksum: 31F9AACB9DDC484ADCAED1D115F9C879
 - generatedChecksum: B8810AC22D73CE43E5661105B6D3C8EB
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
   name: tcp.c
@@ -1238,6 +1938,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 1B541BCAB76578E4E5ED23B2DB34D608
+- generatedChecksum: 7018715B02E090D5ED53EAE0DF359928
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tflxtls_cert_def_4_device.c
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 7018715B02E090D5ED53EAE0DF359928
 - generatedChecksum: 7456AECE16D5C2AB16D083034728BDD0
   logicalPath: wolfcrypt
   name: tfm.c
@@ -1266,6 +1973,69 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 3540F78A9086FE2C48E475CC87580A0D
+- generatedChecksum: 3B25F0E7ED674893CAE3BC36F6A9393F
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tng_atca.c
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 3B25F0E7ED674893CAE3BC36F6A9393F
+- generatedChecksum: AF0BF83C4465F62DA8361E89298E7018
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tng_atcacert_client.c
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: AF0BF83C4465F62DA8361E89298E7018
+- generatedChecksum: 7BE05B38EAF515050600DE4AE2A26218
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tng_root_cert.c
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 7BE05B38EAF515050600DE4AE2A26218
+- generatedChecksum: C1F51C5724A0B99AEFD590E8B62591E4
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tnglora_cert_def_1_signer.c
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: C1F51C5724A0B99AEFD590E8B62591E4
+- generatedChecksum: AE373C91E4822A951FC12EBB1B7A5555
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tnglora_cert_def_2_device.c
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: AE373C91E4822A951FC12EBB1B7A5555
+- generatedChecksum: 0AAC497F37A7E5740F9914BFD00A41F1
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tnglora_cert_def_4_device.c
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 0AAC497F37A7E5740F9914BFD00A41F1
+- generatedChecksum: 7112258550C62156D642FAD1E525F11E
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tngtls_cert_def_1_signer.c
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 7112258550C62156D642FAD1E525F11E
+- generatedChecksum: DC156A8C75ACD2162F8995214775D08C
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tngtls_cert_def_2_device.c
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: DC156A8C75ACD2162F8995214775D08C
+- generatedChecksum: 63D0AA27B3E5123BD968C39FDF2F8E86
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tngtls_cert_def_3_device.c
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: SOURCE
+  userChecksum: 63D0AA27B3E5123BD968C39FDF2F8E86
 - generatedChecksum: DB55FAE083880B4E709ED38EFB14CF98
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
   name: udp.c
@@ -1273,27 +2043,6 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: DB55FAE083880B4E709ED38EFB14CF98
-- generatedChecksum: D2FFA7B8FF0AFC7B18DC164151CA1529
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb/src
-  name: usb_device.c
-  physicalPath: usb/src
-  security: NON_SECURE
-  type: SOURCE
-  userChecksum: D2FFA7B8FF0AFC7B18DC164151CA1529
-- generatedChecksum: F434400DE445FE70C6DC21BADDD30F3C
-  logicalPath: config/pic32mz_w1_curiosity_freertos
-  name: usb_device_init_data.c
-  physicalPath: ''
-  security: NON_SECURE
-  type: SOURCE
-  userChecksum: F434400DE445FE70C6DC21BADDD30F3C
-- generatedChecksum: 5B2E4F04BB9E3347BD0D10242479D4F0
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb/src
-  name: usb_device_msd.c
-  physicalPath: usb/src
-  security: NON_SECURE
-  type: SOURCE
-  userChecksum: 5B2E4F04BB9E3347BD0D10242479D4F0
 - generatedChecksum: 589F903BB9E8BC49A0D781032EBFA915
   logicalPath: wolfcrypt
   name: wc_dsp.c
@@ -1770,6 +2519,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 3DE5BE06F587E5BB1F331E2EDF5B350B
+- generatedChecksum: E779C1EC43F4EFC1DA1C787063B0E78D
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib
+  name: atca_config.h
+  physicalPath: library/cryptoauthlib
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: E779C1EC43F4EFC1DA1C787063B0E78D
 - generatedChecksum: A19F6250190D27502F25E436270DB4F8
   logicalPath: wolfcrypt/port/atmel
   name: atmel.h
@@ -1882,13 +2638,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 15AB6693CC2E1EE7AB845EE42A6AC762
-- generatedChecksum: 5B5CF2DFC23058B6D9BB5FA729988E3E
+- generatedChecksum: 36C85F8418642A9167D173A373EBF54C
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: configuration.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 5B5CF2DFC23058B6D9BB5FA729988E3E
+  userChecksum: 36C85F8418642A9167D173A373EBF54C
 - generatedChecksum: 66CDC9B1DAB0393100A835676816E8BF
   logicalPath: wolfcrypt
   name: cpuid.h
@@ -2113,13 +2869,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 7959E2B94CEE186632B984636D40C252
-- generatedChecksum: B7C1DA4310CE3199EBC1EC79D3166366
+- generatedChecksum: C35FBB0A1CB0871A2D4D773CB2885C4B
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: definitions.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: B7C1DA4310CE3199EBC1EC79D3166366
+  userChecksum: C35FBB0A1CB0871A2D4D773CB2885C4B
 - generatedChecksum: 1EA4EDD5EA90F43EC407DE32441159A9
   logicalPath: FreeRTOS/Source/include
   name: deprecated_definitions.h
@@ -2232,20 +2988,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 0C8653B6A722BB2AD0B8B397E7543AE8
-- generatedChecksum: F62483D56CDE5F7C3BE845618E5B5638
+- generatedChecksum: 2D4F76C315C644DE5B899FC521DE31C6
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
   name: dhcpv6_private.h
   physicalPath: library/tcpip/src
   security: NON_SECURE
   type: HEADER
-  userChecksum: F62483D56CDE5F7C3BE845618E5B5638
-- generatedChecksum: 630DFA1824A5279838B4330DA2FF3E5E
-  logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/hardware_access
-  name: diskio.h
-  physicalPath: system/fs/fat_fs/hardware_access
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 630DFA1824A5279838B4330DA2FF3E5E
+  userChecksum: 2D4F76C315C644DE5B899FC521DE31C6
 - generatedChecksum: 7D5AE1A255B35717CC2284753437C2C2
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip
   name: dns.h
@@ -2386,41 +3135,6 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 866CB0A84BAC9BA2712B4D2535D6A854
-- generatedChecksum: DF147276AE56CA76E3E9BEB8447620AB
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb
-  name: drv_usb.h
-  physicalPath: driver/usb
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: DF147276AE56CA76E3E9BEB8447620AB
-- generatedChecksum: A8072403A5346EF85CDFD4EF996C0826
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb
-  name: drv_usb_external_dependencies.h
-  physicalPath: driver/usb
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: A8072403A5346EF85CDFD4EF996C0826
-- generatedChecksum: 8E09A88EA42C831AF5D8F17A1549E1D2
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs
-  name: drv_usbfs.h
-  physicalPath: driver/usb/usbfs
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 8E09A88EA42C831AF5D8F17A1549E1D2
-- generatedChecksum: BA88E5162CA794A6A62D146A58458A43
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src
-  name: drv_usbfs_local.h
-  physicalPath: driver/usb/usbfs/src
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: BA88E5162CA794A6A62D146A58458A43
-- generatedChecksum: AE86F1881720D058DAAAB3C5A196BC27
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src
-  name: drv_usbfs_variant_mapping.h
-  physicalPath: driver/usb/usbfs/src
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: AE86F1881720D058DAAAB3C5A196BC27
 - generatedChecksum: 3E3E734C734720F661C02A4746724A85
   logicalPath: wolfcrypt
   name: dsa.h
@@ -2484,20 +3198,6 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: F3786539D22D8678BAC2E433212F9726
-- generatedChecksum: 187EFA39553617C34D670BFA3AA15C5F
-  logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/file_system
-  name: ff.h
-  physicalPath: system/fs/fat_fs/file_system
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 187EFA39553617C34D670BFA3AA15C5F
-- generatedChecksum: 6E11D27FFFCF7C7BB6AE5B10AD60786C
-  logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/file_system
-  name: ffconf.h
-  physicalPath: system/fs/fat_fs/file_system
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 6E11D27FFFCF7C7BB6AE5B10AD60786C
 - generatedChecksum: 8016A8BEE5B269941D8362B249B001FC
   logicalPath: wolfcrypt
   name: fips_test.h
@@ -2596,13 +3296,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: A06ECD0AA2EAAB861E9F7EEDD9D83C2F
-- generatedChecksum: 7367A42AF464E57C91B0CF9A2FA5EB4A
+- generatedChecksum: F463D75CFC0C272C50306100AAA5DAE8
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip
   name: http.h
   physicalPath: library/tcpip
   security: NON_SECURE
   type: HEADER
-  userChecksum: 7367A42AF464E57C91B0CF9A2FA5EB4A
+  userChecksum: F463D75CFC0C272C50306100AAA5DAE8
 - generatedChecksum: A283D25AF7C2CD5942A50D786EC51EA7
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
   name: http_manager.h
@@ -2610,13 +3310,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: A283D25AF7C2CD5942A50D786EC51EA7
-- generatedChecksum: 80440B7F4947DE5E87B6EDABC1A36A5C
+- generatedChecksum: 015009740C98A8F697B7B7CE1589C647
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip
   name: http_net.h
   physicalPath: library/tcpip
   security: NON_SECURE
   type: HEADER
-  userChecksum: 80440B7F4947DE5E87B6EDABC1A36A5C
+  userChecksum: 015009740C98A8F697B7B7CE1589C647
 - generatedChecksum: 9DCEB3DF03BECF42A9DFC59911C2F460
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
   name: http_net_manager.h
@@ -2673,13 +3373,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 16B92289AA9606720627C1461F3B7FBD
-- generatedChecksum: D9162426B371F31641252F6DB39A16CA
+- generatedChecksum: 0AE492D7EAE1B78F3216E99A50DE6450
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip
   name: igmp.h
   physicalPath: library/tcpip
   security: NON_SECURE
   type: HEADER
-  userChecksum: D9162426B371F31641252F6DB39A16CA
+  userChecksum: 0AE492D7EAE1B78F3216E99A50DE6450
 - generatedChecksum: 25C07C460FA1705F6B3CDE09928E1D3C
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
   name: igmp_manager.h
@@ -2771,6 +3471,27 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 061DE00A92364E78F280B2917ECE2F60
+- generatedChecksum: 7549D5664B420398669D7EF387418CAA
+  logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs/littlefs
+  name: lfs.h
+  physicalPath: system/fs/littlefs
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: E6484EE005BCE03DE8757709116B6D12
+- generatedChecksum: BF2A696BE4BCB3BA4E2F732C79B77460
+  logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs/littlefs
+  name: lfs_bdio.h
+  physicalPath: system/fs/littlefs
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: BF2A696BE4BCB3BA4E2F732C79B77460
+- generatedChecksum: 538882078AAF84D2F997FD8838376CD0
+  logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs/littlefs
+  name: lfs_util.h
+  physicalPath: system/fs/littlefs
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: D7B445C9A51ED5FE804AC2CA8BF39431
 - generatedChecksum: F2C9FCDD2BC6947D734604AD47740798
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
   name: link_list.h
@@ -3093,6 +3814,20 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 85B48C0D48BEB67C2A23C72ED655D843
+- generatedChecksum: 98DDD931F1A3452F1369FD2708D64EEA
+  logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/i2c/master
+  name: plib_i2c2_master.h
+  physicalPath: peripheral/i2c/master
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: 98DDD931F1A3452F1369FD2708D64EEA
+- generatedChecksum: B963C6FE44292A1C4A14C3BA5BE95AEE
+  logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/i2c/master
+  name: plib_i2c_master_common.h
+  physicalPath: peripheral/i2c/master
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: B963C6FE44292A1C4A14C3BA5BE95AEE
 - generatedChecksum: 25169D5BA34F3833C29416420571BA8F
   logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/nvm
   name: plib_nvm.h
@@ -3135,20 +3870,6 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 67EEAF539A53B6B8FD7B600ACCB3F3CA
-- generatedChecksum: 9C90A94077F62F71141B144757F04E7E
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src
-  name: plib_usbfs.h
-  physicalPath: driver/usb/usbfs/src
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 9C90A94077F62F71141B144757F04E7E
-- generatedChecksum: 9B4B2B2E7722D50697564E6D6E4F9E04
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src
-  name: plib_usbfs_header.h
-  physicalPath: driver/usb/usbfs/src
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 9B4B2B2E7722D50697564E6D6E4F9E04
 - generatedChecksum: 2AD7259D0E303CE06622D0F1A6BBEC13
   logicalPath: config/pic32mz_w1_curiosity_freertos/peripheral/wdt
   name: plib_wdt.h
@@ -3233,13 +3954,6 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 6161AD763A29AD91627101C7764A7CF1
-- generatedChecksum: 9E71D345C6F5A276C502502C87316EA5
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb
-  name: scsi.h
-  physicalPath: usb
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 9E71D345C6F5A276C502502C87316EA5
 - generatedChecksum: 6A53E2A2CE545AEABFD2DB3600529665
   logicalPath: wolfcrypt
   name: selftest.h
@@ -3366,13 +4080,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: F34B891E9DE36AD7C2FFC02B57BF01DC
-- generatedChecksum: 3D02DCB41F684F6C36B774883264201F
+- generatedChecksum: 7C5B70974FFD5BFF1370DFCCA9CC7D1B
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip
   name: snmpv3.h
   physicalPath: library/tcpip
   security: NON_SECURE
   type: HEADER
-  userChecksum: 3D02DCB41F684F6C36B774883264201F
+  userChecksum: 7C5B70974FFD5BFF1370DFCCA9CC7D1B
 - generatedChecksum: 3337D044F519EA39F86B10A570514DE4
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
   name: snmpv3_private.h
@@ -3464,20 +4178,20 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: FADDA086C6C4E8FD7EBCE117438767A6
-- generatedChecksum: E26A0B284DD5F09B84709E5BE6F3E425
+- generatedChecksum: E399C5FC97EA09C5B8E4722AD233BAFC
   logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs
   name: sys_fs.h
   physicalPath: system/fs
   security: NON_SECURE
   type: HEADER
-  userChecksum: E26A0B284DD5F09B84709E5BE6F3E425
-- generatedChecksum: 0D9FE9035E3AA8082C5657240106F2DC
+  userChecksum: E399C5FC97EA09C5B8E4722AD233BAFC
+- generatedChecksum: 0678CFB1CCB1FA3C42322FFA35DD7182
   logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs
-  name: sys_fs_fat_interface.h
+  name: sys_fs_littlefs_interface.h
   physicalPath: system/fs
   security: NON_SECURE
   type: HEADER
-  userChecksum: 0D9FE9035E3AA8082C5657240106F2DC
+  userChecksum: 0678CFB1CCB1FA3C42322FFA35DD7182
 - generatedChecksum: 0D162D1868A187FDC092657020E668D8
   logicalPath: config/pic32mz_w1_curiosity_freertos/system/fs
   name: sys_fs_local.h
@@ -3583,20 +4297,20 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: C7A6D8C5408A42EB1CD2CB277E6EFBF4
-- generatedChecksum: EE4D0FBCD45180A6F69AD77205EBDC04
+- generatedChecksum: 4880D126EED5B55DF19A3551883C7572
   logicalPath: config/pic32mz_w1_curiosity_freertos/system/wifi
   name: sys_wifi.h
   physicalPath: system/wifi
   security: NON_SECURE
   type: HEADER
-  userChecksum: 8CAE2C1A60761DD92D81E0797E278916
-- generatedChecksum: 5E7F9E7029A7247548486E3B35BE59CA
+  userChecksum: AF19E89832E7B735D85CF2FDCED9FDC9
+- generatedChecksum: 35C300C929E095838DC1822BC563FA7C
   logicalPath: config/pic32mz_w1_curiosity_freertos/system/wifiprov
   name: sys_wifiprov.h
   physicalPath: system/wifiprov
   security: NON_SECURE
   type: HEADER
-  userChecksum: 5E7F9E7029A7247548486E3B35BE59CA
+  userChecksum: 35C300C929E095838DC1822BC563FA7C
 - generatedChecksum: BE95B4F134C5C929787B9DA6FDBF3501
   logicalPath: config/pic32mz_w1_curiosity_freertos/system
   name: system.h
@@ -3667,13 +4381,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: B08B1392542365A5E9A327B6C21155EC
-- generatedChecksum: 315140BD9228AC1F0D47C2DC0A0AAA8B
+- generatedChecksum: 1AED99A9F3452169ECA5A5F36F769CB3
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip
   name: tcpip.h
   physicalPath: library/tcpip
   security: NON_SECURE
   type: HEADER
-  userChecksum: 315140BD9228AC1F0D47C2DC0A0AAA8B
+  userChecksum: 1AED99A9F3452169ECA5A5F36F769CB3
 - generatedChecksum: 60B94F95E8C1F65E61E54288D55B0319
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip
   name: tcpip_announce.h
@@ -3814,13 +4528,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 3DBAA4F039E31AF2D181FA01A817E728
-- generatedChecksum: BCB775662DBE2F57356118013E76D8CF
+- generatedChecksum: 413D198FD6C03CF6369DF7326D53BEFE
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip/src
   name: tcpip_private.h
   physicalPath: library/tcpip/src
   security: NON_SECURE
   type: HEADER
-  userChecksum: BCB775662DBE2F57356118013E76D8CF
+  userChecksum: 413D198FD6C03CF6369DF7326D53BEFE
 - generatedChecksum: 1359095D6A60712C36D5DA1C8DC53BE3
   logicalPath: config/pic32mz_w1_curiosity_freertos/library/tcpip
   name: tcpip_reboot.h
@@ -3856,13 +4570,20 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 44B46E07175370FD1301244348BA5FF1
-- generatedChecksum: F9943C575A6C3B0590DCE50A97901D10
+- generatedChecksum: F73607743870983E5A18136777F2B6BF
   logicalPath: wolfssl
   name: test.h
   physicalPath: ../../third_party/wolfssl/wolfssl
   security: NON_SECURE
   type: HEADER
-  userChecksum: F9943C575A6C3B0590DCE50A97901D10
+  userChecksum: F73607743870983E5A18136777F2B6BF
+- generatedChecksum: 73C239EC3FD91415ECE351A061B96C15
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tflxtls_cert_def_4_device.h
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: 73C239EC3FD91415ECE351A061B96C15
 - generatedChecksum: 205C08FE4CF210D501B92DBD44FE61FA
   logicalPath: wolfcrypt
   name: tfm.h
@@ -3919,6 +4640,69 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: C8BB70E2423A57902E9FDC0C9EC81F8D
+- generatedChecksum: C6ED28594DBB017DE1BB694D53A4EF0F
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tng_atca.h
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: C6ED28594DBB017DE1BB694D53A4EF0F
+- generatedChecksum: 3513B497D5FD9AC89C29B79E87F6AC64
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tng_atcacert_client.h
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: 3513B497D5FD9AC89C29B79E87F6AC64
+- generatedChecksum: 770683106FC07A57C2D1AE881BCD10BB
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tng_root_cert.h
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: 770683106FC07A57C2D1AE881BCD10BB
+- generatedChecksum: F1DB7071A952A5682208B061982F4680
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tnglora_cert_def_1_signer.h
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: F1DB7071A952A5682208B061982F4680
+- generatedChecksum: E5E154EF2A6AE8AD92DC67F5153730A9
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tnglora_cert_def_2_device.h
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: E5E154EF2A6AE8AD92DC67F5153730A9
+- generatedChecksum: CA9929DCB6D228B9DC6BB0754BF8DB72
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tnglora_cert_def_4_device.h
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: CA9929DCB6D228B9DC6BB0754BF8DB72
+- generatedChecksum: 57DEA0617C46C0C93563A809EAB4FAAB
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tngtls_cert_def_1_signer.h
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: 57DEA0617C46C0C93563A809EAB4FAAB
+- generatedChecksum: E78F3F8D485A74DC602D3A5A30637C0F
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tngtls_cert_def_2_device.h
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: E78F3F8D485A74DC602D3A5A30637C0F
+- generatedChecksum: B82914256F44A8612BFB1CDF0ED5EEB0
+  logicalPath: config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng
+  name: tngtls_cert_def_3_device.h
+  physicalPath: library/cryptoauthlib/tng
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: B82914256F44A8612BFB1CDF0ED5EEB0
 - generatedChecksum: CAC44960D20AEC03CF4B325A1CD2877C
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: toolchain_specifics.h
@@ -3954,881 +4738,6 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: D65791C7FC2FB24860DB02F5E3978688
-- generatedChecksum: 7614490532C606BCAFEC5F729FDBEDAD
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ALL_Interrupt_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 7614490532C606BCAFEC5F729FDBEDAD
-- generatedChecksum: 745B8DF89B5477EADA7B0786F1491B4C
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ALL_Interrupt_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 745B8DF89B5477EADA7B0786F1491B4C
-- generatedChecksum: 86227AAF459AA8589F50247D54E63EA1
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ActivityPending_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 86227AAF459AA8589F50247D54E63EA1
-- generatedChecksum: E86B513BFC354B734122E715E9673569
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ActivityPending_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: E86B513BFC354B734122E715E9673569
-- generatedChecksum: FCDC292B30CBCAE218A51F68C3ADD7B2
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_AutomaticSuspend_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: FCDC292B30CBCAE218A51F68C3ADD7B2
-- generatedChecksum: 4C2B2ED2E7617D6EFD806454B03D7BF8
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_AutomaticSuspend_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 4C2B2ED2E7617D6EFD806454B03D7BF8
-- generatedChecksum: 09A5E6FEB6CADD075F370EC5FF2733C8
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_BDTBaseAddress_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 09A5E6FEB6CADD075F370EC5FF2733C8
-- generatedChecksum: 6ECAB19200B7B025B56DFC85D15369F4
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_BDTBaseAddress_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 6ECAB19200B7B025B56DFC85D15369F4
-- generatedChecksum: F11B46BCB5572997D5531BA60D331A21
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_BDTFunctions_PIC32.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: F11B46BCB5572997D5531BA60D331A21
-- generatedChecksum: 62A57CF6942AF8E8B60B3B8771C53306
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_BDTFunctions_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 62A57CF6942AF8E8B60B3B8771C53306
-- generatedChecksum: EFDB80DE1EC77D54E76D2F3291142209
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_BufferFreeze_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: EFDB80DE1EC77D54E76D2F3291142209
-- generatedChecksum: 44A4CF72E79B206503A570A7C6B15CAD
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_BufferFreeze_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 44A4CF72E79B206503A570A7C6B15CAD
-- generatedChecksum: 10843324F0C3C37B9419EAD8FFB4B75E
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_DeviceAddress_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 10843324F0C3C37B9419EAD8FFB4B75E
-- generatedChecksum: 54BFBC3F08C0D4752DF74799F4C9B449
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_DeviceAddress_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 54BFBC3F08C0D4752DF74799F4C9B449
-- generatedChecksum: 4D2630F1B71886CAF9503FE025AFF5EE
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EP0LowSpeedConnect_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 4D2630F1B71886CAF9503FE025AFF5EE
-- generatedChecksum: 19518D9996047F6F94CA2AA4902E9E7B
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EP0LowSpeedConnect_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 19518D9996047F6F94CA2AA4902E9E7B
-- generatedChecksum: E7025F9FBA2413ED2AD4522B66DEDA9C
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EP0NAKRetry_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: E7025F9FBA2413ED2AD4522B66DEDA9C
-- generatedChecksum: BE22CA76DBE5C80AB3E7A7D9C2B3C0DC
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EP0NAKRetry_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: BE22CA76DBE5C80AB3E7A7D9C2B3C0DC
-- generatedChecksum: A172572AB4A8E1076DC9543FCCD4CB65
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EPnControlTransfer_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: A172572AB4A8E1076DC9543FCCD4CB65
-- generatedChecksum: 74220D1C57F227F60349E1B08EE06A98
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EPnControlTransfer_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 74220D1C57F227F60349E1B08EE06A98
-- generatedChecksum: B2A9683B9EF845D691DBE7F61594836F
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EPnHandshake_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: B2A9683B9EF845D691DBE7F61594836F
-- generatedChecksum: 7AA89118BF93853F1958AD8736D28B61
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EPnHandshake_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 7AA89118BF93853F1958AD8736D28B61
-- generatedChecksum: 350B868A638E3EC481AA29B73D81622F
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EPnRxEnableEnhanced_PIC32.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 350B868A638E3EC481AA29B73D81622F
-- generatedChecksum: B6C1F8C688E949B477CAE40A758D928C
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EPnRxEnableEnhanced_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: B6C1F8C688E949B477CAE40A758D928C
-- generatedChecksum: 34F5E74F7D49EE64CD92F9BEE2B8F7C9
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EPnStall_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 34F5E74F7D49EE64CD92F9BEE2B8F7C9
-- generatedChecksum: 0D383886A9E3659029E372AA369E04F0
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EPnStall_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 0D383886A9E3659029E372AA369E04F0
-- generatedChecksum: A05787C93C388FF70D13BEDD156E9165
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EPnTxRx_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: A05787C93C388FF70D13BEDD156E9165
-- generatedChecksum: F46E538F66BC67AB746DE5DC08335D18
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EPnTxRx_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: F46E538F66BC67AB746DE5DC08335D18
-- generatedChecksum: D91EF7D6D66318175EC902AC10B07541
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ERR_InterruptStatus_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: D91EF7D6D66318175EC902AC10B07541
-- generatedChecksum: 13AFF95C87EB4F8C70972D2B27BD9315
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ERR_InterruptStatus_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 13AFF95C87EB4F8C70972D2B27BD9315
-- generatedChecksum: 3266F05DC49F47AD8983E08695D228EB
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ERR_Interrupt_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 3266F05DC49F47AD8983E08695D228EB
-- generatedChecksum: 29467AB44D0B20289667E5E8696C81B6
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ERR_Interrupt_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 29467AB44D0B20289667E5E8696C81B6
-- generatedChecksum: 6E6CFAA5FB99D2D377C7B7F194423195
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EyePattern_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 6E6CFAA5FB99D2D377C7B7F194423195
-- generatedChecksum: BAEA73C8C521F1ACCE710D4512F3FAE6
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_EyePattern_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: BAEA73C8C521F1ACCE710D4512F3FAE6
-- generatedChecksum: 76B9CFCF5B06444BD689EAA1F22AD71D
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_FrameNumber_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 76B9CFCF5B06444BD689EAA1F22AD71D
-- generatedChecksum: 408CB74019E2380B2BCD429049F1B981
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_FrameNumber_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 408CB74019E2380B2BCD429049F1B981
-- generatedChecksum: 6EB33D0EB60209522E91C7B805AB25DC
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_GEN_InterruptStatus_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 6EB33D0EB60209522E91C7B805AB25DC
-- generatedChecksum: 3360F2D7F303E408D8F581FC44A6DE3C
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_GEN_InterruptStatus_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 3360F2D7F303E408D8F581FC44A6DE3C
-- generatedChecksum: 980B20058F736B07F71A233527B55809
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_GEN_Interrupt_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 980B20058F736B07F71A233527B55809
-- generatedChecksum: 54F632B5226E20C4685BB6069D995765
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_GEN_Interrupt_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 54F632B5226E20C4685BB6069D995765
-- generatedChecksum: 048544CF9B6F68C7EBD7D78ECBFEDA59
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_HostBusyWithToken_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 048544CF9B6F68C7EBD7D78ECBFEDA59
-- generatedChecksum: B6C53AAB216360C9BBAE677366BC9890
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_HostBusyWithToken_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: B6C53AAB216360C9BBAE677366BC9890
-- generatedChecksum: 65F3253730F0AA1AB36C4512A52794FB
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_HostGeneratesReset_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 65F3253730F0AA1AB36C4512A52794FB
-- generatedChecksum: 6623665EA8F1449332618060E20D196B
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_HostGeneratesReset_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 6623665EA8F1449332618060E20D196B
-- generatedChecksum: B7CF190EB03BA59B93C489D8994926CC
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_LastDirection_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: B7CF190EB03BA59B93C489D8994926CC
-- generatedChecksum: 625AB3F01773E229D8CCFEB1006C7CD2
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_LastDirection_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 625AB3F01773E229D8CCFEB1006C7CD2
-- generatedChecksum: 60810E675DF84F16A02B0D0EAD6D7F63
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_LastEndpoint_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 60810E675DF84F16A02B0D0EAD6D7F63
-- generatedChecksum: 82F028EFD6BEB1C80F9B9292831A65D9
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_LastEndpoint_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 82F028EFD6BEB1C80F9B9292831A65D9
-- generatedChecksum: 9A2A474F2CFED908346E87E36C2D79F2
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_LastPingPong_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 9A2A474F2CFED908346E87E36C2D79F2
-- generatedChecksum: 058EAAB655838DA5289D587DDAC32CAA
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_LastPingPong_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 058EAAB655838DA5289D587DDAC32CAA
-- generatedChecksum: 33E50D04E85804ADE7171A8376C42424
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_LastTransactionDetails_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 33E50D04E85804ADE7171A8376C42424
-- generatedChecksum: EB7BEA76434E3AC1308285FBAB01B13F
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_LastTransactionDetails_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: EB7BEA76434E3AC1308285FBAB01B13F
-- generatedChecksum: 5F6530DD94D66305E91832C300436D8C
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_LiveJState_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 5F6530DD94D66305E91832C300436D8C
-- generatedChecksum: 6B6273C05B158120AC6D38BAAF663D3B
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_LiveJState_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 6B6273C05B158120AC6D38BAAF663D3B
-- generatedChecksum: 30F8DF0AF32CB6257839B7AEB898A46F
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_LiveSingleEndedZero_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 30F8DF0AF32CB6257839B7AEB898A46F
-- generatedChecksum: 134E5C20D6CA8AED76B4037DB9A09AB7
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_LiveSingleEndedZero_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 134E5C20D6CA8AED76B4037DB9A09AB7
-- generatedChecksum: 2422148BA969698923685283F46C92E9
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ModuleBusy_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 2422148BA969698923685283F46C92E9
-- generatedChecksum: 167442BF79AE0D75BFBED51A312C6EE1
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ModuleBusy_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 167442BF79AE0D75BFBED51A312C6EE1
-- generatedChecksum: E2E2A24D754C152E0273ACE870235103
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ModulePower_32Bit16Bit.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: E2E2A24D754C152E0273ACE870235103
-- generatedChecksum: A53F5BE327C6E2F3D218EF3C9F5C6EEF
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ModulePower_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: A53F5BE327C6E2F3D218EF3C9F5C6EEF
-- generatedChecksum: E2B3981232810DC07B12BB0F413B787B
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_NextTokenSpeed_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: E2B3981232810DC07B12BB0F413B787B
-- generatedChecksum: 9513196BF2783545C5B62361D943437D
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_NextTokenSpeed_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 9513196BF2783545C5B62361D943437D
-- generatedChecksum: 38BE3303E98314C627DA67AC076C3F09
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_ASessionValid_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 38BE3303E98314C627DA67AC076C3F09
-- generatedChecksum: 5352DFCC35451F729FA0911037218B86
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_ASessionValid_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 5352DFCC35451F729FA0911037218B86
-- generatedChecksum: 36A534DD422BA20FA2AE8EFF18DA8039
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_BSessionEnd_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 36A534DD422BA20FA2AE8EFF18DA8039
-- generatedChecksum: FA19A265F10A2C91948E37C137599B24
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_BSessionEnd_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: FA19A265F10A2C91948E37C137599B24
-- generatedChecksum: 84C73320F432149F92318F74E8496122
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_IDPinState_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 84C73320F432149F92318F74E8496122
-- generatedChecksum: 7128C610EC9A82EBDCBCB3BFDC6FF31E
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_IDPinState_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 7128C610EC9A82EBDCBCB3BFDC6FF31E
-- generatedChecksum: D1A36D8ACF5801EACF74063F1F7C8724
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_InterruptStatus_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: D1A36D8ACF5801EACF74063F1F7C8724
-- generatedChecksum: D551EA6473C70608F3B158FC41103424
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_InterruptStatus_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: D551EA6473C70608F3B158FC41103424
-- generatedChecksum: 8106E66B318C78D4F5BCF81A7F9AB47A
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_Interrupt_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 8106E66B318C78D4F5BCF81A7F9AB47A
-- generatedChecksum: D54E0303FC83CE7061086D7D9C416DFB
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_Interrupt_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: D54E0303FC83CE7061086D7D9C416DFB
-- generatedChecksum: 5CE79190E2C8E1130DBA5FA0B133C905
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_LineState_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 5CE79190E2C8E1130DBA5FA0B133C905
-- generatedChecksum: 39D144A10029BEF9EB84994C93C9F97C
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_LineState_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 39D144A10029BEF9EB84994C93C9F97C
-- generatedChecksum: 749259B13336B1A48E3A212CC8E76A10
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_PullUpPullDown_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 749259B13336B1A48E3A212CC8E76A10
-- generatedChecksum: 603005C43494A7B577DDFDC072F38934
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_PullUpPullDown_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 603005C43494A7B577DDFDC072F38934
-- generatedChecksum: F53CDCE8B12DC50609F738356C557D7C
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_SessionValid_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: F53CDCE8B12DC50609F738356C557D7C
-- generatedChecksum: 2E1C89EE866754BA6E3716C01F81840A
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_SessionValid_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 2E1C89EE866754BA6E3716C01F81840A
-- generatedChecksum: 169EF167B1CA3EE3432083DDB9A4DF68
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_VbusCharge_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 169EF167B1CA3EE3432083DDB9A4DF68
-- generatedChecksum: 83BE346B5A9706159421BA8A882BC654
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_VbusCharge_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 83BE346B5A9706159421BA8A882BC654
-- generatedChecksum: CCED5CAFC52EA7EBAB9C7EA633F94FBD
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_VbusDischarge_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: CCED5CAFC52EA7EBAB9C7EA633F94FBD
-- generatedChecksum: F18FCAF76F4FE96F560CAC9D61883E10
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_VbusDischarge_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: F18FCAF76F4FE96F560CAC9D61883E10
-- generatedChecksum: 256E24F8D6407783D550D7EE34DC5454
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_VbusPowerOnOff_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 256E24F8D6407783D550D7EE34DC5454
-- generatedChecksum: A5FDE90F969D0F5EC080DCA1336EC551
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OTG_VbusPowerOnOff_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: A5FDE90F969D0F5EC080DCA1336EC551
-- generatedChecksum: 09E1D9F5F5E052007AF0A26348B8F59A
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OnChipPullup_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 09E1D9F5F5E052007AF0A26348B8F59A
-- generatedChecksum: E9695732C30EACDBA9345D94C37D4417
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OnChipTransceiver_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: E9695732C30EACDBA9345D94C37D4417
-- generatedChecksum: 4909CC4C2573CDE282AF965174A8C73F
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OpModeSelect_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 4909CC4C2573CDE282AF965174A8C73F
-- generatedChecksum: 08A0CD4EEF17F405055CD252FBCF396D
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_OpModeSelect_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 08A0CD4EEF17F405055CD252FBCF396D
-- generatedChecksum: D67E34356E44DDADFD0FEF511E82C4F6
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_PacketTransfer_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: D67E34356E44DDADFD0FEF511E82C4F6
-- generatedChecksum: 96CF545A48CBE1FD23CC65374F22816B
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_PacketTransfer_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 96CF545A48CBE1FD23CC65374F22816B
-- generatedChecksum: 9414911A8C7113A0DE499DAC504F8EC8
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_PingPongMode_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 9414911A8C7113A0DE499DAC504F8EC8
-- generatedChecksum: 36A4207833DBBB09794F91FB4CE02DE0
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ResumeSignaling_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 36A4207833DBBB09794F91FB4CE02DE0
-- generatedChecksum: F1CE5B84B9774E099FC20869BD88D848
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_ResumeSignaling_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: F1CE5B84B9774E099FC20869BD88D848
-- generatedChecksum: 2EDA2AF4702BFC856F32A7C394F1CA3D
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_SOFThreshold_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 2EDA2AF4702BFC856F32A7C394F1CA3D
-- generatedChecksum: 173533D9D44F34EAC6A43805F513C5BB
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_SOFThreshold_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 173533D9D44F34EAC6A43805F513C5BB
-- generatedChecksum: D130FC249330270320088204690E6E69
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_SleepEntryGuard_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: D130FC249330270320088204690E6E69
-- generatedChecksum: 22AF76F4008304D97083432006CE7B3C
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_SleepEntryGuard_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 22AF76F4008304D97083432006CE7B3C
-- generatedChecksum: 43AC410D2E57BEDBEDBA5CEB27E39C85
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_SpeedControl_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 43AC410D2E57BEDBEDBA5CEB27E39C85
-- generatedChecksum: D009D85E4B81A1B1C348D6B41AB33556
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_StartOfFrames_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: D009D85E4B81A1B1C348D6B41AB33556
-- generatedChecksum: 80E4E33CD6C02C4AF9EC825D4628B8CE
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_StartOfFrames_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 80E4E33CD6C02C4AF9EC825D4628B8CE
-- generatedChecksum: BFB7D5B997ADAB1B881165EBCE26C408
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_StopInIdle_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: BFB7D5B997ADAB1B881165EBCE26C408
-- generatedChecksum: D8718B32B3BCE26F4B03AF46971ACF34
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_StopInIdle_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: D8718B32B3BCE26F4B03AF46971ACF34
-- generatedChecksum: D88042DD257B1A0841E72FF9E8A53768
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_Suspend_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: D88042DD257B1A0841E72FF9E8A53768
-- generatedChecksum: F450A2CB5B56FB19B09D89481F6B6D9C
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_Suspend_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: F450A2CB5B56FB19B09D89481F6B6D9C
-- generatedChecksum: 37B19C89A43207CF77661935E8D2188B
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_TokenEP_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 37B19C89A43207CF77661935E8D2188B
-- generatedChecksum: AAAF6430E674ED656EBD9939AF79EB82
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_TokenEP_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: AAAF6430E674ED656EBD9939AF79EB82
-- generatedChecksum: 6B9BA1140FB58631035F927EAF5E9AE5
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_TokenPID_Default.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 6B9BA1140FB58631035F927EAF5E9AE5
-- generatedChecksum: 979F4D2846A355BE6DF6DD0D02D82AE0
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_TokenPID_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 979F4D2846A355BE6DF6DD0D02D82AE0
-- generatedChecksum: E67575175AA2DF30E077E4F10646158E
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usb_UOEMonitor_Unsupported.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: E67575175AA2DF30E077E4F10646158E
-- generatedChecksum: 39659CDE2CC726544BD68544FB7EF4B2
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb
-  name: usb_chapter_9.h
-  physicalPath: usb
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 39659CDE2CC726544BD68544FB7EF4B2
-- generatedChecksum: E7B6EAD8687A8EBC0355E0CE413B6A87
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb
-  name: usb_common.h
-  physicalPath: usb
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: E7B6EAD8687A8EBC0355E0CE413B6A87
-- generatedChecksum: 68F7DBD311EDCAF1098CDF2FD15B8C73
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb
-  name: usb_device.h
-  physicalPath: usb
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 68F7DBD311EDCAF1098CDF2FD15B8C73
-- generatedChecksum: 626BFDDD140B808E90C9DD2E4A27421E
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb/src
-  name: usb_device_function_driver.h
-  physicalPath: usb/src
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 626BFDDD140B808E90C9DD2E4A27421E
-- generatedChecksum: CBCB7E174A244BB46572A1E51F76AE3D
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb/src
-  name: usb_device_local.h
-  physicalPath: usb/src
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: CBCB7E174A244BB46572A1E51F76AE3D
-- generatedChecksum: C8D4A1D9092FD842506F565CE9B8C265
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb/src
-  name: usb_device_mapping.h
-  physicalPath: usb/src
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: C8D4A1D9092FD842506F565CE9B8C265
-- generatedChecksum: FE6B03F3573AFF839373A99B2BF81731
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb
-  name: usb_device_msd.h
-  physicalPath: usb
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: FE6B03F3573AFF839373A99B2BF81731
-- generatedChecksum: 78DD3C60D6E25569FE9F0143064D2E20
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb/src
-  name: usb_device_msd_local.h
-  physicalPath: usb/src
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 78DD3C60D6E25569FE9F0143064D2E20
-- generatedChecksum: 6C4A6859DB16EA8C046F995C6B6C1C6F
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb/src
-  name: usb_external_dependencies.h
-  physicalPath: usb/src
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 6C4A6859DB16EA8C046F995C6B6C1C6F
-- generatedChecksum: 6EB8F9F4A43B9BC2C7A58585AC679650
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb
-  name: usb_host.h
-  physicalPath: usb
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 6EB8F9F4A43B9BC2C7A58585AC679650
-- generatedChecksum: 6EBC5E4D06FC96A02ADF3B7416957DD6
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb
-  name: usb_host_client_driver.h
-  physicalPath: usb
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 6EBC5E4D06FC96A02ADF3B7416957DD6
-- generatedChecksum: 757C8484C955543C893361992D11FD4C
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb
-  name: usb_host_hub_interface.h
-  physicalPath: usb
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 757C8484C955543C893361992D11FD4C
-- generatedChecksum: 3E3CC6BC9128194CB4D19F29C57E312B
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb
-  name: usb_hub.h
-  physicalPath: usb
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 3E3CC6BC9128194CB4D19F29C57E312B
-- generatedChecksum: 8AF03E090F2D85FDF03C40E013D06615
-  logicalPath: config/pic32mz_w1_curiosity_freertos/usb
-  name: usb_msd.h
-  physicalPath: usb
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 8AF03E090F2D85FDF03C40E013D06615
-- generatedChecksum: 6C8C42002A3EF221532D06F809FDD69A
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src
-  name: usbfs_registers.h
-  physicalPath: driver/usb/usbfs/src
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: 6C8C42002A3EF221532D06F809FDD69A
-- generatedChecksum: D048A36DC93E66C9CA02E4D6CD9827B9
-  logicalPath: config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates
-  name: usbfs_registers.h
-  physicalPath: driver/usb/usbfs/src/templates
-  security: NON_SECURE
-  type: HEADER
-  userChecksum: D048A36DC93E66C9CA02E4D6CD9827B9
 - generatedChecksum: null
   logicalPath: config/pic32mz_w1_curiosity_freertos
   name: user.h
@@ -5068,10 +4977,22 @@ libraries:
 settings:
 - append: true
   category: C32
+  delimiter: ' '
+  key: appendMe
+  security: NON_SECURE
+  value: -std=c99 -Wno-format
+- append: true
+  category: C32
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
   value: ../src/config/pic32mz_w1_curiosity_freertos/driver/wifi/pic32mzw1/include/;
+- append: true
+  category: C32
+  delimiter: ;
+  key: extra-include-directories
+  security: NON_SECURE
+  value: ../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib;../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto;../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/pkcs11
 - append: true
   category: C32
   delimiter: ;
@@ -5107,7 +5028,7 @@ settings:
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ;../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/file_system;../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/hardware_access
+  value: ;../src/config/pic32mz_w1_curiosity_freertos/system/fs/littlefs
 - append: false
   category: C32
   delimiter: ''
@@ -5174,12 +5095,6 @@ settings:
   key: extra-include-directories
   security: NON_SECURE
   value: ../src;../src/config/pic32mz_w1_curiosity_freertos;
-- append: true
-  category: C32CPP
-  delimiter: ;
-  key: extra-include-directories
-  security: NON_SECURE
-  value: ;../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/file_system;../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/hardware_access
 - append: false
   category: C32CPP
   delimiter: ''
