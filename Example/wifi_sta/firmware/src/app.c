@@ -47,17 +47,17 @@ static ATCA_STATUS status;
 
 // *****************************************************************************
 /* Application Data
- 
- Summary:
- Holds application data
- 
- Description:
- This structure holds the application's data.
- 
- Remarks:
- This structure should be initialized by the APP_Initialize function.
- 
- Application strings and buffers are be defined outside this structure.
+ * 
+ * Summary:
+ *   Holds application data
+ * 
+ * Description:
+ *   This structure holds the application's data.
+ * 
+ * Remarks: 
+ *  This structure should be initialized by the APP_Initialize function. 
+ *  Application strings and buffers are be defined outside this structure.
+ * 
  */
 
 APP_DATA appData;
@@ -69,6 +69,9 @@ uint8_t CACHE_ALIGN work[SYS_FS_LFS_MAX_SS];
 /* AP mode wifi-config struct used for FTP server*/
 SYS_WIFI_CONFIG sWifiCfg;
 
+/*ECC initialization data*/
+extern ATCAIfaceCfg atecc608_0_init_data;
+
 /*Flag to indicate use of ECC to store FTP server login credentials*/
 bool setECC = false;
 
@@ -77,26 +80,7 @@ bool setECC = false;
 // Section: Type Definitions
 // *****************************************************************************
 // *****************************************************************************
-/*struct used to store FTP server login credentials - username and password*/
-typedef struct client{
-    
-    char username[10];
-    char password[10];
-}clientLoginInfo;
-
-static const SYS_CMD_DESCRIPTOR    ftpCmdTbl[]=
-{
-    {"setecc",              (SYS_CMD_FNC)_Command_setECC,             ": Use ECC"},
-    {"adduser",            (SYS_CMD_FNC)_Command_AddUser,           ": Add User"},
-    {"removeuser",      (SYS_CMD_FNC)_Command_RemoveUser,    ": Remove User"}
-};
-
-// *****************************************************************************
-// *****************************************************************************
 // Section: Global Data
-// *****************************************************************************
-// *****************************************************************************
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Callback Functions
@@ -117,86 +101,15 @@ static const SYS_CMD_DESCRIPTOR    ftpCmdTbl[]=
  */
 
 
-bool validateUserPass (char * user, char * pass){
-    
-    if ((strlen(user) > 10) || (strlen(pass) > 10)) {
-        
-        SYS_CONSOLE_MESSAGE("Username or Password is too long\n\r");
-        return false;
-    }
-
-    return true;
-}
-
-bool FTP_Command_Initialize(void){
-    
-    if (!SYS_CMD_ADDGRP(ftpCmdTbl, sizeof(ftpCmdTbl)/sizeof(*ftpCmdTbl), "ftp", ": commands"))
+bool validateUserPass (char * user, char * pass)
+{
+    if ((strlen(user) <= 10) && (strlen(pass) <= 10)) 
     {
-        SYS_ERROR(SYS_ERROR_ERROR, "Failed to create FTP Commands\r\n");
-        return false;
+        return true;
     }
+    return false;
 }
 
-static inline void _Command_setECC(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv){
-    
-    setECC = true;                          //ECC will be used to store FTP server login credentials
-    appData.state = APP_ECC_Init;
-}
-
-static int _Command_AddUser(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv){
-    
-    if(setECC){
-        clientLoginInfo client;
-        
-        strncpy(client.username, argv[1], 10);
-        strncpy(client.password, argv[2], 10);
-        if(validateUserPass(client.username, client.password))
-        {
-            status = atcab_write_zone(ECC_TNG_DATA_ZONE, ECC_TNG_GP_DATA_SLOT, ECC_TNG_GP_DATA_SLOT_BLOCK_BASE, 0, (uint8_t*)&client, 32);
-            if (ATCA_SUCCESS == status) 
-            {
-                SYS_CONSOLE_PRINT("Successfully registered User: \"%s\"\r\n", client.username);
-                appData.state = APP_STATE_SERVICE_TASKS;    
-            }
-        }
-    }
-    else{
-        SYS_CONSOLE_MESSAGE("Not in ECC mode. Please use \"setecc\" command to enable ECC mode\n\r");
-    }
-}
-
-static int _Command_RemoveUser(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv){
-    
-    if(setECC)
-    {
-#define     resetDefault        "FFFFFFFF"    
-        clientLoginInfo client1;
-        
-        strncpy(client1.username, argv[1], 10);
-        strncpy(client1.password, argv[2], 10);
-        
-        if(validateUserPass(client1.username, client1.password))
-        {
-            char tempRead[32]; 
-            clientLoginInfo *tempRead2;
-            tempRead2 = (clientLoginInfo *)tempRead;
-            
-            status = atcab_read_zone(ECC_TNG_DATA_ZONE, ECC_TNG_GP_DATA_SLOT, ECC_TNG_GP_DATA_SLOT_BLOCK_BASE, 0, tempRead, 32);
-            if (ATCA_SUCCESS == status) 
-            {
-                if(0 == strncmp(client1.username, tempRead2->username, sizeof(tempRead2->username)))
-                {
-                    atcab_write_zone(ECC_TNG_DATA_ZONE, ECC_TNG_GP_DATA_SLOT, ECC_TNG_GP_DATA_SLOT_BLOCK_BASE, 0, (uint8_t*)resetDefault, 32);
-                }
-            }
-            
-            SYS_CONSOLE_PRINT("Successfully removed User: \"%s\"\r\n", client1.username);
-        }
-    }
-    else{
-        SYS_CONSOLE_MESSAGE("Not in ECC mode. Please use \"setecc\" command to enable ECC mode\n\r");
-    }
-}
 
 #if (TCPIP_FTPS_OBSOLETE_AUTHENTICATION == 0)  
 /*  Implementation of application specific TCPIP_FTP_AUTH_HANDLER
@@ -207,9 +120,8 @@ static int _Command_RemoveUser(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** arg
 static bool APP_FTPAuthHandler(const char* user, const char* password, const TCPIP_FTP_CONN_INFO* pInfo, const void* hParam)
 {       
     clientLoginInfo client1;
-    
-    strncpy(client1.username, user, 10);
-    strncpy(client1.password, password, 10);
+    strncpy(client1.username, user, strlen(user));
+    strncpy(client1.password, password, strlen(password));
     
     if(validateUserPass(client1.username, client1.password))
     {
@@ -238,7 +150,7 @@ static bool APP_FTPAuthHandler(const char* user, const char* password, const TCP
                 appData.fileHandle = SYS_FS_FileOpen(FFS_FTPAUTH_FILE, SYS_FS_FILE_OPEN_READ);                                         
                 if(SYS_FS_FileRead(appData.fileHandle, fileData, appData.fileStatus.fsize) == appData.fileStatus.fsize)                                                 
                 {
-                    /*Parse the file */
+                    /*Parse the default FTP Authentication file */
                     cJSON *messageJson = cJSON_Parse(fileData);
                     if (messageJson == NULL) {
                         const char *error_ptr = cJSON_GetErrorPtr();            
@@ -265,22 +177,25 @@ static bool APP_FTPAuthHandler(const char* user, const char* password, const TCP
                     
                     if(strcmp(user, username->valuestring) == 0 && strcmp(password, pw->valuestring) == 0)
                     {
-                        SYS_FS_FileClose(appData.fileHandle); 
-                        OSAL_Free(fileData);
                         SYS_CONSOLE_MESSAGE("Access granted!\r\n");                                
                         return true;
                     }
                     else{ 
-                        /*username/password incorrect*/
+                        
                         SYS_CONSOLE_MESSAGE("[ERR] - Incorrect Credentials\r\n");
                         return false;
                     }
+                    cJSON_Delete(messageJson);
                 }
+                SYS_FS_FileClose(appData.fileHandle);
             }
+            OSAL_Free(fileData);
         }
         SYS_CONSOLE_MESSAGE("\n\r[ERR] - FTP server login credentials missing\n");
         return false;
     }
+    SYS_CONSOLE_MESSAGE("\n\r[ERR] - FTP server login credentials too long\n");
+    return false;
 }
 #endif
 
@@ -339,7 +254,8 @@ void appWifiCallback(uint32_t event, void * data,void *cookie )
 void APP_Initialize ( void )
 {    
     __asm__("nop");
-    /* Place the App state machine in its initial state. */
+    
+    /* Place App state machine in its initial state. */
     appData.state = APP_STATE_INIT; 
     
     /* TODO: Initialize your application's state machine and other
@@ -384,18 +300,31 @@ void APP_Tasks ( void )
             
 #if (TCPIP_FTPS_OBSOLETE_AUTHENTICATION == 0)
             TCPIP_FTP_AuthenticationDeregister(appData.ftpHandle);
-            appData.ftpHandle = TCPIP_FTP_AuthenticationRegister(APP_FTPAuthHandler, NULL);
-            if(appData.ftpHandle == 0)
-            {
-                SYS_CONSOLE_MESSAGE("Failed to register FTP authentication handler!\r\n");
-                appData.state = APP_ERROR;
-            }
-#endif 
+#endif  
             
-            if(!FTP_Command_Initialize()){
-                SYS_CONSOLE_PRINT("[ERROR]: Command Processor Not Initialized\r\n");
-                appData.state = APP_ERROR;
-            }    
+            if (ATCA_SUCCESS == atcab_init(&atecc608_0_init_data))
+            {
+                /*ECC Initialization success*/
+                uint8_t* serial_number;
+                serial_number = (uint8_t*) OSAL_Malloc(9*sizeof(uint8_t));
+                
+                if(ATCA_SUCCESS == atcab_read_serial_number(serial_number))
+                {
+                    /* ECC serial number read success */
+                    setECC = true;
+                }
+                else
+                {
+                    /* ECC serial number read failure */
+                    appData.state = APP_ERROR;
+                }
+                OSAL_Free(serial_number);  
+            }
+            else{
+                /* ECC Init failure OR ECC NOT available. Use Default FTP Authentication file. */
+                setECC = false;
+                SYS_CONSOLE_MESSAGE("ECC is not available.\n\rUse default FTP authentication file to store server login credentials\n\r");
+            }
             
             bool appInitialized = false;
             if (appInitialized)
@@ -409,13 +338,13 @@ void APP_Tasks ( void )
             /* Mount the disk */
             if(SYS_FS_Mount(APP_DEVICE_NAME, APP_MOUNT_NAME, APP_FS_TYPE, 0, NULL) != 0)
             {
-                /* The disk could not be mounted. Try mounting again until
-                 * the operation succeeds. */
+                /* Disk mount failed. Try mounting again until
+                 the operation succeeds. */
                 appData.state = APP_MOUNT_DISK;
             }
             else
             {      
-                /* Mount was successful. Format the disk. */
+                /* Mount success */
                 appData.state = APP_OPEN_FFS_CFG_FILE;
                 if((SWITCH1_Get() == SWITCH1_STATE_PRESSED) && (SWITCH2_Get() == SWITCH2_STATE_PRESSED))
                 {
@@ -428,12 +357,148 @@ void APP_Tasks ( void )
             break;
         }
         
-        case APP_OPEN_FTPAUTH_FILE:
-        {            
-            if(SYS_FS_FileStat(FFS_FTPAUTH_FILE, &appData.fileStatus) == SYS_FS_RES_FAILURE)
+        case APP_FTP_AUTH_FILE_INFO:
+        {
+            if(SYS_FS_FileStat(FFS_FTPAUTH_FILE, &appData.fileStatus) != SYS_FS_RES_SUCCESS)
             {
-                /* Reading file status was a failure or no such file found*/               
-                
+                /* Read file status failed OR No such file found*/
+                appData.state = APP_FORMAT_DISK;
+            }
+            else{
+                /* Read file status success */
+                if(setECC)
+                {                    
+                    char *ftpAuthData = OSAL_Malloc(appData.fileStatus.fsize);
+                    if(ftpAuthData != NULL)
+                    {
+                        appData.fileHandle = SYS_FS_FileOpen(FFS_FTPAUTH_FILE, SYS_FS_FILE_OPEN_READ);                                         
+                        if(SYS_FS_FileRead(appData.fileHandle, ftpAuthData, appData.fileStatus.fsize) == appData.fileStatus.fsize)
+                        {
+                            // Parse default FTP Authentication file - ftp_auth.cfg
+                            cJSON *messageJson = cJSON_Parse(ftpAuthData);
+                            if (messageJson == NULL) {
+                                const char *error_ptr = cJSON_GetErrorPtr();            
+                                if (error_ptr != NULL) {
+                                    SYS_CONSOLE_PRINT("Message JSON parse Error. Error before: %s \r\n", error_ptr);
+                                }
+                                cJSON_Delete(messageJson);
+                            }
+                            
+                            cJSON *username = cJSON_GetObjectItem(messageJson, "Username");
+                            if (!username || username->type !=cJSON_String ) {
+                                SYS_CONSOLE_MESSAGE("Username parsing error\r\n");
+                                cJSON_Delete(messageJson);
+                            }
+                            
+                            cJSON *pw = cJSON_GetObjectItem(messageJson, "Password");
+                            if (!pw || pw->type !=cJSON_String ) {
+                                SYS_CONSOLE_MESSAGE("Password parsing error\r\n");
+                                cJSON_Delete(messageJson);
+                            }
+                            SYS_FS_FileClose(appData.fileHandle);
+                            
+                            //compare contents of ftp_auth.cfg
+                            if(strcmp(username->valuestring, "") == 0 && strcmp(pw->valuestring, "") == 0)
+                            {
+                                /* FTP authentication credentials cleared out */
+                                appData.state = APP_GET_CFG_FILES;
+                            }
+                            else if(strcmp(username->valuestring, "Microchip") == 0 && strcmp(pw->valuestring, "Harmony") == 0)
+                            {
+                                /* FTP authentication credentials retained */
+                                appData.state = APP_GET_CFG_FILES;
+                                
+                                appData.fileHandle = SYS_FS_FileOpen(FFS_FTPAUTH_FILE, SYS_FS_FILE_OPEN_WRITE);
+                                if(appData.fileHandle != SYS_FS_HANDLE_INVALID)
+                                {
+                                    /* Clear (erase) -out FTP authentication credentials */
+                                    cJSON *jsonObj = cJSON_CreateObject();
+                                    cJSON_AddItemToObject(jsonObj, "Username", cJSON_CreateString(""));
+                                    cJSON_AddItemToObject(jsonObj, "Password", cJSON_CreateString(""));
+                                    
+                                    char * printBuffer = cJSON_Print(jsonObj);
+                                    if(printBuffer && (SYS_FS_FileWrite(appData.fileHandle, printBuffer, strlen(printBuffer)) == strlen(printBuffer)))                                                  
+                                    { 
+                                        SYS_CONSOLE_MESSAGE("Modified contents from FTP-Auth file!\n\r");
+                                        SYS_FS_FileSync(appData.fileHandle);                        
+                                    }
+                                    else
+                                    {
+                                        /*FTP server login credentials file write failure*/
+                                        appData.state = APP_ERROR;
+                                    }               
+                                    cJSON_Delete(jsonObj); 
+                                }
+                                SYS_FS_FileClose(appData.fileHandle);
+                            }
+                            else
+                            {
+                                /* FTP authentication credentials modified in ftp_auth.cfg. Update them in ECC and then erase them out. */
+                                appData.state = APP_GET_CFG_FILES;
+                                clientLoginInfo *modAuth;
+                                modAuth = OSAL_Malloc(sizeof(clientLoginInfo));
+                                if(modAuth != NULL)
+                                {
+                                    strncpy(modAuth->username, username->valuestring, 10);
+                                    strncpy(modAuth->password, pw->valuestring, 10);
+                                    
+                                    status = atcab_write_zone(ECC_TNG_DATA_ZONE, ECC_TNG_GP_DATA_SLOT, ECC_TNG_GP_DATA_SLOT_BLOCK_BASE, 0, (uint8_t*)modAuth, 32);
+                                    
+                                    if (ATCA_SUCCESS == status) 
+                                    {
+                                        SYS_CONSOLE_PRINT("[ECC] - FTP user \"%s\" modification success!!\n\r", modAuth->username);  
+                                    }
+                                    else{
+                                        SYS_CONSOLE_PRINT("[ECC ERR] - FTP user modification failure!\n\r");  
+                                        appData.state = APP_ERROR;
+                                        cJSON_Delete(messageJson);
+                                    }
+                                }
+                                //erase-out authentication credentials from ftp_auth.cfg file
+                                appData.fileHandle = SYS_FS_FileOpen(FFS_FTPAUTH_FILE, SYS_FS_FILE_OPEN_WRITE);
+                                if(appData.fileHandle != SYS_FS_HANDLE_INVALID)
+                                {
+                                    cJSON *jsonObj = cJSON_CreateObject();
+                                    cJSON_AddItemToObject(jsonObj, "Username", cJSON_CreateString(""));
+                                    cJSON_AddItemToObject(jsonObj, "Password", cJSON_CreateString(""));
+                                    
+                                    char * printBuffer = cJSON_Print(jsonObj);
+                                    if(printBuffer && (SYS_FS_FileWrite(appData.fileHandle, printBuffer, strlen(printBuffer)) == strlen(printBuffer)))                                                  
+                                    { 
+                                        SYS_CONSOLE_MESSAGE("Modified contents from FTP-Auth file!\n\r");
+                                        SYS_FS_FileSync(appData.fileHandle);                        
+                                    }
+                                    else
+                                    {
+                                        /*FTP server login credentials file write failure*/
+                                        appData.state = APP_ERROR;
+                                        cJSON_Delete(jsonObj);
+                                    }               
+                                    cJSON_Delete(jsonObj);
+                                }
+                                OSAL_Free(modAuth);
+                                SYS_FS_FileClose(appData.fileHandle); 
+                            }
+                            cJSON_Delete(messageJson);
+                        }
+                        SYS_FS_FileClose(appData.fileHandle);
+                    }
+                    OSAL_Free(ftpAuthData);
+                }else
+                {
+                    appData.state = APP_GET_CFG_FILES;
+                }
+            }
+            
+            break;
+        }
+        
+        case APP_OPEN_FTP_AUTH_FILE:
+        {            
+            appData.state = APP_GET_CFG_FILES;            
+            
+            if(SYS_FS_FileStat(FFS_FTPAUTH_FILE, &appData.fileStatus) != SYS_FS_RES_SUCCESS)
+            {
                 appData.fileHandle = SYS_FS_FileOpen(FFS_FTPAUTH_FILE, SYS_FS_FILE_OPEN_WRITE_PLUS);
                 if(appData.fileHandle != SYS_FS_HANDLE_INVALID)
                 {
@@ -447,7 +512,7 @@ void APP_Tasks ( void )
                     if(printBuffer && (SYS_FS_FileWrite(appData.fileHandle, printBuffer, strlen(printBuffer)) == strlen(printBuffer)))                                                  
                     { 
                         SYS_CONSOLE_MESSAGE("Default FTP user authentication file written successfully!\n");  
-                        SYS_FS_FileSync(appData.fileHandle);                        
+                        SYS_FS_FileSync(appData.fileHandle);                    
                     }
                     else
                     {
@@ -455,17 +520,35 @@ void APP_Tasks ( void )
                         appData.state = APP_ERROR;
                     }
                     cJSON_Delete(jsonObj);                     
-                    SYS_FS_FileClose(appData.fileHandle);      
+                    SYS_FS_FileClose(appData.fileHandle);
                 }
-                appData.state = APP_OPEN_FFS_DEV_CFG_FILE;  
             }
-            else
+            
+            if(setECC)
             {
-                /*FTP server login credentials file - "ftp_auth.cfg" is present, so continue*/
-                appData.state = APP_OPEN_FFS_DEV_CFG_FILE;            
-            } 
+                clientLoginInfo *writeDefAuth;
+                writeDefAuth = (clientLoginInfo *)OSAL_Malloc(sizeof(clientLoginInfo));
+                if(writeDefAuth != NULL){
+                    strncpy(writeDefAuth->username, "Microchip", 10);
+                    strncpy(writeDefAuth->password, "Harmony", 10);
+                    
+                    status = atcab_write_zone(ECC_TNG_DATA_ZONE, ECC_TNG_GP_DATA_SLOT, ECC_TNG_GP_DATA_SLOT_BLOCK_BASE, 0, (uint8_t*)writeDefAuth, 32);
+                    
+                    if (ATCA_SUCCESS == status) 
+                    {
+                        SYS_CONSOLE_PRINT("Default FTP user \"%s\" stored in ECC!!\n\r", writeDefAuth->username);  
+                    }
+                    else{
+                        SYS_CONSOLE_PRINT("[ERR] - Default user registration failed!\r\n");  
+                        appData.state = APP_ERROR;
+                    }
+                }
+                OSAL_Free(writeDefAuth);
+            }
+            
             break;
         }
+        
         case APP_GET_CFG_FILES:
         {        
             sWifiCfg.apConfig.channel = 7;
@@ -478,40 +561,35 @@ void APP_Tasks ( void )
             memcpy(&sWifiCfg.apConfig.ssid, SYS_WIFI_AP_SSID, strlen(SYS_WIFI_AP_SSID));
             memcpy(&sWifiCfg.apConfig.psk, SYS_WIFI_AP_PWD, strlen(SYS_WIFI_AP_PWD));
             
-            if(SYS_FS_FileStat(FFS_ROOT_CERT_FILE, &appData.fileStatus) != SYS_FS_RES_SUCCESS)
-            {
-                if(SYS_WIFI_CtrlMsg (sysObj.syswifi, SYS_WIFI_CONNECT, &sWifiCfg, sizeof(sWifiCfg)) == SYS_WIFI_SUCCESS)
-                {  
-                    appData.state = APP_IDLE;
-                    SYS_CONSOLE_PRINT("\n\rConnect to FTP server at 192.168.1.1\n\n\rUpload following files and reboot!\n\t- %s\n\t- %s\n\t- %s\n\t- %s\n\t- %s\n", 
-                            FFS_ROOT_CERT_FILE_NAME, 
-                            FFS_DEVICE_TYPE_PUBKEY_FILE_NAME, FFS_DEVICE_PUB_KEY_FILE_NAME,
-                            FFS_DEVICE_CRT_FILE_NAME, FFS_DEVICE_KEY_FILE_NAME);
-                    
-                    SYS_CONSOLE_MESSAGE("\n\r############################################################");
-                    SYS_CONSOLE_MESSAGE("\n\rNote: You have following options to store FTP server login credentials:\n\r1. Enter \"setecc\" command (If Trust & Go solution is available)\n\r"
-                            "2. Continue using default \"ftp_auth.cfg\" file\n\r");
-                    SYS_CONSOLE_MESSAGE("\n\r############################################################\n\r");
-                }
-                else{
-                    SYS_CONSOLE_MESSAGE("\n\r##############################\n\r");
-                    SYS_CONSOLE_MESSAGE("\n\rError switching to AP mode\n\r");
-                    SYS_CONSOLE_MESSAGE("\n\r##############################\n\r");
+            if(SYS_WIFI_CtrlMsg (sysObj.syswifi, SYS_WIFI_CONNECT, &sWifiCfg, sizeof(sWifiCfg)) == SYS_WIFI_SUCCESS)
+            {  
+                appData.state = APP_IDLE;
+                SYS_CONSOLE_PRINT("\n\rConnect to FTP server at 192.168.1.1\n\n\rUpload following files and reboot!\n\t- %s\n\t- %s\n\t- %s\n\t- %s\n\t- %s\n", 
+                        FFS_ROOT_CERT_FILE_NAME, 
+                        FFS_DEVICE_TYPE_PUBKEY_FILE_NAME, FFS_DEVICE_PUB_KEY_FILE_NAME,
+                        FFS_DEVICE_CRT_FILE_NAME, FFS_DEVICE_KEY_FILE_NAME);
+                
+                SYS_CONSOLE_MESSAGE("\n\r############################################################");
+                SYS_CONSOLE_MESSAGE("\n\rNote: Use \"ftp_auth.cfg\" file to store FTP server login credentials.\n\r");
+                SYS_CONSOLE_MESSAGE("\n\r############################################################\n\r");
+                
+                appData.ftpHandle = TCPIP_FTP_AuthenticationRegister(APP_FTPAuthHandler, NULL);
+                if(appData.ftpHandle == 0)
+                {
+                    SYS_CONSOLE_MESSAGE("Failed to register FTP authentication handler!\r\n");
+                    appData.state = APP_ERROR;
                 }
             }
-            else if(SYS_FS_FileStat(FFS_ROOT_CERT_FILE, &appData.fileStatus) == SYS_FS_RES_SUCCESS)
-            {
-                SYS_CONSOLE_MESSAGE("Found device certificate and key files. Executing FFS tasks.\r\n");
-                appData.state = APP_STATE_FFS_TASK;
-            }
-            else {
-                appData.state = APP_ERROR;
+            else{
+                SYS_CONSOLE_MESSAGE("\n\r##############################\n\r");
+                SYS_CONSOLE_MESSAGE("\n\rError switching to AP mode\n\r");
+                SYS_CONSOLE_MESSAGE("\n\r##############################\n\r");
             }
             break;
         }
         
         case APP_FORMAT_DISK:
-        {            
+        {                       
             if (SYS_FS_DriveFormat (APP_MOUNT_NAME, &opt, (void *)work, SYS_FS_LFS_MAX_SS) != SYS_FS_RES_SUCCESS)
             {
                 /* Format of the disk failed. */
@@ -519,18 +597,19 @@ void APP_Tasks ( void )
             }
             else
             {        
+                /* format success */
                 SYS_CONSOLE_MESSAGE("\n\r##################################################");
                 SYS_CONSOLE_MESSAGE("\n\rThe device certificate and key files not found.\n\rSwitching to Soft-AP mode!\n\r");
                 SYS_CONSOLE_MESSAGE("\n\r##################################################\n\r");
-                /* Format succeeded. Open a file. */                
-                appData.state = APP_OPEN_FTPAUTH_FILE;        
+                /* Open a file. */                
+                appData.state = APP_OPEN_FFS_DEV_CFG_FILE;        
             }
             break;
         }
         
         case APP_OPEN_ROOT_CA_FILE:
         {
-            appData.state = APP_FORMAT_DISK;
+            appData.state = APP_FTP_AUTH_FILE_INFO;
             appData.fileHandle = SYS_FS_FileOpen(FFS_ROOT_CERT_FILE, SYS_FS_FILE_OPEN_READ);              
             if(appData.fileHandle != SYS_FS_HANDLE_INVALID)            
             {                        
@@ -560,7 +639,7 @@ void APP_Tasks ( void )
         
         case APP_OPEN_DEV_CERT_FILE:
         {
-            appData.state = APP_FORMAT_DISK;
+            appData.state = APP_GET_CFG_FILES;
             appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_CRT_FILE, SYS_FS_FILE_OPEN_READ);              
             if(appData.fileHandle != SYS_FS_HANDLE_INVALID)            
             {                        
@@ -590,7 +669,7 @@ void APP_Tasks ( void )
         
         case APP_OPEN_DEV_PRIV_KEY_FILE:
         {
-            appData.state = APP_FORMAT_DISK; 
+            appData.state = APP_GET_CFG_FILES;
             appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_KEY_FILE, SYS_FS_FILE_OPEN_READ);              
             if(appData.fileHandle != SYS_FS_HANDLE_INVALID)            
             {                
@@ -620,7 +699,7 @@ void APP_Tasks ( void )
         
         case APP_OPEN_FFS_DEV_TYPE_FILE:
         {
-            appData.state = APP_FORMAT_DISK; 
+            appData.state = APP_GET_CFG_FILES;
             appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_TYPE_PUBKEY_FILE, SYS_FS_FILE_OPEN_READ);              
             if(appData.fileHandle != SYS_FS_HANDLE_INVALID)            
             {                
@@ -650,7 +729,7 @@ void APP_Tasks ( void )
         
         case APP_OPEN_FFS_DEV_PUB_FILE:
         {
-            appData.state = APP_FORMAT_DISK; 
+            appData.state = APP_GET_CFG_FILES;
             appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_PUB_KEY_FILE, SYS_FS_FILE_OPEN_READ);              
             if(appData.fileHandle != SYS_FS_HANDLE_INVALID)            
             {                
@@ -683,8 +762,8 @@ void APP_Tasks ( void )
             appData.state = APP_OPEN_ROOT_CA_FILE;
             if(SYS_FS_FileStat(FFS_WIFI_CFG_FILE, &appData.fileStatus) == SYS_FS_RES_FAILURE)
             {
-                SYS_CONSOLE_MESSAGE("\nFFS Configuration file state failure\r\n");                
-                /* Reading file status was a failure */                                
+                /* Reading file status was a failure */ 
+                SYS_CONSOLE_MESSAGE("\nFFS Configuration file state failure\r\n");                                               
             }
             else                
             {
@@ -722,7 +801,7 @@ void APP_Tasks ( void )
         
         case APP_OPEN_FFS_DEV_CFG_FILE:
         {
-            appData.state = APP_GET_CFG_FILES; 
+            appData.state = APP_OPEN_FTP_AUTH_FILE;
             if(SYS_FS_FileStat(FFS_DEVICE_CFG_FILE, &appData.fileStatus) != SYS_FS_RES_SUCCESS)            
             {   
                 appData.fileHandle = SYS_FS_FileOpen(FFS_DEVICE_CFG_FILE, SYS_FS_FILE_OPEN_WRITE);              
@@ -878,8 +957,8 @@ void APP_Tasks ( void )
                         
                         cJSON_Delete(messageJson);                                                
                     }
-                    SYS_FS_FileClose(appData.fileHandle);  
-                    appData.state = APP_STATE_FFS_TASK;                  
+                    SYS_FS_FileClose(appData.fileHandle);
+                    appData.state = APP_STATE_FFS_TASK;                 
                     OSAL_Free(fileData);
                 }
             }
@@ -900,6 +979,7 @@ void APP_Tasks ( void )
             }
             break;
         }
+        
         case APP_STATE_FFS_TASK:
         {                  
             volatile SYS_TIME_HANDLE ffsTmrHdl;
@@ -950,21 +1030,12 @@ void APP_Tasks ( void )
             
             break;
         } 
-        case APP_ECC_Init:
+        
+        case APP_ERROR:
         {
-            extern ATCAIfaceCfg atecc608_0_init_data;
-            if (ATCA_SUCCESS == atcab_init(&atecc608_0_init_data))
-            {
-                SYS_CONSOLE_MESSAGE("ECC initialized!!\n\r");
-                appData.state = APP_STATE_SERVICE_TASKS;
-            }
-            else
-            {
-                SYS_CONSOLE_PRINT("[ERR] - Failed to initialize ECC!\n\r");
-            }
+            SYS_CONSOLE_MESSAGE("In APP_ERROR state\n\r");
             break;
         }
-        
         /* TODO: implement your application state machine.*/
         
         

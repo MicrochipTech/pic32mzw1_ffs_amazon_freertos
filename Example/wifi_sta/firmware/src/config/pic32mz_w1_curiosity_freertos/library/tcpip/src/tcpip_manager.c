@@ -125,6 +125,8 @@ static void    _TCPIP_MacEventCB(TCPIP_MAC_EVENT event, const void* hParam);
 
 static TCPIP_STACK_MODULE_CTRL  tcpip_stack_ctrl_data = {0};
 
+extern TCPIP_STACK_MODULE_CTRL  tcpipStack_ctrl_data;
+
 // last data structure passed for the stack initialization 
 static TCPIP_STACK_INIT     tcpip_init_data = { {0} };
 

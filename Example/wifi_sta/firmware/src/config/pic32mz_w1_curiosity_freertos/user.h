@@ -32,7 +32,6 @@ extern "C" {
 // Section: User Configuration macros
 // *****************************************************************************
 // *****************************************************************************
-#define MICROCHIP_TCPIP
 
 #define HAVE_EXTENDED_MASTER
 #define HAVE_ENCRYPT_THEN_MAC
