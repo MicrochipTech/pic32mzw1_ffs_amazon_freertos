@@ -131,23 +131,23 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 
 11. The WFI32-IoT board emulates device console serial port, open the device console port using any terminal tool such as Teraterm or Termit. Use the baudrate 115200, parity None, stop bit 1.
 
-12. The WFI32-IoT board hosts FTP server while running the demo for the first time. Or press and hold SW1 and SW2 during the boot up to force FTP server mode.
-<p align="center"><img width="600" src="../Docs/ffs_ftp_first_boot.png">
+12. If the certificate and key files required for FFS are not available on the WFI32-IoT board, it will boot up in Soft-AP mode and host the FTP server. Or press and hold SW1 and SW2 during the boot up to force FTP server mode.
+
+<p align="center"><img width="600" src="../Docs/ffs_ftp_softap_boot.png">
 </p>
 
-13. The serial console output of the device lists all the certificate and key files needed for the FFS. Follow the instructions on the console to connect with FTP server and copy all the five listed files to it. These files are available in the "../tools" folder. 
+13. The serial console logs of the device lists all the certificate and key files needed for FFS. Follow the instructions on the console to connect with FTP server and copy all the listed files to it. These files are available in the "../tools" folder.
 	- Notes: 
-		There are two options to store FTP server login credentials:
-			1. ECC: This option will store the credentials in ECC (On-Chip Trust & Go solution) and User should be registered using "adduser" command before connecting to FTP server. (Example: adduser <username> <password>) 
-			2. Default "ftp_auth.cfg" File: This option will store the credentials in a file which can be modified if needed.
-			 (Please note the Default Username: "Microchip" and Password: "Harmony")
+			1. Default login credentials for the FTP server will be stored in the ECC (On-Chip Trust & Go solution), if available and in the "ftp_auth.cfg" file
+			2. User can modify default credentials using "ftp_auth.cfg" file. The updated credentials will be copied to ECC on the subsequent boot-up
+			 (Please use the default Username: "Microchip" and Password: "Harmony" while logging-in to FTP server for the first time)
 
 <p align="center"><img width="600" src="../Docs/first_boot_ftp_with_serial_out.png">
 </p>
 <p align="center"><img width="600" src="../Docs/ftp_with_all_keys_certs.png">
 </p>
 
-14. Open the default ffs_device.cfg file in the MSD and provide the device specific details such as **CpuId**, **DeviceName** and **ProductIndex**
+14. Open the default ffs_device.cfg file (available on the FTP server) and provide the device specific details such as **CpuId**, **DeviceName** and **ProductIndex**
 <p align="center"><img width="600" src="../Docs/ffs-device-cfg.png">
 </p>
 
