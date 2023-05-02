@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/ffsftpFinal/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/src/config/pic32mz_w1_curiosity_freertos/library/tcpip/ftp.h</file>
-            <file>file:/C:/ffsftpFinal/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/src/app.c</file>
-            <file>file:/C:/ffsftpFinal/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/src/main.c</file>
-            <file>file:/C:/ffsftpFinal/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src/ftp.c</file>
-            <file>file:/C:/ffsftpFinal/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/src/app.h</file>
-            <file>file:/C:/ffsftpFinal/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/src/config/pic32mz_w1_curiosity_freertos/configuration.h</file>
+            <file>file:/C:/mySpace/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/src/main.c</file>
+            <file>file:/C:/mySpace/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/src/app.h</file>
+            <file>file:/C:/mySpace/pic32mzw1_ffs_amazon_freertos/Example/wifi_sta/firmware/src/app.c</file>
         </group>
     </open-files>
 </project-private>

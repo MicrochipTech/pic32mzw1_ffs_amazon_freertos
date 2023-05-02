@@ -177,19 +177,20 @@ static bool APP_FTPAuthHandler(const char* user, const char* password, const TCP
                     
                     if(strcmp(user, username->valuestring) == 0 && strcmp(password, pw->valuestring) == 0)
                     {
-                        SYS_CONSOLE_MESSAGE("Access granted!\r\n");                                
+                        SYS_CONSOLE_MESSAGE("Access granted!\r\n");
+                        cJSON_Delete(messageJson);
                         return true;
                     }
                     else{ 
                         
                         SYS_CONSOLE_MESSAGE("[ERR] - Incorrect Credentials\r\n");
+                        cJSON_Delete(messageJson);
                         return false;
                     }
-                    cJSON_Delete(messageJson);
+                  SYS_FS_FileClose(appData.fileHandle);
                 }
-                SYS_FS_FileClose(appData.fileHandle);
-            }
             OSAL_Free(fileData);
+            }
         }
         SYS_CONSOLE_MESSAGE("\n\r[ERR] - FTP server login credentials missing\n");
         return false;
@@ -381,19 +382,16 @@ void APP_Tasks ( void )
                                 if (error_ptr != NULL) {
                                     SYS_CONSOLE_PRINT("Message JSON parse Error. Error before: %s \r\n", error_ptr);
                                 }
-                                cJSON_Delete(messageJson);
                             }
                             
                             cJSON *username = cJSON_GetObjectItem(messageJson, "Username");
                             if (!username || username->type !=cJSON_String ) {
                                 SYS_CONSOLE_MESSAGE("Username parsing error\r\n");
-                                cJSON_Delete(messageJson);
                             }
                             
                             cJSON *pw = cJSON_GetObjectItem(messageJson, "Password");
                             if (!pw || pw->type !=cJSON_String ) {
                                 SYS_CONSOLE_MESSAGE("Password parsing error\r\n");
-                                cJSON_Delete(messageJson);
                             }
                             SYS_FS_FileClose(appData.fileHandle);
                             
@@ -451,7 +449,6 @@ void APP_Tasks ( void )
                                     else{
                                         SYS_CONSOLE_PRINT("[ECC ERR] - FTP user modification failure!\n\r");  
                                         appData.state = APP_ERROR;
-                                        cJSON_Delete(messageJson);
                                     }
                                 }
                                 //erase-out authentication credentials from ftp_auth.cfg file
@@ -472,7 +469,6 @@ void APP_Tasks ( void )
                                     {
                                         /*FTP server login credentials file write failure*/
                                         appData.state = APP_ERROR;
-                                        cJSON_Delete(jsonObj);
                                     }               
                                     cJSON_Delete(jsonObj);
                                 }
@@ -520,8 +516,8 @@ void APP_Tasks ( void )
                         appData.state = APP_ERROR;
                     }
                     cJSON_Delete(jsonObj);                     
-                    SYS_FS_FileClose(appData.fileHandle);
                 }
+                SYS_FS_FileClose(appData.fileHandle);
             }
             
             if(setECC)
@@ -829,7 +825,7 @@ void APP_Tasks ( void )
                         SYS_CONSOLE_PRINT("Cloud Configuration file write fail!\n");
                         appData.state = APP_ERROR;
                     }
-                    cJSON_Delete(jsonObj);                     
+                    cJSON_Delete(jsonObj);            
                     SYS_FS_FileClose(appData.fileHandle);  
                 }
                 else
