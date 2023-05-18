@@ -438,8 +438,36 @@ typedef enum
     SYS_FS_ERROR_FS_NOT_SUPPORTED,
     /* (22) Requested native file system does not match the format of volume */
     SYS_FS_ERROR_FS_NOT_MATCH_WITH_VOLUME,
-/* (23) Function not supported in native file system layer */
-SYS_FS_ERROR_NOT_SUPPORTED_IN_NATIVE_FS
+    /* (23) Function not supported in native file system layer */
+    SYS_FS_ERROR_NOT_SUPPORTED_IN_NATIVE_FS,
+    /* (24) Error during device operation*/       
+    SYS_FS_ERROR_IO, 
+    /* (25) Corrupted*/     
+    SYS_FS_ERROR_CORRUPT, 
+    /* (26) No directory entry*/     
+    SYS_FS_ERROR_NOENT,
+    /* (27) Entry already exists*/     
+    SYS_FS_ERROR_ALREADY_EXIST,
+    /* (28) Entry is not a dir*/     
+    SYS_FS_ERROR_NOTDIR, 
+    /* (29) Entry is a dir*/     
+    SYS_FS_ERROR_ISDIR, 
+    /* (30) Dir is not empty*/     
+    SYS_FS_ERROR_NOTEMPTY, 
+    /* (31) Bad file number*/     
+    SYS_FS_ERROR_BADF,
+    /* (32) File too large*/     
+    SYS_FS_ERROR_FBIG, 
+    /* (33) Invalid parameter*/     
+    SYS_FS_ERROR_INVAL, 
+    /* (34) No space left on device*/     
+    SYS_FS_ERROR_NOSPC,  
+    /* (35) No more memory available*/     
+    SYS_FS_ERROR_NOMEM,  
+    /* (36) No data/attr available*/     
+    SYS_FS_ERROR_NOATTR, 
+    /* (37) File name too long*/     
+    SYS_FS_ERROR_NAMETOOLONG
 } SYS_FS_ERROR;
 
 // *****************************************************************************
@@ -665,15 +693,8 @@ typedef struct
     uint16_t    ftime;
     /* Attribute */
     uint8_t     fattrib;
-    /* Alternate/Short file name (8.3 format) */
-    char        altname[13];
-    /* Primary/Long file name */
-    char        fname[SYS_FS_FILE_NAME_LEN + 1];
-
-    /* Retaining below members for portability.
-     * For FAT-FS lfname[0] will always be '\0'.
-     * Use fname instead
-    */
+    /* Short file name (8.3 format) */
+    char        fname[13];
     /* Pointer to the LFN buffer */
     char       *lfname;
     /* Size of LFN buffer */

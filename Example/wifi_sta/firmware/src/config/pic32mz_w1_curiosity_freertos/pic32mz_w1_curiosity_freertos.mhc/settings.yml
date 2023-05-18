@@ -5,9 +5,9 @@ frameworkPath: ../../../../../../H3_FFS
 processor: PIC32MZ1025W104132
 projectName: ''
 settings:
-  PackageFilter: crypto;dev_packs;net;core;bsp;csp_apps_pic32mz_w1;quick_docs;usb;cryptoauthlib;wireless_wifi;csp;harmony-services;wireless_system_pic32mzw1_wfi32e01;wireless_apps_pic32mzw1_wfi32e01;aws_cloud
+  PackageFilter: bsp;core;core_apps_pic32mz_w1;crypto;cryptoauthlib;csp;csp_apps_pic32mz_w1;Devices;dev_packs;harmony-services;net;net_apps_pic32mz;quick_docs;reference_apps;usb;wireless_apps_pic32mzw1_wfi32e01;wireless_apps_winc1500;wireless_apps_winc3400;wireless_apps_winc3400_github;wireless_system_pic32mzw1_wfi32e01;wireless_wifi
   FORCE_OPTIMIZATION: 'false'
   GENERATE_BACKUP: 'true'
-  CMSISPath: ./dev_packs/arm/CMSIS/5.8.0
-  MERGE_STRATEGY: USER_ALL
-  DFPPath: ./dev_packs/Microchip/PIC32MZ-W_DFP/1.6.217/atdf/PIC32MZ1025W104132.atdf
+  CMSISPath: .\dev_packs\arm\CMSIS\5.8.0
+  MERGE_STRATEGY: USER_RECENT
+  DFPPath: .\dev_packs\Microchip\PIC32MZ-W_DFP\1.6.217\atdf\PIC32MZ1025W104132.atdf

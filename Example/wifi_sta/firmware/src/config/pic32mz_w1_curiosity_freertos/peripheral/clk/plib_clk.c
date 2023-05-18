@@ -318,16 +318,8 @@ void CLK_Initialize( void )
 			while(1);
 		}
 
-		/* Configure UPLL */
-		/* UPLLBSWSEL   = 5 */
-		/* UPLLPWDN     = PLL_ON */
-		/* UPLLPOSTDIV1 = 10 */
-		/* UPLLFLOCK    = NOFORCE_LOCK */
-		/* UPLLRST      = DEASSERT_RST */
-		/* UPLLFBDIV    = 24 */
-		/* UPLLREFDIV   = 1 */
-		/* UPLL_BYP     = UPLL */
-		UPLLCON = 0x404180a5;
+		/* Power down the UPLL */
+		UPLLCONbits.UPLLPWDN = 1;
 
 		/* Power down the BTPLL */
 		BTPLLCONbits.BTPLLPWDN = 1;
@@ -375,16 +367,8 @@ void CLK_Initialize( void )
 		SPLLCON = 0x1496061;
 
 
-		/* Configure UPLL */
-		/* UPLLBSWSEL   = 5 */
-		/* UPLLPWDN     = PLL_ON */
-		/* UPLLPOSTDIV1 = 10 */
-		/* UPLLFLOCK    = NOFORCE_LOCK */
-		/* UPLLRST      = DEASSERT_RST */
-		/* UPLLFBDIV    = 24 */
-		/* UPLLREFDIV   = 1 */
-		/* UPLL_BYP     = UPLL */
-		UPLLCON = 0x404180a5;
+		/* Power down the UPLL */
+		UPLLCONbits.UPLLPWDN = 1;
 
 		/* Configure EWPLL */
 		/* EWPLLBSWSEL   = 6 */
@@ -441,7 +425,7 @@ void CLK_Initialize( void )
 
     PMD1 = 0x20018981;
     PMD2 = 0x7e0f0f;
-    PMD3 = 0x18030212;
+    PMD3 = 0x19010212;
 
     CFGCON0bits.PMDLOCK = 1;
 

@@ -17,7 +17,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: sysWifiPic32mzw1, value: 'false'}
+        attributes: {id: sysWifiPic32mzw1, value: 'true'}
   - type: Boolean
     attributes: {id: TCPIP_AUTOCONFIG_ENABLE_DHCP_SERVER_V2}
     children:
@@ -26,7 +26,7 @@ children:
       - type: Boolean
         attributes: {id: readOnly}
         children:
-        - {type: Value, value: 'false'}
+        - {type: Value, value: 'true'}
   - type: Boolean
     attributes: {id: TCPIP_AUTOCONFIG_ENABLE_DNS_CLIENT}
     children:
@@ -40,7 +40,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: sysWifiPic32mzw1, value: 'false'}
+        attributes: {id: sysWifiPic32mzw1, value: 'true'}
   - type: Boolean
     attributes: {id: TCPIP_AUTOCONFIG_ENABLE_SNTP}
     children:

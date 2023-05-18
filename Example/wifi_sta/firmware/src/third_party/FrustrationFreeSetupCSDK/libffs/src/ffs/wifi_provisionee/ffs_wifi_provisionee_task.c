@@ -149,7 +149,7 @@ FFS_RESULT ffsWifiProvisioneeTask(struct FfsUserContext_s *userContext)
         }
     }
 
-    ffsLogDebug("End Ffs Wi-Fi provisionee task");
+    ffsLogDebug("End Ffs Wi-Fi provisionee task\n\r");
     return FFS_SUCCESS;
 }
 

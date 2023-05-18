@@ -106,18 +106,15 @@ extern "C" {
 #define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE  2048
 #define SYS_FS_USE_LFN                    1
 #define SYS_FS_FILE_NAME_LEN              255
-#define SYS_FS_CWD_STRING_LEN             1024
-
+#define SYS_FS_CWD_STRING_LEN             1024    
+    
 /* File System RTOS Configurations*/
 #define SYS_FS_STACK_SIZE                 1024
 #define SYS_FS_PRIORITY                   1
 
-#define SYS_FS_FAT_VERSION                "v0.14b"
-#define SYS_FS_FAT_READONLY               false
-#define SYS_FS_FAT_CODE_PAGE              437
-#define SYS_FS_FAT_MAX_SS                 SYS_FS_MEDIA_MAX_BLOCK_SIZE
-#define SYS_FS_FAT_ALIGNED_BUFFER_LEN     512
 
+#define SYS_FS_LFS_MAX_SS                	SYS_FS_MEDIA_MAX_BLOCK_SIZE
+#define SYS_FS_ALIGNED_BUFFER_LEN      	2048
 
 
 
@@ -341,6 +338,27 @@ extern "C" {
 #define TCPIP_UDP_EXTERN_PACKET_PROCESS   false
 
 
+
+/*** FTP Configuration ***/
+#define TCPIP_STACK_USE_FTP_SERVER
+#define TCPIP_FTP_USER_NAME_LEN                 15
+#define TCPIP_FTP_MAX_CONNECTIONS               1
+#define TCPIP_FTP_DATA_SKT_TX_BUFF_SIZE         1024
+#define TCPIP_FTP_DATA_SKT_RX_BUFF_SIZE         1024
+#define TCPIP_FTPS_TASK_TICK_RATE               33
+#define TCPIP_FTP_TIMEOUT                       240
+
+#define TCPIP_FTPS_COMMAND_LISTEN_PORT          21
+#define TCPIP_FTPS_DATA_LISTEN_PORT             20
+#define TCPIP_FTP_MOUNT_POINT                   "/mnt/myDrive1"
+
+/***Comment this line out to disable MPFS***/
+#define TCPIP_FTP_PUT_ENABLED   
+
+#define TCPIP_FTPS_OBSOLETE_AUTHENTICATION false
+#define TCPIP_FTPS_AUTHENTICATION_CONN_INFO true
+
+
 /* MPLAB Harmony Net Presentation Layer Definitions*/
 #define NET_PRES_NUM_INSTANCE 1
 #define NET_PRES_NUM_SOCKETS 5
@@ -350,6 +368,21 @@ extern "C" {
 #define NET_PRES_RTOS_TASK_PRIORITY             1
 	
 #define FREERTOS
+
+
+
+/*** DNS Server Configuration ***/
+#define TCPIP_STACK_USE_DNS_SERVER
+#define TCPIP_DNSS_HOST_NAME_LEN		    	64
+#define TCPIP_DNSS_REPLY_BOARD_ADDR				true
+#define TCPIP_DNSS_CACHE_PER_IPV4_ADDRESS		2
+#define TCPIP_DNSS_CACHE_PER_IPV6_ADDRESS		1
+#define TCPIP_DNSS_TTL_TIME						600
+#define TCPIP_DNSS_TASK_PROCESS_RATE			33
+#define TCPIP_DNSS_DELETE_OLD_LEASE				true
+#define TCPIP_DNSS_CONSOLE_CMD           false
+/***Maximum DNS server Cache entries. It is the sum of TCPIP_DNSS_CACHE_PER_IPV4_ADDRESS and TCPIP_DNSS_CACHE_PER_IPV6_ADDRESS.***/
+#define TCPIP_DNSS_CACHE_MAX_SERVER_ENTRIES     (TCPIP_DNSS_CACHE_PER_IPV4_ADDRESS + TCPIP_DNSS_CACHE_PER_IPV6_ADDRESS)
 
 
 
@@ -385,19 +418,6 @@ extern "C" {
 #define SYS_WIFIPROV_NVMADDR        		0x900FF000
 #define SYS_WIFIPROV_SAVECONFIG        			false
 
-/* Number of Endpoints used */
-#define DRV_USBFS_ENDPOINTS_NUMBER                        3
-
-/* The USB Device Layer will not initialize the USB Driver */
-#define USB_DEVICE_DRIVER_INITIALIZE_EXPLICIT
-
-/* Maximum device layer instances */
-#define USB_DEVICE_INSTANCES_NUMBER                         1
-
-/* EP0 size in bytes */
-#define USB_DEVICE_EP0_BUFFER_SIZE                          64
-
-
 
 /*** DHCP Configuration ***/
 #define TCPIP_STACK_USE_DHCP_CLIENT
@@ -417,29 +437,42 @@ extern "C" {
 
 
 
-	/*** tcpip_cmd Configuration ***/
-	#define TCPIP_STACK_COMMAND_ENABLE
-
-
-/*** USB Driver Configuration ***/
-
-/* Maximum USB driver instances */
-#define DRV_USBFS_INSTANCES_NUMBER                        1
-
-/* Interrupt mode enabled */
-#define DRV_USBFS_INTERRUPT_MODE                          true
-
-
-/* Enables Device Support */
-#define DRV_USBFS_DEVICE_SUPPORT                          true
-	
-/* Disable Host Support */
-#define DRV_USBFS_HOST_SUPPORT                            false
+/*** tcpip_cmd Configuration ***/
+#define TCPIP_STACK_COMMAND_ENABLE
 
 
 
-/* Alignment for buffers that are submitted to USB Driver*/ 
-#define USB_ALIGN  CACHE_ALIGN
+/*** DHCP Server Configuration ***/
+#define TCPIP_STACK_USE_DHCP_SERVER
+#define TCPIP_DHCPS_TASK_PROCESS_RATE                     	200
+#define TCPIP_DHCPS_MAX_NUMBER_INSTANCES					1
+#define TCPIP_DHCPS_LEASE_ENTRIES_DEFAULT                   15
+#define TCPIP_DHCPS_LEASE_SOLVED_ENTRY_TMO                  1200
+#define TCPIP_DHCPS_LEASE_REMOVED_BEFORE_ACK                5
+#define TCPIP_DHCP_SERVER_DELETE_OLD_ENTRIES              	true
+#define TCPIP_DHCPS_LEASE_DURATION	TCPIP_DHCPS_LEASE_SOLVED_ENTRY_TMO
+
+/*** DHCP Server Instance 0 Configuration ***/
+#define TCPIP_DHCPS_DEFAULT_IP_ADDRESS_RANGE_START_IDX0             "192.168.1.100"
+
+#define TCPIP_DHCPS_DEFAULT_SERVER_IP_ADDRESS_IDX0                  "192.168.1.1"
+
+#define TCPIP_DHCPS_DEFAULT_SERVER_NETMASK_ADDRESS_IDX0             "255.255.255.0"
+
+#define TCPIP_DHCPS_DEFAULT_SERVER_GATEWAY_ADDRESS_IDX0             "192.168.1.1"
+
+#define TCPIP_DHCPS_DEFAULT_SERVER_PRIMARY_DNS_ADDRESS_IDX0         "192.168.1.1"
+
+#define TCPIP_DHCPS_DEFAULT_SERVER_SECONDARY_DNS_ADDRESS_IDX0       "192.168.1.1"
+
+#define TCPIP_DHCP_SERVER_INTERFACE_INDEX_IDX0                      0
+
+#define TCPIP_DHCP_SERVER_POOL_ENABLED_IDX0                         true
+
+#define TCPIP_DHCP_SERVER_POOL_INDEX_IDX0								0
+
+
+
 
 
 /*** TCPIP Heap Configuration ***/
@@ -570,29 +603,23 @@ extern "C" {
 #define NO_WOLFSSL_MEMORY
 // ---------- FUNCTIONAL CONFIGURATION END ----------
 
-/* Maximum instances of MSD function driver */
-#define USB_DEVICE_MSD_INSTANCES_NUMBER     1 
-
-#define USB_DEVICE_MSD_NUM_SECTOR_BUFFERS 1
-	
-
-/* Number of Logical Units */
-#define USB_DEVICE_MSD_LUNS_NUMBER      1
-
-
-
 /* WIFI System Service Configuration Options */
 #define SYS_WIFI_DEVMODE        			SYS_WIFI_STA
 
 
-#define SYS_WIFI_MAX_CBS					2
-#define SYS_WIFI_COUNTRYCODE        	   "GEN"
-#define SYS_WIFI_STA_SSID        			"DEMO_AP"
-#define SYS_WIFI_STA_PWD        			"password"
+#define SYS_WIFI_MAX_CBS					 2
+#define SYS_WIFI_COUNTRYCODE                             "GEN"
+#define SYS_WIFI_STA_SSID                                        "DEMO_AP"
+#define SYS_WIFI_STA_PWD                                        "password"
 #define SYS_WIFI_STA_AUTHTYPE				SYS_WIFI_WPAWPA2MIXED 
-#define SYS_WIFI_STA_AUTOCONNECT   			false
+#define SYS_WIFI_STA_AUTOCONNECT   		 false
 
 
+#define SYS_WIFI_AP_SSID					 "DEMO_AP_SOFTAP"
+#define SYS_WIFI_AP_PWD        				 "password"
+#define SYS_WIFI_AP_AUTHTYPE				 SYS_WIFI_WPA2
+#define SYS_WIFI_AP_CHANNEL				 7
+#define SYS_WIFI_AP_SSIDVISIBILE   			 true
 
 #define SYS_WIFI_SCAN_CHANNEL               0
 #define SYS_WIFI_SCAN_MAX_SSID_COUNT    	DRV_PIC32MZW_MAX_HIDDEN_SITES

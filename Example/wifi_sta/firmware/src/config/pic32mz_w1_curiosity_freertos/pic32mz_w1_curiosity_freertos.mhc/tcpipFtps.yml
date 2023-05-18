@@ -1,0 +1,36 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: tcpipFtps}
+children:
+- type: Symbols
+  children:
+  - type: Integer
+    attributes: {id: TCPIP_FTP_DATA_SKT_RX_BUFF_SIZE}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '1024'}
+  - type: Integer
+    attributes: {id: TCPIP_FTP_DATA_SKT_TX_BUFF_SIZE}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '1024'}
+  - type: String
+    attributes: {id: TCPIP_FTP_MOUNT_POINT}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: /mnt/myDrive1}
+  - type: Integer
+    attributes: {id: TCPIP_FTP_TIMEOUT}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '240'}
+- type: ElementPosition
+  attributes: {x: '703', y: '224', id: tcpipFtps}
