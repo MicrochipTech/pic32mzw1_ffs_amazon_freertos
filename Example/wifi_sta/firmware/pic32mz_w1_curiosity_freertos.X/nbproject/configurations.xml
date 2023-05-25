@@ -51,132 +51,6 @@
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/sst26/drv_sst26_definitions.h</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/sst26/src/drv_sst26_spi_interface.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="usb" projectFiles="true">
-              <logicalFolder name="f1" displayName="usbfs" projectFiles="true">
-                <logicalFolder name="f1" displayName="src" projectFiles="true">
-                  <logicalFolder name="f1" displayName="templates" projectFiles="true">
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usbfs_registers.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ActivityPending_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ActivityPending_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ALL_Interrupt_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ALL_Interrupt_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_AutomaticSuspend_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_AutomaticSuspend_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_BDTBaseAddress_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_BDTBaseAddress_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_BDTFunctions_PIC32.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_BDTFunctions_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_BufferFreeze_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_BufferFreeze_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_DeviceAddress_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_DeviceAddress_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EP0LowSpeedConnect_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EP0LowSpeedConnect_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EP0NAKRetry_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EP0NAKRetry_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EPnControlTransfer_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EPnControlTransfer_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EPnHandshake_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EPnHandshake_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EPnRxEnableEnhanced_PIC32.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EPnRxEnableEnhanced_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EPnStall_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EPnStall_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EPnTxRx_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EPnTxRx_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ERR_Interrupt_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ERR_Interrupt_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ERR_InterruptStatus_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ERR_InterruptStatus_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EyePattern_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_EyePattern_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_FrameNumber_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_FrameNumber_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_GEN_Interrupt_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_GEN_Interrupt_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_GEN_InterruptStatus_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_GEN_InterruptStatus_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_HostBusyWithToken_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_HostBusyWithToken_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_HostGeneratesReset_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_HostGeneratesReset_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_LastDirection_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_LastDirection_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_LastEndpoint_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_LastEndpoint_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_LastPingPong_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_LastPingPong_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_LastTransactionDetails_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_LastTransactionDetails_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_LiveJState_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_LiveJState_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_LiveSingleEndedZero_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_LiveSingleEndedZero_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ModuleBusy_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ModuleBusy_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ModulePower_32Bit16Bit.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ModulePower_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_NextTokenSpeed_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_NextTokenSpeed_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OnChipPullup_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OnChipTransceiver_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OpModeSelect_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OpModeSelect_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_ASessionValid_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_ASessionValid_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_BSessionEnd_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_BSessionEnd_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_IDPinState_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_IDPinState_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_Interrupt_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_Interrupt_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_InterruptStatus_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_InterruptStatus_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_LineState_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_LineState_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_PullUpPullDown_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_PullUpPullDown_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_SessionValid_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_SessionValid_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_VbusCharge_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_VbusCharge_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_VbusDischarge_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_VbusDischarge_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_VbusPowerOnOff_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_OTG_VbusPowerOnOff_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_PacketTransfer_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_PacketTransfer_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_PingPongMode_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ResumeSignaling_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_ResumeSignaling_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_SleepEntryGuard_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_SleepEntryGuard_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_SOFThreshold_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_SOFThreshold_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_SpeedControl_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_StartOfFrames_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_StartOfFrames_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_StopInIdle_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_StopInIdle_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_Suspend_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_Suspend_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_TokenEP_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_TokenEP_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_TokenPID_Default.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_TokenPID_Unsupported.h</itemPath>
-                    <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/templates/usb_UOEMonitor_Unsupported.h</itemPath>
-                  </logicalFolder>
-                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/drv_usbfs_variant_mapping.h</itemPath>
-                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/drv_usbfs_local.h</itemPath>
-                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/plib_usbfs.h</itemPath>
-                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/plib_usbfs_header.h</itemPath>
-                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/usbfs_registers.h</itemPath>
-                </logicalFolder>
-                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/drv_usbfs.h</itemPath>
-              </logicalFolder>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/drv_usb.h</itemPath>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/drv_usb_external_dependencies.h</itemPath>
-            </logicalFolder>
             <logicalFolder name="f2" displayName="wifi" projectFiles="true">
               <logicalFolder name="f1" displayName="pic32mzw1" projectFiles="true">
                 <logicalFolder name="f1" displayName="include" projectFiles="true">
@@ -205,6 +79,35 @@
             <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/driver_common.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f5" displayName="library" projectFiles="true">
+            <logicalFolder name="f2" displayName="cryptoauthlib" projectFiles="true">
+              <logicalFolder name="atcacert" displayName="atcacert" projectFiles="true">
+              </logicalFolder>
+              <logicalFolder name="calib" displayName="calib" projectFiles="true">
+              </logicalFolder>
+              <logicalFolder name="crypto" displayName="crypto" projectFiles="true">
+                <logicalFolder name="hashes" displayName="hashes" projectFiles="true">
+                </logicalFolder>
+              </logicalFolder>
+              <logicalFolder name="hal" displayName="hal" projectFiles="true">
+              </logicalFolder>
+              <logicalFolder name="host" displayName="host" projectFiles="true">
+              </logicalFolder>
+              <logicalFolder name="jwt" displayName="jwt" projectFiles="true">
+              </logicalFolder>
+              <logicalFolder name="f1" displayName="tng" projectFiles="true">
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tflxtls_cert_def_4_device.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tnglora_cert_def_1_signer.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tnglora_cert_def_2_device.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tnglora_cert_def_4_device.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tngtls_cert_def_1_signer.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tngtls_cert_def_2_device.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tngtls_cert_def_3_device.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tng_atca.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tng_atcacert_client.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tng_root_cert.h</itemPath>
+              </logicalFolder>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_config.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="f1" displayName="tcpip" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <logicalFolder name="f1" displayName="common" projectFiles="true">
@@ -370,6 +273,12 @@
             <logicalFolder name="f5" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/peripheral/gpio/plib_gpio.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="f10" displayName="i2c" projectFiles="true">
+              <logicalFolder name="f1" displayName="master" projectFiles="true">
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/peripheral/i2c/master/plib_i2c2_master.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/peripheral/i2c/master/plib_i2c_master_common.h</itemPath>
+              </logicalFolder>
+            </logicalFolder>
             <logicalFolder name="f1" displayName="nvm" projectFiles="true">
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/peripheral/nvm/plib_nvm.h</itemPath>
             </logicalFolder>
@@ -402,20 +311,16 @@
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/debug/sys_debug.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f12" displayName="fs" projectFiles="true">
-              <logicalFolder name="f1" displayName="fat_fs" projectFiles="true">
-                <logicalFolder name="f1" displayName="file_system" projectFiles="true">
-                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/file_system/ff.h</itemPath>
-                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/file_system/ffconf.h</itemPath>
-                </logicalFolder>
-                <logicalFolder name="f2" displayName="hardware_access" projectFiles="true">
-                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/hardware_access/diskio.h</itemPath>
-                </logicalFolder>
+              <logicalFolder name="f1" displayName="littlefs" projectFiles="true">
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/littlefs/lfs.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/littlefs/lfs_bdio.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/littlefs/lfs_util.h</itemPath>
               </logicalFolder>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/sys_fs.h</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/src/sys_fs_local.h</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/sys_fs_media_manager.h</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/src/sys_fs_media_manager_local.h</itemPath>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/sys_fs_fat_interface.h</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/sys_fs_littlefs_interface.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="int" projectFiles="true">
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/int/sys_int.h</itemPath>
@@ -448,25 +353,6 @@
             <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/sys_time_h2_adapter.h</itemPath>
             <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/sys_random_h2_adapter.h</itemPath>
             <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/system_media.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="f8" displayName="usb" projectFiles="true">
-            <logicalFolder name="f1" displayName="src" projectFiles="true">
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/src/usb_device_msd_local.h</itemPath>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/src/usb_device_local.h</itemPath>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/src/usb_device_mapping.h</itemPath>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/src/usb_device_function_driver.h</itemPath>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/src/usb_external_dependencies.h</itemPath>
-            </logicalFolder>
-            <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/usb_device_msd.h</itemPath>
-            <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/usb_msd.h</itemPath>
-            <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/scsi.h</itemPath>
-            <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/usb_device.h</itemPath>
-            <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/usb_common.h</itemPath>
-            <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/usb_chapter_9.h</itemPath>
-            <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/usb_host_client_driver.h</itemPath>
-            <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/usb_host_hub_interface.h</itemPath>
-            <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/usb_host.h</itemPath>
-            <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/usb_hub.h</itemPath>
           </logicalFolder>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/device.h</itemPath>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/user.h</itemPath>
@@ -816,14 +702,6 @@
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/sst26/src/drv_sst26.c</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/sst26/src/drv_sst26_spi_interface.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="usb" projectFiles="true">
-              <logicalFolder name="f1" displayName="usbfs" projectFiles="true">
-                <logicalFolder name="f1" displayName="src" projectFiles="true">
-                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/drv_usbfs.c</itemPath>
-                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/usb/usbfs/src/drv_usbfs_device.c</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-            </logicalFolder>
             <logicalFolder name="f2" displayName="wifi" projectFiles="true">
               <logicalFolder name="f1" displayName="pic32mzw1" projectFiles="true">
                 <itemPath>../src/config/pic32mz_w1_curiosity_freertos/driver/wifi/pic32mzw1/drv_pic32mzw1_crypto.c</itemPath>
@@ -843,10 +721,135 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f2" displayName="library" projectFiles="true">
+            <logicalFolder name="f2" displayName="cryptoauthlib" projectFiles="true">
+              <logicalFolder name="f3" displayName="atcacert" projectFiles="true">
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_client.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_client.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_date.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_date.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_def.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_def.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_der.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_der.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_host_hw.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_host_hw.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_host_sw.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_host_sw.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_pem.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atcacert/atcacert_pem.h</itemPath>
+              </logicalFolder>
+              <logicalFolder name="f4" displayName="calib" projectFiles="true">
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_aes.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_aes_gcm.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_aes_gcm.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_basic.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_basic.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_checkmac.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_command.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_command.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_counter.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_derivekey.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_ecdh.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_execution.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_execution.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_gendig.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_genkey.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_hmac.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_info.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_kdf.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_lock.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_mac.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_nonce.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_privwrite.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_random.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_read.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_secureboot.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_selftest.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_sha.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_sign.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_updateextra.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_verify.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/calib/calib_write.c</itemPath>
+              </logicalFolder>
+              <logicalFolder name="f1" displayName="crypto" projectFiles="true">
+                <logicalFolder name="f1" displayName="hashes" projectFiles="true">
+                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/hashes/sha1_routines.c</itemPath>
+                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/hashes/sha1_routines.h</itemPath>
+                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/hashes/sha2_routines.c</itemPath>
+                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/hashes/sha2_routines.h</itemPath>
+                </logicalFolder>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/atca_crypto_hw_aes.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/atca_crypto_hw_aes_cbc.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/atca_crypto_hw_aes_cmac.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/atca_crypto_hw_aes_ctr.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/atca_crypto_sw.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/atca_crypto_sw_ecdsa.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/atca_crypto_sw_ecdsa.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/atca_crypto_sw_rand.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/atca_crypto_sw_rand.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/atca_crypto_sw_sha1.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/atca_crypto_sw_sha1.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/atca_crypto_sw_sha2.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto/atca_crypto_sw_sha2.h</itemPath>
+              </logicalFolder>
+              <logicalFolder name="f6" displayName="hal" projectFiles="true">
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal/atca_hal.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal/atca_hal.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal/atca_start_config.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal/atca_start_iface.h</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal/hal_freertos.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal/hal_i2c_harmony.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal/hal_harmony_init.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal/hal_pic32_delay.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/hal/ATECC608_0.c</itemPath>
+              </logicalFolder>
+              <logicalFolder name="f5" displayName="host" projectFiles="true">
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/host/atca_host.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/host/atca_host.h</itemPath>
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="jwt" projectFiles="true">
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/jwt/atca_jwt.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/jwt/atca_jwt.h</itemPath>
+              </logicalFolder>
+              <logicalFolder name="f7" displayName="tng" projectFiles="true">
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tflxtls_cert_def_4_device.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tnglora_cert_def_1_signer.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tnglora_cert_def_2_device.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tnglora_cert_def_4_device.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tngtls_cert_def_1_signer.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tngtls_cert_def_2_device.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tngtls_cert_def_3_device.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tng_atca.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tng_atcacert_client.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/tng/tng_root_cert.c</itemPath>
+              </logicalFolder>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_basic.c</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_basic.h</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_bool.h</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_cfgs.c</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_cfgs.h</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_command.c</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_command.h</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_compiler.h</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_debug.c</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_debug.h</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_device.c</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_device.h</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_devtypes.h</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_helpers.c</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_helpers.h</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_iface.c</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_iface.h</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_status.h</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/atca_version.h</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/cryptoauthlib.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="f1" displayName="tcpip" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <logicalFolder name="f1" displayName="common" projectFiles="true">
                   <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src/helpers.c</itemPath>
+                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src/common/sys_fs_shell.c</itemPath>
                 </logicalFolder>
                 <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src/icmp.c</itemPath>
                 <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src/tcp.c</itemPath>
@@ -866,6 +869,9 @@
                 <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src/udp.c</itemPath>
                 <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src/tcpip_heap_external.c</itemPath>
                 <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src/sntp.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src/dhcps.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src/dnss.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src/ftp.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -898,6 +904,11 @@
             </logicalFolder>
             <logicalFolder name="f5" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/peripheral/gpio/plib_gpio.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f10" displayName="i2c" projectFiles="true">
+              <logicalFolder name="f1" displayName="master" projectFiles="true">
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/peripheral/i2c/master/plib_i2c2_master.c</itemPath>
+              </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f1" displayName="nvm" projectFiles="true">
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/peripheral/nvm/plib_nvm.c</itemPath>
@@ -937,18 +948,15 @@
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/debug/src/sys_debug.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f11" displayName="fs" projectFiles="true">
-              <logicalFolder name="f1" displayName="fat_fs" projectFiles="true">
-                <logicalFolder name="f1" displayName="file_system" projectFiles="true">
-                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/file_system/ff.c</itemPath>
-                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/file_system/ffunicode.c</itemPath>
-                </logicalFolder>
-                <logicalFolder name="f2" displayName="hardware_access" projectFiles="true">
-                  <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/hardware_access/diskio.c</itemPath>
-                </logicalFolder>
+              <logicalFolder name="f1" displayName="littlefs" projectFiles="true">
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/littlefs/LICENSE.md</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/littlefs/lfs.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/littlefs/lfs_bdio.c</itemPath>
+                <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/littlefs/lfs_util.c</itemPath>
               </logicalFolder>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/src/sys_fs.c</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/src/sys_fs_media_manager.c</itemPath>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/src/sys_fs_fat_interface.c</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/fs/src/sys_fs_littlefs_interface.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f4" displayName="int" projectFiles="true">
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/int/src/sys_int.c</itemPath>
@@ -971,12 +979,6 @@
             <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/sys_time_h2_adapter.c</itemPath>
             <itemPath>../src/config/pic32mz_w1_curiosity_freertos/system/sys_random_h2_adapter.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f9" displayName="usb" projectFiles="true">
-            <logicalFolder name="f1" displayName="src" projectFiles="true">
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/src/usb_device_msd.c</itemPath>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb/src/usb_device.c</itemPath>
-            </logicalFolder>
-          </logicalFolder>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/tasks.c</itemPath>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/initialization.c</itemPath>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/interrupts.c</itemPath>
@@ -984,7 +986,6 @@
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/exceptions.c</itemPath>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/freertos_hooks.c</itemPath>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pmu_init.c</itemPath>
-          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/usb_device_init_data.c</itemPath>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/exceptionsHandler.S</itemPath>
         </logicalFolder>
       </logicalFolder>
@@ -1276,35 +1277,37 @@
                      projectFiles="true">
         <logicalFolder name="f1" displayName="System_Configuration" projectFiles="true">
           <logicalFolder name="f1" displayName="TCP_IP_STACK" projectFiles="true">
-            <logicalFolder name="f2" displayName="APPLICATION_LAYER" projectFiles="true">
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/APPLICATION_LAYER/tcpipSntp.yml</itemPath>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/APPLICATION_LAYER/tcpipDhcp.yml</itemPath>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/APPLICATION_LAYER/tcpip_apps_config.yml</itemPath>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/APPLICATION_LAYER/tcpipDns.yml</itemPath>
+            <logicalFolder name="f1" displayName="APPLICATION_LAYER" projectFiles="true">
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/APPLICATION_LAYER/APPLICATION_LAYER.yml</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/APPLICATION_LAYER/tcpipDhcp.yml</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/APPLICATION_LAYER/tcpipDhcps.yml</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/APPLICATION_LAYER/tcpipDns.yml</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/APPLICATION_LAYER/tcpipDnss.yml</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/APPLICATION_LAYER/tcpipSntp.yml</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/APPLICATION_LAYER/tcpip_apps_config.yml</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="BASIC_CONFIGURATION" projectFiles="true">
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/BASIC_CONFIGURATION/tcpip_basic_config.yml</itemPath>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/BASIC_CONFIGURATION/tcpipCmd.yml</itemPath>
+            <logicalFolder name="f2" displayName="BASIC_CONFIGURATION" projectFiles="true">
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/BASIC_CONFIGURATION/BASIC_CONFIGURATION.yml</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/BASIC_CONFIGURATION/tcpipCmd.yml</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/BASIC_CONFIGURATION/tcpip_basic_config.yml</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="DRIVER_LAYER" projectFiles="true">
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/DRIVER_LAYER/tcpip_driver_config.yml</itemPath>
+            <logicalFolder name="f3" displayName="DRIVER_LAYER" projectFiles="true">
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/DRIVER_LAYER/DRIVER_LAYER.yml</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/DRIVER_LAYER/tcpip_driver_config.yml</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="NETWORK_LAYER" projectFiles="true">
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/NETWORK_LAYER/tcpip_network_config.yml</itemPath>
+            <logicalFolder name="f4" displayName="NETWORK_LAYER" projectFiles="true">
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/NETWORK_LAYER/NETWORK_LAYER.yml</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/NETWORK_LAYER/sysNetPic32mzw1.yml</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/NETWORK_LAYER/tcpipArp.yml</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/NETWORK_LAYER/tcpipIcmp.yml</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/NETWORK_LAYER/tcpipIPv4.yml</itemPath>
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/NETWORK_LAYER/NETWORK_LAYER.yml</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/NETWORK_LAYER/tcpip_network_config.yml</itemPath>
             </logicalFolder>
             <logicalFolder name="f5" displayName="PRESENTATION_LAYER" projectFiles="true">
-              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/PRESENTATION_LAYER/PRESENTATION_LAYER.yml</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/PRESENTATION_LAYER/net_Pres.yml</itemPath>
+              <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/PRESENTATION_LAYER/PRESENTATION_LAYER.yml</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="TRANSPORT_LAYER" projectFiles="true">
+            <logicalFolder name="f6" displayName="TRANSPORT_LAYER" projectFiles="true">
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/TRANSPORT_LAYER/tcpipTcp.yml</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/TRANSPORT_LAYER/tcpipUdp.yml</itemPath>
               <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/TRANSPORT_LAYER/tcpip_transport_config.yml</itemPath>
@@ -1312,41 +1315,43 @@
             </logicalFolder>
             <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/TCP_IP_STACK/TCP_IP_STACK.yml</itemPath>
           </logicalFolder>
-          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/System_Configuration.yml</itemPath>
-          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/drvWifiPic32mzw1.yml</itemPath>
-          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/HarmonyCore.yml</itemPath>
-          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/sys_console.yml</itemPath>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/core_timer.yml</itemPath>
-          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/lib_crypto.yml</itemPath>
-          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/tcpipStack.yml</itemPath>
-          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/sys_command.yml</itemPath>
+          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/cryptoauthlib.yml</itemPath>
+          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/drvWifiPic32mzw1.yml</itemPath>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/drv_ba414e.yml</itemPath>
+          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/FreeRTOS.yml</itemPath>
+          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/HarmonyCore.yml</itemPath>
+          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/lib_crypto.yml</itemPath>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/lib_wolfcrypt.yml</itemPath>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/lib_wolfssl.yml</itemPath>
-          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/sys_time.yml</itemPath>
-          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/uart1.yml</itemPath>
-          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/sys_debug.yml</itemPath>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/nvm.yml</itemPath>
-          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/FreeRTOS.yml</itemPath>
+          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/System_Configuration.yml</itemPath>
+          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/sys_command.yml</itemPath>
+          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/sys_console.yml</itemPath>
+          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/sys_debug.yml</itemPath>
+          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/sys_time.yml</itemPath>
           <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/tcpipNetConfig.yml</itemPath>
+          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/tcpipStack.yml</itemPath>
+          <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/System_Configuration/uart1.yml</itemPath>
         </logicalFolder>
-        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/drv_usbfs_v1.yml</itemPath>
-        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/sys_fs.yml</itemPath>
-        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/core.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/atecc608.yml</itemPath>
         <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/BSP_PIC32MZ_W1_WFI32IoT.yml</itemPath>
-        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/project.yml</itemPath>
-        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/drv_sst26.yml</itemPath>
-        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/sysWifiProvPic32mzw1.yml</itemPath>
-        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/GraphSettings.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/core.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/cryptoauthlib_tng.yml</itemPath>
         <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/dfp.yml</itemPath>
-        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/stdio.yml</itemPath>
-        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/usb_device.yml</itemPath>
         <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/drv_memory.yml</itemPath>
-        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/usb_device_msd.yml</itemPath>
-        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/uart3.yml</itemPath>
-        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/spi1.yml</itemPath>
-        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/sysWifiPic32mzw1.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/drv_sst26.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/GraphSettings.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/i2c2.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/project.yml</itemPath>
         <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/settings.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/spi1.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/stdio.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/sysWifiPic32mzw1.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/sysWifiProvPic32mzw1.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/sys_fs.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/tcpipFtps.yml</itemPath>
+        <itemPath>../src/config/pic32mz_w1_curiosity_freertos/pic32mz_w1_curiosity_freertos.mhc/uart3.yml</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="wolfcrypt" projectFiles="true">
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/misc.c</itemPath>
@@ -1355,6 +1360,7 @@
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/pic32mz_w1_curiosity_freertos/harmony-manifest-success.yml</itemPath>
       <itemPath>../src/config/pic32mz_w1_curiosity_freertos/harmony-manifest-failure.yml</itemPath>
+      <itemPath>wifi_sta_pic32mz_w1_curiosity_freertos.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -1373,10 +1379,10 @@
         <platformTool>pkob4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>3.01</languageToolchainVersion>
-        <platform>4</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32MZ-W_DFP" vendor="Microchip" version="1.5.203"/>
+        <pack name="PIC32MZ-W_DFP" vendor="Microchip" version="1.6.220"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -1553,19 +1559,20 @@
         </C32Global>
       </item>
       <C32>
-        <property key="additional-warnings" value="true"/>
+        <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value="-Wno-format -std=c99"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/pic32mz_w1_curiosity_freertos;../src/config/pic32mz_w1_curiosity_freertos/driver/wifi/pic32mzw1/include/;../src/config/pic32mz_w1_curiosity_freertos/library;../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src;../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src/common;../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/file_system;../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/hardware_access;../src/pic32mzw1_ffs_amazon_freertos/app;../src/pic32mzw1_ffs_amazon_freertos/include;../src/third_party/FrustrationFreeSetupCSDK/libffs/include;../src/third_party/rtos/FreeRTOS/Source/include;../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/wolfssl;../src/third_party/wolfssl/wolfssl"/>
+                  value="../src;../src/config/pic32mz_w1_curiosity_freertos;../src/config/pic32mz_w1_curiosity_freertos/driver/wifi/pic32mzw1/include/;../src/config/pic32mz_w1_curiosity_freertos/library;../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib;../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/crypto;../src/config/pic32mz_w1_curiosity_freertos/library/cryptoauthlib/pkcs11;../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src;../src/config/pic32mz_w1_curiosity_freertos/library/tcpip/src/common;../src/config/pic32mz_w1_curiosity_freertos/system/fs/littlefs;../src/pic32mzw1_ffs_amazon_freertos/app;../src/pic32mzw1_ffs_amazon_freertos/include;../src/third_party/FrustrationFreeSetupCSDK/libffs/include;../src/third_party/rtos/FreeRTOS/Source/include;../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/wolfssl;../src/third_party/wolfssl/wolfssl"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
-        <property key="make-warnings-into-errors" value="true"/>
+        <property key="make-warnings-into-errors" value="false"/>
         <property key="optimization-level" value="-O1"/>
         <property key="place-data-into-section" value="false"/>
         <property key="post-instruction-scheduling" value="default"/>
@@ -1580,11 +1587,13 @@
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
+        <appendMe value="-Wno-format -std=c99"/>
       </C32>
       <C32-AR>
         <property key="additional-options-chop-files" value="false"/>
       </C32-AR>
       <C32-AS>
+        <property key="appendMe" value=""/>
         <property key="assembler-symbols" value=""/>
         <property key="enable-symbols" value="true"/>
         <property key="exclude-floating-point-library" value="false"/>
@@ -1614,6 +1623,7 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -1654,6 +1664,7 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
+        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -1663,7 +1674,7 @@
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/pic32mz_w1_curiosity_freertos;../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/file_system;../src/config/pic32mz_w1_curiosity_freertos/system/fs/fat_fs/hardware_access;../src/third_party/rtos/FreeRTOS/Source/include;../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ"/>
+                  value="../src;../src/config/pic32mz_w1_curiosity_freertos;../src/third_party/rtos/FreeRTOS/Source/include;../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>

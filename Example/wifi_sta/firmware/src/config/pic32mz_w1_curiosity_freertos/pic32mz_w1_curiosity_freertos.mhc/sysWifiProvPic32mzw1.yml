@@ -17,7 +17,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: sysWifiProvPic32mzw1, value: 'false'}
+        attributes: {id: sysWifiProvPic32mzw1, value: 'true'}
   - type: File
     attributes: {id: SYS_WIFIPROV_JSON_HEADER}
     children:

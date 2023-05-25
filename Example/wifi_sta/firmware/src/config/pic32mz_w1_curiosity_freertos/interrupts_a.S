@@ -88,24 +88,6 @@ IntVectorFLASH_CONTROL_Handler:
     nop
     portRESTORE_CONTEXT
     .end   IntVectorFLASH_CONTROL_Handler
-    .extern  USB_Handler
-
-    .section   .vector_34,code, keep
-    .equ     __vector_dispatch_34, IntVectorUSB_Handler
-    .global  __vector_dispatch_34
-    .set     nomicromips
-    .set     noreorder
-    .set     nomips16
-    .set     noat
-    .ent  IntVectorUSB_Handler
-
-IntVectorUSB_Handler:
-    portSAVE_CONTEXT
-    la    s6,  USB_Handler
-    jalr  s6
-    nop
-    portRESTORE_CONTEXT
-    .end   IntVectorUSB_Handler
     .extern  SPI1_RX_Handler
 
     .section   .vector_36,code, keep
@@ -196,6 +178,42 @@ IntVectorUART1_TX_Handler:
     nop
     portRESTORE_CONTEXT
     .end   IntVectorUART1_TX_Handler
+    .extern  I2C2_BUS_Handler
+
+    .section   .vector_59,code, keep
+    .equ     __vector_dispatch_59, IntVectorI2C2_BUS_Handler
+    .global  __vector_dispatch_59
+    .set     nomicromips
+    .set     noreorder
+    .set     nomips16
+    .set     noat
+    .ent  IntVectorI2C2_BUS_Handler
+
+IntVectorI2C2_BUS_Handler:
+    portSAVE_CONTEXT
+    la    s6,  I2C2_BUS_Handler
+    jalr  s6
+    nop
+    portRESTORE_CONTEXT
+    .end   IntVectorI2C2_BUS_Handler
+    .extern  I2C2_MASTER_Handler
+
+    .section   .vector_61,code, keep
+    .equ     __vector_dispatch_61, IntVectorI2C2_MASTER_Handler
+    .global  __vector_dispatch_61
+    .set     nomicromips
+    .set     noreorder
+    .set     nomips16
+    .set     noat
+    .ent  IntVectorI2C2_MASTER_Handler
+
+IntVectorI2C2_MASTER_Handler:
+    portSAVE_CONTEXT
+    la    s6,  I2C2_MASTER_Handler
+    jalr  s6
+    nop
+    portRESTORE_CONTEXT
+    .end   IntVectorI2C2_MASTER_Handler
     .extern  RFSMC_Handler
 
     .section   .vector_83,code, keep

@@ -63,7 +63,7 @@
 TaskHandle_t xAPP_Tasks;
 
 void _APP_Tasks(  void *pvParameters  )
-{
+{   
     while(1)
     {
         APP_Tasks();
@@ -73,7 +73,7 @@ void _APP_Tasks(  void *pvParameters  )
 
 
 void _NET_PRES_Tasks(  void *pvParameters  )
-{   
+{
     while(1)
     {
         NET_PRES_Tasks(sysObj.netPres);
@@ -101,16 +101,6 @@ void _DRV_BA414E_Tasks(  void *pvParameters  )
     }
 }
 
-void _USB_DEVICE_Tasks(  void *pvParameters  )
-{
-    while(1)
-    {
-				 /* USB Device layer tasks routine */
-        USB_DEVICE_Tasks(sysObj.usbDevObject0);
-        vTaskDelay(10 / portTICK_PERIOD_MS);
-    }
-}
-
 void _DRV_MEMORY_0_Tasks(  void *pvParameters  )
 {
     while(1)
@@ -119,7 +109,6 @@ void _DRV_MEMORY_0_Tasks(  void *pvParameters  )
         vTaskDelay(DRV_MEMORY_RTOS_DELAY_IDX0 / portTICK_PERIOD_MS);
     }
 }
-
 
 
 void _TCPIP_STACK_Task(  void *pvParameters  )
@@ -216,8 +205,8 @@ void SYS_Tasks ( void )
         DRV_MEMORY_PRIORITY_IDX0,
         (TaskHandle_t*)NULL
     );
-    
-        xTaskCreate( _WDRV_PIC32MZW1_Tasks,
+
+    xTaskCreate( _WDRV_PIC32MZW1_Tasks,
         "WDRV_PIC32MZW1_Tasks",
         1024,
         (void*)NULL,
@@ -245,16 +234,6 @@ void SYS_Tasks ( void )
         DRV_BA414E_RTOS_STACK_SIZE,
         (void*)NULL,
         DRV_BA414E_RTOS_TASK_PRIORITY,
-        (TaskHandle_t*)NULL
-    );
-
-
-    /* Create OS Thread for USB_DEVICE_Tasks. */
-    xTaskCreate( _USB_DEVICE_Tasks,
-        "USB_DEVICE_TASKS",
-        1024,
-        (void*)NULL,
-        1,
         (TaskHandle_t*)NULL
     );
 
