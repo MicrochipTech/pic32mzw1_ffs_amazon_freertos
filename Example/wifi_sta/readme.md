@@ -8,7 +8,7 @@ family: PIC32MZW1
 function: Wi-Fi STA (service mode)
 ---
 
-[![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
+[![MCHP](images/microchip.png)](https://www.microchip.com)
 
 
 # Wi-Fi Station(STA) Mode 

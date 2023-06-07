@@ -133,7 +133,7 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 
 12. If the certificate and key files required for FFS are not available on the WFI32-IoT board, it will boot up in Soft-AP mode and host the FTP server. Or press and hold SW1 and SW2 during the boot up to force FTP server mode.
 
-<p align="center"><img width="600" src="../Docs/ffs_ftp_softap_boot.png">
+<p align="center"><img width="600" src="../Docs/ffs_ftp_server_softap_mode.png">
 </p>
 
 13. The serial console logs of the device lists all the certificate and key files needed for FFS. Follow the instructions on the console to connect with FTP server and copy all the listed files to it. These files are available in the "../tools" folder.
@@ -142,7 +142,7 @@ The example project demonstrates the FFS on WFI32-IoT platform. Please follow th
 			2. User can modify default credentials using "ftp_auth.cfg" file. The updated credentials will be copied to ECC on the subsequent boot-up
 			 (Please use the default Username: "Microchip" and Password: "Harmony" while logging-in to FTP server for the first time)
 
-<p align="center"><img width="600" src="../Docs/first_boot_ftp_with_serial_out.png">
+<p align="center"><img width="600" src="../Docs/update_ftp_server_creds.png">
 </p>
 <p align="center"><img width="600" src="../Docs/ftp_with_all_keys_certs.png">
 </p>
